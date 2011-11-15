@@ -1,0 +1,62 @@
+                         JWare/AntXtras Svn4Ant
+                    Version 3.0.0b1, Release Apr 2010
+                    ---------------------------------
+
+
+This document contains product installation instructions and any important 
+last-minute changes to the distributed documentation set. For the most
+up-to-date information, please visit the JWare/AntXtras website at 
+http://antxtras.sourceforge.net/. The end "WEB RESOURCES" section contains
+additional resource links.
+
+------------------------------------------------------------------------------
+INSTALLATION
+
+1. Download and install all required third-party Java packages. Verify
+   that each package is properly installed. Currently Ant version 1.8.x,
+   AntXtras version v3, and SVNKit version 1.3.x is required for the
+   Svn4Ant 3.x distributions.
+
+2. Download, verify, and extract a Svn4Ant distribution. The new
+   user should download the '_withdeps' binary distribution that includes
+   all required third-party libraries as well as a sample Ant script
+   that can be used to verify your installation.
+
+   * To verify the PGP signature of the downloaded archive, get the
+     JWare distribution KEYS from http://purl.net/jware/KEYS
+
+   * If you must manually generate all binaries for your environment,
+     download the source-only distribution. The included "ez-build.xml"
+     Ant build file can generate a default distribution from the source.
+     Be sure you configure the "ez-build.properties" file for your
+     environment. Read the Svn4Ant download web page for a list of 
+     required third-party packages.
+
+3. Update your development and Ant run environment to include the main 
+   Svn4Ant jar file in your ANT classpath. The required jar is found
+   at <SVN4ANT_HOME>/lib/jw-svn4ant.jar. See the Svn4Ant download web
+   page for a complete example that includes loading third-party jar
+   files or the admin antlib as well. 
+
+4. Verify Svn4Ant classes are accessible in your ANT runtime environment.
+   The easiest way to do this is to try loading the Svn4Ant antlib using
+   a simple <taskdef> declaration; the etc/svn4ant-install-check.xml
+   script does this for you. To run this script try (from root of the
+   <SVN4ANT_HOME> directory of a `_withdeps` installation):
+        `ant -f etc/svn4ant-install.check.xml`
+
+5. Read the Svn4Ant Overview on the website for a list of the most used
+   antlib components and a set of quick-start examples.
+
+------------------------------------------------------------------------------
+WEB RESOURCES
+
+o Svn4Ant Distributions -
+       http://purl.net/jware/svn4ant/packages
+o Svn4Ant Complete User Guide - 
+       http://purl.net/jware/svn4ant/documents
+o Svn4Ant Developer JavaDocs -
+       http://purl.net/jware/apis/svn4ant/
+
+
+END

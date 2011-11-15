@@ -1,0 +1,59 @@
+<!--
+  This is the DTD for Exchange SVG. It adds various visual rendering attributes 
+  to the Shared DTD.
+
+  In most cases, authors should use the DTD for Stylable SVG.
+  The DTD for Exchange SVG is available for specific purposes
+  as described in the Exchange SVG chapter of the SVG specification.
+
+  The specification for SVG that corresponds to this DTD is available at:
+
+    http://www.w3.org/TR/2000/03/WD-SVG-20000303/
+
+  Copyright (c) 2000 W3C (MIT, INRIA, Keio), All Rights Reserved.
+
+  For this working draft:
+
+    Namespaces:
+      Stylable SVG:     http://www.w3.org/2000/svg-20000303-stylable
+      Exchange SVG:   http://www.w3.org/2000/svg-20000303-exchange  
+
+    Public identifiers:
+      PUBLIC "-//W3C//DTD SVG 20000303 Shared//EN"
+      PUBLIC "-//W3C//DTD SVG 20000303 Stylable//EN"
+      PUBLIC "-//W3C//DTD SVG 20000303 Exchange//EN"
+
+    URIs for the DTDs:
+      http://www.w3.org/TR/2000/03/WD-SVG-20000303/DTD/svg-20000303-shared.dtd
+      http://www.w3.org/TR/2000/03/WD-SVG-20000303/DTD/svg-20000303-stylable.dtd
+      http://www.w3.org/TR/2000/03/WD-SVG-20000303/DTD/svg-20000303-exchange.dtd
+
+  Typical usage in the case of stand-alone Exchange SVG documents:
+
+<?xml version="1.0" ... ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20000303 Exchange//EN" 
+  "http://www.w3.org/TR/2000/03/WD-SVG-20000303/DTD/svg-20000303-exchange.dtd">
+<svg ...>
+ ...
+</svg>
+
+  Typical usage when Exchange SVG is embedded inline within a parent XML document:
+
+<?xml version="1.0" ... ?>
+<!DOCTYPE foo ... >
+<foo ...>
+ ...
+ <svg xmlns="http://www.w3.org/2000/svg-20000303-exchange" ... >
+    ...
+ </svg>
+ ...
+</foo>
+-->
+
+
+<!ENTITY % StylableSVG "IGNORE" >
+<!ENTITY % ExchangeSVG "INCLUDE" >
+<!ENTITY % SVGNamespace "http://www.w3.org/2000/svg-20000303-exchange" >
+<!ENTITY % Shared PUBLIC "-//W3C//DTD SVG 20000303 Shared//EN" "svg-20000303-shared.dtd" >
+%Shared;
+

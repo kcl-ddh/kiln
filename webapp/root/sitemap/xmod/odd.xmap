@@ -1,0 +1,82 @@
+<map:sitemap xmlns:map="http://apache.org/cocoon/sitemap/1.0">
+  <!-- xMod sitemap for handling ODD manipulation: extraction of
+       Schematron rules, presentation of encoding guidelines. -->
+
+  <!-- TODO: this is a bit of an incomplete mess, since I haven't had
+       an ODD file containing encoding guidelines and Schematron rules
+       to play with. The basic ideas should come across though.
+       
+       Matters such as a default filename for the project's ODD file
+       need to be sorted out. Indeed, the whole question of what goes
+       where is still undecided. There would appear to be several
+       things we want out of an ODD file (or multiple files?):
+       
+       * A definition of the markup language being used (subset of
+         TEI, extra bits, etc). This might well include Schematron rules
+         provided by the TEI consortium.
+
+       * Encoding guidelines that are not project-specific, but rather
+         tie in with the xMod TEI-to-HTML XSLT, etc.
+         
+       * Schematron rules for the general encoding guidelines (and
+         embedded within them).
+         
+       * Encoding guidelines specific to the project. This would
+         presumably be best presented as a piece with the general
+         encoding guidelines, since anything else would be
+         user-unfriendly.
+         
+       * Schematron rules for the specific encoding guidelines (and
+         embedded within them).
+
+  -->
+  <map:pipelines>
+    <!-- Pipeline for generating Schematron schema files from an ODD
+         file. -->
+    <map:pipeline id="xmod-odd-schematron" internal-only="true">
+      <map:match pattern="schematron/*/*.xml">
+        <!-- Create a Schematron schema file from the encoding
+             guidelines portion of the project's TEI ODD. -->
+        <map:match pattern="schematron/*/project-schema.xml">
+          <map:generate src="cocoon:/guidelines/{1}.xml"/>
+          <!-- Add Schematron "see" attributes referencing the section
+               of the encoding guidelines the rule is found in. -->
+          <map:transform src="../../stylesheets/xmod/odd/annotate-schematron.xsl"/>
+        </map:match>
+        <!-- Create a Schematron schema file from the schema
+             definition part of the project's TEI ODD. -->
+        <map:match pattern="schematron/*/tei-schema.xml">
+          <map:generate src="cocoon:/schema/{1}.xml"/>
+        </map:match>
+        <map:transform src="../../stylesheets/xmod/odd/extract-schematron.xsl"/>
+        <map:serialize type="xml"/>
+      </map:match>
+    </map:pipeline>
+
+    <!-- Pipeline for extracting and presenting the encoding
+         guidelines portion of an ODD file. -->
+    <map:pipeline id="xmod-odd-guidelines">
+      <map:match pattern="guidelines/*.xml">
+        <map:generate src="schema/tei/{1}.xml"/>
+        <map:transform src="../../stylesheets/xmod/odd/extract-encoding-guidelines.xsl"/>
+        <map:serialize type="xml"/>
+      </map:match>
+
+      <map:match pattern="guidelines/*.html">
+        <map:generate src="cocoon:/guidelines/*.xml"/>
+        <map:transform src="../../stylesheets/xmod/odd/encoding-guidelines-to-html.xsl"/>
+        <map:serialize type="xml"/>
+      </map:match>
+    </map:pipeline>
+
+    <!-- Pipeline for extracting and presenting the schema portion of
+         an ODD file. -->
+    <map:pipeline id="xmod-odd-schema">
+      <map:match pattern="schema/*.xml">
+        <map:generate src="schema/tei/{1}.xml"/>
+        <map:transform src="../../stylesheets/xmod/odd/extract-schema.xsl"/>
+        <map:serialize type="xml"/>
+      </map:match>
+    </map:pipeline>
+  </map:pipelines>
+</map:sitemap>

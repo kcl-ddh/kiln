@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="../" name="xmod:init">
+
+  <description>Initialization Targets</description>
+
+  <target name="init">
+    <!-- Set the timestamps -->
+    <tstamp />
+
+    <!-- Loads the build properties file -->
+    <property file="local.build.properties" />
+    <property file="buildconf/build.properties" />
+
+    <!-- Dist directory -->
+    <property location="${basedir}/dist" name="dist.dir" />
+    
+    <!-- Webapp directory -->
+    <property location="${basedir}/webapp/root" name="webapp.dir" />
+
+    <!-- Content directory and name -->
+    <property name="source.dir.name" value="xml" />
+    <property location="${webapp.dir}/${source.dir.name}" name="source.dir" />
+    <property location="${source.xml.dir}/content" name="source.content.dir" />
+
+    <!-- Stylesheets directory name and directory -->
+    <property name="stylesheets.dir.name" value="stylesheets" />
+    <property location="${webapp.dir}/${stylesheets.dir.name}" name="stylesheets.dir" />
+  </target>
+
+  <target description="Validates all the XML files in the project" name="validate">
+    <xmlvalidate failonerror="yes" lenient="yes">
+      <fileset dir="${basedir}/webapp/root">
+        <include name="**/*.xmap" />
+        <include name="**/*.xml" />
+        <include name="**/*.xsl" />
+      </fileset>
+    </xmlvalidate>
+  </target>
+
+  <target description="Removes everything from the content directory" name="clean.content">
+    <delete includeemptydirs="true">
+      <fileset dir="${source.content.dir}" includes="**/*" />
+    </delete>
+  </target>
+
+  <target description="Removes all the local stylesheets except default.xsl and site.xsl" name="clean.stylesheets">
+    <delete includeemptydirs="true">
+      <fileset dir="${stylesheets.dir}" excludes="default.xsl, site.xsl" includes="**/*" />
+    </delete>
+  </target>
+</project>

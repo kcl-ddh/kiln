@@ -1,0 +1,135 @@
+                        JWare/AntXtras Foundation
+                    Version 3.0.0b1, Release Apr 2010
+                   -----------------------------------
+
+
+This document contains the major AntXtras version change notes. For the most
+recent information, visit the website at http://antxtras.sourceforge.net/.
+
+------------------------------------------------------------------------------
+This version of AntXtras represents a new series (v3) based on JRE 1.5 
+and Ant 1.8. Due to some incompatible structural changes to certain Ant
+components on which AntXtras depends, AntXtras v3 is not compatible
+with Ant 1.7.x and requires JRE 1.5 or later to run (the JRE requirement
+is ours not Ant's).
+
+CHANGES IN 3.0.0b1:
+-------------------
+
+=> [INCOMPAT] Rebuilt against latest Ant 1.8 release and JRE 1.5 so
+   you MUST use Ant 1.8 with AntXtras v3; use an existing v2 release if
+   you need to stick with Ant 1.7.x or JRE 1.4. [FS#188]
+
+
+=> [INCOMPAT] As part of the goal to get the core AntXtras antlib to
+   500K in size, the following components have been moved to the advanced
+   antlib (antlib-advanced.xml): <prefer>, <ruleset>, <ruledef>, 
+   <tallyset>, <criteria>, <strings>, <dowhile>, <call>, <callforeach>,
+   <doinline>, <captureoutput>, <copylogged>, <interpretlogged>, and
+   <classloaderdef>. The following components are in the testing antlib
+   (antlib-unit.xml): <printbundle> and <printenv>. [FS#146, FS#151]
+
+
+=> [INCOMPAT] Renamed the AntXtras <matches> CONDITION to <ismatch> to
+   prevent collision with new Ant 1.7 <matches> condition. The synonym
+   assertion condition was also removed. [FS#223]
+
+
+=> [INCOMPAT] Invalid property references are now logged at the verbose
+   level not the warning level. You can force AntXtras to signal a script
+   error for malformed property references by setting the project or system
+   property 'jware.antxtras.defaults.haltiferror.malformedproperties.flag'
+   to true. [FS#188]
+
+
+=> [INCOMPAT] The old 'if' and 'unless' attributes of the nested elements
+   of a <locals> declaration have been renamed 'true' and 'false' to
+   reflect how they're interpreted-- the *value* is checked as a literal
+   string, not as a property name as implied by the old if/unless name.
+   The if/unless attributes now really reflect the traditional use of 
+   these attribute as tests for property existence ONLY. [FS#239]
+
+   EXAMPLE:
+        <locals id="edited.state">
+          <property name="_callcount" if="trace.enabled"/>
+          <property name="MAXWAIT" true="${$p:.strict?on}"/>
+        </locals>
+
+
+=> [INCOMPAT] The following v1 aliases for various components have been
+   removed: <foreach>, <rule>, <autorun>, <isnumeric>, and <manageuris>.
+   Use the supported component names instead: <doforeach>, <ruleset>, 
+   <doinline>, <isnumber>, and <managefuncuts>. [FS#105]
+
+
+=> [INCOMPAT] Removed all v1 and v2 deprecated condition aliases and
+   function shortcuts. Affected items include: <isallset>, <isanyset>,
+   <isnoneset>, <antversion>, etc. Also removed deprecated msgid
+   and msgid attributes from rules framework. [FS#151, FS#187]
+
+
+=> [INCOMPAT] The <capturelogs> taskset now defaults its "splitentries"
+   feature on. This new setting makes captured log files human readable
+   and is the expected setting for the majority of use-cases for this
+   component. For transient log capture done on behalf of interpreters
+   (e.g. evaluating results of javadoc, javac, emma, tests, etc.) you 
+   can turn the feature off explicitly. [FS#184]
+
+
+=> As of 3.0.0b1, when defined, the recommended namespace prefix and 
+   URI for AntXtras are 'oja:' and 'jwaresoftware.antxtras'.
+
+   EXAMPLE: Load AntXtras antlib into the 'jwaresoftware.antxtras'
+   namespace referenced by the 'oja:' prefix.
+
+        <project xmlns:oja="jwaresoftware.antxtras"...>
+          ...
+          <taskdef uri="jwaresoftware.antxtras"
+             resource="org/jwaresoftware/antxtras/install/antlib.xml"
+             classpathref="antxtras.classpath"/>
+          ...
+          <oja:show message="Hello World!"/>
+
+
+=> The following AntXtras components now support the new <local> 
+   property mechanism in Ant 1.8: <do>, <isolate>, <overlay>, <dowhile>, 
+   <doforeach>, <criteria>, and each of the types of inner tasksets 
+   for a <domatch>. For each of these tasksets a new locals scope is
+   created for the duration of the taskset execution. There is also
+   a special caveat for the <isolate> taskset: if you define a <local>
+   for a property that you've already marked as "allow to pass through"
+   any new local value assignment will NOT pass through (because the
+   local scope masks the assignment from the 'outer' isolate parent's
+   scope). [FS#221]
+
+
+=> Added support for a 'isempty' operation to both $list: and $map:
+   function shortcuts. [FS#217]
+   
+   EXAMPLE:
+        <do false="${$map:myproperties?isempty}">
+          [work work work...]
+        </do>
+
+
+=> Fixed <matches> TASK to set the falsevariable to "true" if there is
+   no match; was setting value to "false". [FS#220]
+
+
+=> New function shortcuts added for 3.0.0b1: $dirname:, $literal:.
+   [FS#213, FS#230]
+
+   EXAMPLE:
+     1. $dirname:
+        <path id="deps.path">
+          <fileset dir="${$dirname:${root.d}}/deps/main">
+            [in/exclusions...]
+          </fileset>
+        </path>
+
+     2. $literal:
+        <echo message="STATUS:${$string:default.stat|$literal:FAIL}"/>
+
+
+------------------------------------------------------------------------------
+-SSMC

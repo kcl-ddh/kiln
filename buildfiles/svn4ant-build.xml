@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="../"
+         default="about.svn4ant"
+         name="svn4ant:about"
+         xmlns:oja="jwaresoftware.antxtras"
+         xmlns:svn="jwaresoftware.svn4ant.client">
+
+  <description>Loads AntXtras and Svn4Ant Client Antlibs</description>
+
+  <target depends="init" name="init.svn4ant">
+    <!-- Svn4Ant home directory -->
+    <property location="${basedir}/sw/ant-ext/svn4ant_3.0.0b1" name="svn4ant.home" />
+
+    <!-- Path to Svn4Ant and its dependencies -->
+    <path id="jware.path">
+      <fileset dir="${svn4ant.home}/dep">
+        <include name="*/lib/*.jar" />
+      </fileset>
+      <fileset dir="${svn4ant.home}/lib">
+        <include name="jw-svn4ant.jar" />
+      </fileset>
+    </path>
+
+    <!-- Loads AntXtras into Ant -->
+    <taskdef classpathref="jware.path"
+             loaderref="jware.classloader"
+             resource="org/jwaresoftware/antxtras/install/antlib.xml"
+             uri="jwaresoftware.antxtras" />
+
+    <!-- Loads Svn4Ant into Ant -->
+    <taskdef loaderref="jware.classloader"
+             resource="org/jwaresoftware/svn4ant/install/antlib.xml"
+             uri="jwaresoftware.svn4ant.client" />
+  </target>
+
+  <!-- Gets AntXtras and Svn4Ant version information -->
+  <target depends="init.svn4ant" description="Outputs Svn4Ant version information" name="about.svn4ant">
+    <oja:vendorinfo name="antxtras" />
+    <echo message="AntXtras: ${antxtras.build.label}" />
+    <svn:libcheck />
+    <echo message="  SVNKit: ${svnkit.label}" />
+    <echo message=" Svn4Ant: ${svn4ant.label}" />
+  </target>
+
+  <target depends="init.svn4ant" description="Checks if SVN update should be executed" name="update.check">
+    <condition property="do.svn.update">
+      <and>
+        <available file=".svn" type="dir" />
+        <istrue value="${svn.update}" />
+      </and>
+    </condition>
+
+    <echo message="$${do.svn.update}: ${do.svn.update}" />
+  </target>
+
+  <target depends="update.check" description="Updates the existing working copy" if="do.svn.update" name="update">
+    <input addproperty="username" message="username: ">
+      <handler type="default" />
+    </input>
+    <input addproperty="password" message="password: ">
+      <handler type="secure" />
+    </input>
+    
+    <svn:credential id="repo.login" password="${password}" username="${username}" />
+
+    <svn:server authcache="no" id="repo.project" isdefault="yes">
+      <url value="${repository.url}" />
+      <credential refid="repo.login" />
+    </svn:server>
+    
+    <svn:update credential="repo.login" path="${basedir}" />
+  </target>
+</project>

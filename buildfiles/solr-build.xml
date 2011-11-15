@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="../" name="solr">
+
+  <description>Solr Targets</description>
+
+  <target name="solr"
+          depends="init"
+          description="Creates a Solr index by crawling the website">
+    <exec executable="wget">
+      <!-- no clobber -->
+      <!--<arg value="-nc"/>-->
+      <!-- recurse -->
+      <arg value="-r" />
+      <!-- ... to a level of ... -->
+      <arg value="-l" />
+      <!-- ... infinity -->
+      <arg value="inf" />
+      <!-- get page requisites (isn't this redundant with -r -l inf?) -->
+      <arg value="-p" />
+      <!-- don't try to create "host" directories (i.e. a folder called "localhost:8080") -->
+      <arg value="-nH" />
+      <!-- verbosity -->
+      <arg value="-nv" />
+      <!-- don't try to connect through the web proxy server -->
+      <arg value="--no-proxy" />
+      <!-- don't wait between requests -->
+      <arg value="--wait=0" />
+      <!-- write log file into datestamped file -->
+      <arg value="--output-file=solr-index.log" />
+      <!-- download website into datestamp folder -->
+      <arg value="--directory-prefix=${dist.dir}/solr-index" />
+      <!-- ignore the robots.txt file -->
+      <arg value="-erobots=off" />
+      <!-- because some pages can take a while -->
+      <arg value="--timeout=10800" />
+      <!-- home page -->
+      <arg value="http://localhost:${jetty.port}/private/solr/index/site-list.html" />
+    </exec>
+  </target>
+</project>

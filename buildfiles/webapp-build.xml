@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="../" name="xmod:webapp">
+
+  <description>Webapp Targets</description>
+
+  <target name="webapp" depends="init, validate" description="Builds web application for distribution">
+    <copy todir="${dist.dir}/webapp">
+      <fileset dir="${webapp.dir}">
+        <exclude name="**/*.log" />
+        <exclude name="**/.svn" />
+      </fileset>
+    </copy>
+  </target>
+
+  <target name="war" depends="webapp" description="Builds web application archive">
+    <war destfile="${dist.dir}/${project.name}.war" index="true">
+      <fileset dir="${dist.dir}/webapp" />
+    </war>
+  </target>
+</project>

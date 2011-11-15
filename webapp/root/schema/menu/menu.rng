@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar ns="http://www.cch.kcl.ac.uk/xmod/menu/1.0" xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <start>
+    <element name="root">
+      <attribute name="label"/>
+      <oneOrMore>
+        <ref name="menu"/>
+      </oneOrMore>
+    </element>
+  </start>
+  <define name="menu">
+    <element name="menu">
+      <optional>
+        <attribute name="href">
+          <data type="anyURI"/>
+        </attribute>
+      </optional>
+      <attribute name="label"/>
+      <optional>
+        <attribute name="root">
+          <data type="NCName"/>
+        </attribute>
+      </optional>
+      <choice>
+        <zeroOrMore>
+          <element name="external">
+            <attribute name="href">
+              <data type="anyURI"/>
+            </attribute>
+            <attribute name="label">
+              <data type="NCName"/>
+            </attribute>
+          </element>
+        </zeroOrMore>
+        <zeroOrMore>
+          <choice>
+            <ref name="menu"/>
+            <element name="item">
+              <attribute name="href">
+                <data type="NCName"/>
+              </attribute>
+              <attribute name="label"/>
+            </element>
+          </choice>
+        </zeroOrMore>
+      </choice>
+    </element>
+  </define>
+</grammar>

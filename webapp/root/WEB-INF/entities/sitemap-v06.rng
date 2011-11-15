@@ -1,0 +1,2181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" 
+         xmlns:sch="http://www.ascc.net/xml/schematron"
+         xmlns="http://relaxng.org/ns/structure/1.0" 
+         xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" 
+         xmlns:map="http://apache.org/cocoon/sitemap/1.0">
+ <sch:ns uri="http://apache.org/cocoon/sitemap/1.0" prefix="xmap"/>
+<!-- ===================================================================
+
+Apache Cocoon Sitemap RELAX NG grammar, with embedded Schematron rules
+Version 0.6
+
+PURPOSE:
+  DRAFT RELAX NG grammar for the Cocoon2 sitemap.xmap files.
+
+
+NOTES:
+* ATTENTION: The initial (v0.4) grammar was generated from sitemap-v04.dtd, 
+  which in turn was reverse-engineered by hand from the various
+  sitemap.xmap instances included in the current distribution. This is
+  just an attempt to document the existing rules for sitemap structure.
+  V0.5 has been enhanced to use stricter than were possible with the DTD.
+  A proper design process is still, still required.
+* Needed by XML editing tools for creation of reliable documents.
+* Can generate WXS from this grammar for the use of XML editors which
+  do not support RELAX NG.
+* The big questions (still) are: 
+  - What possibilities were missed because they were not included in the
+    default sitemaps?
+  - What in the default sitemap.xmap files is mandatory versus optional?
+  - What elements/attributes need their rules tightened?
+
+FIXME:
+- map:act is used in various contexts, so it has a loose definition
+- Completely rewrite this grammar looking from the application
+  point-of-view (do not rely on this temporary initial grammar)
+- align elements and attributes with sitemap*.xsl
+- review all xdocs/userdocs/generators/*.xml etc. and sync with this grammar
+- Add similar changes to those of 2002-11-29 for other component declarations
+  See Bruno email
+  http://marc.theaimsgroup.com/?l=xml-cocoon-dev&m=103847911212458
+
+====================================================================
+-->
+
+
+<!-- =============================================================== -->
+<!-- Common Attributes -->
+<!-- =============================================================== -->
+<!-- CPA: univeral attributes possessed by all elements -->
+<!-- CPA: id is for use by sitebuilder and others, but really it ought to be -->
+<!--      of type ID (I'm guessing) -->
+  <define name="universal.attr">
+    <optional>
+      <attribute name="id" >
+        <data type="string" />
+      </attribute>
+    </optional>
+  </define>
+
+<!-- CPA: the default attribute is common, and where it occurs is nearly always the same -->
+  <define name="default.attr">
+    <optional>
+      <attribute name="default">
+        <data type="string" /> 
+    	  <!-- CPA: in fact the default must always match the name attribute
+    	  of one of it's child elements. We will rely on a schematron schema to check
+    	  this (we cannot use ID/IDREF as there are multiple namespaces
+    	  e.g. map:generator uses a different namespace to
+    	  map:transformer) - NO - can't be done due to sitemap
+    	  inheritance -->
+      </attribute>
+    </optional>
+  </define>
+
+<!-- CPA: the name and src attributes are common, and where they occur
+          are always CDATA, but sometimes optional -->
+  <define name="src.attr">
+    <attribute name="src">
+      <data type="string"/>
+    </attribute>
+  </define>
+  <define name="optsrc.attr">
+    <optional>
+      <attribute name="src">
+      <data type="string"/>
+    </attribute>
+    </optional>
+  </define>
+
+  <define name="name.attr">
+    <attribute name="name">
+      <data type="string"/> <!-- CPA: see comment on default.attr -->
+    </attribute>
+  </define>
+  <define name="optname.attr">
+    <optional>
+    <attribute name="name">
+      <data type="string"/> <!-- CPA: see comment on default.attr -->
+    </attribute>
+    </optional>
+  </define>
+
+  <define name="uri.attr">
+    <attribute name="uri">
+      <data type="string"/>
+    </attribute>
+  </define>
+  <define name="opturi.attr">
+    <optional>
+      <attribute name="uri">
+      <data type="string"/>
+    </attribute>
+    </optional>
+  </define>
+
+<!-- CPA: pool attributes from Excalibur's PoolableComponentHandler -->
+<!--      Defaults are set in cocoon.xconf -->
+  <define name="pool.attr">
+    <optional>
+      <attribute name="pool-max">
+        <data type="positiveInteger" />
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="pool-min">
+        <data type="nonNegativeInteger" />
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="pool-grow">
+        <data type="positiveInteger" />
+      </attribute>
+    </optional>
+  </define>
+
+<!-- CPA: logger attribute - default is set in cocoon.xconf -->
+  <define name="logger.attr">
+    <optional>
+      <attribute name="logger">
+        <data type="string" /> <!-- CPA: a Java class name -->
+      </attribute>
+    </optional>
+  </define>
+
+<!-- CPA: these three only occur together  -->
+<!-- they are used in AggregateNodeBuilder -->
+  <define name="aggregate.attr">
+    <optional>
+      <attribute name="element">
+        <data type="string" />
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="ns">
+        <data type="string" />
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="prefix">
+        <data type="string" />
+      </attribute>
+    </optional>
+  </define>
+
+<!-- CPA: attributes that occur more than once, and are always defined -->
+<!--      in the same way -->
+
+  <define name="value.attr">
+    <attribute name="value"/> 
+    <!-- CPA: I think we cannot restrict the datatype,
+              unless we do it on an element-by-element basis -->
+  </define>
+
+  <define name="mime.attr">
+    <optional>
+      <attribute name="mime-type"> 
+        <!-- restrict further in specific cases -->
+        <data type="string" /> <!-- CPA: tackle this in V0.6 -->
+      </attribute>
+    </optional>
+  </define>
+
+  <define name="label.attr">
+    <optional>
+      <attribute name="label">
+        <data type="string"/> 
+<!-- DC: temporarily changed to "string" to avoid mass of validation errors
+        <data type="NMTOKEN"/> 
+-->
+        <!-- CPA: must match a component name , use schematron to enforce -->
+      </attribute>
+    </optional>
+  </define>
+
+  <define name="type.attr">
+    <optional>
+      <attribute name="type">
+        <data type="string"/>
+      </attribute>
+    </optional>
+  </define>
+
+<!-- CPA: resource is used both in CallNodeBuilder and -->
+<!--      RedirectToNodeBuilder. It has no default -->
+  <define name="resource.attr">
+    <optional>
+      <attribute name="resource">
+        <data type="string" />
+      </attribute>
+    </optional>
+  </define>
+
+  <define name="component.attr">
+    <ref name="label.attr"/>
+    <ref name="logger.attr"/>
+    <ref name="pool.attr"/>
+  </define>
+
+<!-- CPA: now for element contents -->
+
+  <define name="pipe.contents">
+    <zeroOrMore> <!-- CPA: look into this in V0.6 - I think, must use schematron -->
+      <choice>
+        <ref name="map.parameter"/>
+        <ref name="map.act"/>
+        <ref name="map.match"/>
+        <ref name="map.select"/>
+        <ref name="map.call"/>
+        <ref name="map.redirect-to"/>
+        <ref name="map.read"/>
+        <ref name="map.aggregate"/>
+        <ref name="map.generate"/>
+        <ref name="map.transform"/>
+        <ref name="map.serialize"/>
+        <ref name="map.mount"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+
+<!-- CPA: contents confirmed by inspection of HtmlGenerator.java -->
+  <define name="htmlGenerator.contents">
+    <optional><ref name="jtidy-config"/></optional>
+  </define>
+
+<!-- CPA: contents confirmed by inspection of TraxTransformer.java -->
+  <define name="traxTransformer.contents">
+    <optional><ref name="use-request-parameters"/></optional>
+    <optional><ref name="use-cookies"/></optional>
+    <optional><ref name="use-browser-capabilities-db"/></optional>
+    <optional><ref name="use-session-info"/></optional>
+    <optional><ref name="use-deli"/></optional>
+    <optional><ref name="xslt-processor-role"/></optional>
+    <optional><ref name="transformer-factory"/></optional> 
+  </define>
+
+<!-- CPA: contents confirmed by inspection of I18nTransformer.java -->
+  <define name="i18nTransformer.contents">
+    <optional><ref name="catalogues"/></optional>
+    <optional><ref name="catalogue-name"/></optional>
+    <optional><ref name="catalogue-location"/></optional>
+    <optional><ref name="untranslated-text"/></optional>
+    <optional><ref name="cache-at-startup"/></optional>
+  </define>
+
+<!-- CPA: contents confirmed by inspection of XSLTProcessorImpl.java -->
+<!--      N.B. these appear in the source as if they were parameter -->
+<!--      tags, so I'm not sure if this is perfectly correct. -->
+  <define name="xsltTransformer.contents">
+    <optional><ref name="use-store"/></optional>
+    <optional><ref name="incremental-processing"/></optional>
+  </define>
+
+<!-- CPA: contents confirmed by inspection of EncodeURLTransformer.java -->
+  <define name="encodeURLTransformer.contents">
+    <optional><ref name="include-name"/></optional>
+    <optional><ref name="exclude-name"/></optional>
+  </define>
+
+  <define name="linkRewriterTransformer.contents">
+    <zeroOrMore>
+      <choice>
+        <element name="link-attrs"><text/></element>
+        <element name="schemes"><text/></element>
+        <element name="exclude-schemes"><text/></element>
+        <element name="bad-link-str"><text/></element>
+        <element name="input-module">
+          <ref name="anyAttribute"/>
+          <zeroOrMore>
+            <ref name="anyElement"/>
+          </zeroOrMore>
+        </element>
+      </choice>
+    </zeroOrMore>
+  </define>
+
+  <define name="IdGeneratorTransformer.contents">
+    <zeroOrMore>
+      <element name="element">
+        <text/>
+      </element>
+      <element name="id">
+        <text/>
+      </element>
+      <optional>
+        <element name="id-attr">
+          <text/>
+        </element>
+      </optional>
+    </zeroOrMore>
+  </define>
+
+<!-- CH: contents confirmed by inspection of Web3RfcTransformer.java -->
+  <define name="web3RfcTransformer.contents">
+    <optional><element name="system"><text/></element></optional>
+  </define>
+
+  <define name="simpleFormExtractTransformer.contents">
+    <optional>
+       <element name="output">
+          <ref name="name.attr"/>
+          <text/>
+       </element>
+    </optional>
+  </define>
+
+<!-- VG: contents of TagTransformer from the scratchpad -->
+  <define name="tagTransformer.contents">
+    <optional>
+       <element name="transformer-hint">
+          <text/>
+       </element>
+    </optional>
+  </define>
+
+<!-- CPA: contents confirmed by inspection of AbstractTextSerializer.java -->
+  <define name="textSerializer.contents">
+    <optional><ref name="cdata-section-elements"/></optional>
+    <optional><ref name="doctype-public"/></optional>
+    <optional><ref name="doctype-system"/></optional>
+    <optional><ref name="encoding"/></optional>
+    <optional><ref name="indent"/></optional>
+    <optional><ref name="media-type"/></optional>
+    <optional><ref name="method"/></optional>
+    <optional><ref name="omit-xml-declaration"/></optional>
+    <optional><ref name="standalone"/></optional>
+    <optional><ref name="version"/></optional>
+  </define>
+
+  <define name="svg2jpegSerializer.contents">
+    <optional>
+       <element name="parameter">
+          <attribute name="name"/>
+          <attribute name="type">
+            <value type="string">float</value>
+          </attribute>
+          <attribute name="value"/>
+       </element>
+    </optional>
+  </define>
+
+<!-- =============================================================== -->
+<!-- Sitemap -->
+<!-- =============================================================== -->
+<!-- CPA: contents are all optional, as they can be inherited from the parent sitemap -->
+  <define name="map.sitemap">
+    <element name="map:sitemap" xmlns:map="http://apache.org/cocoon/sitemap/1.0" >
+      <ref name="map.sitemap.attlist"/>
+      <interleave>
+        <optional>
+          <ref name="map.components"/>
+        </optional>
+        <optional>
+          <ref name="map.views"/>
+        </optional>
+        <optional>
+          <ref name="map.resources"/>
+        </optional>
+        <optional>
+          <ref name="map.action-sets"/>
+        </optional>
+        <zeroOrMore>
+          <ref name="map.flow"/>
+        </zeroOrMore>
+        <ref name="map.pipelines"/>
+      </interleave>
+    </element>
+  </define>
+  <define name="map.sitemap.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <empty/>
+  </define>
+
+<!-- =============================================================== -->
+<!-- Components -->
+<!-- =============================================================== -->
+<!-- CPA: map:components are optional, as they can be inherited from the parent sitemap -->
+<!-- CPA: Notes on ComponentSelector.java: Flow-Interpreters are not mentioned -->
+<!-- CPA: now 0 or 1 of each, in any order -->
+  <define name="map.components">
+    <element name="map:components">
+      <ref name="map.components.attlist"/>
+      <interleave>
+        <optional>
+          <ref name="map.generators"/>
+        </optional>
+        <optional>
+          <ref name="map.transformers"/>
+        </optional>
+        <optional>
+          <ref name="map.readers"/>
+        </optional>
+        <optional>
+          <ref name="map.serializers"/>
+        </optional>
+        <optional>
+          <ref name="map.matchers"/>
+        </optional>
+        <optional>
+          <ref name="map.selectors"/>
+        </optional>
+        <optional>
+          <ref name="map.actions"/>
+        </optional>
+        <optional>
+          <ref name="map.flow-interpreters"/>
+        </optional>
+        <optional>
+          <ref name="map.pipes"/>
+        </optional>
+      </interleave>
+    </element>
+  </define>
+  <define name="map.components.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+  </define>
+
+<!-- Generators ======================================== -->
+  <define name="map.generators">
+    <element name="map:generators">
+      <ref name="map.generators.attlist"/>
+      <zeroOrMore> 
+        <ref name="map.generator"/>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="map.generators.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="default.attr"/>
+  </define>
+
+  <define name="map.generator">
+    <element name="map:generator">
+      <ref name="map.generator.attlist"/>
+      <interleave>
+        <ref name="htmlGenerator.contents"/>
+      </interleave>
+      <zeroOrMore> 
+        <ref name="parameter"/>
+      </zeroOrMore>
+      <empty/>
+    </element>
+  </define>
+  <define name="map.generator.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="name.attr"/>
+    <ref name="src.attr"/>
+    <ref name="component.attr"/>
+  </define>
+
+  <define name="jtidy-config">
+    <element name="jtidy-config">
+      <text/>
+    </element>
+  </define>
+
+<!-- Transformers ====================================== -->
+  <define name="map.transformers">
+    <element name="map:transformers">
+      <ref name="map.transformers.attlist"/>
+      <zeroOrMore>
+        <ref name="map.transformer"/>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="map.transformers.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="default.attr"/>
+  </define>
+
+<!-- CPA: Some transformers have children, others take parameter -->
+<!--      children on the map:transform element -->
+<!--      SourceWritingTransformer.java appears to look for a -->
+<!--      serializer child, but there are no examples so I have TODO (V0.6) -->
+<!--      omitted it for now. mapping comes from castor -->
+
+  <define name="map.transformer">
+    <element name="map:transformer">
+      <ref name="map.transformer.attlist"/>
+        <interleave>
+          <ref name="traxTransformer.contents"/>
+          <ref name="xsltTransformer.contents"/>
+          <ref name="i18nTransformer.contents"/>
+          <ref name="encodeURLTransformer.contents"/>
+          <ref name="linkRewriterTransformer.contents"/>
+          <ref name="web3RfcTransformer.contents"/>
+          <ref name="simpleFormExtractTransformer.contents"/>
+          <ref name="tagTransformer.contents"/>
+          <ref name="IdGeneratorTransformer.contents"/>
+          <optional><ref name="mapping"/></optional>
+          <zeroOrMore>
+           <ref name="parameter"/>
+          </zeroOrMore>
+        </interleave>
+    </element>
+  </define>
+  <define name="map.transformer.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="name.attr"/>
+    <ref name="src.attr"/>
+    <ref name="mime.attr"/>
+    <ref name="component.attr"/>
+  </define>
+
+  <define name="use-store">
+  <!-- CPA: from  XSLTProcessorImpl.java -->  
+    <element name="use-store" a:defaultValue="true" >
+      <ref name="use-store.attlist"/>
+      <choice>
+        <value>true</value>
+        <value>false</value>
+      </choice>
+    </element>
+  </define>
+  <define name="use-store.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+  </define>
+
+  <define name="use-request-parameters">
+  <!-- CPA: from TraxTransformer.java -->
+    <element name="use-request-parameters" a:defaultValue="false">
+      <ref name="use-request-parameters.attlist"/>
+      <choice>
+        <value>true</value>
+        <value>false</value>
+      </choice>      
+    </element>
+  </define>
+  <define name="use-request-parameters.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+  </define>
+
+  <define name="use-browser-capabilities-db">
+    <element name="use-browser-capabilities-db"  a:defaultValue="false">
+      <ref name="use-browser-capabilities-db.attlist"/>
+      <choice>
+        <value>true</value>
+        <value>false</value>
+      </choice>
+    </element>
+  </define>
+  <define name="use-browser-capabilities-db.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+  </define>
+
+  <define name="catalogues">
+    <element name="catalogues">
+      <ref name="catalogues.attlist"/>
+      <oneOrMore>
+        <ref name="catalogue"/>
+      </oneOrMore>
+    </element>
+  </define>
+  <define name="catalogues.attlist" combine="interleave">
+    <ref name="default.attr"/>
+  </define>
+
+  <define name="catalogue">
+    <element name="catalogue">
+      <ref name="catalogue.attlist"/>
+    </element>
+  </define>
+  <define name="catalogue.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="name.attr"/>
+    <attribute name="location"/>
+  </define>
+
+  <define name="catalogue-name">
+    <element name="catalogue-name">
+      <ref name="catalogue-name.attlist"/>
+      <data type="string" />
+    </element>
+  </define>
+  <define name="catalogue-name.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+  </define>
+
+  <define name="catalogue-location">
+    <element name="catalogue-location">
+      <ref name="catalogue-location.attlist"/>
+      <data type="string" />
+    </element>
+  </define>
+  <define name="catalogue-location.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+  </define>
+
+  <define name="use-deli">
+  <!-- CPA: this parameter has disappeared from the source TODO: clarify -->
+    <element name="use-deli">
+      <ref name="use-deli.attlist"/>
+      <choice>
+        <value>true</value>
+        <value>false</value>
+      </choice>
+    </element>
+  </define>
+  <define name="use-deli.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+  </define>
+
+  <define name="xslt-processor-role">
+    <element name="xslt-processor-role">
+      <ref name="xslt-processor-role.attlist"/>
+      <data type="string" />
+    </element>
+  </define>
+  <define name="xslt-processor-role.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+  </define>
+
+  <define name="cache-at-startup">
+  <!-- CPA: from XMLResourceBundleFactory and I18nTransformer -->
+    <element name="cache-at-startup" a:defaultValue="false">
+      <ref name="cache-at-startup.attlist"/>
+      <choice>
+        <value>true</value>
+        <value>false</value>
+      </choice>
+    </element>
+  </define>
+  <define name="cache-at-startup.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+  </define>
+
+  <define name="mapping">
+    <element name="mapping">
+      <ref name="mapping.attlist"/>
+      <data type="string" />
+    </element>
+  </define>
+  <define name="mapping.attlist" combine="interleave">
+    <empty/>
+  </define>
+
+<!-- Readers =========================================== -->
+  <define name="map.readers">
+    <element name="map:readers">
+      <ref name="map.readers.attlist"/>
+      <zeroOrMore>
+        <ref name="map.reader"/>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="map.readers.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="default.attr"/>
+  </define>
+
+  <define name="map.reader">
+    <element name="map:reader">
+      <ref name="map.reader.attlist"/>
+      <optional><ref name="database.reader.content"/></optional>
+      <zeroOrMore>
+       <ref name="parameter"/>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="map.reader.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="name.attr"/>
+    <ref name="src.attr"/>
+    <ref name="component.attr"/>
+  </define>
+
+  <define name="database.reader.content">
+     <!-- FIXME is this complete ? -->
+     <optional><element name="use-connection"><data type="string"/></element></optional>
+  </define>
+
+<!-- Serializers ======================================= -->
+  <define name="map.serializers">
+    <element name="map:serializers">
+      <ref name="map.serializers.attlist"/>
+      <zeroOrMore>
+        <ref name="map.serializer"/>
+      </zeroOrMore>
+    </element>
+    <sch:pattern name="Test constraints on map:serialize">
+      <sch:rule context="xmap:serialize">
+    	<sch:assert test="count(following-sibling::*[not(self::xmap:handle-errors)])=0">
+    	  map:serialize must be the last element in a pipeline (other than map:handle-errors).
+        </sch:assert>
+      </sch:rule>
+    </sch:pattern>
+  </define>
+  <define name="map.serializers.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="default.attr"/>
+  </define>
+
+<!-- CPA: parameter is used by HSSFSerializer -->
+<!-- CPA: set-content-length is used by iTextSerializer -->
+  <define name="map.serializer">
+    <element name="map:serializer">
+      <ref name="map.serializer.attlist"/>
+      <optional><ref name="textSerializer.contents"/></optional>
+      <optional><ref name="svg2jpegSerializer.contents"/></optional>
+      <optional><ref name="set-content-length"/></optional>
+      <optional><ref name="buffer-size"/></optional> <!-- deprecated -->
+      <optional><ref name="user-config"/></optional>
+      <zeroOrMore>
+        <choice>
+          <ref name="parameter"/>
+        </choice>
+      </zeroOrMore>
+    </element>
+  </define>
+<!-- RNG: are these the only children of serializer? -->
+<!-- CPA: No. Added buffer-size for slide and others - don't know -->
+<!--      where it comes from in the source -->
+<!-- CPA: mime-type changed from #REQUIRED to #IMPLIED, because of LinkSerializer -->
+  <define name="map.serializer.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="name.attr"/>
+    <ref name="mime.attr"/>
+    <ref name="src.attr"/>
+    <ref name="component.attr"/>
+  </define>
+
+  <define name="cdata-section-elements">
+    <element name="cdata-section-elements">
+      <ref name="cdata-section-elements.attlist"/>
+      <data type="string" />
+    </element>
+  </define>
+  <define name="cdata-section-elements.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+  </define>
+
+  <define name="doctype-public">
+    <element name="doctype-public">
+      <ref name="doctype-public.attlist"/>
+      <data type="string" />
+    </element>
+  </define>
+  <define name="doctype-public.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+  </define>
+
+  <define name="doctype-system">
+    <element name="doctype-system">
+      <ref name="doctype-system.attlist"/>
+      <data type="string" />
+    </element>
+  </define>
+  <define name="doctype-system.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+  </define>
+
+  <define name="encoding">
+    <element name="encoding">
+      <ref name="encoding.attlist"/>
+      <data type="string" />
+    </element>
+  </define>
+  <define name="encoding.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+  </define>
+
+  <define name="omit-xml-declaration">
+    <element name="omit-xml-declaration">
+      <ref name="omit-xml-declaration.attlist"/>
+      <choice>
+        <value>yes</value>
+        <value>no</value>
+      </choice>
+    </element>
+  </define>
+  <define name="omit-xml-declaration.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+  </define>
+
+  <define name="parameter">
+    <element name="parameter">
+      <ref name="parameter.attlist"/>
+      <empty/>
+    </element>
+  </define>
+  <define name="parameter.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="name.attr"/>
+    <ref name="value.attr"/>
+    <ref name="type.attr"/>
+  </define>
+
+  <define name="map.parameter">
+    <element name="map:parameter">
+      <ref name="map.parameter.attlist"/>
+      <empty/>
+    </element>
+  </define>
+  <define name="map.parameter.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="name.attr"/>
+    <ref name="value.attr"/>
+  </define>
+
+  <define name="buffer-size">
+    <element name="buffer-size">
+      <ref name="buffer-size.attlist"/>
+      <data type="positiveInteger" />
+    </element>
+  </define>
+  <define name="buffer-size.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+  </define>
+
+  <define name="user-config">
+    <element name="user-config">
+      <ref name="user-config.attlist"/>
+    </element>
+  </define>
+  <define name="user-config.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="src.attr"/>
+  </define>
+
+<!-- Selectors ========================================= -->
+  <define name="map.selectors">
+    <element name="map:selectors">
+      <ref name="map.selectors.attlist"/>
+      <zeroOrMore>
+        <ref name="map.selector"/>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="map.selectors.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="default.attr"/>
+  </define>
+
+  <define name="map.selector">
+    <element name="map:selector">
+      <ref name="map.selector.attlist"/>
+      <zeroOrMore>
+        <ref name="anyElement"/>
+      </zeroOrMore>
+    </element>
+  </define>
+
+  <define name="map.selector.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="name.attr"/>
+    <ref name="src.attr"/>
+    <ref name="component.attr"/>
+  </define>
+
+<!-- CPA: elements currently used by map:selector s -->
+  <define name="browser">
+    <element name="browser">
+      <ref name="browser.attlist"/>
+      <empty/>
+    </element>
+  </define>
+  <define name="browser.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="name.attr"/>
+    <attribute name="useragent"/>
+  </define>
+
+  <define name="host">
+    <element name="host">
+      <ref name="host.attlist"/>
+      <empty/>
+    </element>
+  </define>
+  <define name="host.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="name.attr"/>
+    <ref name="value.attr"/>
+  </define>
+
+  <define name="cookie-name">
+    <element name="cookie-name">
+      <ref name="cookie-name.attlist"/>
+      <empty/>
+    </element>
+  </define>
+  <define name="cookie-name.attlist" combine="interleave">
+    <empty/>
+  </define>
+
+<define name="anyElement">
+  <element>
+    <anyName/>
+    <zeroOrMore>
+      <choice>
+        <attribute>
+    	  <anyName/>
+    	</attribute>
+        <text/>
+        <ref name="anyElement"/>
+      </choice>
+    </zeroOrMore>
+  </element>
+</define>
+
+  <define name="anyAttribute">
+    <zeroOrMore>
+      <attribute>
+        <anyName/>
+      </attribute>
+    </zeroOrMore>
+  </define>
+
+<!-- Matchers ========================================== -->
+  <define name="map.matchers">
+    <element name="map:matchers">
+      <ref name="map.matchers.attlist"/>
+      <zeroOrMore>
+        <ref name="map.matcher"/>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="map.matchers.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="default.attr"/>
+  </define>
+
+  <define name="map.matcher">
+    <element name="map:matcher">
+      <ref name="map.matcher.attlist"/>
+      <zeroOrMore>
+        <choice>
+          <ref name="attribute-name"/>
+          <ref name="parameter-name"/>
+          <ref name="header-name"/>
+          <ref name="input-module"/>
+        </choice>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="map.matcher.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="name.attr"/>
+    <ref name="src.attr"/>
+    <ref name="component.attr"/>
+  </define>
+
+  <define name="attribute-name">
+    <element name="attribute-name">
+      <ref name="attribute-name.attlist"/>
+      <data type="string" />
+    </element>
+  </define>
+  <define name="attribute-name.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+  </define>
+
+  <define name="parameter-name">
+    <element name="parameter-name">
+      <ref name="parameter-name.attlist"/>
+      <data type="string" />
+    </element>
+  </define>
+  <define name="parameter-name.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+  </define>
+
+  <define name="header-name">
+    <element name="header-name">
+      <ref name="header-name.attlist"/>
+      <data type="string" />
+    </element>
+  </define>
+  <define name="header-name.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+  </define>
+
+  <define name="input-module">
+    <element name="input-module">
+      <ref name="input-module.attlist"/>
+      <zeroOrMore><ref name="anyElement"/></zeroOrMore>
+    </element>
+  </define>
+  <define name="input-module.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="name.attr"/>
+  </define>
+
+<!-- Actions =========================================== -->
+  <define name="map.actions">
+    <element name="map:actions">
+      <ref name="map.actions.attlist"/>
+      <zeroOrMore>
+        <ref name="map.action"/>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="map.actions.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="default.attr"/>
+  </define>
+
+  <define name="map.action">
+    <element name="map:action">
+      <ref name="map.action.attlist"/>
+      <zeroOrMore>
+        <ref name="anyElement"/>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="map.action.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="name.attr"/>
+    <ref name="src.attr"/>
+    <ref name="component.attr"/>
+  </define>
+
+<!-- Pipes ======================================== -->
+  <define name="map.pipes">
+    <element name="map:pipes">
+      <ref name="map.pipes.attlist"/>
+      <zeroOrMore> 
+        <ref name="map.pipe"/>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="map.pipes.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="default.attr"/>
+  </define>
+
+  <define name="map.pipe">
+    <element name="map:pipe">
+      <ref name="map.pipe.attlist"/>
+      <zeroOrMore>
+        <ref name="map.parameter"/>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="map.pipe.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="name.attr"/>
+    <ref name="src.attr"/>
+    <ref name="component.attr"/>
+    <optional>
+       <ref name="autoCachingPoint"/>
+     </optional>
+  </define>
+
+<!-- =============================================================== -->
+<!-- Views -->
+<!-- =============================================================== -->
+  <define name="map.views">
+    <element name="map:views">
+      <ref name="map.views.attlist"/>
+      <zeroOrMore>
+        <ref name="map.view"/>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="map.views.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+  </define>
+
+  <define name="map.view">
+    <element name="map:view">
+      <ref name="map.view.attlist"/>
+      <ref name="pipe.contents"/>
+    </element>
+  </define>
+  <define name="map.view.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="name.attr"/>
+    <optional>
+      <attribute name="from-label"/>
+    </optional>
+    <optional>
+      <attribute name="from-position" a:defaultValue="last">
+        <choice>
+          <value>first</value>
+          <value>last</value>
+        </choice>
+      </attribute>
+    </optional>
+  </define>
+
+  <define name="map.serialize">
+    <element name="map:serialize">
+      <ref name="map.serialize.attlist"/>
+      <zeroOrMore>
+        <ref name="map.parameter"/>
+      </zeroOrMore>
+      <optional>
+        <ref name="encoding"/>
+      </optional>
+    </element>
+  </define>
+  <define name="map.serialize.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="type.attr"/>
+    <ref name="mime.attr"/>
+    <ref name="label.attr"/>
+    <optional>
+      <attribute name="status-code"/>
+    </optional>
+    <ref name="optsrc.attr"/>
+  </define>
+
+<!-- =============================================================== -->
+<!-- Resources -->
+<!-- =============================================================== -->
+  <define name="map.resources">
+    <element name="map:resources">
+      <ref name="map.resources.attlist"/>
+      <zeroOrMore>
+        <ref name="map.resource"/>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="map.resources.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+  </define>
+
+  <define name="map.resource">
+    <element name="map:resource">
+      <ref name="map.resource.attlist"/>
+      <ref name="pipe.contents"/>
+    </element>
+  </define>
+  <define name="map.resource.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="name.attr"/>
+  </define>
+
+<!-- =============================================================== -->
+<!-- Action Sets -->
+<!-- =============================================================== -->
+  <define name="map.action-sets">
+    <element name="map:action-sets">
+      <ref name="map.action-sets.attlist"/>
+      <zeroOrMore>
+        <ref name="map.action-set"/>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="map.action-sets.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+  </define>
+
+  <define name="map.action-set">
+    <element name="map:action-set">
+      <ref name="map.action-set.attlist"/>
+      <oneOrMore>
+        <ref name="map.act"/>
+      </oneOrMore>
+    </element>
+  </define>
+  <define name="map.action-set.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="name.attr"/>
+  </define>
+
+  <define name="map.act">
+    <element name="map:act">
+      <ref name="map.act.attlist"/>
+      <ref name="pipe.contents"/>
+    </element>
+  </define>
+  <define name="map.act.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="type.attr"/>
+    <optional>
+      <attribute name="action"/>
+    </optional>
+    <optional>
+      <attribute name="set"/>
+    </optional>
+    <ref name="optsrc.attr"/>
+    <ref name="optname.attr"/>
+  </define>
+
+<!-- =============================================================== -->
+<!-- Pipelines -->
+<!-- =============================================================== -->
+
+  <define name="map.pipelines">
+    <element name="map:pipelines">
+      <ref name="map.pipelines.attlist"/>
+      <optional>
+        <ref name="map.component-configurations"/>
+      </optional>
+      <zeroOrMore>
+        <ref name="map.pipeline"/>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="map.pipelines.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="default.attr"/>
+  </define>
+
+  <define name="map.pipeline">
+    <element name="map:pipeline">
+      <ref name="map.pipeline.attlist"/>
+      <optional>
+        <ref name="pipe.contents"/>
+        <zeroOrMore>
+          <ref name="map.handle-errors"/>
+        </zeroOrMore>
+      </optional>
+
+      <!-- Schematron rules for map:pipeline follow -->
+
+      <sch:pattern name="Test constraints on map:pipeline">
+    	 <sch:rule context="/xmap:sitemap/xmap:pipelines/xmap:pipeline">
+    	   <sch:assert test="(@src and @name) 
+    	                      or .//xmap:generate[not(ancestor::xmap:handle-errors)]
+    	                      or .//xmap:aggregate[not(ancestor::xmap:handle-errors)]
+    	                      or .//xmap:read[not(ancestor::xmap:handle-errors)]
+    	                      or .//xmap:mount[not(ancestor::xmap:handle-errors)]
+    	                      or .//xmap:redirect-to[not(ancestor::xmap:handle-errors)]
+    	                      or .//xmap:call[not(ancestor::xmap:handle-errors)]">
+    	     Pipeline with no map:generate|aggregate|act|mount|redirect-to|call, or src and name attributes, is illegal
+    	   </sch:assert>
+    	   <sch:assert test="not(.//*[namespace-uri()=namespace-uri(/xmap:sitemap)
+    	                        and (local-name()='generate' or local-name()='aggregate' or local-name()='transform')
+    	                        and not(ancestor::xmap:handle-errors)])
+    	                     or .//*[namespace-uri()=namespace-uri(/xmap:sitemap)
+    	                        and (local-name()='generate' or local-name()='aggregate' or local-name()='transform')
+    	                        and not(ancestor::xmap:handle-errors)]
+    	                                [following::*[namespace-uri()=namespace-uri(/xmap:sitemap)
+    	                                                    and (local-name()='serialize' or local-name()='call')
+    	                                                    and not(ancestor::xmap:handle-errors)
+    	                                             ]/ancestor::xmap:pipeline[. = current()]
+    	                                ]">
+    	     Pipeline with map:generate|aggregate|transform must have map:serialize or map:call
+    	   </sch:assert>
+    	 </sch:rule>
+
+    	 <sch:rule context="/xmap:sitemap/xmap:pipelines/xmap:pipeline//*[namespace-uri()=namespace-uri(/xmap:sitemap)
+    	                        and (local-name()='serialize' or local-name()='mount'  or local-name()='read'  
+    	                             or local-name()='redirect-to' or local-name()='call') ]">
+    	   <sch:assert test="count(following-sibling::*[namespace-uri()=namespace-uri(/xmap:sitemap) 
+    	            and local-name() != 'handle-errors'])=0">
+    	     Pipeline with component after map:serialize|read|mount|redirect-to|call is illegal 
+    	   </sch:assert>
+    	 </sch:rule>
+      </sch:pattern>
+    </element>
+  </define>
+  <define name="map.pipeline.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <optional>
+      <attribute name="internal-only"/>
+    </optional>
+    <ref name="optname.attr"/>
+    <ref name="optsrc.attr"/>
+    <ref name="type.attr"/>
+    <ref name="component.attr"/>
+  </define>
+
+  <define name="map.match">
+    <element name="map:match">
+      <ref name="map.match.attlist"/>
+      <ref name="pipe.contents"/>
+    </element>
+  </define>
+<!-- RNG: It seemed from the example that match should be defined as
+  match (map:mount*|map:redirect-to*|(map:generate*,map:transform*,map:serialize*)*|map:read*|map:aggregate*)
+  but I have no way of knowing. -->
+<!-- DC: Now map:act complicates the content model even further -->
+  <define name="map.match.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="type.attr"/>
+    <attribute name="pattern"/>
+    <ref name="optname.attr"/>
+  </define>
+
+  <define name="map.select">
+    <element name="map:select">
+      <ref name="map.select.attlist"/>
+      <zeroOrMore>
+        <ref name="map.parameter"/>
+      </zeroOrMore>
+      <zeroOrMore>
+        <ref name="map.when"/>
+      </zeroOrMore>
+      <optional>
+        <ref name="map.otherwise"/>
+      </optional>
+    </element>
+      <sch:pattern name="Test constraints on map:match and map:select">
+    	 <sch:rule context="xmap:match|xmap:when|xmap:otherwise[*]">
+    	   <sch:assert test="*[namespace-uri()=namespace-uri(/xmap:sitemap)
+    	                          and (local-name()='generate' or local-name()='transform'
+    	                            or local-name()='serialize' or local-name()='aggregate'
+    	                            or local-name()='read' or local-name()='redirect-to'
+    	                            or local-name()='act' or local-name()='match' or local-name()='select' 
+    	                            or local-name()='mount' or local-name()='call')
+    	              ]">
+    	     map:match|select without direct components, or map:mount|redirect-to|call|act|match|select is illegal
+    	   </sch:assert>
+    	 </sch:rule>
+      </sch:pattern>
+  </define>
+  <define name="map.select.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="type.attr"/>
+  </define>
+
+  <define name="map.when">
+    <element name="map:when">
+      <ref name="map.when.attlist"/>
+      <ref name="pipe.contents"/>
+    </element>
+  </define>
+  <define name="map.when.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <attribute name="test"/>
+  </define>
+
+  <define name="map.otherwise">
+    <element name="map:otherwise">
+      <ref name="map.otherwise.attlist"/>
+      <ref name="pipe.contents"/>
+    </element>
+  </define>
+  <define name="map.otherwise.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+  </define>
+
+  <define name="autoCachingPoint">
+    <element name="autoCachingPoint">
+      <ref name="autoCachingPoint.attlist"/>
+      <choice>
+        <value>on</value>
+        <value>On</value>
+        <value>off</value>
+        <value>Off</value>
+      </choice>
+    </element>
+  </define>
+  <define name="autoCachingPoint.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+  </define>
+
+  <define name="map.mount">
+    <element name="map:mount">
+      <ref name="map.mount.attlist"/>
+      <empty/>
+    </element>
+  </define>
+  <define name="map.mount.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <attribute name="uri-prefix"/>
+    <ref name="src.attr"/>
+    <optional>
+      <attribute name="reload-method" a:defaultValue="asynchron">
+        <choice>
+          <value>synchron</value>
+          <value>asynchron</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="check-reload" a:defaultValue="no">
+        <choice>
+          <value>true</value>
+          <value>false</value>
+          <value>yes</value>
+          <value>no</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="pass-through" a:defaultValue="false">
+        <choice>
+          <value>true</value>
+          <value>false</value>
+          <value>yes</value>
+          <value>no</value>
+        </choice>
+      </attribute>
+    </optional>    
+  </define>
+
+  <define name="map.redirect-to">
+    <element name="map:redirect-to">
+      <ref name="map.redirect-to.attlist"/>
+      <empty/>
+    </element>
+  </define>
+<!-- CH: redirects to resources are now deprecated -->
+<!-- CPA: attributes confirmed by inspection of RedirectToNodeBuilder -->
+  <define name="map.redirect-to.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="opturi.attr"/>
+    <ref name="resource.attr"/>
+    <optional>
+      <attribute name="target"/>
+    </optional>
+    <optional>
+      <attribute name="session" a:defaultValue="no">
+        <choice>
+          <value>true</value>
+          <value>false</value>
+          <value>yes</value>
+          <value>no</value>
+        </choice>
+      </attribute>
+    </optional>
+  </define>
+
+  <define name="map.call">
+    <element name="map:call">
+      <ref name="map.call.attlist"/>
+      <zeroOrMore>
+        <ref name="map.parameter"/>
+      </zeroOrMore>
+    </element>
+  </define>
+
+  <define name="map.call.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+      <ref name="resource.attr"/>
+      <optional><attribute name="function"/></optional>
+      <optional><attribute name="continuation"/></optional>
+  </define>
+
+  <define name="map.generate">
+    <element name="map:generate">
+      <ref name="map.generate.attlist"/>
+      <zeroOrMore>
+        <ref name="map.parameter"/>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="map.generate.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="type.attr"/>
+    <ref name="optsrc.attr"/>
+    <ref name="label.attr"/>
+  </define>
+
+  <define name="map.transform">
+    <element name="map:transform">
+      <ref name="map.transform.attlist"/>
+      <zeroOrMore>
+        <ref name="map.parameter"/>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="map.transform.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="type.attr"/>
+    <ref name="optsrc.attr"/>
+    <ref name="label.attr"/>
+  </define>
+
+  <define name="map.read">
+    <element name="map:read">
+      <ref name="map.read.attlist"/>
+      <zeroOrMore>
+        <ref name="map.parameter"/>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="map.read.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="optsrc.attr"/>
+    <ref name="mime.attr"/>
+    <ref name="type.attr"/>
+  </define>
+
+  <define name="map.aggregate">
+    <element name="map:aggregate">
+      <ref name="map.aggregate.attlist"/>
+      <zeroOrMore>
+        <ref name="map.part"/>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="map.aggregate.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="aggregate.attr"/>
+    <ref name="label.attr"/>
+  </define>
+
+  <define name="map.part">
+    <element name="map:part">
+      <ref name="map.part.attlist"/>
+      <empty/>
+    </element>
+  </define>
+  <define name="map.part.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="optsrc.attr"/>
+    <ref name="label.attr"/>
+    <ref name="aggregate.attr"/>
+    <optional>
+      <attribute name="strip-root"/>
+    </optional>
+  </define>
+
+  <define name="map.handle-errors">
+    <element name="map:handle-errors">
+      <ref name="map.handle-errors.attlist"/>
+      <ref name="pipe.contents"/>
+    </element>
+      <sch:pattern name="Test constraints on map:handle-errors">
+    	 <sch:rule context="xmap:handle-errors">
+    	   <sch:assert test="not(*[namespace-uri()=namespace-uri(/xmap:sitemap) 
+    	            and (local-name()='generate' or local-name()='mount')])">
+    	     Error handler can't have: map:generate or map:mount.
+    	   </sch:assert>
+    	   <sch:assert test="*[namespace-uri()=namespace-uri(/xmap:sitemap) 
+    	            and (local-name()='serialize' or local-name()='call')]">
+    	     Error handler must have map:serialize or map:call.
+    	   </sch:assert>
+    	 </sch:rule>
+    	 <sch:rule context="xmap:handle-errors//xmap:serialize">
+    	   <sch:assert test="not(following-sibling::*[namespace-uri()=namespace-uri(/xmap:sitemap)])">
+    	     Error handler can not have any components after map:serialize
+    	   </sch:assert>
+    	 </sch:rule>
+      </sch:pattern>
+  </define>
+
+  <define name="map.handle-errors.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="type.attr"/>
+  </define>
+
+  <define name="map.component-configurations">
+    <element name="map:component-configurations">
+      <ref name="map.component-configurations.attlist"/>
+      <optional>
+        <ref name="global-variables"/>
+      </optional>
+      <optional>
+        <ref name="authentication-manager"/>
+      </optional>
+    </element>
+  </define>
+  <define name="map.component-configurations.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+  </define>
+
+  <define name="global-variables">
+    <element name="global-variables">
+      <ref name="global-variables.attlist"/>
+      <zeroOrMore>
+        <ref name="anyElement"/>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="global-variables.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+  </define>
+
+  <define name="authentication-manager">
+    <element name="authentication-manager">
+      <ref name="authentication-manager.attlist"/>
+      <ref name="handlers"/>
+    </element>
+  </define>
+  <define name="authentication-manager.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+  </define>
+
+  <define name="handlers">
+    <element name="handlers">
+      <ref name="handlers.attlist"/>
+      <oneOrMore>
+        <ref name="handler"/>
+      </oneOrMore>
+    </element>
+  </define>
+  <define name="handlers.attlist" combine="interleave">
+    <empty/>
+  </define>
+
+  <define name="handler">
+    <element name="handler">
+      <ref name="handler.attlist"/>
+      <ref name="redirect-to"/>
+      <ref name="authentication"/>
+      <optional>
+        <ref name="applications"/>
+      </optional>
+    </element>
+  </define>
+  <define name="handler.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="name.attr"/>
+    <empty/>
+  </define>
+
+  <define name="redirect-to">
+    <element name="redirect-to">
+      <ref name="redirect-to.attlist"/>
+      <empty/>
+    </element>
+  </define>
+  <define name="redirect-to.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="uri.attr"/>
+  </define>
+
+  <define name="authentication">
+    <element name="authentication">
+      <ref name="authentication.attlist"/>
+      <empty/>
+    </element>
+  </define>
+  <define name="authentication.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="uri.attr"/>
+  </define>
+
+  <define name="applications">
+    <element name="applications">
+      <ref name="applications.attlist"/>
+      <oneOrMore>
+        <ref name="application"/>
+      </oneOrMore>
+    </element>
+  </define>
+  <define name="applications.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+  </define>
+
+  <define name="application">
+    <element name="application">
+      <ref name="application.attlist"/>
+      <oneOrMore>
+        <ref name="configuration"/>
+      </oneOrMore>
+    </element>
+  </define>
+  <define name="application.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <attribute name="loadondemand"/>
+    <ref name="name.attr"/>
+  </define>
+
+  <define name="configuration">
+    <element name="configuration">
+      <ref name="configuration.attlist"/>
+      <zeroOrMore> <!-- CPA: not sure - maybe interleave optionals? TODO -->
+        <choice>
+          <ref name="auth-redirect"/>
+          <ref name="portal-uri"/>
+          <ref name="profile-cache"/>
+          <ref name="default-coplet-timeout"/>
+          <ref name="profile"/>
+          <ref name="load-users"/>
+          <ref name="load-roles"/>
+          <ref name="new-user"/>
+          <ref name="new-role"/>
+          <ref name="change-user"/>
+          <ref name="delete-role"/>
+          <ref name="delete-user"/>
+          <ref name="process-coplets-parallel"/>
+        </choice>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="configuration.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="name.attr"/>
+  </define>
+
+  <define name="auth-redirect">
+    <element name="auth-redirect">
+      <ref name="auth-redirect.attlist"/>
+      <text/>
+    </element>
+  </define>
+  <define name="auth-redirect.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+  </define>
+
+  <define name="portal-uri">
+    <element name="portal-uri">
+      <ref name="portal-uri.attlist"/>
+      <text/>
+    </element>
+  </define>
+  <define name="portal-uri.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+  </define>
+
+  <define name="profile-cache">
+    <element name="profile-cache">
+      <ref name="profile-cache.attlist"/>
+      <text/>
+    </element>
+  </define>
+  <define name="profile-cache.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+  </define>
+
+  <define name="default-coplet-timeout">
+    <element name="default-coplet-timeout">
+      <ref name="default-coplet-timeout.attlist"/>
+      <text/>
+    </element>
+  </define>
+  <define name="default-coplet-timeout.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+  </define>
+
+  <define name="process-coplets-parallel">
+    <element name="process-coplets-parallel">
+      <ref name="process-coplets-parallel.attlist"/>
+      <text/>
+    </element>
+  </define>
+  <define name="process-coplets-parallel.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+  </define>
+
+  <define name="profile">
+    <element name="profile">
+      <ref name="profile.attlist"/>
+      <ref name="layout-base"/>
+      <ref name="coplet-base"/>
+      <ref name="coplet-base-save"/>
+      <ref name="type-base"/>
+      <ref name="admin-type-base"/>
+      <ref name="global-delta-load"/>
+      <ref name="global-delta-save"/>
+      <ref name="role-delta-load"/>
+      <ref name="role-delta-save"/>
+      <ref name="user-delta-load"/>
+      <ref name="user-delta-save"/>
+      <ref name="user-status-load"/>
+      <ref name="user-status-save"/>
+    </element>
+  </define>
+  <define name="profile.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+  </define>
+
+  <define name="layout-base">
+    <element name="layout-base">
+      <ref name="layout-base.attlist"/>
+      <empty/>
+    </element>
+  </define>
+  <define name="layout-base.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="uri.attr"/>
+  </define>
+
+  <define name="coplet-base">
+    <element name="coplet-base">
+      <ref name="coplet-base.attlist"/>
+      <empty/>
+    </element>
+  </define>
+  <define name="coplet-base.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="uri.attr"/>
+  </define>
+
+  <define name="coplet-base-save">
+    <element name="coplet-base-save">
+      <ref name="coplet-base-save.attlist"/>
+      <empty/>
+    </element>
+  </define>
+  <define name="coplet-base-save.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="uri.attr"/>
+  </define>
+
+  <define name="type-base">
+    <element name="type-base">
+      <ref name="type-base.attlist"/>
+      <empty/>
+    </element>
+  </define>
+  <define name="type-base.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="uri.attr"/>
+  </define>
+
+  <define name="admin-type-base">
+    <element name="admin-type-base">
+      <ref name="admin-type-base.attlist"/>
+      <empty/>
+    </element>
+  </define>
+  <define name="admin-type-base.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="uri.attr"/>
+  </define>
+
+  <define name="global-delta-load">
+    <element name="global-delta-load">
+      <ref name="global-delta-load.attlist"/>
+      <empty/>
+    </element>
+  </define>
+  <define name="global-delta-load.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="uri.attr"/>
+  </define>
+
+  <define name="global-delta-save">
+    <element name="global-delta-save">
+      <ref name="global-delta-save.attlist"/>
+      <empty/>
+    </element>
+  </define>
+  <define name="global-delta-save.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="uri.attr"/>
+  </define>
+
+  <define name="role-delta-load">
+    <element name="role-delta-load">
+      <ref name="role-delta-load.attlist"/>
+      <empty/>
+    </element>
+  </define>
+  <define name="role-delta-load.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="uri.attr"/>
+  </define>
+
+  <define name="role-delta-save">
+    <element name="role-delta-save">
+      <ref name="role-delta-save.attlist"/>
+      <empty/>
+    </element>
+  </define>
+  <define name="role-delta-save.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="uri.attr"/>
+  </define>
+
+  <define name="user-delta-load">
+    <element name="user-delta-load">
+      <ref name="user-delta-load.attlist"/>
+      <empty/>
+    </element>
+  </define>
+  <define name="user-delta-load.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="uri.attr"/>
+  </define>
+
+  <define name="user-delta-save">
+    <element name="user-delta-save">
+      <ref name="user-delta-save.attlist"/>
+      <empty/>
+    </element>
+  </define>
+  <define name="user-delta-save.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="uri.attr"/>
+  </define>
+
+  <define name="user-status-load">
+    <element name="user-status-load">
+      <ref name="user-status-load.attlist"/>
+      <empty/>
+    </element>
+  </define>
+  <define name="user-status-load.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="uri.attr"/>
+  </define>
+
+  <define name="user-status-save">
+    <element name="user-status-save">
+      <ref name="user-status-save.attlist"/>
+      <empty/>
+    </element>
+  </define>
+  <define name="user-status-save.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="uri.attr"/>
+  </define>
+
+  <define name="load-users">
+    <element name="load-users">
+      <ref name="load-users.attlist"/>
+      <empty/>
+    </element>
+  </define>
+  <define name="load-users.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="uri.attr"/>
+  </define>
+  <define name="load-roles">
+    <element name="load-roles">
+      <ref name="load-roles.attlist"/>
+      <empty/>
+    </element>
+  </define>
+  <define name="load-roles.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="uri.attr"/>
+  </define>
+
+  <define name="new-user">
+    <element name="new-user">
+      <ref name="new-user.attlist"/>
+      <empty/>
+    </element>
+  </define>
+  <define name="new-user.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="uri.attr"/>
+  </define>
+
+  <define name="new-role">
+    <element name="new-role">
+      <ref name="new-role.attlist"/>
+      <empty/>
+    </element>
+  </define>
+  <define name="new-role.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="uri.attr"/>
+  </define>
+
+  <define name="change-user">
+    <element name="change-user">
+      <ref name="change-user.attlist"/>
+      <empty/>
+    </element>
+  </define>
+  <define name="change-user.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="uri.attr"/>
+  </define>
+
+  <define name="delete-user">
+    <element name="delete-user">
+      <ref name="delete-user.attlist"/>
+      <empty/>
+    </element>
+  </define>
+  <define name="delete-user.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="uri.attr"/>
+  </define>
+
+  <define name="delete-role">
+    <element name="delete-role">
+      <ref name="delete-role.attlist"/>
+      <empty/>
+    </element>
+  </define>
+  <define name="delete-role.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="uri.attr"/>
+  </define>
+
+  <define name="map.flow-interpreters">
+    <element name="map:flow-interpreters">
+      <ref name="map.flow-interpreters.attlist"/>
+      <empty/>
+<!-- CPA: presumably it should NOT be empty for non-default usage, so this -->
+<!--      needs correcting, but I cannot find source code that clarifies -->
+    </element>
+  </define>
+  <define name="map.flow-interpreters.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <attribute name="default"/>
+  </define>
+
+  <define name="map.flow">
+    <element name="map:flow">
+      <ref name="map.flow.attlist"/>
+      <ref name="map.script"/>
+    </element>
+  </define>
+  <define name="map.flow.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <attribute name="language"/>
+  </define>
+
+  <define name="map.script">
+    <element name="map:script">
+      <ref name="map.script.attlist"/>
+      <empty/>
+    </element>
+  </define>
+  <define name="map.script.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+    <ref name="src.attr"/>
+  </define>
+
+  <define name="include-name">
+    <element name="include-name">
+      <ref name="include-name.attlist"/>
+      <empty/>
+    </element>
+  </define>
+  <define name="include-name.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+  </define>
+
+  <define name="exclude-name">
+    <element name="exclude-name">
+      <ref name="exclude-name.attlist"/>
+      <empty/>
+    </element>
+  </define>
+  <define name="exclude-name.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+  </define>
+
+  <define name="method">
+    <element name="method">
+      <ref name="method.attlist"/>
+      <data type="string" /> 
+      <!-- CPA: should be xml, or html, or text or an expanded name -->
+    </element>
+  </define>
+  <define name="method.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+  </define>
+
+  <define name="use-cookies">
+    <element name="use-cookies" a:defaultValue="false" >
+      <ref name="use-cookies.attlist"/>
+      <choice>
+        <value>true</value>
+        <value>false</value>
+      </choice>
+    </element>
+  </define>
+  <define name="use-cookies.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+  </define>
+
+  <define name="untranslated-text">
+    <element name="untranslated-text">
+      <ref name="untranslated-text.attlist"/>
+      <empty/>
+    </element>
+  </define>
+  <define name="untranslated-text.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+  </define>
+
+  <define name="media-type">
+    <element name="media-type">
+      <ref name="media-type.attlist"/>
+      <data type="string" />
+    </element>
+  </define>
+  <define name="media-type.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+  </define>
+
+  <define name="version">
+    <element name="version">
+      <ref name="version.attlist"/>
+      <data type="NMTOKEN" /> <!-- CPA: but actually a floating point version number -->
+    </element>
+  </define>
+  <define name="version.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+  </define>
+
+  <define name="transformer-factory">
+    <element name="transformer-factory" a:defaultValue="default">
+      <ref name="transformer-factory.attlist"/>
+      <data type="string" />
+    </element>
+  </define>
+  <define name="transformer-factory.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+  </define>
+
+  <define name="use-session-info">
+    <element name="use-session-info"  a:defaultValue="false" >
+      <ref name="use-session-info.attlist"/>
+      <choice>
+        <value>true</value>
+        <value>false</value>
+      </choice>
+    </element>
+  </define>
+  <define name="use-session-info.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+  </define>
+
+  <define name="incremental-processing">
+  <!-- CPA: from  XSLTProcessorImpl.java -->  
+    <element name="incremental-processing" a:defaultValue="false" >
+      <ref name="incremental-processing.attlist"/>
+      <choice>
+        <value>true</value>
+        <value>false</value>
+      </choice>
+    </element>
+  </define>
+  <define name="incremental-processing.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+  </define>
+
+  <define name="indent">
+    <element name="indent">
+      <ref name="indent.attlist"/>
+      <choice>
+        <value>yes</value>
+        <value>no</value>
+      </choice>
+    </element>
+  </define>
+  <define name="indent.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+  </define>
+
+  <define name="set-content-length">
+    <element name="set-content-length">
+      <ref name="set-content-length.attlist"/>
+      <empty/>
+    </element>
+  </define>
+  <define name="set-content-length.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+  </define>
+
+  <define name="standalone">
+    <element name="standalone">
+      <ref name="standalone.attlist"/>
+      <choice>
+        <value>yes</value>
+        <value>no</value>
+      </choice>
+    </element>
+  </define>
+  <define name="standalone.attlist" combine="interleave">
+    <ref name="universal.attr"/>
+  </define>
+
+
+  <start>
+    <ref name="map.sitemap"/>
+  </start>
+</grammar>

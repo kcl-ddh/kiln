@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<!--+
+    | This is the cocoon logkit configuration file.
+    |
+    | By default, Cocoon uses Excalibur logkit for logging, but it also
+    | supports Log4J. In case you want to use Log4J, you have to modify
+    | a configuration property in the 'WEB-INF/web.xml' file (search
+    | for log4j and you find it)
+    |
+    | The comments below should get you started in adapting the logs
+    | for your needs, but if you want to know more please visit
+    |
+    |   http://wiki.apache.org/cocoon/ConfiguringTheLogs
+    |
+    | $Id: logkit.xconf 433543 2006-08-22 06:22:54Z crossley $
+    +-->
+<logkit>
+
+  <!--+
+      | Factories are responsible to create the consumers of the log events,
+      | the targets. Here we have configured just a few, the main cocoon
+      | target factory (that prints to a file) and the servlet target factory
+      | (that prints back to the servlet container log stream) but  for more
+      | info on the available logkit factories, please consult
+      | http://excalibur.apache.org/apidocs/org/apache/avalon/excalibur/logger/factory/package-summary.html
+      +-->
+  <factories>
+    <factory type="cocoon" class="org.apache.cocoon.util.log.CocoonTargetFactory"/>
+    <factory type="servlet" class="org.apache.avalon.excalibur.logger.factory.ServletTargetFactory"/>
+    <factory type="stream" class="org.apache.avalon.excalibur.logger.factory.StreamTargetFactory"/>
+  </factories>
+
+  <!--+
+      | Targets are the instances of the consumers of the log events and various
+      | instances can be configured and referenced via their 'id'.
+      | Note how the element name of the target indicates what type of factory
+      | that is created with.
+      +-->
+  <targets>
+
+    <cocoon id="main">
+      <!--+
+          | <filename> is the absolute location of the log file, note how you can
+          | use the ${context-root} variable to indicate the root of the
+          | cocoon web application (the directory that contains WEB-INF, that is)
+          +-->
+      <filename>${context-root}/WEB-INF/logs/cocoon.log</filename>
+
+      <!--+
+          | <format> indicates how the log event should be serialized.
+          | Note that newlines are *not* automatic: you have to specify the
+          | newline as '\n' or everything will appear on a single line!
+          |
+          | The first format below is verbose: it includes error stacktraces.
+          | If you want something even more verbose use %{throwable} which will
+          | show a full chain of exceptions. Using the second format won't
+          | output stacktraces at all.
+          |
+          | Please mind that the default format logs request uri along with
+          | query string. This may log confidential data (passwords etc.).
+          +-->
+      <format type="cocoon">%5.5{priority} %{time} [%{category}] (%{uri}%{query}) %{thread}/%{class:short}: %{message}\n%{rootThrowable}</format>
+      <!--format type="cocoon">%5.5{priority} %{time} [%{category}] (%{uri}%{query}) %{thread}/%{class:short}: %{message}\n%</format-->
+
+      <!--+
+          | <append> if set to 'true' will make cocoon append the events
+          | to the existing file, if set to 'false' cocoon will override
+          | the existing ones at every new start.
+          +-->
+      <append>false</append>
+
+      <!--+
+          | <rotation> allows you to rotate log files one they meet certain
+          | criteria. If you uncomment the example below, the log files will
+          | be rotated once they are a day old or bigger than 100 Mb.
+      <rotation type="unique" pattern="yyyyMMdd" suffix=".log">
+        <or>
+          <size>100m</size>
+          <time>24:00:00</time>
+        </or>
+      </rotation>
+          +-->
+    </cocoon>
+
+    <cocoon id="deprecation">
+      <filename>${context-root}/WEB-INF/logs/deprecation.log</filename>
+      <format type="cocoon">%5.5{priority} %{time} [%{category}] (%{uri}%{query}) %{thread}/%{class:short}: %{message}\n</format>
+      <append>false</append>
+    </cocoon>
+
+    <servlet id="servlet">
+      <format type="extended">%5.5{priority} %5.5{time} [%8.8{category}] (%{context}): %{message}\n</format>
+    </servlet>
+
+    <stream id="console">
+      <stream>System.out</stream>
+      <format type="extended">%5.5{priority} %5.5{time} [%8.8{category}] (%{context}): %{message}\n</format>
+    </stream>
+  </targets>
+
+  <!--+
+      | Categories 'route' log events to particular targets, filtering
+      | on importance level (one of DEBUG, INFO, WARN, ERROR, FATAL_ERROR, 
+      | ordered from most verbose to least verbose) and on the 'category'
+      | used by the producer of the log event to further classify it.
+      | Some of these log categories are hardwired in the code and some
+      | others are user-selectable, for example for sitemap components
+      | where you can specify the category in their sitemap declaration.
+      |
+      | Category names can be dot-separated (example, 'sitemap.generator.file')
+      | and the variuos pieces are treated as 'sub-categories'. By nesting
+      | the <category> element you achieve sub-category filtering and you can
+      | even have different log level filtering per category and subcategory. 
+      | (See the comments below for an example of this)
+      |
+      | NOTE: not all subcategories are defined in this file. Not defined
+      | subcategories will be created automatically and they will inherit 
+      | the settings of the parent subcategory. When defining a subcategory 
+      | manually, it is required that you specify the log target, because 
+      | they are not inherited in this case.
+      +-->
+  <categories>
+
+    <!--+
+        | This is the main category. The empty name attribute indicates that
+        | this rule will match all log events from all categories.
+        +-->
+    <category log-level="INFO" name="">
+      <log-target id-ref="main"/>
+    </category>
+
+    <!--+
+        | This is the deprecation category. If this category is set to WARN
+        | the log will contain messages about deprecated stuff used by
+        | your application.
+        +-->
+    <category log-level="WARN" name="deprecation">
+      <log-target id-ref="deprecation"/>
+    </category>
+
+    <!--+
+        | This is a little more elaborate example, where some of the logs are 
+        | sent to the log file and some others (the ones related to the sitemap), 
+        | are sent to the servlet container (where they could be further relayed 
+        | to the console, for example)
+        |
+    <category log-level="ERROR" name="">
+      <category log-level="DEBUG" name="sitemap">
+        <log-target id-ref="servlet"/>
+      </category>
+      <category log-level="INFO" name="access">
+        <log-target id-ref="console"/>
+      </category>
+      <log-target id-ref="core"/>
+    </category>
+        +-->
+
+  </categories>
+
+</logkit>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="../schema/properties/properties.rng" type="xml"?>
+<properties xmlns="http://www.cch.kcl.ac.uk/xmod/properties/1.0">
+  <!-- Project title, prefixed to the HTML title of each page. -->
+  <property name="title" value="" />
+
+  <!-- HTML metadata information, not overrideable. -->
+  <property name="metadata-copyright" value="" />
+  <property name="metadata-author" value="" />
+  <property name="metadata-description" value="" />
+  <property name="metadata-keywords" value="" />
+
+  <!-- Information about who last updated the webapp and/or who to
+       contact if the website isn't right. -->
+  <!-- For example, 'Problems with this web page? Contact: email' -->
+  <property name="footer-resp-message" value="" />
+
+  <!-- The following properties relate to the deployment of the webapp
+       and associated resources. -->
+
+  <!-- Specify a context path if you are mounting the webapp in a
+       subdirectory rather than at the root of the domain. This path
+       (if present) must begin with a "/" and not include a trailing
+       slash. -->
+  <property name="context-path" value="" />
+  <!-- Base absolute URL (including protocol and domain, e.g.
+       http://assets.example.com/) of the assets (JavaScript and
+       CSS). Only specify a value when the assets are not being served
+       by Cocoon.
+       
+       If the assets are being served by Cocoon, they will be served
+       from the path "_a", relative to the context-path specified
+       above. -->
+  <property name="assets-path" value="" />
+  <!-- Base absolute URL (including protocol and domain, e.g.
+       http://images.example.com/) of the images. Only specify a value
+       when the images are not being served by Cocoon.
+       
+       If the images are being served by Cocoon, they will be served
+       from the path "images", relative to the context-path specified
+       above. -->
+  <property name="images-path" value="" />
+</properties>

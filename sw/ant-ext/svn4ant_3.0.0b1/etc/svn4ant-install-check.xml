@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+   |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+   | Do-nothing project that ensures Ant can locate and load JWare/Svn4Ant. |
+   | Expects to be run from <SVN4ANT_HOME>/etc directory.                   |
+   |                                                                        |
+   | (c) 2007-2010 Sandbox Software MC. All rights reserved.                |
+   |________________________________________________________________________|
+   -->
+
+<project name="first-install" basedir="." default="check-client"
+         xmlns:oja="jwaresoftware.antxtras" 
+         xmlns:svn="jwaresoftware.svn4ant.client">
+
+  <description>Verify a '_withdeps' Svn4Ant installation</description>
+
+  <!-- Locate Svn4Ant distribution .jar files per type of load -->
+  <dirname property="root.d" file="${basedir}"/>
+  <path id="jware.path">
+    <fileset dir="${root.d}/dep">
+      <include name="*/lib/*.jar"/>
+    </fileset>
+    <fileset dir="${root.d}/lib">
+      <include name="jw-svn4ant.jar"/>
+    </fileset>
+  </path>
+
+
+  <!-- 
+    || 1. Loading client Svn4Ant antlib into the 'svn' Ant namespace
+    -->
+  <target name="check-client" unless="INITED"
+    description="Checks can load client antlib into 'svn' namespace">
+
+    <taskdef uri="jwaresoftware.svn4ant.client"
+       resource="org/jwaresoftware/svn4ant/client/antlib.xml"
+       classpathref="jware.path"/>
+
+    <svn:libcheck/>
+    <echo message=" SVNKit: ${svnkit.label}"/>
+    <echo message="Svn4Ant: ${svn4ant.label}"/>
+
+    <property name="INITED" value="yes"/>
+  </target>
+
+
+  <!-- 
+    || 2. Loading client Svn4Ant antlib into the 'svn' Ant namespace
+    ||    and AntXtras into the 'oja' namespace.
+    -->
+  <target name="check-antxtras" unless="INITED"
+    description="Checks can load AntXtras and Svn4Ant antlibs">
+
+    <taskdef uri="jwaresoftware.antxtras"
+         resource="org/jwaresoftware/antxtras/install/antlib.xml"
+         classpathref="jware.path"
+         loaderref="jware.classloader"/>
+
+    <taskdef uri="jwaresoftware.svn4ant.client"
+         resource="org/jwaresoftware/svn4ant/install/antlib.xml"
+         loaderref="jware.classloader"/>
+
+    <oja:vendorinfo name="antxtras"/>
+    <echo message="AntXtras: ${antxtras.build.label}"/>
+
+    <svn:libcheck/>
+    <echo message=" SVNKit: ${svnkit.label}"/>
+    <echo message="Svn4Ant: ${svn4ant.label}"/>
+
+    <property name="INITED" value="yes"/>
+  </target>
+
+</project>
+
+<!-- $Id: svn4ant-install-check.xml 1089 2010-04-18 15:50:13Z ssmc $ -->
