@@ -1,0 +1,30 @@
+OVERRIDE	YES
+
+
+        -- Oasis entity catalog for Extensible HTML 1.0 --
+
+PUBLIC  "-//W3C//DTD XHTML 1.0 Strict//EN"        "xhtml1-strict.dtd"
+PUBLIC  "-//W3C//DTD XHTML 1.0 Transitional//EN"  "xhtml1-transitional.dtd"
+PUBLIC  "-//W3C//DTD XHTML 1.0 Frameset//EN"      "xhtml1-frameset.dtd"
+
+        -- ISO latin 1 entity set for Extensible HTML (XML 1.0 format) --
+
+PUBLIC	"-//W3C//ENTITIES Latin 1 for XHTML//EN"  "xhtml-lat1.ent"
+PUBLIC	"-//W3C//ENTITIES Symbols for XHTML//EN"  "xhtml-symbol.ent"
+PUBLIC	"-//W3C//ENTITIES Special for XHTML//EN"  "xhtml-special.ent"
+
+SGMLDECL "xhtml1.dcl"
+
+
+        -- Oasis entity catalog for Extensible HTML 1.1 --
+
+PUBLIC "-//W3C//DTD XHTML 1.1//EN"                "xhtml11-flat.dtd"
+
+
+        -- Oasis entity catalog for Scalable Vector Graphics  --
+
+PUBLIC "-//W3C//DTD SVG 20000303 Stylable//EN" "svg-20000303-stylable.dtd"
+PUBLIC "-//W3C//DTD SVG 20000303 Shared//EN"   "svg-20000303-shared.dtd"
+PUBLIC "-//W3C//DTD SVG 20000303 Exchange//EN" "svg-20000303-exchange.dtd"
+
+PUBLIC "-//W3C//DTD SVG 1.0//EN"               "svg10.dtd"

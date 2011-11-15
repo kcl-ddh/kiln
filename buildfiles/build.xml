@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="../" default="runserver" name="xmod">
+  <import file="init-build.xml" />
+  <import file="webapp-build.xml" />
+  <import file="static-build.xml" />
+  <import file="solr-build.xml" />
+  <import file="jetty-build.xml" />
+</project>

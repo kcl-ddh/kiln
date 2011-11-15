@@ -1,0 +1,95 @@
+                         JWare/AntXtras Svn4Ant
+                    Version 3.0.0b1, Release Apr 2010
+                   -----------------------------------
+
+                            
+This document contains the major Svn4Ant version change notes. For the most
+recent information, visit the website at http://antxtras.sourceforge.net.
+
+------------------------------------------------------------------------------
+This version of Svn4Ant represents the migration from a codebase based
+on Ant 1.7 and SVNKit 1.1.x to one based on Ant 1.8 and SVNKit 1.3.x. 
+Older versions of Svn4Ant are NOT compatible with Ant 1.8 nor SVNKit 1.3, 
+so you must use this version if you intend to use either Ant 1.8 or 
+SVNKit 1.3.x. 
+
+We have been able to maintain the majority of the Svn4Ant v1 and v2 
+options as-is so your scripts should function as expected mostly; however,
+SVNKit 1.3 has some significant internal changes from the 1.1 version
+and there are some discontinued options or new nuances to existing
+ones (like 'recurse' is a now a shortcut for the new, more general  'depth'
+option). Incompatible changes are noted below with a [INCOMPAT] prefix.
+
+
+CHANGES IN 3.0.0b1:
+-------------------
+
+=> [KNOWN-ISSUE] The admin components have not been fully migrated in  
+   this initial v3 beta. [FS#142]
+
+
+=> [INCOMPAT] The default antlibs are now the namespace dependent ones.
+   For the older-style antlib (where the 'svn' or 'svnadmin' is included 
+   as part of the component's name instead of in a namespace you define), 
+   use the 'antlib-nons.xml' antlib files. [FS#246]
+
+   EXAMPLE: Load client antlib into the 'jwaresoftware.svn4ant.client'
+   namespace:
+
+        <taskdef uri="jwaresoftware.svn4ant.client"
+            resource="org/jwaresoftware/svn4ant/client/antlib.xml"
+            classpathref="svn4ant.classpath"/>
+
+
+=> [INCOMPAT] The Svn4Ant install antlibs no longer include the AntXtras
+   install antlib automatically. You need to include the AntXtras 
+   install antlib separately-- this is needed to ensure you can load
+   each antlib into its own namespace ('svn' vs 'oja'). [FS#247]
+   
+   Additionally, the Svn4Ant install antlibs expect the AntXtras namespace
+   to be linked to the uri 'jwaresoftware.antxtras' in order to load
+   the Svn4Ant function shortcuts properly.
+
+   EXAMPLE: Load the AntXtras antlib into the 'jwaresoftware.antxtras'
+   namespace and the client antlib into 'jwaresoftware.svn4ant.client' 
+   namespace. 
+
+        <taskdef uri="jwaresoftware.antxtras"
+            resource="org/jwaresoftware/antxtras/install/antlib.xml"
+            classpathref="jware.classpath"
+            loaderref="jware.classloader"/>
+
+        <taskdef uri="jwaresoftware.svn4ant.client"
+            resource="org/jwaresoftware/svn4ant/install/antlib.xml"
+            loaderref="jware.classloader"/>
+
+
+=> Svn4Ant now recognizes working copies created by newer Subversion
+   1.5 and 1.6. As with Svn4Ant v1 and v2, Svn4Ant v3 will automatically
+   upgrade working copies to the newest format UNLESS YOU TELL IT NOT
+   TO USING THE TWO SYSTEM PROPERTIES SHOWN BELOW. You can pick "groups"
+   of accepted formats using the "pre-svn15" and "pre-svn16" values for
+   the accepted formats. [FS#142]
+
+   EXAMPLE: Tell Svn4Ant to manage working copies created by Subversion
+   1.3 or 1.4-- without forcing upgrades to the newest 1.6 format. Note
+   that if you CREATE a working copy it will be in the newest format
+   allowed by your instructions; in this case the 1.4 format.
+
+        -Djware.antxtras.defaults.svn4ant.wc.upgradepolicy='keep'
+        -Djware.antxtras.defaults.svn4ant.wc.acceptedformat='pre-svn15'
+
+ 
+=> [INCOMPAT] The 'ignoreexternals' option is no longer supported for the
+   <svn:update> task.
+
+
+=> [INCOMPAT] The <svn:delete> operation now deletes items (including
+   directories) that are not under Subversion control even if the force
+   option is set to "false". In v2 you had to explicitly turn the force
+   flag "true" to have <svn:delete> affect unversioned objects. So if 
+   a local-only item exists, <svn:delete> will remove it unconditionally
+   unless you specify the 'removefiles=no' option.
+
+
+-SSMC

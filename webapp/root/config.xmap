@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<map:sitemap xmlns:map="http://apache.org/cocoon/sitemap/1.0">
+
+  <!--
+    
+    Project configuration sitemap.
+    
+    This sitemap defines default components and global variables for
+    this project, where those differ from the xMod configuration in
+    xmod/sitemap.xmap.
+    
+    The main project-specific sitemap, main.xmap, is mounted from
+    here; it is in that sitemap that the actual pipelines should be
+    defined.
+
+  -->
+
+  <map:components />
+
+  <map:pipelines>
+    <map:component-configurations>
+      <global-variables>
+        <eats-server>http://localhost:8000/</eats-server>
+        <solr-server>http://localhost:9999/solr/</solr-server>
+      </global-variables>
+    </map:component-configurations>
+
+    <!-- Mount sub-sitemaps. -->
+    <map:pipeline>
+      <!-- Main project-specific sitemap, matching on the remaining URL space.. -->
+      <map:match pattern="**">
+        <map:mount check-reload="yes" src="sitemap/xmod/" uri-prefix="" />
+      </map:match>
+    </map:pipeline>
+  </map:pipelines>
+</map:sitemap>

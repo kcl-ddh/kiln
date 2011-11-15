@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context crossContext="true" debug="0"
+    docBase="/home/jvieira/kiln/xmod/webapp/solr/apache-solr.war">
+  <Environment name="solr/home" override="true"
+    type="java.lang.String" value="/home/jvieira/kiln/xmod/webapp/solr" />
+</Context>

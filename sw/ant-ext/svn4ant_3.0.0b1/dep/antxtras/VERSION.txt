@@ -1,0 +1,9 @@
+#-----------------------------------------------------------------------
+# Summary distribution information.
+#
+# Copyright (c) 2002-2010 Sandbox Software MC. All Rights Reserved.
+#-----------------------------------------------------------------------
+Release: JWare AntXtras/Foundation 3.0.0b1, Apr-18-2010
+Build Id: 3.0.0b1-build1083.45
+Build Time: 20100418T123836-0400
+Builder: ssmc

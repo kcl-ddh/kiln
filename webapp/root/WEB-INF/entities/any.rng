@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!--
+A RELAX NG schema that matches the (ANY) content type. Useful for prototyping,
+where you don't (yet) care what an element contains. Include it in another RNG
+schema with this line:
+
+<include href="any.rng"/>
+
+Taken from an email to XML-DEV by John Cowan, Subject "Re: [xml-dev] Quick
+RelaxNG question"
+
+$Revision: 1.1 $ $Date: 2003/03/09 00:10:45 $
+-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <start>
+    <element>
+      <anyName/>
+      <ref name="ANY"/>
+    </element>
+  </start>
+  <define name="ANY">
+    <interleave>
+      <zeroOrMore>
+        <attribute>
+          <anyName/>
+          <text/>
+        </attribute>
+      </zeroOrMore>
+      <zeroOrMore>
+        <element>
+          <anyName/>
+          <ref name="ANY"/>
+        </element>
+      </zeroOrMore>
+      <text/>
+    </interleave>
+  </define>
+</grammar>

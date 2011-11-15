@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<!--
+<!DOCTYPE catalog PUBLIC "-//OASIS//DTD XML Catalogs V1.0//EN"
+  "http://www.oasis-open.org/committees/entity/release/1.0/catalog.dtd">
+-->
+<!-- OASIS XML Catalog for Cocoon -->
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+
+<!-- FIXME: This xmlcatalog is still under development. See FIXME notes below.
+  The authoratitive catalog is the plain-text (TR 9401) version
+  at ./catalog
+-->
+
+<!-- FIXME: how to override
+OVERRIDE YES
+-->
+
+<!-- ISO public identifiers for sets of character entities -->
+<public publicId="ISO 8879-1986//ENTITIES Added Latin 1//EN//XML"
+        uri="ISOlat1.pen"/>
+<public publicId="ISO 8879:1986//ENTITIES Added Latin 1//EN//XML"
+        uri="ISOlat1.pen"/>
+<public publicId="ISO 9573-15:1993//ENTITIES Greek Letters//EN//XML"
+        uri="ISOgrk1.pen"/>
+<public publicId="ISO 8879:1986//ENTITIES Publishing//EN//XML"
+        uri="ISOpub.pen"/>
+<public publicId="ISO 8879:1986//ENTITIES General Technical//EN//XML"
+        uri="ISOtech.pen"/>
+<public publicId="ISO 8879:1986//ENTITIES Numeric and Special Graphic//EN//XML"
+        uri="ISOnum.pen"/>
+
+<!-- W3C Document Type Definitions -->
+<!-- FIXME: how to link to other catalogs
+CATALOG "w3c/catalog"
+-->
+
+<!-- Document Type Definitions -->
+<public publicId="-//APACHE//DTD Documentation V1.0//EN"
+        uri="document-v10.dtd"/>
+<public publicId="-//APACHE//DTD Documentation V1.1//EN"
+        uri="document-v11.dtd"/>
+<public publicId="-//APACHE//DTD Documentation V1.2//EN"
+        uri="document-v12.dtd"/>
+<public publicId="-//APACHE//DTD Changes V1.0//EN"
+        uri="changes-v10.dtd"/>
+<public publicId="-//APACHE//DTD FAQ V1.0//EN"
+        uri="faq-v10.dtd"/>
+<public publicId="-//APACHE//DTD JavaDoc V1.0//EN"
+        uri="javadoc-v04draft.dtd"/>
+<public publicId="-//APACHE//DTD Specification V1.0//EN"
+        uri="specification-v10.dtd"/>
+<public publicId="-//APACHE//DTD Todo V1.0//EN"
+        uri="todo-v10.dtd"/>
+<public publicId="-//APACHE//DTD Cocoon Documentation Book V1.0//EN"
+        uri="book-cocoon-v10.dtd"/>
+
+<!-- these entries are used for the catalog-demo sample application -->
+<!-- FIXME: how to override
+OVERRIDE NO
+-->
+<public publicId="-//Arbortext//TEXT Test Override//EN"
+        uri="catalog-demo/override.txt"/>
+<!-- FIXME: how to override
+OVERRIDE YES
+-->
+<public publicId="-//Arbortext//TEXT Test Public Identifier//EN"
+        uri="catalog-demo/testpub.txt"/>
+<system systemId="urn:x-arbortext:test-system-identifier"
+        uri="catalog-demo/testsys.txt"/>
+<public publicId="-//Indexgeo//DTD Catalog Demo v1.0//EN"
+        uri="catalog-demo/catalog-demo-v10.dtd"/>
+<!-- end of entries for the catalog-demo sample application -->
+</catalog>

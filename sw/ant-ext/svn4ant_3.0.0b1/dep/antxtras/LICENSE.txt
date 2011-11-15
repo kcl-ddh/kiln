@@ -1,0 +1,35 @@
+JWare AntXtras/Foundation 3.0.0b1, Apr-18-2010
+                            
+-------------------------------------------------------------------------------
+LICENSE
+
+Copyright (c) 2002-2010 Sandbox Software MC. All Rights Reserved.
+
+JWare/AntXtras is written by Sandbox Software MC (SSMC) for release into the
+public domain. This software, source form and binary form, is free software;
+you can redistribute it and/or modify it under the terms of the GNU Lesser
+General Public License version 2.1 as published by the Free Software
+Foundation.
+
+This software is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE. See the GNU LGPL (GNU Lesser General Public License)
+for more details.
+
+You should have received a copy of the GNU Lesser General Public License along
+with this library (LICENSE-LGPL.txt); if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA, or
+visit their website at http://www.gnu.org/.
+
+-------------------------------------------------------------------------------
+This product has been influenced by several projects within the free software
+and open source communities.
+
+o For more information on open source software visit the Open Source
+  Initiative's (OSI) website at: http://www.opensource.org/docs/definition.php
+
+o For more information on free software visit the Free Software
+  Foundation's (FSF) website at: http://www.fsf.org/philosophy/free-sw.html
+
+o For included thirdparty libraries, read their accompanying license(s)
+  before using them in other products.

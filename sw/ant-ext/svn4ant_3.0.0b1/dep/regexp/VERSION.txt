@@ -1,0 +1,2 @@
+1.5
+http://archive.apache.org/dist/jakarta/regexp/jakarta-regexp-1.5.tar.gz

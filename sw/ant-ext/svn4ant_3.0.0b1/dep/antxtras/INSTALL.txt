@@ -1,0 +1,58 @@
+                        JWare/AntXtras Foundation
+                    Version 3.0.0b1, Release Apr 2010
+                   -----------------------------------
+
+
+This document contains product installation instructions and any important 
+last-minute changes to the distributed documentation set. For the most
+up-to-date information, please visit the JWare/AntXtras website at 
+http://antxtras.sourceforge.net/. The end "WEB RESOURCES" section contains
+additional resource links.
+
+------------------------------------------------------------------------------
+INSTALLATION
+
+1. Download and install all required Ant and dependent packages. Verify
+   that each package is properly installed. AntXtras 3.x requires Ant
+   version 1.8.x and JRE 1.5 (or later).
+
+2. Download, verify, and extract a JWare/AntXtras distribution. The new
+   user should download the binary distribution that includes a sample
+   Ant script that can be used to verify your installation.
+
+   * To verify the PGP signature of the downloaded archive, get the
+     JWare distribution KEYS from http://purl.net/jware/KEYS
+
+   * If you must manually generate all binaries for your environment,
+     download the source-only distribution. The included "ez-build.xml"
+     Ant build file can generate a default distribution from the source.
+     Be sure you configure the "ez-build.properties" file for your
+     environment. Read the AntXtras download web page for a list of 
+     required third-party packages for compiling AntXtras.
+
+3. Update your development and Ant run environment to include the main 
+   AntXtras jar file in your ANT classpath. The required jar is found
+   at <ANTXTRAS_HOME>/lib/jw-antxtras.jar.
+
+4. Verify AntXtras classes are accessible in your ANT runtime environment.
+   The easiest way to do this is to try loading the AntXtras antlib using
+   a simple <taskdef> declaration; for example:
+   <taskdef resource="org/jwaresoftware/antxtras/install/antlib.xml"/>
+
+5. Read the AntXtras Overview on the website for a list of the most used
+   antlib components and a set of quick-start examples.
+
+------------------------------------------------------------------------------
+WEB RESOURCES
+
+o AntXtras Get Started -
+       http://purl.net/jware/antxtras
+o AntXtras distributions -
+       http://purl.net/jware/antxtras/packages
+o AntXtras User Guide and other documents - 
+       http://purl.net/jware/antxtras/documents
+o AntXtras developer Javadocs -
+       http://purl.net/jware/apis/antxtras/
+
+
+END
