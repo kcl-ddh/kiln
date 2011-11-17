@@ -41,14 +41,14 @@
           <map:generate src="cocoon:/guidelines/{1}.xml"/>
           <!-- Add Schematron "see" attributes referencing the section
                of the encoding guidelines the rule is found in. -->
-          <map:transform src="../../stylesheets/xmod/odd/annotate-schematron.xsl"/>
+          <map:transform src="../stylesheets/odd/annotate-schematron.xsl"/>
         </map:match>
         <!-- Create a Schematron schema file from the schema
              definition part of the project's TEI ODD. -->
         <map:match pattern="schematron/*/tei-schema.xml">
           <map:generate src="cocoon:/schema/{1}.xml"/>
         </map:match>
-        <map:transform src="../../stylesheets/xmod/odd/extract-schematron.xsl"/>
+        <map:transform src="../stylesheets/odd/extract-schematron.xsl"/>
         <map:serialize type="xml"/>
       </map:match>
     </map:pipeline>
@@ -58,13 +58,13 @@
     <map:pipeline id="xmod-odd-guidelines">
       <map:match pattern="guidelines/*.xml">
         <map:generate src="schema/tei/{1}.xml"/>
-        <map:transform src="../../stylesheets/xmod/odd/extract-encoding-guidelines.xsl"/>
+        <map:transform src="../stylesheets/odd/extract-encoding-guidelines.xsl"/>
         <map:serialize type="xml"/>
       </map:match>
 
       <map:match pattern="guidelines/*.html">
         <map:generate src="cocoon:/guidelines/*.xml"/>
-        <map:transform src="../../stylesheets/xmod/odd/encoding-guidelines-to-html.xsl"/>
+        <map:transform src="../stylesheets/odd/encoding-guidelines-to-html.xsl"/>
         <map:serialize type="xml"/>
       </map:match>
     </map:pipeline>
@@ -74,7 +74,7 @@
     <map:pipeline id="xmod-odd-schema">
       <map:match pattern="schema/*.xml">
         <map:generate src="schema/tei/{1}.xml"/>
-        <map:transform src="../../stylesheets/xmod/odd/extract-schema.xsl"/>
+        <map:transform src="../stylesheets/odd/extract-schema.xsl"/>
         <map:serialize type="xml"/>
       </map:match>
     </map:pipeline>
