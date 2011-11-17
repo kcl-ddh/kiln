@@ -30,9 +30,9 @@
            applied to an XML file. -->
       <map:match pattern="*/*/*.xsl">
 	<map:generate src="cocoon:/schema/{1}.sch"/>
-	<map:transform src="../../stylesheets/xmod/schematron/iso_dsdl_include.xsl"/>
-	<map:transform src="../../stylesheets/xmod/schematron/iso_abstract_expand.xsl"/>
-	<map:transform src="../../stylesheets/xmod/schematron/{3}.xsl">
+	<map:transform src="../stylesheets/schematron/iso_dsdl_include.xsl"/>
+	<map:transform src="../stylesheets/schematron/iso_abstract_expand.xsl"/>
+	<map:transform src="../stylesheets/schematron/{3}.xsl">
 	  <map:parameter name="phase" value="{2}"/>
 	  <map:parameter name="allow-foreign" value="true"/>
 	</map:transform>

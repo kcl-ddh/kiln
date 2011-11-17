@@ -82,7 +82,7 @@
           <map:part src="cocoon://_internal/metadata/files.xml" />
           <map:part src="xml/content/{1}.xml" label="tei" />
         </map:aggregate>
-        <map:transform src="stylesheets/local/default.xsl">
+        <map:transform src="../stylesheets/default.xsl">
           <map:parameter name="filedir" value="." />
           <map:parameter name="filename" value="{1}.xml" />
           <map:parameter name="fileextension" value="html" />
@@ -96,7 +96,7 @@
           <map:part src="cocoon://_internal/metadata/files.xml" />
           <map:part src="xml/content/doc/{1}.xml" label="tei" />
         </map:aggregate>
-        <map:transform src="stylesheets/local/doc.xsl">
+        <map:transform src="../stylesheets/doc.xsl">
           <map:parameter name="filedir" value="{1}" />
           <map:parameter name="filename" value="{2}.xml" />
           <map:parameter name="fileextension" value="html" />
@@ -110,7 +110,7 @@
           <map:part src="cocoon://_internal/metadata/files.xml" />
           <map:part src="xml/content/{1}/{2}.xml" label="tei" />
         </map:aggregate>
-        <map:transform src="stylesheets/local/default.xsl">
+        <map:transform src="../stylesheets/default.xsl">
           <map:parameter name="filedir" value="{1}" />
           <map:parameter name="filename" value="{2}.xml" />
           <map:parameter name="fileextension" value="html" />
