@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project basedir="../" default="runserver" name="xmod">
+<project basedir="../" default="runserver" name="kiln">
   <import file="init-build.xml" />
   <import file="webapp-build.xml" />
   <import file="static-build.xml" />
