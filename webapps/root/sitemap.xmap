@@ -609,10 +609,6 @@
       <map:match pattern="mount-table.xml" type="mount-table">
         <map:mount src="{src}" uri-prefix="{uri-prefix}"/>
       </map:match>
-      <!-- Fall back to xMod 2.0 behaviour. -->
-      <map:match pattern="**">
-        <map:mount check-reload="yes" src="conf-sitemap.xmap" uri-prefix=""/>
-      </map:match>
       
       <!--+
         | At the very end of a pipeline, you can catch the errors triggered
