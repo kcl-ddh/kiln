@@ -14,7 +14,7 @@
        should be imported by other project specific stylesheets, where
        the variables/templates should be overriden as needed. -->
 
-  <xsl:import href="../../xmod/views/private.xsl"/>
+  <xsl:import href="../../kiln/stylesheets/views/private.xsl"/>
   
   <xsl:param name="filedir"/>
   <xsl:param name="filename"/>

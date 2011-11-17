@@ -11,9 +11,9 @@
       <map:match pattern="xml/index.html">
         <map:generate src="xml/content" type="directory">
           <map:parameter name="depth" value="99" />
-          <map:parameter name="exclude" value="\.svn" />
+          <map:parameter name="exclude" value="\..*" />
         </map:generate>
-        <map:transform src="stylesheets/local/private/xml-dirs-to-process-list-html.xsl">
+        <map:transform src="../stylesheets/private/xml-dirs-to-process-list-html.xsl">
           <map:parameter name="initial_path" value="content/" />
         </map:transform>
         <map:serialize type="xhtml" />
@@ -30,7 +30,7 @@
           <map:parameter name="depth" value="99"/>
           <map:parameter name="exclude" value="^\..*"/>
         </map:generate>
-        <map:transform src="stylesheets/local/private/xml-dirs-to-index-list-html.xsl"/>
+        <map:transform src="../stylesheets/private/xml-dirs-to-index-list-html.xsl"/>
         <map:serialize type="xhtml"/>
       </map:match>
 
@@ -56,7 +56,7 @@
              the project's encoding guidelines. #ALL means that all
              phases specified in the schema are used. -->
         <map:generate src="cocoon://_internal/schematron/validate/#PROJECT/#ALL/{1}.xml" />
-        <map:transform src="stylesheets/local/schematron/svrl_to_html.xsl">
+        <map:transform src="../stylesheets/schematron/svrl_to_html.xsl">
           <map:parameter name="file" value="{1}.xml"/>
         </map:transform>
         <map:serialize type="xhtml" />
@@ -68,7 +68,7 @@
     <map:pipeline id="local-resource-check">
       <map:match pattern="xml/resource-check/images/**.html">
         <map:generate src="cocoon:/xml/resource-check/images/{1}.xml" />
-        <map:transform src="stylesheets/xmod/resource-check/report-to-html.xsl" />
+        <map:transform src="../kiln/stylesheets/resource-check/report-to-html.xsl" />
         <map:serialize type="xhtml" />
       </map:match>
     </map:pipeline>
@@ -83,7 +83,7 @@
           <map:part src="cocoon://private/xml/resource-check/image-refs/{1}.xml" />
           <map:part src="cocoon://private/xml/resource-check/image-files.xml" />
         </map:aggregate>
-        <map:transform src="stylesheets/xmod/resource-check/check-missing-resources.xsl" />
+        <map:transform src="../kiln/stylesheets/resource-check/check-missing-resources.xsl" />
         <map:serialize type="xml" />
       </map:match>
 
@@ -94,7 +94,7 @@
            thumbnails) of each image. -->
       <map:match pattern="xml/resource-check/image-refs/content/**.xml">
         <map:generate src="cocoon://_internal/metadata/images/{1}.xml" />
-        <map:transform src="stylesheets/local/private/expand-image-refs.xsl" />
+        <map:transform src="../stylesheets/private/expand-image-refs.xsl" />
         <map:serialize type="xml" />
       </map:match>
 
@@ -102,9 +102,9 @@
       <map:match pattern="xml/resource-check/image-files.xml">
         <map:generate src="images" type="imagedirectory">
           <map:parameter name="depth" value="99" />
-          <map:parameter name="exclude" value="\.svn" />
+          <map:parameter name="exclude" value="\..*" />
         </map:generate>
-        <map:transform src="stylesheets/xmod/resource-check/flatten-dir-list.xsl" />
+        <map:transform src="../kiln/stylesheets/resource-check/flatten-dir-list.xsl" />
         <map:serialize type="xml" />
       </map:match>
     </map:pipeline>
