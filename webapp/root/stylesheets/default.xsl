@@ -19,8 +19,8 @@
       needed. Project-wide changes should be made here.
   -->
 
-  <xsl:import href="../xmod/views/screen.xsl" />
-  <xsl:import href="../xmod/tei/p5.xsl" />
+  <xsl:import href="../kiln/stylesheets/views/screen.xsl" />
+  <xsl:import href="../kiln/stylesheets/tei/p5.xsl" />
   
   <xsl:param name="filedir" />
   <xsl:param name="filename" />
