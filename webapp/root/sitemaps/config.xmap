@@ -28,9 +28,11 @@
 
     <!-- Mount sub-sitemaps. -->
     <map:pipeline>
-      <!-- Main project-specific sitemap, matching on the remaining URL space.. -->
+      <!-- Main project-specific sitemap, matching on the remaining
+           URL space. -->
       <map:match pattern="**">
-        <map:mount check-reload="yes" src="sitemap/xmod/" uri-prefix="" />
+        <map:mount check-reload="yes" src="../kiln/sitemaps/sitemap.xmap"
+                   uri-prefix="" />
       </map:match>
     </map:pipeline>
   </map:pipelines>
