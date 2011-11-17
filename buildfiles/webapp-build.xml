@@ -4,7 +4,7 @@
   <description>Webapp Targets</description>
 
   <target name="webapp" depends="init, validate" description="Builds web application for distribution">
-    <copy todir="${dist.dir}/webapp">
+    <copy todir="${dist.dir}/webapps">
       <fileset dir="${webapp.dir}">
         <exclude name="**/*.log" />
         <exclude name="**/.svn" />
@@ -14,7 +14,7 @@
 
   <target name="war" depends="webapp" description="Builds web application archive">
     <war destfile="${dist.dir}/${project.name}.war" index="true">
-      <fileset dir="${dist.dir}/webapp" />
+      <fileset dir="${dist.dir}/webapps" />
     </war>
   </target>
 </project>

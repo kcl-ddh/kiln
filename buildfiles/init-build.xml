@@ -15,7 +15,7 @@
     <property location="${basedir}/dist" name="dist.dir" />
     
     <!-- Webapp directory -->
-    <property location="${basedir}/webapp/root" name="webapp.dir" />
+    <property location="${basedir}/webapps/root" name="webapp.dir" />
 
     <!-- Content directory and name -->
     <property name="source.dir.name" value="xml" />
@@ -29,7 +29,7 @@
 
   <target description="Validates all the XML files in the project" name="validate">
     <xmlvalidate failonerror="yes" lenient="yes">
-      <fileset dir="${basedir}/webapp/root">
+      <fileset dir="${basedir}/webapps/root">
         <include name="**/*.xmap" />
         <include name="**/*.xml" />
         <include name="**/*.xsl" />

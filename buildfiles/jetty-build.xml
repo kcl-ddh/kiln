@@ -38,17 +38,17 @@
       <jetty:webApp contextpath=""
                     name="kiln"
                     scanIntervalSeconds="30"
-                    warfile="${basedir}/webapp/root">
-        <jetty:scanTargets dir="${basedir}/webapp/root">
+                    warfile="${basedir}/webapps/root">
+        <jetty:scanTargets dir="${basedir}/webapps/root">
           <include name="**" />
         </jetty:scanTargets>
       </jetty:webApp>
       <jetty:webApp contextpath="solr"
-                    jettyEnvXml="${basedir}/webapp/solr/conf/jetty-env.xml"
+                    jettyEnvXml="${basedir}/webapps/solr/conf/jetty-env.xml"
                     name="solr"
                     scanIntervalSeconds="30"
-                    warfile="${basedir}/webapp/solr/apache-solr.war">
-        <jetty:scanTargets dir="${basedir}/webapp/solr">
+                    warfile="${basedir}/webapps/solr/apache-solr.war">
+        <jetty:scanTargets dir="${basedir}/webapps/solr">
           <include name="**" />
         </jetty:scanTargets>
       </jetty:webApp>
