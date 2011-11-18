@@ -1,5 +1,7 @@
-\.*
-.*~
+syntax: glob
+.*
+*~
+syntax: regexp
 ^sw/jetty/logs
 ^sw/jetty/temp
 ^webapps/solr/data
