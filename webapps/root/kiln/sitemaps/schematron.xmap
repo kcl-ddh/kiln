@@ -1,7 +1,7 @@
 <map:sitemap xmlns:map="http://apache.org/cocoon/sitemap/1.0">
-  <!-- xMod sitemap for handling Schematron validation. -->
+  <!-- kiln sitemap for handling Schematron validation. -->
   <map:pipelines>
-    <map:pipeline id="xmod-internal-schematron" internal-only="true">
+    <map:pipeline id="kiln-internal-schematron" internal-only="true">
       <!-- Validate an XML file against a Schematron scheme and return
            the result as SVRL XML.
            

@@ -1,5 +1,5 @@
 <map:sitemap xmlns:map="http://apache.org/cocoon/sitemap/1.0">
-  <!-- xMod sitemap for handling ODD manipulation: extraction of
+  <!-- kiln sitemap for handling ODD manipulation: extraction of
        Schematron rules, presentation of encoding guidelines. -->
 
   <!-- TODO: this is a bit of an incomplete mess, since I haven't had
@@ -16,7 +16,7 @@
          provided by the TEI consortium.
 
        * Encoding guidelines that are not project-specific, but rather
-         tie in with the xMod TEI-to-HTML XSLT, etc.
+         tie in with the kiln TEI-to-HTML XSLT, etc.
          
        * Schematron rules for the general encoding guidelines (and
          embedded within them).
@@ -33,7 +33,7 @@
   <map:pipelines>
     <!-- Pipeline for generating Schematron schema files from an ODD
          file. -->
-    <map:pipeline id="xmod-odd-schematron" internal-only="true">
+    <map:pipeline id="kiln-odd-schematron" internal-only="true">
       <map:match pattern="schematron/*/*.xml">
         <!-- Create a Schematron schema file from the encoding
              guidelines portion of the project's TEI ODD. -->
@@ -55,7 +55,7 @@
 
     <!-- Pipeline for extracting and presenting the encoding
          guidelines portion of an ODD file. -->
-    <map:pipeline id="xmod-odd-guidelines">
+    <map:pipeline id="kiln-odd-guidelines">
       <map:match pattern="guidelines/*.xml">
         <map:generate src="schema/tei/{1}.xml"/>
         <map:transform src="../stylesheets/odd/extract-encoding-guidelines.xsl"/>
@@ -71,7 +71,7 @@
 
     <!-- Pipeline for extracting and presenting the schema portion of
          an ODD file. -->
-    <map:pipeline id="xmod-odd-schema">
+    <map:pipeline id="kiln-odd-schema">
       <map:match pattern="schema/*.xml">
         <map:generate src="schema/tei/{1}.xml"/>
         <map:transform src="../stylesheets/odd/extract-schema.xsl"/>
