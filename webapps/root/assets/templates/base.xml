@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xmtp:root xmlns:xmtp="http://www.cch.kcl.ac.uk/xmod/template/1.0"
+           xmlns:xi="http://www.w3.org/2001/XInclude"
+           xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+  <xsl:variable name="assets-path" select="'/assets'" />
+
+  <xmtp:block name="html">
+    <!--[if IE 7 ]> <html class="no-js ie7" lang="en"> <![endif]--> 
+    <!--[if IE 8 ]> <html class="no-js ie8" lang="en"> <![endif]--> 
+    <!--[if (gte IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+      <xmtp:block name="head">
+        <head>
+          <xmtp:block name="title">
+          </xmtp:block>
+          <xmtp:block name="js">
+            <!-- jQuery from Google CDN. -->
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js">&#160;</script>
+            <!-- jQuery tools from Flowplayer CDN. -->
+            <script src="http://cdn.jquerytools.org/1.2.5/all/jquery.tools.min.js">&#160;</script>
+          </xmtp:block>
+          <xmtp:block name="css">
+            <link rel="stylesheet" type="text/css"
+                  href="{$assets-path}/styles/base.css" />
+            <link rel="stylesheet" type="text/css"
+                  href="{$assets-path}/styles/site.css" />
+          </xmtp:block>
+          <xmtp:block name="head-extra">
+            <!-- Mobile etc. devices: courtesy of 320+Up:
+                 http://stuffandnonsense.co.uk/projects/320andup/ -->
+            <!-- For Nokia. -->
+            <link rel="shortcut icon" href="{$assets-path}/images/apple-touch-icon.png" />
+            <!-- For everything else. -->
+            <link rel="shortcut icon" href="{$assets-path}/images/favicon.ico" />
+
+            <!--iOS. Delete if not required. -->
+            <meta name="apple-mobile-web-app-capable" content="yes" />
+            <meta name="apple-mobile-web-app-status-bar-style"
+                  content="black-translucent" />
+            <link rel="apple-touch-startup-image"
+                  href="{$assets-path}/images/i/splash.png" />
+
+            <!--Microsoft. Delete if not required. -->
+            <meta http-equiv="cleartype" content="on" />
+            <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=IE6" />
+            <meta name="viewport"
+                  content="width=device-width,initial-scale=1" />
+            <!-- Modernizr: this should be called AFTER CSS to avoid
+                 FOUC. -->
+            <script src="{$assets-path}/scripts/libs/modernizr-dev.js">&#160;</script>
+          </xmtp:block>
+        </head>
+      </xmtp:block>
+      <xmtp:block name="body">
+        <body>
+          <xmtp:block name="skip-navigation">
+            <div class="hidden">
+              <ul>
+                <li><a href="#contentSection">Skip to content</a></li>
+                <li><a href="#localNavigation">Skip to local navigation</a></li>
+                <li><a href="#mainNavigation">Skip to main navigation</a></li>
+              </ul>
+            </div>
+          </xmtp:block>
+          <div class="wrapper">
+            <xmtp:block name="page-header">
+              <header class="line headerSection">
+                <div class="unit size1of1 lastUnit">
+                  <h1 class="headerLogo">
+                    <xmtp:block name="page-heading">Page heading</xmtp:block>
+                  </h1>
+                </div>
+              </header>
+            </xmtp:block>
+            <xmtp:block name="main-navigation">
+              <div class="line">
+                <nav class="primary" id="mainNavigation">
+                  <ul class="inline">
+                    <li><a class="navLink first selected" href="#">Home</a></li>
+                    <li><a class="navLink" href="#">About</a></li>
+                    <li><a class="navLink" href="#">Search</a></li>
+                    <li><a class="navLink" href="#">Browse</a></li>
+                    <li><a class="navLink last" href="#">Contact</a></li>
+                  </ul>
+                </nav>
+              </div>
+            </xmtp:block>
+            <xmtp:block name="content-section">
+              <div class="line contentSection">
+                <xmtp:block name="local-navigation">
+                  <div class="unit size1of4" id="localNavigation">
+                    <p>Left column</p>
+                    <nav class="local">
+                      <ul>
+                        <li><a class="navLink first" href="#">Item one</a></li>
+                        <li><a class="navLink" href="#">Item two</a></li>
+                        <li><a class="navLink" href="#">Item three</a></li>
+                      </ul>
+                    </nav>
+                  </div>
+                </xmtp:block>
+                <xmtp:block name="content">
+                  <div class="unit size3of4 lastUnit" id="content">
+                    <p>Content column</p>
+                  </div>
+                </xmtp:block>
+              </div>
+            </xmtp:block>
+          </div>
+          <xmtp:block name="footer">
+            <footer class="line footerSection">
+              <p>This is the footer.</p>
+            </footer>
+          </xmtp:block>
+        </body>
+      </xmtp:block>
+    </html>
+  </xmtp:block>
+</xmtp:root>
