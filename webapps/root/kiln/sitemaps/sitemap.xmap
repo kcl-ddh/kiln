@@ -4,13 +4,13 @@
 
   <!--
     
-    xMod configuration sitemap.
+    kiln configuration sitemap.
     
     This sitemap defines defaults that are sensible across all
     projects, and provides pipelines for common functionality. The
     defaults can be overridden in the project-specific sitemap(s).
     
-    The top-level project-specific sitemap, config.xmap, is mounted
+    The top-level project-specific sitemap, main.xmap, is mounted
     from here.
 
   -->
@@ -56,7 +56,7 @@
     <!-- Menu pipeline. -->
     <map:pipeline id="kiln-menu" internal-only="true">
       <map:match pattern="_internal/menu/*.xml">
-        <map:generate src="../../xml/menu/{1}.xml" />
+        <map:generate src="../../assets/menu/{1}.xml" />
         <map:transform src="../stylesheets/menu/normalise-menu.xsl" />
         <map:serialize type="xml" />
       </map:match>
@@ -67,7 +67,7 @@
       <map:match pattern="_internal/allxmlcontent.xml">
         <map:generate src="../../xml/content" type="directory">
           <map:parameter name="depth" value="99" />
-          <map:parameter name="exclude" value="\.svn" />
+          <map:parameter name="exclude" value="\..*" />
         </map:generate>
         <map:serialize type="xml" />
       </map:match>
@@ -120,26 +120,26 @@
 
     <!-- Mount sub-sitemaps. -->
     <map:pipeline>
-      <!-- ODD handling (part of kiln). -->
+      <!-- ODD handling (not project specific). -->
       <map:match pattern="_internal/odd/**">
         <map:mount check-reload="yes" src="odd.xmap"
                    uri-prefix="_internal/odd/" />
       </map:match>
 
-      <!-- Schematron handling (part of kiln). -->
+      <!-- Schematron handling (not project specific). -->
       <map:match pattern="_internal/schematron/**">
         <map:mount check-reload="yes" src="schematron.xmap"
                    uri-prefix="_internal/schematron/" />
       </map:match>
 
-      <!-- Solr handling (part of kiln). -->
+      <!-- Solr handling (not project specific). -->
       <map:match pattern="_internal/solr/**">
         <map:mount check-reload="yes" src="solr.xmap"
                    uri-prefix="_internal/solr/" />
       </map:match>
 
-      <!-- Main project-specific sitemap, matching on the remaining
-           URL space. -->
+      <!-- Main project sitemap, matching on the remaining URL
+           space. -->
       <map:match pattern="**">
         <map:mount check-reload="yes" src="../../sitemaps/main.xmap"
                    uri-prefix="" />
