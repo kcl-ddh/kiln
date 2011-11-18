@@ -1,6 +1,6 @@
-<xsl:stylesheet exclude-result-prefixes="xmtp"
-                version="2.0"
+<xsl:stylesheet version="2.0"
                 xmlns:axsl="http://www.w3.org/1999/XSL/TransformAlias" 
+                xmlns:xi="http://www.w3.org/2001/XInclude"
                 xmlns:xmtp="http://www.cch.kcl.ac.uk/xmod/template/1.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
@@ -11,10 +11,11 @@
   <xsl:namespace-alias stylesheet-prefix="axsl" result-prefix="xsl"/>
 
   <xsl:template match="/">
-    <axsl:stylesheet version="2.0"
+    <axsl:stylesheet exclude-result-prefixes="#all" version="2.0"
                      xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
       <xsl:copy-of select="//xsl:import"/>
       <xsl:copy-of select="//xsl:include"/>
+      <xsl:copy-of select="//xsl:variable"/>
       <axsl:template match="/">
         <xsl:apply-templates/>
       </axsl:template>
@@ -71,6 +72,7 @@
   </xsl:template>
   <xsl:template match="xsl:import"/>
   <xsl:template match="xsl:include"/>
+  <xsl:template match="xsl:variable"/>
   <xsl:template match="@*|node()">
     <xsl:copy>
       <xsl:apply-templates select="@*|node()"/>
