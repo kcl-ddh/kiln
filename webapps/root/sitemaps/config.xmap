@@ -7,13 +7,8 @@
     Project configuration sitemap.
     
     This sitemap defines default components and global variables for
-    this project, where those differ from the xMod configuration in
-    xmod/sitemap.xmap.
+    this project.
     
-    The main project-specific sitemap, main.xmap, is mounted from
-    here; it is in that sitemap that the actual pipelines should be
-    defined.
-
   -->
 
   <map:components />
@@ -28,8 +23,8 @@
 
     <!-- Mount sub-sitemaps. -->
     <map:pipeline>
-      <!-- Main project-specific sitemap, matching on the remaining
-           URL space. -->
+      <!-- Mount the main kiln sitemap, which in turn mounts the main
+           project sitemap, main.xmap. -->
       <map:match pattern="**">
         <map:mount check-reload="yes" src="../kiln/sitemaps/sitemap.xmap"
                    uri-prefix="" />
