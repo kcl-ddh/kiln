@@ -21,14 +21,20 @@
         src="uk.ac.kcl.cch.xmod.cocoon.transformation.SolrTransformer" />
     </map:transformers>
 
-    <map:serializers>
-      <map:serializer logger="sitemap.serializer.xhtml" mime-type="text/html; charset=utf-8" name="xhtml"
-        pool-max="${xhtml-serializer.pool-max}" src="org.apache.cocoon.serialization.XMLSerializer">
-        <doctype-public>-//W3C//DTD XHTML 1.0 Strict//EN</doctype-public>
-        <doctype-system>http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd</doctype-system>
+    <map:serializers default="html5">
+      <map:serializer logger="sitemap.serializer.html" name="html5"
+                      mime-type="text/html; charset=utf-8"
+                      src="org.apache.cocoon.serialization.HTMLSerializer">
+        <doctype-system>about:legacy-compat</doctype-system>
+        <encoding>UTF-8</encoding>
+      </map:serializer>
+
+      <map:serializer logger="sitemap.serializer.xhtml" name="xhtml5"
+                      mime-type="application/xhtml+xml; charset=utf-8"
+                      pool-max="${xhtml-serializer.pool-max}"
+                      src="org.apache.cocoon.serialization.XMLSerializer">
         <encoding>UTF-8</encoding>
         <indent>yes</indent>
-        <omit-xml-declaration>yes</omit-xml-declaration>
       </map:serializer>
     </map:serializers>
   </map:components>
