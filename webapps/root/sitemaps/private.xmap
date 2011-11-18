@@ -39,6 +39,32 @@
         <map:generate src="cocoon://_internal/solr/index/{1}/{2}.xml" />
         <map:serialize type="xml" />
       </map:match>
+
+      <!-- Preprocessing of material before indexing. -->
+
+      <!-- TEI preprocessed for use with EATS data. -->
+      <map:match pattern="solr/preprocess/tei-eats/**.xml">
+        <map:generate src="../media/xml/{1}.xml" />
+        <map:serialize type="xml" />
+      </map:match>
+
+      <!-- EATSML, all entities. -->
+      <map:match pattern="solr/preprocess/eatsml/entities.xml">
+        <map:generate src="cocoon://_internal/eats/entities.xml" />
+        <map:serialize type="xml" />
+      </map:match>
+
+      <!-- EATSML, entities associated with a single authority. -->
+      <map:match pattern="solr/preprocess/eatsml/*/entities.xml">
+        <map:generate src="cocoon://_internal/eats/{1}/entities.xml" />
+        <map:serialize type="xml" />
+      </map:match>
+
+      <!-- The general case of preprocessing some type of TEI. -->
+      <map:match pattern="solr/preprocess/*/**.xml">
+        <map:generate src="../media/xml/{2}.xml" />
+        <map:serialize type="xml" />
+      </map:match>
     </map:pipeline>
 
     <map:pipeline id="local-schematron">
