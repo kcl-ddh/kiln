@@ -191,7 +191,7 @@
       <!-- Transform an XML template into an XSLT, handling template
            inheritance. -->
       <map:match pattern="_internal/template/**.xsl">
-        <map:generate src="../../xml/template/{1}.xml" />
+        <map:generate src="../../assets/templates/{1}.xml" />
         <map:transform type="xinclude" />
         <map:transform src="../stylesheets/template/inherit-template.xsl" />
         <map:serialize type="xml" />
