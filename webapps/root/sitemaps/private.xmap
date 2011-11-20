@@ -134,5 +134,15 @@
         <map:serialize type="xml" />
       </map:match>
     </map:pipeline>
+
+    <!-- Pipeline for testing. -->
+    <map:pipeline id="local-testing">
+      <!-- Test a template against an empty document. -->
+      <map:match pattern="test/template/**.html">
+        <map:generate src="empty:index" />
+        <map:transform src="cocoon://_internal/template/{1}.xsl" />
+        <map:serialize />
+      </map:match>
+    </map:pipeline>
   </map:pipelines>
 </map:sitemap>
