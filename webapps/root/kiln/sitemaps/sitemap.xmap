@@ -108,6 +108,12 @@
 
     <!-- Templating. -->
     <map:pipeline id="kiln-templating" internal-only="true">
+      <!-- To read XSLTs referenced from the template files -->
+      <map:match pattern="_internal/template/xsl/**.xsl">
+        <map:generate src="../../{1}.xsl" />
+        <map:serialize type="xml" />
+      </map:match>
+      
       <!-- Transform an XML template into an XSLT, handling template
            inheritance. -->
       <map:match pattern="_internal/template/**.xsl">
