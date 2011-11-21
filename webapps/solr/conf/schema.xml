@@ -426,14 +426,14 @@
        when adding a document.
    -->
 
-   <field indexed="true" multiValued="true" name="document-title" required="true" stored="true" type="text" />
+   <field indexed="true" multiValued="true" name="document_title" required="true" stored="true" type="text" />
    <field indexed="true" multiValued="true" name="author" required="true" stored="true" type="text" />
-   <field indexed="true" multiValued="false" name="file" required="true" stored="true" type="string" />
-   <field indexed="false" multiValued="false" name="tei-id" required="true" stored="true" type="string" />
-   <field indexed="false" multiValued="false" name="section-id" required="false" stored="true" type="string" />
-   <field indexed="true" multiValued="false" name="entity-key" required="false" stored="true" type="string" />
-   <field indexed="true" multiValued="false" name="entity-name" required="false" stored="true" type="text" />
-   <field indexed="true" multiValued="false" name="eats-entity-name" required="false" stored="true" type="text" /> 
+   <field indexed="true" multiValued="false" name="file_path" required="true" stored="true" type="string" />
+   <field indexed="false" multiValued="false" name="document_id" required="true" stored="true" type="string" />
+   <field indexed="false" multiValued="false" name="section_id" required="false" stored="true" type="string" />
+   <field indexed="true" multiValued="false" name="entity_key" required="false" stored="true" type="string" />
+   <field indexed="true" multiValued="false" name="entity_name" required="false" stored="true" type="text" />
+   <field indexed="true" multiValued="false" name="eats_entity_name" required="false" stored="true" type="text" /> 
 
    <!-- catchall field, containing all other searchable text fields (implemented
         via copyField further on in this schema  -->
