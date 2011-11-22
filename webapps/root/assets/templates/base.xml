@@ -1,9 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xmtp:root xmlns:xmtp="http://www.cch.kcl.ac.uk/xmod/template/1.0"
            xmlns:xi="http://www.w3.org/2001/XInclude"
+           xmlns:xmp="http://www.cch.kcl.ac.uk/xmod/properties/1.0"
            xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-  <xsl:variable name="assets-path" select="'/assets'" />
+  <!-- Include the properties variables, in order to get access to
+       $xmp:context-path. -->
+  <xsl:include href="cocoon://_internal/properties/properties.xsl"/>
+
+  <!-- Base URL for assets (non-content images, CSS, JavaScript,
+       etc). If these are being served by Cocoon, this should be
+       specified as relative to $context-path. Otherwise, a full URL
+       including protocol and domain is required.
+       
+       This URL must not include a trailing slash. -->
+  <xsl:variable name="assets-url" select="'/assets'" />
+  <xsl:variable name="assets-path">
+    <xsl:if test="not(starts-with($assets-url, 'http'))">
+      <xsl:value-of select="$xmp:context-path" />
+    </xsl:if>
+    <xsl:value-of select="$assets-url" />
+  </xsl:variable>
+  <!-- Base URL for non-textual content (images, video, etc). If these
+       are being served by Cocoon, this should be specified as
+       relative to $context-path. Otherwise, a full URL including
+       protocol and domain is required.
+       
+       This URL must not include a trailing slash. -->
+  <xsl:variable name="content-url" select="''" />
+  <xsl:variable name="content-path">
+    <xsl:if test="not(starts-with($content-url, 'http'))">
+      <xsl:value-of select="$xmp:context-path" />
+    </xsl:if>
+    <xsl:value-of select="$content-url" />
+  </xsl:variable>
 
   <xmtp:block name="html">
     <!--[if IE 7 ]> <html class="no-js ie7" lang="en"> <![endif]--> 
