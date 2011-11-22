@@ -43,20 +43,20 @@
         <map:read mime-type="image/png" src="../assets/{1}.png" />
       </map:match>
 
+      <map:match pattern="favicon.ico">
+        <map:read mime-type="image/x-icon" src="../assets/images/favicon.ico" />
+      </map:match>
+
       <map:match pattern="images/**.gif">
-        <map:read mime-type="image/gif" src="images/{1}.gif" />
+        <map:read mime-type="image/gif" src="../content/images/{1}.gif" />
       </map:match>
 
       <map:match pattern="images/**.jpg">
-        <map:read mime-type="image/jpeg" src="images/{1}.jpg" />
+        <map:read mime-type="image/jpeg" src="../content/images/{1}.jpg" />
       </map:match>
 
       <map:match pattern="images/**.png">
-        <map:read mime-type="image/png" src="images/{1}.png" />
-      </map:match>
-
-      <map:match pattern="favicon.ico">
-        <map:read mime-type="image/x-icon" src="../assets/images/favicon.ico" />
+        <map:read mime-type="image/png" src="../content/images/{1}.png" />
       </map:match>
     </map:pipeline>
 
