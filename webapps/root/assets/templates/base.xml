@@ -1,83 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xmtp:root xmlns:xmtp="http://www.cch.kcl.ac.uk/xmod/template/1.0"
-           xmlns:xi="http://www.w3.org/2001/XInclude"
-           xmlns:xmp="http://www.cch.kcl.ac.uk/xmod/properties/1.0"
-           xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xmg="http://www.cch.kcl.ac.uk/xmod/global/1.0" xmlns:xmm="http://www.cch.kcl.ac.uk/xmod/menu/1.0"
+  xmlns:xmp="http://www.cch.kcl.ac.uk/xmod/properties/1.0"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-  <!-- Include the properties variables, in order to get access to
+  <!-- Imports the properties variables, in order to get access to
        $xmp:context-path. -->
-  <xsl:include href="cocoon://_internal/properties/properties.xsl"/>
-
-  <!-- Base URL for assets (non-content images, CSS, JavaScript,
-       etc). If these are being served by Cocoon, this should be
-       specified as relative to $context-path. Otherwise, a full URL
-       including protocol and domain is required.
-       
-       This URL must not include a trailing slash. -->
-  <xsl:variable name="assets-url" select="'/assets'" />
-  <xsl:variable name="assets-path">
-    <xsl:if test="not(starts-with($assets-url, 'http'))">
-      <xsl:value-of select="$xmp:context-path" />
-    </xsl:if>
-    <xsl:value-of select="$assets-url" />
-  </xsl:variable>
-  <!-- Base URL for non-textual content (images, video, etc). If these
-       are being served by Cocoon, this should be specified as
-       relative to $context-path. Otherwise, a full URL including
-       protocol and domain is required.
-       
-       This URL must not include a trailing slash. -->
-  <xsl:variable name="content-url" select="''" />
-  <xsl:variable name="content-path">
-    <xsl:if test="not(starts-with($content-url, 'http'))">
-      <xsl:value-of select="$xmp:context-path" />
-    </xsl:if>
-    <xsl:value-of select="$content-url" />
-  </xsl:variable>
+  <xsl:import href="cocoon://_internal/properties/properties.xsl"/>
+  
+  <!-- Imports the default variables. -->
+  <xsl:import href="cocoon://_internal/template/xsl/stylesheets/defaults.xsl" />
 
   <xmtp:block name="html">
-    <!--[if IE 7 ]> <html class="no-js ie7" lang="en"> <![endif]--> 
-    <!--[if IE 8 ]> <html class="no-js ie8" lang="en"> <![endif]--> 
-    <!--[if (gte IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+    <!--[if IE 7 ]> <html class="no-js ie7" lang="en"> <![endif]-->
+    <!--[if IE 8 ]> <html class="no-js ie8" lang="en"> <![endif]-->
+    <!--[if (gte IE 9)|!(IE)]><!-->
+    <html lang="en" class="no-js">
+      <!--<![endif]-->
       <xmtp:block name="head">
         <head>
           <xmtp:block name="title">
+            <title>Kiln website</title>
           </xmtp:block>
           <xmtp:block name="js">
             <!-- jQuery from Google CDN. -->
-            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js">&#160;</script>
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js"
+              >&#160;</script>
             <!-- jQuery tools from Flowplayer CDN. -->
             <script src="http://cdn.jquerytools.org/1.2.5/all/jquery.tools.min.js">&#160;</script>
           </xmtp:block>
           <xmtp:block name="css">
-            <link rel="stylesheet" type="text/css"
-                  href="{$assets-path}/styles/base.css" />
-            <link rel="stylesheet" type="text/css"
-                  href="{$assets-path}/styles/site.css" />
+            <link rel="stylesheet" type="text/css" href="{$xmg:assets-path}/styles/base.css"/>
+            <link rel="stylesheet" type="text/css" href="{$xmg:assets-path}/styles/site.css"/>
           </xmtp:block>
           <xmtp:block name="head-extra">
             <!-- Mobile etc. devices: courtesy of 320+Up:
                  http://stuffandnonsense.co.uk/projects/320andup/ -->
             <!-- For Nokia. -->
-            <link rel="shortcut icon" href="{$assets-path}/images/apple-touch-icon.png" />
+            <link rel="shortcut icon" href="{$xmg:assets-path}/images/apple-touch-icon.png"/>
             <!-- For everything else. -->
-            <link rel="shortcut icon" href="{$assets-path}/images/favicon.ico" />
+            <link rel="shortcut icon" href="{$xmg:assets-path}/images/favicon.ico"/>
 
             <!--iOS. Delete if not required. -->
-            <meta name="apple-mobile-web-app-capable" content="yes" />
-            <meta name="apple-mobile-web-app-status-bar-style"
-                  content="black-translucent" />
-            <link rel="apple-touch-startup-image"
-                  href="{$assets-path}/images/i/splash.png" />
+            <meta name="apple-mobile-web-app-capable" content="yes"/>
+            <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+            <link rel="apple-touch-startup-image" href="{$xmg:assets-path}/images/i/splash.png"/>
 
             <!--Microsoft. Delete if not required. -->
-            <meta http-equiv="cleartype" content="on" />
-            <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=IE6" />
-            <meta name="viewport"
-                  content="width=device-width,initial-scale=1" />
+            <meta http-equiv="cleartype" content="on"/>
+            <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=IE6"/>
+            <meta name="viewport" content="width=device-width,initial-scale=1"/>
             <!-- Modernizr: this should be called AFTER CSS to avoid
                  FOUC. -->
-            <script src="{$assets-path}/scripts/libs/modernizr-dev.js">&#160;</script>
+            <script src="{$xmg:assets-path}/scripts/libs/modernizr-dev.js">&#160;</script>
           </xmtp:block>
         </head>
       </xmtp:block>
@@ -86,9 +61,15 @@
           <xmtp:block name="skip-navigation">
             <div class="hidden">
               <ul>
-                <li><a href="#contentSection">Skip to content</a></li>
-                <li><a href="#localNavigation">Skip to local navigation</a></li>
-                <li><a href="#mainNavigation">Skip to main navigation</a></li>
+                <li>
+                  <a href="#contentSection">Skip to content</a>
+                </li>
+                <li>
+                  <a href="#localNavigation">Skip to local navigation</a>
+                </li>
+                <li>
+                  <a href="#mainNavigation">Skip to main navigation</a>
+                </li>
               </ul>
             </div>
           </xmtp:block>
@@ -102,31 +83,20 @@
                 </div>
               </header>
             </xmtp:block>
-            <xmtp:block name="main-navigation">
+            <xmtp:block name="navigation">
               <div class="line">
-                <nav class="primary" id="mainNavigation">
-                  <ul class="inline">
-                    <li><a class="navLink first selected" href="#">Home</a></li>
-                    <li><a class="navLink" href="#">About</a></li>
-                    <li><a class="navLink" href="#">Search</a></li>
-                    <li><a class="navLink" href="#">Browse</a></li>
-                    <li><a class="navLink last" href="#">Contact</a></li>
-                  </ul>
-                </nav>
+                <xmtp:block name="main-navigation">
+                  <nav class="primary" id="mainNavigation">
+                    <xsl:call-template name="xmm:main-navigation"/>
+                  </nav>
+                </xmtp:block>
               </div>
             </xmtp:block>
             <xmtp:block name="content-section">
               <div class="line contentSection">
                 <xmtp:block name="local-navigation">
                   <div class="unit size1of4" id="localNavigation">
-                    <p>Left column</p>
-                    <nav class="local">
-                      <ul>
-                        <li><a class="navLink first" href="#">Item one</a></li>
-                        <li><a class="navLink" href="#">Item two</a></li>
-                        <li><a class="navLink" href="#">Item three</a></li>
-                      </ul>
-                    </nav>
+                    <xsl:call-template name="xmm:local-navigation"/>
                   </div>
                 </xmtp:block>
                 <xmtp:block name="content">

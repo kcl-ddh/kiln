@@ -1,10 +1,9 @@
-<xsl:stylesheet version="2.0"
-                xmlns:xmm="http://www.cch.kcl.ac.uk/xmod/menu/1.0"
-                xmlns:xmp="http://www.cch.kcl.ac.uk/xmod/properties/1.0"
-                xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:stylesheet version="2.0" xmlns:xmm="http://www.cch.kcl.ac.uk/xmod/menu/1.0"
+  xmlns:xmp="http://www.cch.kcl.ac.uk/xmod/properties/1.0"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-  <!-- Transform a menu document into a normalised form, with all
-       hrefs expanded into full root relative paths. -->
+  <!-- Transform a menu document into a normalised form, with all 
+    hrefs expanded into full root relative paths. -->
 
   <xsl:include href="cocoon://_internal/properties/properties.xsl"/>
 
@@ -21,7 +20,7 @@
   <xsl:template match="@href[not(starts-with(., 'http'))]">
     <xsl:call-template name="make-full-href">
       <xsl:with-param name="attribute" select="."/>
-    </xsl:call-template>    
+    </xsl:call-template>
   </xsl:template>
 
   <xsl:template name="make-full-href">
@@ -65,5 +64,4 @@
       <xsl:apply-templates select="@*|node()"/>
     </xsl:copy>
   </xsl:template>
-
 </xsl:stylesheet>

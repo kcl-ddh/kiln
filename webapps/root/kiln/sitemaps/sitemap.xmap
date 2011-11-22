@@ -22,17 +22,15 @@
     </map:transformers>
 
     <map:serializers default="html5">
-      <map:serializer logger="sitemap.serializer.html" name="html5"
-                      mime-type="text/html; charset=utf-8"
-                      src="org.apache.cocoon.serialization.HTMLSerializer">
+      <map:serializer logger="sitemap.serializer.html" mime-type="text/html; charset=utf-8"
+        name="html5" src="org.apache.cocoon.serialization.HTMLSerializer">
         <doctype-system>about:legacy-compat</doctype-system>
         <encoding>UTF-8</encoding>
       </map:serializer>
 
-      <map:serializer logger="sitemap.serializer.xhtml" name="xhtml5"
-                      mime-type="application/xhtml+xml; charset=utf-8"
-                      pool-max="${xhtml-serializer.pool-max}"
-                      src="org.apache.cocoon.serialization.XMLSerializer">
+      <map:serializer logger="sitemap.serializer.xhtml"
+        mime-type="application/xhtml+xml; charset=utf-8" name="xhtml5"
+        pool-max="${xhtml-serializer.pool-max}" src="org.apache.cocoon.serialization.XMLSerializer">
         <encoding>UTF-8</encoding>
         <indent>yes</indent>
       </map:serializer>
@@ -113,7 +111,7 @@
         <map:generate src="../../{1}.xsl" />
         <map:serialize type="xml" />
       </map:match>
-      
+
       <!-- Transform an XML template into an XSLT, handling template
            inheritance. -->
       <map:match pattern="_internal/template/**.xsl">
@@ -128,27 +126,23 @@
     <map:pipeline>
       <!-- ODD handling (not project specific). -->
       <map:match pattern="_internal/odd/**">
-        <map:mount check-reload="yes" src="odd.xmap"
-                   uri-prefix="_internal/odd/" />
+        <map:mount check-reload="yes" src="odd.xmap" uri-prefix="_internal/odd/" />
       </map:match>
 
       <!-- Schematron handling (not project specific). -->
       <map:match pattern="_internal/schematron/**">
-        <map:mount check-reload="yes" src="schematron.xmap"
-                   uri-prefix="_internal/schematron/" />
+        <map:mount check-reload="yes" src="schematron.xmap" uri-prefix="_internal/schematron/" />
       </map:match>
 
       <!-- Solr handling (not project specific). -->
       <map:match pattern="_internal/solr/**">
-        <map:mount check-reload="yes" src="solr.xmap"
-                   uri-prefix="_internal/solr/" />
+        <map:mount check-reload="yes" src="solr.xmap" uri-prefix="_internal/solr/" />
       </map:match>
 
       <!-- Main project sitemap, matching on the remaining URL
            space. -->
       <map:match pattern="**">
-        <map:mount check-reload="yes" src="../../sitemaps/main.xmap"
-                   uri-prefix="" />
+        <map:mount check-reload="yes" src="../../sitemaps/main.xmap" uri-prefix="" />
       </map:match>
     </map:pipeline>
   </map:pipelines>
