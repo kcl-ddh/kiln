@@ -139,7 +139,10 @@
     <map:pipeline id="local-testing">
       <!-- Test a template against an empty document. -->
       <map:match pattern="test/template/**.html">
-        <map:generate src="empty:index" />
+        <map:aggregate element="aggregation">
+          <map:part src="empty:index" />
+          <map:part src="cocoon://_internal/menu/main.xml" />
+        </map:aggregate>
         <map:transform src="cocoon://_internal/template/{1}.xsl" />
         <map:serialize />
       </map:match>
