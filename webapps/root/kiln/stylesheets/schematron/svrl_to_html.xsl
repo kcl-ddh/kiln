@@ -3,10 +3,10 @@
                 xmlns="http://www.w3.org/1999/xhtml"
 		xmlns:saxon="http://saxon.sf.net/"
 		xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                xmlns:xmp="http://www.cch.kcl.ac.uk/xmod/properties/1.0"
+		xmlns:xmg="http://www.cch.kcl.ac.uk/xmod/global/1.0"
 		xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-  <xsl:include href="cocoon://_internal/properties/properties.xsl"/>
+  <xsl:import href="cocoon://_internal/template/xsl/stylesheets/defaults.xsl" />
 
   <xsl:key name="failed-asserts-by-pattern" match="svrl:failed-assert"
 	   use="preceding-sibling::svrl:active-pattern[1]/@id"/>
@@ -40,13 +40,13 @@
 	  <h2>Summary Status</h2>
 	  <xsl:if test="/svrl:schematron-output/svrl:failed-assert/@flag='has-errors'">
 	    <p class="error">
-              <img src="{$xmp:images-path}/xmod/schematron/error.png" alt=""/>
+              <img src="{$xmg:images-path}/xmod/schematron/error.png" alt=""/>
               <xsl:text> Errors were found in the document!</xsl:text>
             </p>
 	  </xsl:if>
 	  <xsl:if test="/svrl:schematron-output/svrl:failed-assert/@flag='has-warnings'">
 	    <p class="warning">
-              <img src="{$xmp:images-path}/xmod/schematron/warning.png" alt=""/>
+              <img src="{$xmg:images-path}/xmod/schematron/warning.png" alt=""/>
               <xsl:text> Warnings were found in the document!</xsl:text>
             </p>
 	  </xsl:if>
@@ -132,7 +132,7 @@
     <p>
       <img alt="">
         <xsl:attribute name="src">
-          <xsl:value-of select="$xmp:images-path"/>
+          <xsl:value-of select="$xmg:images-path"/>
           <xsl:text>/</xsl:text>
           <xsl:value-of select="."/>
         </xsl:attribute>
