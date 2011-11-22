@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?oxygen RNGSchema="../schema/properties/properties.rng" type="xml"?>
-<properties xmlns="http://www.cch.kcl.ac.uk/xmod/properties/1.0">
-  <!-- Specify a context path if you are mounting the webapp in a
-       subdirectory rather than at the root of the domain. This path
-       must either be empty or begin with a "/" and not include a
-       trailing slash. -->
-  <property name="context-path" value="" />
-</properties>
