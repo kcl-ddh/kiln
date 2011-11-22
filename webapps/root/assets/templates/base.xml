@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xmtp:root xmlns:tei="http://www.tei-c.org/ns/1.0" 
+<xmtp:root xmlns:tei="http://www.tei-c.org/ns/1.0"
   xmlns:xi="http://www.w3.org/2001/XInclude"
   xmlns:xmg="http://www.cch.kcl.ac.uk/xmod/global/1.0"
   xmlns:xmm="http://www.cch.kcl.ac.uk/xmod/menu/1.0"
@@ -8,9 +8,10 @@
 
   <!-- Imports the default variables. -->
   <xsl:import href="cocoon://_internal/template/xsl/stylesheets/defaults.xsl" />
-  
+
   <!-- Imports the menu stylesheet -->
-  <xsl:import href="cocoon://_internal/template/xsl/kiln/stylesheets/menu/menu.xsl" />
+  <xsl:import
+    href="cocoon://_internal/template/xsl/kiln/stylesheets/menu/menu.xsl" />
 
   <xmtp:block name="html">
     <!--[if IE 7 ]> <html class="no-js ie7" lang="en"> <![endif]-->
@@ -27,27 +28,36 @@
           </xmtp:block>
           <xmtp:block name="js">
             <!-- jQuery from Google CDN. -->
-            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js"
+            <script
+              src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js"
               >&#160;</script>
             <!-- jQuery tools from Flowplayer CDN. -->
-            <script src="http://cdn.jquerytools.org/1.2.5/all/jquery.tools.min.js">&#160;</script>
+            <script
+              src="http://cdn.jquerytools.org/1.2.5/all/jquery.tools.min.js"
+              >&#160;</script>
           </xmtp:block>
           <xmtp:block name="css">
-            <link href="{$xmg:assets-path}/styles/base.css" rel="stylesheet" type="text/css" />
-            <link href="{$xmg:assets-path}/styles/site.css" rel="stylesheet" type="text/css" />
+            <link href="{$xmg:assets-path}/styles/base.css" rel="stylesheet"
+              type="text/css" />
+            <link href="{$xmg:assets-path}/styles/site.css" rel="stylesheet"
+              type="text/css" />
           </xmtp:block>
           <xmtp:block name="head-extra">
             <!-- Mobile etc. devices: courtesy of 320+Up:
                  http://stuffandnonsense.co.uk/projects/320andup/ -->
             <!-- For Nokia. -->
-            <link href="{$xmg:assets-path}/images/apple-touch-icon.png" rel="shortcut icon" />
+            <link href="{$xmg:assets-path}/images/apple-touch-icon.png"
+              rel="shortcut icon" />
             <!-- For everything else. -->
-            <link href="{$xmg:assets-path}/images/favicon.ico" rel="shortcut icon" />
+            <link href="{$xmg:assets-path}/images/favicon.ico"
+              rel="shortcut icon" />
 
             <!--iOS. Delete if not required. -->
             <meta content="yes" name="apple-mobile-web-app-capable" />
-            <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style" />
-            <link href="{$xmg:assets-path}/images/i/splash.png" rel="apple-touch-startup-image" />
+            <meta content="black-translucent"
+              name="apple-mobile-web-app-status-bar-style" />
+            <link href="{$xmg:assets-path}/images/i/splash.png"
+              rel="apple-touch-startup-image" />
 
             <!--Microsoft. Delete if not required. -->
             <meta content="on" http-equiv="cleartype" />
@@ -55,7 +65,8 @@
             <meta content="width=device-width,initial-scale=1" name="viewport" />
             <!-- Modernizr: this should be called AFTER CSS to avoid
                  FOUC. -->
-            <script src="{$xmg:assets-path}/scripts/libs/modernizr-dev.js">&#160;</script>
+            <script src="{$xmg:assets-path}/scripts/libs/modernizr-dev.js"
+              >&#160;</script>
           </xmtp:block>
         </head>
       </xmtp:block>
@@ -90,7 +101,8 @@
               <div class="line">
                 <xmtp:block name="main-navigation">
                   <nav class="primary" id="mainNavigation">
-                    <xsl:apply-templates select="/aggregation/xmm:root" mode="main-navigation" />
+                    <xsl:apply-templates mode="main-navigation"
+                      select="/aggregation/xmm:root" />
                   </nav>
                 </xmtp:block>
               </div>
@@ -99,7 +111,8 @@
               <div class="line contentSection">
                 <xmtp:block name="local-navigation">
                   <div class="unit size1of4" id="localNavigation">
-                    <xsl:apply-templates select="/aggregation/xmm:root" mode="local-navigation" />
+                    <xsl:apply-templates mode="local-navigation"
+                      select="/aggregation/xmm:root" />
                   </div>
                 </xmtp:block>
                 <xmtp:block name="content">
