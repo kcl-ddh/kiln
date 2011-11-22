@@ -11,8 +11,6 @@
   <xsl:param name="filename" />
   <xsl:param name="fileextension" />
 
-  <xsl:variable name="xmg:title"
-    select="//tei:TEI/tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title[not(@type)]" />
   <xsl:variable name="xmg:pathroot" select="concat($xmp:context-path, '/', $filedir)" />
   <xsl:variable name="xmg:path"
     select="concat($xmg:pathroot, '/', substring-before($filename, '.'), '.', $fileextension)" />
