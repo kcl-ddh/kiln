@@ -42,15 +42,6 @@
       <global-variables />
     </map:component-configurations>
 
-    <!-- Properties pipeline. -->
-    <map:pipeline id="kiln-properties" internal-only="true">
-      <map:match pattern="_internal/properties/properties.xsl">
-        <map:generate src="../../properties/properties.xml" />
-        <map:transform src="../stylesheets/properties/properties-generator.xsl" />
-        <map:serialize type="xml" />
-      </map:match>
-    </map:pipeline>
-
     <!-- Menu pipeline. -->
     <map:pipeline id="kiln-menu" internal-only="true">
       <map:match pattern="_internal/menu/*.xml">
