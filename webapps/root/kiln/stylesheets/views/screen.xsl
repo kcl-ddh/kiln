@@ -80,7 +80,7 @@
 
           <!-- top navigation: menu-top.xsl -->
           <xsl:if test="$xmg:menu-top = true()">
-            <xsl:call-template name="xmm:menu-top" />
+            <xsl:call-template name="xmm:main-navigation" />
           </xsl:if>
         </div>
 
@@ -117,7 +117,7 @@
               <xsl:text>&#160;</xsl:text>
               <xsl:choose>
                 <xsl:when test="$xmg:menu-top = true()">
-                  <xsl:call-template name="xmm:menu-top-sub" />
+                  <xsl:call-template name="xmm:local-navigation" />
                 </xsl:when>
                 <xsl:otherwise>
                   <xsl:call-template name="xmm:menu" />
