@@ -6,9 +6,9 @@
   xmlns:xmp="http://www.cch.kcl.ac.uk/xmod/properties/1.0"
   xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-  <xsl:template name="xmm:main-navigation">
+  <xsl:template match="xmm:root" mode="main-navigation">
     <ul class="inline">
-      <xsl:for-each select="/*/xmm:root/xmm:menu">
+      <xsl:for-each select="xmm:menu">
         <xsl:call-template name="xmm:menu-item">
           <xsl:with-param name="output-sub-items" select="false()"/>
         </xsl:call-template>
@@ -104,8 +104,8 @@
     </xsl:choose>
   </xsl:template>
 
-  <xsl:template name="xmm:local-navigation">
-    <xsl:for-each select="/*/xmm:root/xmm:menu">
+  <xsl:template match="xmm:root" mode="local-navigation">
+    <xsl:for-each select="xmm:menu">
       <xsl:choose>
         <xsl:when test="@root = $xmg:pathroot">
           <xsl:call-template name="xmm:format-local-navigation"/>

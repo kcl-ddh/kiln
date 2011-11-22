@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <!-- Project main sitemap. -->
 <map:sitemap xmlns:map="http://apache.org/cocoon/sitemap/1.0">
-  
+
   <map:views>
     <map:view from-label="content" name="content">
       <map:serialize type="xml" />
     </map:view>
-    
+
     <map:view from-label="tei" name="tei">
       <map:serialize type="xml" />
     </map:view>
@@ -16,47 +16,47 @@
     <!-- Pipeline for handling static resources. -->
     <map:pipeline id="local-assets" type="noncaching">
       <map:match pattern="assets/**.css">
-        <map:read src="../assets/{1}.css" mime-type="text/css"/>
+        <map:read mime-type="text/css" src="../assets/{1}.css" />
       </map:match>
 
       <map:match pattern="assets/**.gif">
-        <map:read src="../assets/{1}.gif" mime-type="image/gif"/>
+        <map:read mime-type="image/gif" src="../assets/{1}.gif" />
       </map:match>
 
       <map:match pattern="assets/**.html">
-        <map:read src="../assets/{1}.html" mime-type="text/html"/>
+        <map:read mime-type="text/html" src="../assets/{1}.html" />
       </map:match>
 
       <map:match pattern="assets/**.ico">
-        <map:read src="../assets/{1}.ico" mime-type="image/x-icon"/>
+        <map:read mime-type="image/x-icon" src="../assets/{1}.ico" />
       </map:match>
 
       <map:match pattern="assets/**.jpg">
-        <map:read src="../assets/{1}.jpg" mime-type="image/jpeg"/>
+        <map:read mime-type="image/jpeg" src="../assets/{1}.jpg" />
       </map:match>
 
       <map:match pattern="assets/**.js">
-        <map:read src="../assets/{1}.js" mime-type="application/javascript"/>
+        <map:read mime-type="application/javascript" src="../assets/{1}.js" />
       </map:match>
 
       <map:match pattern="assets/**.png">
-        <map:read src="../assets/{1}.png" mime-type="image/png"/>
+        <map:read mime-type="image/png" src="../assets/{1}.png" />
       </map:match>
 
       <map:match pattern="images/**.gif">
-        <map:read src="images/{1}.gif" mime-type="image/gif"/>
+        <map:read mime-type="image/gif" src="images/{1}.gif" />
       </map:match>
 
       <map:match pattern="images/**.jpg">
-        <map:read src="images/{1}.jpg" mime-type="image/jpeg"/>
+        <map:read mime-type="image/jpeg" src="images/{1}.jpg" />
       </map:match>
 
       <map:match pattern="images/**.png">
-        <map:read src="images/{1}.png" mime-type="image/png"/>
+        <map:read mime-type="image/png" src="images/{1}.png" />
       </map:match>
 
       <map:match pattern="favicon.ico">
-        <map:read src="../assets/images/favicon.ico" mime-type="image/x-icon"/>
+        <map:read mime-type="image/x-icon" src="../assets/images/favicon.ico" />
       </map:match>
     </map:pipeline>
 
@@ -65,8 +65,7 @@
       <!-- Mount a sitemap for any private URLs, such as editorial
            processes like Schematron validation. -->
       <map:match pattern="private/**">
-        <map:mount check-reload="yes" src="private.xmap"
-                   uri-prefix="private/" />
+        <map:mount check-reload="yes" src="private.xmap" uri-prefix="private/" />
       </map:match>
     </map:pipeline>
 
@@ -80,8 +79,7 @@
         <map:aggregate element="aggregation" label="content">
           <map:part src="cocoon://_internal/menu/main.xml" />
           <map:part src="cocoon://_internal/metadata/files.xml" />
-          <map:part src="cocoon://internal/tei/preprocess/{1}.xml"
-                    label="tei" />
+          <map:part label="tei" src="cocoon://internal/tei/preprocess/{1}.xml" />
         </map:aggregate>
         <map:transform src="../stylesheets/default.xsl">
           <map:parameter name="filedir" value="." />
