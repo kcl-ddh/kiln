@@ -13,6 +13,10 @@
   <xsl:import
     href="cocoon://_internal/template/xsl/kiln/stylesheets/menu/menu.xsl" />
 
+  <!-- Imports stylesheet to convert TEI into HTML -->
+  <xsl:import
+    href="cocoon://_internal/template/xsl/kiln/stylesheets/tei/to-html.xsl" />
+
   <xmtp:block name="html">
     <!--[if IE 7 ]> <html class="no-js ie7" lang="en"> <![endif]-->
     <!--[if IE 8 ]> <html class="no-js ie8" lang="en"> <![endif]-->
@@ -117,7 +121,7 @@
                 </xmtp:block>
                 <xmtp:block name="content">
                   <div class="unit size3of4 lastUnit" id="content">
-                    <p>Content column</p>
+                    <xsl:apply-templates select="/aggregation/tei:TEI/" />
                   </div>
                 </xmtp:block>
               </div>
