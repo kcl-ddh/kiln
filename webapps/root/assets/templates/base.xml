@@ -15,7 +15,7 @@
 
   <!-- Imports stylesheet to convert TEI into HTML -->
   <xsl:import
-    href="cocoon://_internal/template/xsl/kiln/stylesheets/tei/to-html.xsl" />
+    href="cocoon://_internal/template/xsl/stylesheets/tei/to-html.xsl" />
 
   <xmtp:block name="html">
     <!--[if IE 7 ]> <html class="no-js ie7" lang="en"> <![endif]-->
