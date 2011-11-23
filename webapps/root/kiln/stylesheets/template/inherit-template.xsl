@@ -1,6 +1,9 @@
-<xsl:stylesheet exclude-result-prefixes="#all" version="2.0"
+<xsl:stylesheet version="2.0"
   xmlns:axsl="http://www.w3.org/1999/XSL/TransformAlias"
+  xmlns:tei="http://www.tei-c.org/ns/1.0"
   xmlns:xi="http://www.w3.org/2001/XInclude"
+  xmlns:xmg="http://www.cch.kcl.ac.uk/xmod/global/1.0"
+  xmlns:xmm="http://www.cch.kcl.ac.uk/xmod/menu/1.0"
   xmlns:xmtp="http://www.cch.kcl.ac.uk/xmod/template/1.0"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
