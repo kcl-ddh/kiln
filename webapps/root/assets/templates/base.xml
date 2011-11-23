@@ -121,7 +121,7 @@
                 </xmtp:block>
                 <xmtp:block name="content">
                   <div class="unit size3of4 lastUnit" id="content">
-                    <xsl:apply-templates select="/aggregation/tei:TEI/" />
+                    <xsl:apply-templates select="/aggregation/tei:TEI" />
                   </div>
                 </xmtp:block>
               </div>
