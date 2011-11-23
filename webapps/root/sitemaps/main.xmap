@@ -65,7 +65,8 @@
       <!-- Mount a sitemap for any private URLs, such as editorial
            processes like Schematron validation. -->
       <map:match pattern="private/**">
-        <map:mount check-reload="yes" src="private.xmap" uri-prefix="private/" />
+        <map:mount check-reload="yes" src="private.xmap" uri-prefix="private/"
+         />
       </map:match>
     </map:pipeline>
 
@@ -79,7 +80,8 @@
         <map:aggregate element="aggregation" label="content">
           <map:part src="cocoon://_internal/menu/main.xml" />
           <map:part src="cocoon://_internal/metadata/files.xml" />
-          <map:part label="tei" src="cocoon://internal/tei/preprocess/{1}.xml" />
+          <map:part label="tei" src="cocoon://internal/tei/preprocess/{1}.xml"
+           />
         </map:aggregate>
         <map:transform src="cocoon://_internal/template/base.xsl">
           <map:parameter name="filedir" value="." />
@@ -94,9 +96,9 @@
       <!-- Process a TEI document prior to its use in another
            pipeline, normalising and annotating it as required. -->
       <map:match pattern="internal/tei/preprocess/**.xml">
-        <map:generate src="../content/tei/{1}.xml" />
-        <map:transform src="../stylesheets/tei/join-elements.xsl" />
-        <map:transform src="../stylesheets/tei/annotate.xsl" />
+        <map:generate src="../content/xml/tei/{1}.xml" />
+        <map:transform src="../kiln/stylesheets/tei/join-elements.xsl" />
+        <map:transform src="../kiln/stylesheets/tei/annotate.xsl" />
         <map:serialize type="xml" />
       </map:match>
     </map:pipeline>
