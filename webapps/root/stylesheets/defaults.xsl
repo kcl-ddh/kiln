@@ -15,20 +15,7 @@
     must either be empty or begin with a "/" and not include a
     trailing slash. -->
   <xsl:variable name="xmg:context-path" select="''" />
-  
-  <!-- Base URL for assets (non-content images, CSS, JavaScript,
-    etc). If these are being served by Cocoon, this should be
-    specified as relative to $context-path. Otherwise, a full URL
-    including protocol and domain is required.
-    
-    This URL must not include a trailing slash. -->
-  <xsl:variable name="xmg:assets-url" select="'/assets'" />
-  <xsl:variable name="xmg:assets-path">
-    <xsl:if test="not(starts-with($xmg:assets-url, 'http'))">
-      <xsl:value-of select="$xmg:context-path" />
-    </xsl:if>
-    <xsl:value-of select="$xmg:assets-url" />
-  </xsl:variable>
+
   <!-- Base URL for non-textual content (images, video, etc). If these
     are being served by Cocoon, this should be specified as
     relative to $context-path. Otherwise, a full URL including
@@ -42,8 +29,34 @@
     </xsl:if>
     <xsl:value-of select="$xmg:content-url" />
   </xsl:variable>
-  
-  <xsl:variable name="xmg:pathroot" select="concat($xmg:context-path, '/', $filedir)" />
+
+  <!-- Base URL for assets (non-content images, CSS, JavaScript,
+    etc). If these are being served by Cocoon, this should be
+    specified as relative to $context-path. Otherwise, a full URL
+    including protocol and domain is required.
+    
+    This URL must not include a trailing slash. -->
+  <xsl:variable name="xmg:assets-url" select="'/assets'" />
+  <xsl:variable name="xmg:assets-path">
+    <xsl:if test="not(starts-with($xmg:assets-url, 'http'))">
+      <xsl:value-of select="$xmg:context-path" />
+    </xsl:if>
+    <xsl:value-of select="$xmg:assets-url" />
+  </xsl:variable>
+
+  <!-- Base URL for content images. -->
+  <xsl:variable name="xmg:images-url"
+    select="concat($xmg:content-path, '/images')" />
+  <xsl:variable name="xmg:images-path">
+    <xsl:if test="not(starts-with($xmg:images-url, 'http'))">
+      <xsl:value-of select="$xmg:context-path" />
+    </xsl:if>
+    <xsl:value-of select="$xmg:images-url" />
+  </xsl:variable>
+
+  <xsl:variable name="xmg:pathroot"
+    select="concat($xmg:context-path, '/', $filedir)" />
   <xsl:variable name="xmg:path"
-    select="concat($xmg:pathroot, '/', substring-before($filename, '.'), '.', $fileextension)" />
+    select="concat($xmg:pathroot, '/', substring-before($filename, '.'), '.', $fileextension)"
+   />
 </xsl:stylesheet>
