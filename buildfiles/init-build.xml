@@ -21,6 +21,11 @@
     <property name="stylesheets.dir.name" value="stylesheets" />
     <property location="${webapp.dir}/${stylesheets.dir.name}"
       name="stylesheets.dir" />
+  	
+  	<!-- Creates content directories -->
+  	<mkdir dir="${webapp.dir}/content" />
+  	<mkdir dir="${webapp.dir}/content/xml/tei" />
+  	<mkdir dir="${webapp.dir}/content/images" />
   </target>
 
   <target description="Validates all the XML files in the project"
