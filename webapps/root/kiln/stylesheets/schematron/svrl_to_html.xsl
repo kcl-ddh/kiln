@@ -11,6 +11,11 @@
   <xsl:key name="failed-asserts-by-pattern" match="svrl:failed-assert"
 	   use="preceding-sibling::svrl:active-pattern[1]/@id"/>
 
+  <xsl:variable name="schematron-images-path">
+    <xsl:value-of select="$xmg:assets-path" />
+    <xsl:text>/images/schematron</xsl:text>
+  </xsl:variable>
+
   <xsl:template match="/">
     <html xmlns="http://www.w3.org/1999/xhtml">
       <head>
@@ -40,13 +45,13 @@
 	  <h2>Summary Status</h2>
 	  <xsl:if test="/svrl:schematron-output/svrl:failed-assert/@flag='has-errors'">
 	    <p class="error">
-              <img src="{$xmg:images-path}/xmod/schematron/error.png" alt=""/>
+              <img src="{$schematron-images-path}/error.png" alt=""/>
               <xsl:text> Errors were found in the document!</xsl:text>
             </p>
 	  </xsl:if>
 	  <xsl:if test="/svrl:schematron-output/svrl:failed-assert/@flag='has-warnings'">
 	    <p class="warning">
-              <img src="{$xmg:images-path}/xmod/schematron/warning.png" alt=""/>
+              <img src="{$schematron-images-path}/warning.png" alt=""/>
               <xsl:text> Warnings were found in the document!</xsl:text>
             </p>
 	  </xsl:if>
@@ -132,7 +137,7 @@
     <p>
       <img alt="">
         <xsl:attribute name="src">
-          <xsl:value-of select="$xmg:images-path"/>
+          <xsl:value-of select="$schematron-images-path"/>
           <xsl:text>/</xsl:text>
           <xsl:value-of select="."/>
         </xsl:attribute>
