@@ -12,7 +12,7 @@
                               document to be validated
       -->
       <map:match pattern="validate/*/*/**.xml">
-	<map:generate src="../../xml/{3}.xml"/>
+	<map:generate src="../../content/xml/{3}.xml"/>
 	<!-- Use the SVRL skeleton and then further process those
 	     results, rather than simply using different
 	     skeletons. This is because there are processing
@@ -68,7 +68,7 @@
       </map:match>
 
       <map:match pattern="schema/*.sch">
-        <map:generate src="../../xml/schematron/{1}.sch"/>
+        <map:generate src="../../assets/schematron/{1}.sch"/>
         <map:serialize type="xml"/>
       </map:match>
     </map:pipeline>
