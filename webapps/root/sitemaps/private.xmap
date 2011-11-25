@@ -78,11 +78,13 @@
            Other matches with fully parameterised patterns can equally
            map to xMod's internal pipelines for greater control. -->
       <map:match pattern="xml/schematron/**.html">
-        <!-- #PROJECT means that the schema used is that extract from
-             the project's encoding guidelines. #ALL means that all
-             phases specified in the schema are used. -->
-        <map:generate src="cocoon://_internal/schematron/validate/#PROJECT/#ALL/{1}.xml" />
-        <map:transform src="../stylesheets/schematron/svrl_to_html.xsl">
+        <map:aggregate element="aggregation">
+          <!-- #PROJECT means that the schema used is that extract
+               from the project's encoding guidelines. #ALL means that
+               all phases specified in the schema are used. -->
+          <map:part src="cocoon://_internal/schematron/validate/#PROJECT/#ALL/{1}.xml" />
+        </map:aggregate>
+        <map:transform src="cocoon://_internal/template/schematron.xsl">
           <map:parameter name="file" value="{1}.xml" />
         </map:transform>
         <map:serialize />
@@ -145,6 +147,12 @@
         </map:aggregate>
         <map:transform src="cocoon://_internal/template/{1}.xsl" />
         <map:serialize />
+      </map:match>
+
+      <!-- Generate a template XSLT. -->
+      <map:match pattern="test/template/**.xsl">
+        <map:generate src="cocoon://_internal/template/{1}.xsl" />
+        <map:serialize type="xml" />
       </map:match>
     </map:pipeline>
   </map:pipelines>
