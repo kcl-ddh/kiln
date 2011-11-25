@@ -25,11 +25,9 @@
       <!--<![endif]-->
       <xmtp:block name="head">
         <head>
-          <xmtp:block name="title">
-            <title>Kiln: <xsl:value-of
-                select="/aggregation/tei:TEI/tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title[not(@type)]"
-               /></title>
-          </xmtp:block>
+          <title><xmtp:block name="title">Kiln: <xsl:value-of
+          select="/aggregation/tei:TEI/tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title[not(@type)]"
+          /></xmtp:block></title>
           <xmtp:block name="js">
             <!-- jQuery from Google CDN. -->
             <script
