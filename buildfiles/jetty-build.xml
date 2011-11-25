@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project basedir="../" default="runserver" name="jetty:run" xmlns:jetty="jetty.ant">
+<project basedir="../" default="runserver" name="jetty:run"
+  xmlns:jetty="jetty.ant">
 
   <description>Loads Jetty Antlibs and runs the Jetty server</description>
 
@@ -13,20 +14,20 @@
     </path>
 
     <!-- Loads Jetty into Ant -->
-    <taskdef classpathref="jetty.path"
-             loaderref="jetty.loader"
-             resource="tasks.properties"
-             uri="jetty.ant" />
+    <taskdef classpathref="jetty.path" loaderref="jetty.loader"
+      resource="tasks.properties" uri="jetty.ant" />
 
     <typedef classname="org.mortbay.jetty.nio.SelectChannelConnector"
-             classpathref="jetty.path"
-             loaderref="jetty.loader"
-             name="selectChannelConnector"
-             uri="jetty.ant" />
+      classpathref="jetty.path" loaderref="jetty.loader"
+      name="selectChannelConnector" uri="jetty.ant" />
   </target>
 
-  <target depends="init, init.jetty" description="Runs the Jetty webserver" name="runserver">
-    <jetty:jetty jettyXml="${jetty.home}/etc/jetty-ant.xml" tempDirectory="${jetty.home}/temp">
+  <target depends="init, init.jetty" description="Runs the Jetty webserver"
+    name="runserver">
+    <mkdir dir="${jetty.home}/logs"/>
+    
+    <jetty:jetty jettyXml="${jetty.home}/etc/jetty-ant.xml"
+      tempDirectory="${jetty.home}/temp">
       <jetty:systemProperties>
         <jetty:systemProperty name="jetty.home" value="${jetty.home}" />
       </jetty:systemProperties>
@@ -35,19 +36,16 @@
         <jetty:selectChannelConnector port="${jetty.port}" />
       </jetty:connectors>
 
-      <jetty:webApp contextpath=""
-                    name="kiln"
-                    scanIntervalSeconds="30"
-                    warfile="${basedir}/webapps/root">
+      <jetty:webApp contextpath="" name="kiln" scanIntervalSeconds="30"
+        warfile="${basedir}/webapps/root">
         <jetty:scanTargets dir="${basedir}/webapps/root">
           <include name="**" />
         </jetty:scanTargets>
       </jetty:webApp>
       <jetty:webApp contextpath="solr"
-                    jettyEnvXml="${basedir}/webapps/solr/conf/jetty-env.xml"
-                    name="solr"
-                    scanIntervalSeconds="30"
-                    warfile="${basedir}/webapps/solr/apache-solr.war">
+        jettyEnvXml="${basedir}/webapps/solr/conf/jetty-env.xml" name="solr"
+        scanIntervalSeconds="30"
+        warfile="${basedir}/webapps/solr/apache-solr.war">
         <jetty:scanTargets dir="${basedir}/webapps/solr">
           <include name="**" />
         </jetty:scanTargets>
