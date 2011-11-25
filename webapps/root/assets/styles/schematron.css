@@ -1,0 +1,9 @@
+div.overall-status { border: 2px solid grey; margin: 1em 6em 2em 4em; }
+div.overall-status h2 { color: #0C393F; background: #F0F0F0; margin-top: 0; padding: 0.5em 0; text-align: center; border-bottom: 1px solid grey; }
+div.overall-status p { margin: 1em 3em 1em 2em; font-weight: bold; }
+p.error { color: red; background: white; }
+p.warning { color: #F57900; background: white; }
+p.clean { color: green; background: white; }
+table { border-collapse: collapse; border: 2px solid grey; }
+td, th { vertical-align: top; border: 1px solid grey; padding: 0.5em; }
+th { color: #0C393F; background: #F0F0F0; }

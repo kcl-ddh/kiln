@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xmtp:root xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+           xmlns:tei="http://www.tei-c.org/ns/1.0"
+           xmlns:xi="http://www.w3.org/2001/XInclude"
+           xmlns:xmg="http://www.cch.kcl.ac.uk/xmod/global/1.0"
+           xmlns:xmtp="http://www.cch.kcl.ac.uk/xmod/template/1.0"
+           xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+  <xsl:import href="cocoon://_internal/template/xsl/stylesheets/schematron/svrl_to_html.xsl" />
+
+  <xmtp:parent>
+    <xi:include href="base.xml" />
+  </xmtp:parent>
+
+  <xmtp:child>
+    <xmtp:block name="title">Schematron validation results for <xsl:value-of select="$file" /></xmtp:block>
+
+    <xmtp:block name="css">
+      <xmtp:super />
+      <link href="{$xmg:assets-path}/styles/schematron.css" rel="stylesheet"
+            type="text/css" />
+    </xmtp:block>
+
+    <xmtp:block name="page-heading">Schematron validaton results for <xsl:value-of select="$file" /></xmtp:block>
+
+    <xmtp:block name="content">
+      <div class="unit size3of4 lastUnit" id="content">
+        <xsl:apply-templates select="/aggregation/svrl:schematron-output" />
+      </div>
+    </xmtp:block>
+  </xmtp:child>
+
+</xmtp:root>
