@@ -58,7 +58,7 @@
       <map:match pattern="_internal/allxmlcontent.xml">
         <map:generate src="../../content/xml" type="directory">
           <map:parameter name="depth" value="99" />
-          <map:parameter name="exclude" value="\..*" />
+          <map:parameter name="exclude" value="^\..*" />
         </map:generate>
         <map:serialize type="xml" />
       </map:match>
