@@ -11,7 +11,7 @@
       <map:match pattern="xml/index.html">
         <map:generate src="xml/content" type="directory">
           <map:parameter name="depth" value="99" />
-          <map:parameter name="exclude" value="\..*" />
+          <map:parameter name="exclude" value="^\..*" />
         </map:generate>
         <map:transform src="../stylesheets/private/xml-dirs-to-process-list-html.xsl">
           <map:parameter name="initial_path" value="content/" />
@@ -105,7 +105,7 @@
          exist - for example, that all of the images referenced in a
          TEI document are present in the correct place on the
          filesystem. -->
-    <map:pipeline id="local-internal-resource-check" internal-only="true">
+    <map:pipeline id="local-internal-resource-check" internal-only="false">
       <map:match pattern="xml/resource-check/images/**.xml">
         <map:aggregate element="aggregation">
           <map:part src="cocoon://private/xml/resource-check/image-refs/{1}.xml" />
@@ -120,7 +120,7 @@
            allows for the strict list of image references to be
            expanded to accommodate multiple derivatives (eg,
            thumbnails) of each image. -->
-      <map:match pattern="xml/resource-check/image-refs/content/**.xml">
+      <map:match pattern="xml/resource-check/image-refs/**.xml">
         <map:generate src="cocoon://_internal/metadata/images/{1}.xml" />
         <map:transform src="../stylesheets/private/expand-image-refs.xsl" />
         <map:serialize type="xml" />
@@ -128,9 +128,9 @@
 
       <!-- Generate a list of image files from the filesystem. -->
       <map:match pattern="xml/resource-check/image-files.xml">
-        <map:generate src="images" type="imagedirectory">
+        <map:generate src="../content/images" type="imagedirectory">
           <map:parameter name="depth" value="99" />
-          <map:parameter name="exclude" value="\..*" />
+          <map:parameter name="exclude" value="^\..*" />
         </map:generate>
         <map:transform src="../kiln/stylesheets/resource-check/flatten-dir-list.xsl" />
         <map:serialize type="xml" />

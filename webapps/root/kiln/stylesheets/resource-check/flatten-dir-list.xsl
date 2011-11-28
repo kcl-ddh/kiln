@@ -10,7 +10,7 @@
   <xsl:template match="/">
     <files>
       <xsl:apply-templates>
-        <xsl:with-param name="root" select="''"/>
+        <xsl:with-param name="root" select="'/content'"/>
       </xsl:apply-templates>
     </files>
   </xsl:template>
