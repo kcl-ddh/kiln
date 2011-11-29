@@ -95,8 +95,10 @@
          resource exist. -->
     <map:pipeline id="local-resource-check">
       <map:match pattern="xml/resource-check/images/**.html">
-        <map:generate src="cocoon:/xml/resource-check/images/{1}.xml" />
-        <map:transform src="../kiln/stylesheets/resource-check/report-to-html.xsl" />
+        <map:aggregate element="aggregation">
+          <map:part src="cocoon:/xml/resource-check/images/{1}.xml" />
+        </map:aggregate>
+        <map:transform src="cocoon://_internal/template/resource_check.xsl" />
         <map:serialize />
       </map:match>
     </map:pipeline>
