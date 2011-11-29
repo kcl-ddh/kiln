@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xmtp:root xmlns:xi="http://www.w3.org/2001/XInclude"
+           xmlns:xmg="http://www.cch.kcl.ac.uk/xmod/global/1.0"
+           xmlns:xmtp="http://www.cch.kcl.ac.uk/xmod/template/1.0"
+           xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+  <xsl:import href="cocoon://_internal/template/xsl/kiln/stylesheets/resource-check/report-to-html.xsl" />
+
+  <xmtp:parent>
+    <xi:include href="base.xml" />
+  </xmtp:parent>
+
+  <xmtp:child>
+    <xmtp:block name="title">Resource check results</xmtp:block>
+
+    <xmtp:block name="page-heading">Resource check results</xmtp:block>
+
+    <xmtp:block name="content">
+      <div class="unit size3of4 lastUnit" id="content">
+        <xsl:apply-templates select="/aggregation/report" />
+      </div>
+    </xmtp:block>
+  </xmtp:child>
+
+</xmtp:root>
