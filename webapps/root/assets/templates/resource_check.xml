@@ -16,9 +16,7 @@
     <xmtp:block name="page-heading">Resource check results</xmtp:block>
 
     <xmtp:block name="content">
-      <div class="unit size3of4 lastUnit" id="content">
-        <xsl:apply-templates select="/aggregation/report" />
-      </div>
+      <xsl:apply-templates select="/aggregation/report" />
     </xmtp:block>
   </xmtp:child>
 

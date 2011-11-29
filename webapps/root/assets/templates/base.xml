@@ -13,10 +13,6 @@
   <xsl:import
     href="cocoon://_internal/template/xsl/kiln/stylesheets/menu/menu.xsl" />
 
-  <!-- Imports stylesheet to convert TEI into HTML -->
-  <xsl:import
-    href="cocoon://_internal/template/xsl/stylesheets/tei/to-html.xsl" />
-
   <xmtp:block name="html">
     <!--[if IE 7 ]> <html class="no-js ie7" lang="en"> <![endif]-->
     <!--[if IE 8 ]> <html class="no-js ie8" lang="en"> <![endif]-->
@@ -25,9 +21,7 @@
       <!--<![endif]-->
       <xmtp:block name="head">
         <head>
-          <title><xmtp:block name="title">Kiln: <xsl:value-of
-          select="/aggregation/tei:TEI/tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title[not(@type)]"
-          /></xmtp:block></title>
+          <title><xmtp:block name="title">Kiln: </xmtp:block></title>
           <xmtp:block name="js">
             <!-- jQuery from Google CDN. -->
             <script
@@ -117,9 +111,9 @@
                       select="/aggregation/xmm:root" />
                   </div>
                 </xmtp:block>
-                <xmtp:block name="content">
+                <xmtp:block name="content-block">
                   <div class="unit size3of4 lastUnit" id="content">
-                    <xsl:apply-templates select="/aggregation/tei:TEI" />
+                    <xmtp:block name="content" />
                   </div>
                 </xmtp:block>
               </div>

@@ -24,9 +24,7 @@
     <xmtp:block name="page-heading">Schematron validaton results for <xsl:value-of select="$file" /></xmtp:block>
 
     <xmtp:block name="content">
-      <div class="unit size3of4 lastUnit" id="content">
-        <xsl:apply-templates select="/aggregation/svrl:schematron-output" />
-      </div>
+      <xsl:apply-templates select="/aggregation/svrl:schematron-output" />
     </xmtp:block>
   </xmtp:child>
 

@@ -83,7 +83,7 @@
           <map:part label="tei" src="cocoon://internal/tei/preprocess/{1}.xml"
            />
         </map:aggregate>
-        <map:transform src="cocoon://_internal/template/base.xsl">
+        <map:transform src="cocoon://_internal/template/tei.xsl">
           <map:parameter name="filedir" value="." />
           <map:parameter name="filename" value="{1}.xml" />
           <map:parameter name="fileextension" value="html" />
