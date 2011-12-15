@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<map:sitemap xmlns:map="http://apache.org/cocoon/sitemap/1.0">
+  <!-- kiln sitemap for handling Sesame harvesting and querying. -->
+  <map:pipelines>
+    <map:pipeline id="kiln-sesame" internal-only="true">
+
+      <!-- Harvest an RDF/XML document into Sesame. First deletes
+           statements in the supplied context, then adds those from
+           the RDF/XML document with the same context. -->
+      <map:match pattern="harvest/**.xml">
+        <map:aggregate element="response">
+          <map:part element="clear" src="cocoon:/clear/{1}.xml" />
+          <map:part element="add" src="cocoon:/add/{1}.xml" />
+        </map:aggregate>
+        <map:serialize type="xml" />
+      </map:match>
+
+      <!-- Add statements from an RDF/XML document to Sesame. -->
+      <map:match pattern="add/**.xml">
+        <map:generate src="cocoon://private/sesame/generate/{1}.xml" />
+        <map:transform type="sesame">
+          <map:parameter name="url" value="{global:sesame-server}" />
+          <map:parameter name="repository"
+                         value="{global:sesame-server-repository}" />
+          <map:parameter name="action" value="add" />
+          <map:parameter name="contexts" value="{global:rdf-base-uri}{1}" />
+        </map:transform>
+        <map:serialize type="xml" />
+      </map:match>
+
+      <!-- Clear all statements within a specified context from the
+           RDF store. -->
+      <map:match pattern="clear/**.xml">
+        <map:generate src="empty:empty" />
+        <map:transform type="sesame">
+          <map:parameter name="url" value="{global:sesame-server}" />
+          <map:parameter name="repository"
+                         value="{global:sesame-server-repository}" />
+          <map:parameter name="action" value="clear" />
+          <map:parameter name="contexts" value="{global:rdf-base-uri}{1}" />
+        </map:transform>
+        <map:serialize type="xml" />
+      </map:match>
+
+    </map:pipeline>
+  </map:pipelines>
+</map:sitemap>
