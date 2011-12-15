@@ -42,6 +42,18 @@
           <include name="**" />
         </jetty:scanTargets>
       </jetty:webApp>
+      <jetty:webApp contextpath="sesame" name="sesame"
+        warfile="${basedir}/webapps/sesame/openrdf-sesame.war">
+        <jetty:scanTargets dir="${basedir}/webapps/sesame">
+          <include name="**" />
+        </jetty:scanTargets>
+      </jetty:webApp>
+      <jetty:webApp contextpath="sesame-workbench" name="sesame-workbench"
+        warfile="${basedir}/webapps/sesame-workbench/openrdf-workbench.war">
+        <jetty:scanTargets dir="${basedir}/webapps/sesame-workbench">
+          <include name="**" />
+        </jetty:scanTargets>
+      </jetty:webApp>
       <jetty:webApp contextpath="solr"
         jettyEnvXml="${basedir}/webapps/solr/conf/jetty-env.xml" name="solr"
         scanIntervalSeconds="30"
