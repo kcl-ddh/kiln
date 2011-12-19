@@ -120,6 +120,11 @@
 
     <!-- Mount sub-sitemaps. -->
     <map:pipeline>
+      <!-- Assets handling (not project specific). -->
+      <map:match pattern="assets/**">
+        <map:mount check-reload="yes" src="assets.xmap" uri-prefix="assets/" />
+      </map:match>
+
       <!-- ODD handling (not project specific). -->
       <map:match pattern="_internal/odd/**">
         <map:mount check-reload="yes" src="odd.xmap" uri-prefix="_internal/odd/"
