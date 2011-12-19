@@ -29,7 +29,7 @@
       <!-- Mount the main kiln sitemap, which in turn mounts the main
            project sitemap, main.xmap. -->
       <map:match pattern="**">
-        <map:mount check-reload="yes" src="../kiln/sitemaps/sitemap.xmap"
+        <map:mount check-reload="yes" src="../kiln/sitemaps/main.xmap"
                    uri-prefix="" />
       </map:match>
     </map:pipeline>
