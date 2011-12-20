@@ -9,7 +9,7 @@
       <!-- Present a table of XML documents and the processes that
            might be applied to them. -->
       <map:match pattern="xml/index.html">
-        <map:generate src="xml/content" type="directory">
+        <map:generate src="../content/xml" type="directory">
           <map:parameter name="depth" value="99" />
           <map:parameter name="exclude" value="^\..*" />
         </map:generate>
@@ -26,7 +26,7 @@
            for performing the recursive crawl to actual perform the
            indexing, so do not change it! -->
       <map:match pattern="solr/index/site-list.html">
-        <map:generate src="xml/content" type="directory">
+        <map:generate src="../content/xml" type="directory">
           <map:parameter name="depth" value="99" />
           <map:parameter name="exclude" value="^\..*" />
         </map:generate>
