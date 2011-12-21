@@ -423,7 +423,7 @@
 
   <!-- References. -->
   <xsl:template match="tei:ref[starts-with(@target, '#')]">
-    <xsl:variable name="target" select="id(substring(@target, '2'))" />
+    <xsl:variable name="target" select="id(substring(@target, 2))" />
     <xsl:variable name="target-id">
       <xsl:choose>
         <xsl:when test="$create-entity-links='true'">
