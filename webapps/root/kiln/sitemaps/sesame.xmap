@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <map:sitemap xmlns:map="http://apache.org/cocoon/sitemap/1.0">
-  <!-- kiln sitemap for handling Sesame harvesting and querying. -->
+
+  <!-- kiln sitemap for handling Sesame harvesting and querying.
+       
+       These matches generate their initial content by calling Cocoon
+       matches in the local URL space
+       (cocoon://private/rdf/**). "generate/" is used as the relative
+       root for matches that generate RDF documents; "construct/" is
+       used for matches that construct queries.
+       
+       These matches are expected to be called from a Cocoon match in
+       the local URL space (typically cocoon://private/rdf/**, but it
+       may be anywhere).
+       
+       The contexts parameter passed to the Sesame transformer is used
+       here as an identifier of the source document(s) of the triples
+       being added/cleared. This allows for a harvest process that
+       first clears out any previously added triples relating to the
+       source document(s) and then adds the newly generated triples.
+
+  -->
   <map:pipelines>
     <map:pipeline id="kiln-sesame" internal-only="true">
 
@@ -40,6 +59,19 @@
           <map:parameter name="contexts" value="{global:rdf-base-uri}{1}" />
         </map:transform>
         <map:serialize type="xml" />
+      </map:match>
+
+      <!-- Perform a SPARQL Graph Query (ie, using CONSTRUCT). -->
+      <map:match pattern="query/graph/**.xml">
+        <map:generate src="cocoon://private/rdf/construct/graph/{1}.xml" />
+        <map:transform type="sesame">
+          <map:parameter name="url" value="{global:sesame-server}" />
+          <map:parameter name="repository"
+                         value="{global:sesame-server-repository}" />
+          <map:parameter name="action" value="graph-query" />
+          <map:parameter name="base-uri" value="{global:rdf-base-uri}" />
+        </map:transform>
+        <map:serialize type="rdf-xml" />
       </map:match>
 
     </map:pipeline>

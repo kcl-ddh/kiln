@@ -5,6 +5,14 @@
        like Schematron validation. -->
 
   <map:pipelines>
+    <!-- Mount sub-sitemaps. -->
+    <map:pipeline id="local-private-mount">
+      <!-- Mount a sitemap for generating and querying RDF. -->
+      <map:match pattern="rdf/**">
+        <map:mount check-reload="yes" src="rdf.xmap" uri-prefix="rdf/" />
+      </map:match>
+    </map:pipeline>
+
     <map:pipeline>
       <!-- Present a table of XML documents and the processes that
            might be applied to them. -->
