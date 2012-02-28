@@ -8,9 +8,9 @@
            document to Solr. -->
       <map:match pattern="index/*/**.xml">
         <map:aggregate element="response">
-          <map:part element="delete" src="cocoon:/_internal/solr/delete-by-file-path/{2}.xml" />
-          <map:part element="add" src="cocoon:/_internal/solr/add/{1}/{2}.xml" />
-          <map:part element="optimize" src="cocoon:/_internal/solr/optimize" />
+          <map:part element="delete" src="cocoon:/delete-by-file-path/{2}.xml" />
+          <map:part element="add" src="cocoon:/add/{1}/{2}.xml" />
+          <map:part element="optimize" src="cocoon:/optimize" />
         </map:aggregate>
         <map:serialize type="xml" />
       </map:match>
