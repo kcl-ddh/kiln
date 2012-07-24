@@ -15,7 +15,7 @@ the infrastructure and base functionality for such sites.
 
 Kiln is developed and maintained by a team at the Department of Digital
 Humanities (DDH), King’s College London. Over the past years and versions,
-Kiln (formerly called Kiln) has been used to generate more than 50 websites
+Kiln (formerly called xMod) has been used to generate more than 50 websites
 which have very different source materials and customised functionality. Since
 DDH has in-house guidelines for using TEI P5 to create websites, Kiln makes
 use of certain TEI markup conventions. However, it has been adapted to work on
