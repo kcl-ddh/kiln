@@ -66,3 +66,4 @@ Contents
     running
     templating
     searching
+    projects
