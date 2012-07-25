@@ -3,15 +3,15 @@
 Templating
 ==========
 
-Kiln provides a templating mechanism that provides full access to XSLT for
-creating the output, and an inheritance mechanism.
+Kiln provides a templating mechanism that provides full access to XSLT
+for creating the output, and an inheritance mechanism.
 
-Template inheritance allows for a final template to be built up of a base
-skeleton (containing the common structure of the output) and 'descendant'
-templates that fill in the gaps.
+Template inheritance allows for a final template to be built up of a
+base skeleton (containing the common structure of the output) and
+'descendant' templates that fill in the gaps.
 
-This inheritance system works in much the same way as
-`Django's template inheritance <http://www.djangoproject.com/>`_.
+This inheritance system works in much the same way as `Django`_\'s
+template inheritance.
 
 Using a template
 ----------------
@@ -21,8 +21,9 @@ as follows: ::
 
     <map:transform src="cocoon://_internal/template/path/to/template.xsl"/>
 
-The matching template looks for the file ``xml/template/path/to/template.xml``.
-Note that the extension of the template file is **xml**.
+The matching template looks for the file
+``xml/template/path/to/template.xml``.  Note that the extension of the
+template file is **xml**.
 
 Writing a template
 ------------------
@@ -40,14 +41,14 @@ The basic structure of a template is as follows: ::
         </xmtp:child>
     </xmtp:root>
 
-In a base template (that is, one that does not extend another template), there
-are no ``xmtp:parent`` or ``xmtp:child`` elements, only ``xmtp:root` and
-``xmtp:block`` elements (and whatever content the template may hold, of
-course).
+In a base template (that is, one that does not extend another
+template), there are no ``xmtp:parent`` or ``xmtp:child`` elements,
+only ``xmtp:root`` and ``xmtp:block`` elements (and whatever content
+the template may hold, of course).
 
-
-In a template that extends another, the template being extended is referenced
-by an ``xi:include``, the only allowed content of ``xmtp:parent``.
+In a template that extends another, the template being extended is
+referenced by an ``xi:include``, the only allowed content of
+``xmtp:parent``.
 
 Blocks
 ------
@@ -57,9 +58,10 @@ Block names must be unique within a template.
 Attribute blocks
 ^^^^^^^^^^^^^^^^
 
-In order to create a block to cover the contents of an attribute, define a
-block immediately after the element holding the attribute, specifying the name
-of the attribute it is a block for in the ``attribute`` attribute.
+In order to create a block to cover the contents of an attribute,
+define a block immediately after the element holding the attribute,
+specifying the name of the attribute it is a block for in the
+``attribute`` attribute.
 
 ::
 
@@ -69,17 +71,18 @@ of the attribute it is a block for in the ``attribute`` attribute.
         </xmtp:block>
     </ul>
 
-Multiple attribute blocks for the same element should simply be defined in
-series. It is only necessary that they occur before any non-attribute blocks
-within that element.
+Multiple attribute blocks for the same element should simply be
+defined in series. It is only necessary that they occur before any
+non-attribute blocks within that element.
 
 Inheriting content
 ^^^^^^^^^^^^^^^^^^
 
-In addition to supplying its own content, a block may include the content of
-the block it is inheriting from. To do so, an empty ``xmtp:super`` element
-should be added wherever the inherited content is wanted (multiple 
-``xmtp:super`` elements may occur within a single block.
+In addition to supplying its own content, a block may include the
+content of the block it is inheriting from. To do so, an empty
+``xmtp:super`` element should be added wherever the inherited content
+is wanted (multiple ``xmtp:super`` elements may occur within a single
+block.
 
 ::
 
@@ -103,3 +106,6 @@ this template, or imported/included XSLT.
 ``xsl:import`` and ``xsl:include`` elements may be used (and the compiler will
 move them to the beginning of the XSLT), as may ``xsl:apply-templates`` and
 ``xsl:call-template``.
+
+
+.. _Django: http://www.djangoproject.com/

@@ -44,4 +44,5 @@ Contents
     running
     templating
     searching
+    rdf
     projects

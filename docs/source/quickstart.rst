@@ -24,8 +24,9 @@ Principles
 Overriding XSLT by using ``xsl:import`` - a Kiln XSLT is imported by a local
 XSLT, allowing for templates to be redefined for the project.
 
-URL scheme: _internal for internal-to-Cocoon Kiln URLs, private for viewable
-but not public local material, internal for local internal URLs.
+URL scheme: ``_internal`` for internal-to-Cocoon Kiln URLs,
+``private`` for viewable but not public local material, ``internal``
+for local internal-to-Cocoon URLs.
 
 The directory :ref:`structure <structure>` makes explicit the division between
 those parts of Kiln that are its core, and should not be changed in any project
