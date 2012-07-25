@@ -24,15 +24,21 @@ conventions. However, it has been adapted to work on a variety of
 flavours of TEI and other XML vocabularies, and has been used to
 publish data held in relational databases.
 
-Support
--------
+Apache Cocoon
+-------------
 
-See our `issue tracker`_\.
+`Apache Cocoon`_ is at the core of Kiln, please consult its `documentation`_
+for more detailed information on how to configure it's components.
 
 Requirements
 ------------
 
 Java 1.5+ (untested with 1.7).
+
+Support
+-------
+
+See our `issue tracker`_\.
 
 Contents
 --------
@@ -54,4 +60,5 @@ Contents
 .. _xMod: http://www.cch.kcl.ac.uk/xmod/
 .. _Department of Digital Humanities: http://www.kcl.ac.uk/artshums/depts/ddh/
 .. _TEI P5: http://www.tei-c.org/release/doc/tei-p5-doc/en/html/index-toc.html
+.. _documentation: http://cocoon.apache.org/2.1/userdocs/index.html
 .. _issue tracker: https://github.com/kcl-ddh/kiln/issues
