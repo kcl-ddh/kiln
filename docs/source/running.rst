@@ -27,7 +27,9 @@ Production
 ----------
 
 The built-in jetty web server is not suitable for production
-deployments, and a more robust solution such as `Apache Tomcat
-<http://tomcat.apache.org/>`_ should be used. Kiln uses the standard
-webapp structure, so deployment is a matter of copying the files in
-``webapps`` into the server's existing webapps directory.
+deployments, and a more robust solution such as `Apache Tomcat`_ should be
+used. Kiln uses the standard webapp structure, so deployment is a matter of
+copying the files in ``webapps`` into the server's existing webapps directory.
+
+.. _Jetty: http://www.mortbay.org/
+.. _Apache Tomcat: http://tomcat.apache.org/

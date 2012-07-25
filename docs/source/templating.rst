@@ -107,5 +107,4 @@ this template, or imported/included XSLT.
 move them to the beginning of the XSLT), as may ``xsl:apply-templates`` and
 ``xsl:call-template``.
 
-
 .. _Django: http://www.djangoproject.com/

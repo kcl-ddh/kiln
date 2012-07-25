@@ -3,21 +3,22 @@
 Components
 ==========
 
-* `Apache Cocoon <http://cocoon.apache.org/2.1/>`_ web development framework
+* `Apache Cocoon`_ web development framework
   for XML processing, built with integrated eXist XML database that can be
   used for storage, indexing and searching using XPath expressions.
-* `Apache Solr <http://lucene.apache.org/solr/>`_ searching platform for
+* `Apache Solr`_ searching platform for
   indexing, searching and browsing of contents.
-* `Sesame 2 <http://www.openrdf.org/>`_ for storage and querying of RDF data.
-* `Apache Ant <http://ant.apache.org/>`_ build system that has tasks for
+* `Sesame 2`_ for storage and querying of RDF data.
+* `Apache Ant`_ build system that has tasks for
   running the built-in web application server, running the Solr web server,
   creating a static version of the website, generating a Solr index of all the
   desired content.
-* `Jetty <http://www.mortbay.org/>`_ web application server for immediate
+* `Jetty`_ web application server for immediate
   running of Cocoon with automatic refreshing of changes.
 * An XSLT-based templating language that supports inheritance, similar to 
-  `Django’s template block system <http://docs.djangoproject.com/en/dev/topics/templates/#template-inheritance>`_.
-* Simple Presentation and Interface Library (`SPIL <http://wip.cch.kcl.ac.uk/2011/10/28/you-spiltd-my-code-a-modular-approach-to-creating-web-front-ends/>`_), a set of HTML/CSS/JavaScript building blocks.
+  `Django’s template block system`_.
+* Simple Presentation and Interface Library (`SPIL`_), a set of
+  HTML/CSS/JavaScript building blocks.
 
 Architecture
 ------------
@@ -104,3 +105,13 @@ block it is inheriting from.
         <!-- Add in new content. -->
         <h2>Smaller title here</h2>
     </xmtp:block>
+
+.. _Apache Cocoon: http://cocoon.apache.org/2.1/
+.. _Apache Solr: http://lucene.apache.org/solr/
+.. _Sesame 2: http://www.openrdf.org/
+.. _Apache Ant: http://ant.apache.org/
+.. _Jetty: http://www.mortbay.org/
+.. _Django’s template block system: 
+    http://docs.djangoproject.com/en/dev/topics/templates/#template-inheritance
+.. _SPIL:
+    http://wip.cch.kcl.ac.uk/2011/10/28/you-spiltd-my-code-a-modular-approach-to-creating-web-front-ends/>

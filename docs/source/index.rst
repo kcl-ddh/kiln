@@ -16,7 +16,7 @@ provides the infrastructure and base functionality for such sites.
 
 Kiln is developed and maintained by a team at the `Department of
 Digital Humanities`_ (DDH), King’s College London. Over the past years
-and versions, Kiln (formerly called xMod) has been used to generate
+and versions, Kiln (formerly called `xMod`_) has been used to generate
 more than 50 websites which have very different source materials and
 customised functionality. Since DDH has in-house guidelines for using
 `TEI P5`_ to create websites, Kiln makes use of certain TEI markup
@@ -49,8 +49,8 @@ Contents
     rdf
     projects
 
-
 .. _Apache Cocoon: http://cocoon.apache.org/2.1/
+.. _xMod: http://www.cch.kcl.ac.uk/xmod/
 .. _Department of Digital Humanities: http://www.kcl.ac.uk/artshums/depts/ddh/
 .. _TEI P5: http://www.tei-c.org/release/doc/tei-p5-doc/en/html/index-toc.html
 .. _issue tracker: https://github.com/kcl-ddh/kiln/issues

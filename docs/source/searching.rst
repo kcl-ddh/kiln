@@ -40,5 +40,4 @@ configuration files, are found in ``webapps/solr/conf``.
 Search and browse pages are so project-specific that the appropriate
 XSLT and Cocoon matches need to be created for them from scratch.
 
-
 .. _Solr: http://lucene.apache.org/solr/
