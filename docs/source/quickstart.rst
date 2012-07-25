@@ -10,8 +10,8 @@ the `GitHub repository`_.
    (hereafter KILN_HOME)
 #. Run the command ``build.sh`` (Mac OS X/Linux) or ``build.bat`` (Windows),
    and leave the Terminal window open
-#. Open a browser and got to http://localhost:9999/
-    #. If all is well it should display a *Resource not found* error message!
+#. Open a browser and got to http://localhost:9999/. If all is well it should
+   display a *Resource not found* error message!
 #. Store project XML content (TEI) in the folder
    ``KILN_HOME/webapps/root/content/xml/tei``. By default Kiln needs a TEI
    index.xml file at that location
