@@ -43,6 +43,7 @@ Contents
     quickstart
     structure
     components
+    navigation
     running
     templating
     searching

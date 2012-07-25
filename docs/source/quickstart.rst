@@ -16,7 +16,7 @@ the `GitHub repository`_.
    ``KILN_HOME/webapps/root/content/xml/tei``. By default Kiln needs a TEI
    index.xml file at that location
 #. Reload the browser. It should now display the contents of the index file,
-   together with some very basic navigation.
+   together with some very basic :ref:`navigation <navigation>`.
 
 Principles
 ----------
