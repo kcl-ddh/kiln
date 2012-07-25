@@ -4,7 +4,7 @@ Quickstart
 ==========
 
 To get started with Kiln, it first needs to be downloaded or cloned from
-the `GitHub repository <http://github.com/kcl-ddh/kiln/>`_.
+the `GitHub repository`_.
 
 #. Open a Terminal window and go to the directory where Kiln is installed
    (hereafter KILN_HOME)
@@ -16,7 +16,7 @@ the `GitHub repository <http://github.com/kcl-ddh/kiln/>`_.
    ``KILN_HOME/webapps/root/content/xml/tei``. By default Kiln needs a TEI
    index.xml file at that location
 #. Reload the browser. It should now display the contents of the index file,
-   together with some very basid navigation.
+   together with some very basic navigation.
 
 Principles
 ----------
@@ -40,3 +40,5 @@ an example). Where a Kiln pipeline uses XSLT that might reasonably be
 customised by a project, it calls a proxy XSLT not within a kiln directory,
 that in turn imports the Kiln version. This allows for customisation without
 changing Kiln core files.
+
+.. _GitHub repository: http://github.com/kcl-ddh/kiln/

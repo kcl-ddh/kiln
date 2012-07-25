@@ -8,24 +8,26 @@
 Kiln documentation
 ==================
 
-Kiln is an open source multi-platform framework for building and deploying
-complex websites whose source content is primarily in XML. It brings together
-various independent software components into an integrated whole that provides
-the infrastructure and base functionality for such sites.
+Kiln is an open source multi-platform framework for building and
+deploying complex websites whose source content is primarily
+in XML. It brings together various independent software components,
+with `Apache Cocoon`_ at their centre, into an integrated whole that
+provides the infrastructure and base functionality for such sites.
 
-Kiln is developed and maintained by a team at the Department of Digital
-Humanities (DDH), King’s College London. Over the past years and versions,
-Kiln (formerly called xMod) has been used to generate more than 50 websites
-which have very different source materials and customised functionality. Since
-DDH has in-house guidelines for using TEI P5 to create websites, Kiln makes
-use of certain TEI markup conventions. However, it has been adapted to work on
-a variety of flavours of TEI and other XML vocabularies, and has been used to
+Kiln is developed and maintained by a team at the `Department of
+Digital Humanities`_ (DDH), King’s College London. Over the past years
+and versions, Kiln (formerly called xMod) has been used to generate
+more than 50 websites which have very different source materials and
+customised functionality. Since DDH has in-house guidelines for using
+`TEI P5`_ to create websites, Kiln makes use of certain TEI markup
+conventions. However, it has been adapted to work on a variety of
+flavours of TEI and other XML vocabularies, and has been used to
 publish data held in relational databases.
 
 Support
 -------
 
-See our `issue tracker <https://github.com/kcl-ddh/kiln/issues>`_.
+See our `issue tracker`_\.
 
 Requirements
 ------------
@@ -46,3 +48,9 @@ Contents
     searching
     rdf
     projects
+
+
+.. _Apache Cocoon: http://cocoon.apache.org/2.1/
+.. _Department of Digital Humanities: http://www.kcl.ac.uk/artshums/depts/ddh/
+.. _TEI P5: http://www.tei-c.org/release/doc/tei-p5-doc/en/html/index-toc.html
+.. _issue tracker: https://github.com/kcl-ddh/kiln/issues
