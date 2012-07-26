@@ -77,14 +77,14 @@
 
     <map:pipeline id="local-schematron">
       <!-- Schematron validation. This is the project-specific
-           interface to xMod's Schematron handling.
-           
+           interface to Kiln's Schematron handling.
+
            In the following example, simplified URLs are made
            available, where the generator supplies the majority of the
            details.
-           
+
            Other matches with fully parameterised patterns can equally
-           map to xMod's internal pipelines for greater control. -->
+           map to Kiln's internal pipelines for greater control. -->
       <map:match pattern="xml/schematron/**.html">
         <map:aggregate element="aggregation">
           <!-- #PROJECT means that the schema used is that extract
@@ -126,7 +126,7 @@
       </map:match>
 
       <!-- Generate a list of image references from the XML
-           documents. This is based on the xMod metadata listing, but
+           documents. This is based on the Kiln metadata listing, but
            allows for the strict list of image references to be
            expanded to accommodate multiple derivatives (eg,
            thumbnails) of each image. -->
