@@ -53,6 +53,7 @@ Contents
     running
     templating
     searching
+    schematron
     rdf
     projects
 
