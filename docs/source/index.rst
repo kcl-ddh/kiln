@@ -24,8 +24,8 @@ conventions. However, it has been adapted to work on a variety of
 flavours of TEI and other XML vocabularies, and has been used to
 publish data held in relational databases.
 
-Apache Cocoon
--------------
+Further reading
+---------------
 
 `Apache Cocoon`_ is at the core of Kiln, please consult its
 `documentation`_ for more detailed information on how to configure its
@@ -56,6 +56,7 @@ Contents
     searching
     schematron
     rdf
+    license
     projects
 
 .. _Apache Cocoon: http://cocoon.apache.org/2.1/
