@@ -27,8 +27,9 @@ publish data held in relational databases.
 Apache Cocoon
 -------------
 
-`Apache Cocoon`_ is at the core of Kiln, please consult its `documentation`_
-for more detailed information on how to configure it's components.
+`Apache Cocoon`_ is at the core of Kiln, please consult its
+`documentation`_ for more detailed information on how to configure its
+components.
 
 Requirements
 ------------
