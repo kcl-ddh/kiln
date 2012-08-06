@@ -3,5 +3,6 @@
 *~
 sw/jetty/logs
 sw/jetty/temp
+webapps/sesame/app_dir
 webapps/solr/data
 webapps/root/WEB-INF/logs

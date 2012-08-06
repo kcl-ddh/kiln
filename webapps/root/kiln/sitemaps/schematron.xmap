@@ -4,7 +4,7 @@
     <map:pipeline id="kiln-internal-schematron" internal-only="true">
       <!-- Validate an XML file against a Schematron scheme and return
            the result as SVRL XML.
-           
+
            Parameters:
            1. schema - defines the set of rules
            2. phase - a named subset of rules within the schema
@@ -12,31 +12,31 @@
                               document to be validated
       -->
       <map:match pattern="validate/*/*/**.xml">
-	<map:generate src="../../content/xml/{3}.xml"/>
-	<!-- Use the SVRL skeleton and then further process those
-	     results, rather than simply using different
-	     skeletons. This is because there are processing
-	     limitations with a single skeleton step, such as no way
-	     (without overriding parts of the base XSLT that are not
-	     meant to be overridden) to wrap the individual sets of
-	     results in an element. -->
-	<map:transform src="cocoon:/{1}/{2}/iso_svrl_for_xslt2.xsl">
-	  <map:parameter name="title" value="{4}"/>
-	</map:transform>
-	<map:serialize type="xml"/>
+        <map:generate src="../../content/xml/{3}.xml"/>
+        <!-- Use the SVRL skeleton and then further process those
+             results, rather than simply using different
+             skeletons. This is because there are processing
+             limitations with a single skeleton step, such as no way
+             (without overriding parts of the base XSLT that are not
+             meant to be overridden) to wrap the individual sets of
+             results in an element. -->
+        <map:transform src="cocoon:/{1}/{2}/iso_svrl_for_xslt2.xsl">
+          <map:parameter name="title" value="{4}"/>
+        </map:transform>
+        <map:serialize type="xml"/>
       </map:match>
 
       <!-- Create an XSLT from a Schematron schema file that can be
            applied to an XML file. -->
       <map:match pattern="*/*/*.xsl">
-	<map:generate src="cocoon:/schema/{1}.sch"/>
-	<map:transform src="../stylesheets/schematron/iso_dsdl_include.xsl"/>
-	<map:transform src="../stylesheets/schematron/iso_abstract_expand.xsl"/>
-	<map:transform src="../stylesheets/schematron/{3}.xsl">
-	  <map:parameter name="phase" value="{2}"/>
-	  <map:parameter name="allow-foreign" value="true"/>
-	</map:transform>
-	<map:serialize type="xml"/>
+        <map:generate src="cocoon:/schema/{1}.sch"/>
+        <map:transform src="../stylesheets/schematron/iso_dsdl_include.xsl"/>
+        <map:transform src="../stylesheets/schematron/iso_abstract_expand.xsl"/>
+        <map:transform src="../stylesheets/schematron/{3}.xsl">
+          <map:parameter name="phase" value="{2}"/>
+          <map:parameter name="allow-foreign" value="true"/>
+        </map:transform>
+        <map:serialize type="xml"/>
       </map:match>
 
       <!-- Get the Schematron schema from the project's default ODD

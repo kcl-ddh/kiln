@@ -1,0 +1,110 @@
+.. _templating:
+
+Templating
+==========
+
+Kiln provides a templating mechanism that provides full access to XSLT
+for creating the output, and an inheritance mechanism.
+
+Template inheritance allows for a final template to be built up of a
+base skeleton (containing the common structure of the output) and
+'descendant' templates that fill in the gaps.
+
+This inheritance system works in much the same way as `Django`_\'s
+template inheritance.
+
+Using a template
+----------------
+
+To apply a template to a content source, a Cocoon ``map:transform`` is used,
+as follows: ::
+
+    <map:transform src="cocoon://_internal/template/path/to/template.xsl"/>
+
+The matching template looks for the file
+``xml/template/path/to/template.xml``.  Note that the extension of the
+template file is **xml**.
+
+Writing a template
+------------------
+
+The basic structure of a template is as follows: ::
+
+    <xmtp:root xmlns:xmtp="http://www.cch.kcl.ac.uk/xmod/template/1.0"
+               xmlns:xi="http://www.w3.org/2001/XInclude">
+        <xmtp:parent>
+            <xi:include href="base.xml"/>
+        </xmtp:parent>
+        <xmtp:child>
+            <xmtp:block name="head-title">
+            </xmtp:block>
+        </xmtp:child>
+    </xmtp:root>
+
+In a base template (that is, one that does not extend another
+template), there are no ``xmtp:parent`` or ``xmtp:child`` elements,
+only ``xmtp:root`` and ``xmtp:block`` elements (and whatever content
+the template may hold, of course).
+
+In a template that extends another, the template being extended is
+referenced by an ``xi:include``, the only allowed content of
+``xmtp:parent``.
+
+Blocks
+------
+
+Block names must be unique within a template.
+
+Attribute blocks
+^^^^^^^^^^^^^^^^
+
+In order to create a block to cover the contents of an attribute,
+define a block immediately after the element holding the attribute,
+specifying the name of the attribute it is a block for in the
+``attribute`` attribute.
+
+::
+
+    <ul>
+        <xmtp:block name="ul-class" attribute="class">
+            <xsl:text>block default</xsl:text>
+        </xmtp:block>
+    </ul>
+
+Multiple attribute blocks for the same element should simply be
+defined in series. It is only necessary that they occur before any
+non-attribute blocks within that element.
+
+Inheriting content
+^^^^^^^^^^^^^^^^^^
+
+In addition to supplying its own content, a block may include the
+content of the block it is inheriting from. To do so, an empty
+``xmtp:super`` element should be added wherever the inherited content
+is wanted (multiple ``xmtp:super`` elements may occur within a single
+block.
+
+::
+
+    <xmtp:block name="nav">
+        <xmtp:super/>
+        <p>Extra navigation here.</p>
+    </xmtp:block>
+
+If the block being inherited also contains an ``xmtp:super`` element, then that
+referenced content will also be included.
+
+Dynamic content
+---------------
+
+Templates use XSLT as the coding language to create any dynamic content.
+``xsl:stylesheet`` and ``xsl:template`` elements must not be used; the process
+that compiles the template into an XSLT wraps the template's XSL statements in
+a single ``xsl:template`` element matching on "/"; all processing occurs within
+this template, or imported/included XSLT.
+
+``xsl:import`` and ``xsl:include`` elements may be used (and the compiler will
+move them to the beginning of the XSLT), as may ``xsl:apply-templates`` and
+``xsl:call-template``.
+
+.. _Django: http://www.djangoproject.com/
