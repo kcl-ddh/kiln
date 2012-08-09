@@ -18,8 +18,7 @@
       <!-- Mount a sitemap for any private URLs, such as editorial
            processes like Schematron validation. -->
       <map:match pattern="private/**">
-        <map:mount check-reload="yes" src="private.xmap" uri-prefix="private/"
-         />
+        <map:mount check-reload="yes" src="private.xmap" uri-prefix="private/" />
       </map:match>
     </map:pipeline>
 
@@ -46,9 +45,8 @@
       <map:match pattern="**.html">
         <map:aggregate element="aggregation" label="content">
           <map:part src="cocoon://_internal/menu/main.xml" />
-          <map:part src="cocoon://_internal/metadata/files.xml" />
-          <map:part label="tei" src="cocoon://internal/tei/preprocess/{1}.xml"
-           />
+          <map:part src="cocoon://internal/metadata/files.xml" />
+          <map:part label="tei" src="cocoon://internal/tei/preprocess/{1}.xml" />
         </map:aggregate>
         <map:transform src="cocoon://_internal/template/tei.xsl">
           <map:parameter name="filedir" value="." />
@@ -66,6 +64,34 @@
         <map:generate src="../content/xml/tei/{1}.xml" />
         <map:transform src="../kiln/stylesheets/tei/join-elements.xsl" />
         <map:transform src="../kiln/stylesheets/tei/annotate.xsl" />
+        <map:serialize type="xml" />
+      </map:match>
+    </map:pipeline>
+
+    <!-- Metadata pipeline. -->
+    <map:pipeline id="metadata" internal-only="true">
+      <map:match pattern="internal/allxmlcontent.xml">
+        <map:generate src="../content/xml" type="directory">
+          <map:parameter name="depth" value="99" />
+          <map:parameter name="exclude" value="^\..*" />
+        </map:generate>
+        <map:serialize type="xml" />
+      </map:match>
+
+      <map:match pattern="internal/metadata/*/**.xml">
+        <map:generate src="../content/xml/{2}.xml" />
+        <map:transform src="../stylesheets/metadata/{1}-metadata-generator.xsl">
+          <map:parameter name="path" value="{2}.xml" />
+        </map:transform>
+        <map:serialize type="xml" />
+      </map:match>
+
+      <map:match pattern="internal/metadata/*.xml">
+        <map:generate src="cocoon://internal/allxmlcontent.xml" />
+        <map:transform src="../stylesheets/metadata/xinclude.xsl">
+          <map:parameter name="type" value="{1}" />
+        </map:transform>
+        <map:transform type="xinclude" />
         <map:serialize type="xml" />
       </map:match>
     </map:pipeline>

@@ -25,6 +25,6 @@
   <xsl:template match="dir:file[matches(@name, '.xml$')]">
     <xsl:param name="root" select="''" />
 
-    <xi:include href="cocoon://_internal/metadata/{$type}/{$root}{@name}" />
+    <xi:include href="cocoon://internal/metadata/{$type}/{$root}{@name}" />
   </xsl:template>
 </xsl:stylesheet>
