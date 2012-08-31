@@ -17,6 +17,7 @@ vocabularies, and has been used to publish data held in relational databases.
   <http://www.charm.rhul.ac.uk>`_
 * `The Complete Works of Ben Jonson: Online Edition
   <http://www.kcl.ac.uk/artshums/depts/ddh/research/projects/current/cwobj.aspx>`_
+* `Digital Du Chemin <https://github.com/DuChemin/>`_
 * `Electronic Sawyer <http://www.esawyer.org.uk/>`_
 * `The Gascon Rolls Project <http://www.gasconrolls.org/>`_
 * `Greek Bible in Byzantine Judaism <http://gbbj.org/>`_
