@@ -52,7 +52,7 @@
 
       <!-- TEI preprocessed for use with EATS data. -->
       <map:match pattern="solr/preprocess/tei-eats/**.xml">
-        <map:generate src="../media/xml/{1}.xml" />
+        <map:generate src="../content/xml/{1}.xml" />
         <map:serialize type="xml" />
       </map:match>
 
@@ -70,7 +70,7 @@
 
       <!-- The general case of preprocessing some type of TEI. -->
       <map:match pattern="solr/preprocess/*/**.xml">
-        <map:generate src="../media/xml/{2}.xml" />
+        <map:generate src="../content/xml/{2}.xml" />
         <map:serialize type="xml" />
       </map:match>
     </map:pipeline>
