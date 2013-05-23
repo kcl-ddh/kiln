@@ -47,7 +47,7 @@
         <map:aggregate element="aggregation" label="content">
           <map:part src="cocoon://_internal/menu/main.xml" />
           <map:part src="cocoon://internal/metadata/files.xml" />
-          <!--<map:part label="tei" src="cocoon://internal/tei/preprocess/{1}.xml" />-->
+          <map:part label="tei" src="cocoon://internal/tei/preprocess/{1}.xml" />
         </map:aggregate>
         <map:transform src="../kiln/stylesheets/menu/contextualise-menu.xsl">
           <map:parameter name="filedir" value="" />
