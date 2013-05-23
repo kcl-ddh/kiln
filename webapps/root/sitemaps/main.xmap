@@ -36,6 +36,7 @@
       </map:match>
     </map:pipeline>
 
+    <!-- Main display pipeline. -->
     <map:pipeline type="noncaching">
       <map:match pattern="">
         <!-- Redirect request to the root path to the index page. -->
@@ -46,10 +47,15 @@
         <map:aggregate element="aggregation" label="content">
           <map:part src="cocoon://_internal/menu/main.xml" />
           <map:part src="cocoon://internal/metadata/files.xml" />
-          <map:part label="tei" src="cocoon://internal/tei/preprocess/{1}.xml" />
+          <!--<map:part label="tei" src="cocoon://internal/tei/preprocess/{1}.xml" />-->
         </map:aggregate>
+        <map:transform src="../kiln/stylesheets/menu/contextualise-menu.xsl">
+          <map:parameter name="filedir" value="" />
+          <map:parameter name="filename" value="{1}.xml" />
+          <map:parameter name="fileextension" value="html" />
+        </map:transform>
         <map:transform src="cocoon://_internal/template/tei.xsl">
-          <map:parameter name="filedir" value="." />
+          <map:parameter name="filedir" value="" />
           <map:parameter name="filename" value="{1}.xml" />
           <map:parameter name="fileextension" value="html" />
         </map:transform>
