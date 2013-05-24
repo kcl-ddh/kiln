@@ -57,6 +57,15 @@
         <map:transform src="../stylesheets/menu/normalise-menu.xsl" />
         <map:serialize type="xml" />
       </map:match>
+
+      <map:match pattern="_internal/menu/*/*.xml">
+        <!-- {1} is a language code. -->
+        <map:generate src="../../assets/menu/{1}.xml" />
+        <map:transform src="../stylesheets/menu/normalise-menu.xsl">
+          <map:param name="language" value="{1}" />
+        </map:transform>
+        <map:serialize type="xml" />
+      </map:match>
     </map:pipeline>
 
     <!-- EATS -->

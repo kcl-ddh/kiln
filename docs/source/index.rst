@@ -56,6 +56,7 @@ Contents
     searching
     schematron
     rdf
+    multilingual
     license
     projects
 

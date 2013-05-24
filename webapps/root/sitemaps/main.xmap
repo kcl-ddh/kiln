@@ -43,6 +43,7 @@
         <map:redirect-to uri="index.html" />
       </map:match>
 
+      <!-- Example of providing content in a single language. -->
       <map:match pattern="**.html">
         <map:aggregate element="aggregation" label="content">
           <map:part src="cocoon://_internal/menu/main.xml" />
@@ -58,6 +59,30 @@
           <map:parameter name="filedir" value="" />
           <map:parameter name="filename" value="{1}.xml" />
           <map:parameter name="fileextension" value="html" />
+        </map:transform>
+        <map:serialize />
+      </map:match>
+
+      <!-- Example of providing content in more than one language. -->
+      <map:match pattern="*/**.html">
+        <!-- {1} is a language code. -->
+        <map:aggregate element="aggregation" label="content">
+          <map:part src="cocoon://_internal/menu/{1}/main.xml" />
+          <map:part src="cocoon://internal/metadata/files.xml" />
+          <map:part src="cocoon://internal/tei/preprocess/{1}/{2}.xml"
+                    label="tei" />
+        </map:aggregate>
+        <map:transform src="../kiln/stylesheets/menu/contextualise-menu.xsl">
+          <map:parameter name="filedir" value="" />
+          <map:parameter name="filename" value="{2}.xml" />
+          <map:parameter name="fileextension" value="html" />
+          <map:parameter name="language" value="{1}" />
+        </map:transform>
+        <map:transform src="cocoon://_internal/template/tei.xsl">
+          <map:parameter name="filedir" value="" />
+          <map:parameter name="filename" value="{1}.xml" />
+          <map:parameter name="fileextension" value="html" />
+          <map:parameter name="language" value="{1}" />
         </map:transform>
         <map:serialize />
       </map:match>
