@@ -39,7 +39,7 @@ the project-specific files, keeping each in their own directories.
             * private.xmap — Project's private pipelines not accessible to the
               general public.
         * stylesheets — Project's XSLT stylesheets.
-            * default.xsl — Defaults stylesheet, defines default globals and
+            * defaults.xsl — Defaults stylesheet, defines default globals and
               reads parameters from the sitemaps.
             * private — Stylesheets related to private pipelines.
             * schematron — Stylesheets related to Schematron output.
