@@ -3,15 +3,23 @@
 <map:sitemap xmlns:map="http://apache.org/cocoon/sitemap/1.0">
 
   <!--
-    
+
     Project configuration sitemap.
-    
+
     This sitemap defines default components and global variables for
     this project.
-    
+
   -->
 
-  <map:components />
+  <map:components>
+    <map:serializers>
+      <map:serializer logger="sitemap.serializer.xml"
+                      mime-type="text/xml" name="xml_nodecl"
+                      src="org.apache.cocoon.serialization.XMLSerializer">
+        <omit-xml-declaration>yes</omit-xml-declaration>
+      </map:serializer>
+    </map:serializers>
+  </map:components>
 
   <map:pipelines>
     <map:component-configurations>
