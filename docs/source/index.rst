@@ -58,6 +58,7 @@ Contents
     rdf
     multilingual
     backend
+    admin
     license
     projects
 
