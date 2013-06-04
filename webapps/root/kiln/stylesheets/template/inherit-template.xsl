@@ -18,8 +18,7 @@
       xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
       <xsl:copy-of select="//xsl:import" />
       <xsl:copy-of select="//xsl:include" />
-      <xsl:copy-of select="//xsl:variable" />
-      
+
       <axsl:template match="/">
         <xsl:apply-templates />
       </axsl:template>
@@ -77,7 +76,7 @@
   </xsl:template>
   <xsl:template match="xsl:import" />
   <xsl:template match="xsl:include" />
-  <xsl:template match="xsl:variable" />
+
   <xsl:template match="@*|node()">
     <xsl:copy>
       <xsl:apply-templates select="@*|node()" />
