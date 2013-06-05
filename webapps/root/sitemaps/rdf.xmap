@@ -11,6 +11,18 @@
            pipelines defined below to create the RDF or query that is
            sent to the server. -->
 
+      <!-- Bulk harvest of RDF/XML into the server. -->
+      <map:match pattern="harvest/all.xml">
+        <map:generate src="../content/xml" type="directory">
+          <map:parameter name="depth" value="99" />
+          <map:parameter name="exclude" value="^\..*" />
+        </map:generate>
+        <map:transform
+            src="../stylesheets/private/dir-to-xinclude.xsl" />
+        <map:transform type="xinclude" />
+        <map:serialize type="xml" />
+      </map:match>
+
       <!-- Harvest RDF/XML into the server. -->
       <map:match pattern="harvest/**.xml">
         <!-- This will call rdf/generate/{1}.xml below. -->
