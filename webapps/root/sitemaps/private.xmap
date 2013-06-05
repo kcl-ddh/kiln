@@ -11,6 +11,11 @@
       <map:match pattern="rdf/**">
         <map:mount check-reload="yes" src="rdf.xmap" uri-prefix="rdf/" />
       </map:match>
+      <!-- Mount a sitemap for Solr indexing. -->
+      <map:match pattern="solr/**">
+        <map:mount check-reload="yes" src="solr.xmap"
+                   uri-prefix="solr/" />
+      </map:match>
     </map:pipeline>
 
     <map:pipeline>
@@ -25,53 +30,6 @@
           <map:parameter name="initial_path" value="content/" />
         </map:transform>
         <map:serialize />
-      </map:match>
-    </map:pipeline>
-
-    <map:pipeline id="local-solr">
-      <!-- List links to all index URLs for the site. Note that the
-           URL matched here is referenced by the Ant build task used
-           for performing the recursive crawl to actual perform the
-           indexing, so do not change it! -->
-      <map:match pattern="solr/index/site-list.html">
-        <map:generate src="../content/xml" type="directory">
-          <map:parameter name="depth" value="99" />
-          <map:parameter name="exclude" value="^\..*" />
-        </map:generate>
-        <map:transform src="../stylesheets/private/xml-dirs-to-index-list-html.xsl" />
-        <map:serialize />
-      </map:match>
-
-      <!-- Solr indexing. -->
-      <map:match pattern="solr/index/*/**.xml">
-        <map:generate src="cocoon://_internal/solr/index/{1}/{2}.xml" />
-        <map:serialize type="xml" />
-      </map:match>
-
-      <!-- Preprocessing of material before indexing. -->
-
-      <!-- TEI preprocessed for use with EATS data. -->
-      <map:match pattern="solr/preprocess/tei-eats/**.xml">
-        <map:generate src="../content/xml/{1}.xml" />
-        <map:serialize type="xml" />
-      </map:match>
-
-      <!-- EATSML, all entities. -->
-      <map:match pattern="solr/preprocess/eatsml/entities.xml">
-        <map:generate src="cocoon://_internal/eats/entities.xml" />
-        <map:serialize type="xml" />
-      </map:match>
-
-      <!-- EATSML, entities associated with a single authority. -->
-      <map:match pattern="solr/preprocess/eatsml/*/entities.xml">
-        <map:generate src="cocoon://_internal/eats/{1}/entities.xml" />
-        <map:serialize type="xml" />
-      </map:match>
-
-      <!-- The general case of preprocessing some type of TEI. -->
-      <map:match pattern="solr/preprocess/*/**.xml">
-        <map:generate src="../content/xml/{2}.xml" />
-        <map:serialize type="xml" />
       </map:match>
     </map:pipeline>
 

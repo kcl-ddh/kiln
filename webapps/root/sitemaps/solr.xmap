@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<map:sitemap xmlns:map="http://apache.org/cocoon/sitemap/1.0">
+  <!-- Local sitemap for Solr indexing. -->
+
+  <map:pipelines>
+    <map:pipeline id="local-solr">
+      <!-- List links to all index URLs for the site. Note that the
+           URL matched here is referenced by the Ant build task used
+           for performing the recursive crawl to actual perform the
+           indexing, so do not change it! -->
+      <map:match pattern="index/site-list.html">
+        <map:generate src="../content/xml" type="directory">
+          <map:parameter name="depth" value="99" />
+          <map:parameter name="exclude" value="^\..*" />
+        </map:generate>
+        <map:transform src="../stylesheets/private/xml-dirs-to-index-list-html.xsl" />
+        <map:serialize />
+      </map:match>
+
+      <!-- Indexing. -->
+
+      <!-- Index all XML content in a single (user) request.
+
+           For efficiency reasons, delete the whole index first
+           (obviously a bad idea if the index also contains material
+           harvested from non-XML sources!), then add each document
+           via an XInclude. -->
+      <map:match pattern="index/all.html">
+        <map:aggregate element="aggregation">
+          <map:part element="delete"
+                    src="cocoon://_internal/solr/delete-all" />
+          <map:part element="insert" src="cocoon:/add/" />
+          <map:part element="optimise"
+                    src="cocoon://_internal/solr/optimize" />
+        </map:aggregate>
+        <map:transform src="../stylesheets/solr/results-to-html.xsl" />
+        <map:serialize />
+      </map:match>
+
+      <map:match pattern="add/">
+        <map:generate src="../content/xml" type="directory">
+          <map:parameter name="depth" value="99" />
+          <map:parameter name="exclude" value="^\..*" />
+        </map:generate>
+        <map:transform src="../stylesheets/solr/xml-dirs-to-index-xinclude.xsl" />
+        <map:transform type="xinclude" />
+        <map:serialize type="xml" />
+      </map:match>
+
+      <map:match pattern="add/*/**.xml">
+        <map:generate src="cocoon://_internal/solr/add/{1}/{2}.xml" />
+        <map:serialize type="xml" />
+      </map:match>
+
+      <map:match pattern="index/*/**.xml">
+        <map:generate src="cocoon://_internal/solr/index/{1}/{2}.xml" />
+        <map:serialize type="xml" />
+      </map:match>
+
+      <!-- Preprocessing of material before indexing. These matches
+           are referenced by the internal Kiln pipelines. -->
+
+      <!-- TEI preprocessed for use with EATS data. -->
+      <map:match pattern="preprocess/tei-eats/**.xml">
+        <map:generate src="../content/xml/{1}.xml" />
+        <map:serialize type="xml" />
+      </map:match>
+
+      <!-- EATSML, all entities. -->
+      <map:match pattern="preprocess/eatsml/entities.xml">
+        <map:generate src="cocoon://_internal/eats/entities.xml" />
+        <map:serialize type="xml" />
+      </map:match>
+
+      <!-- EATSML, entities associated with a single authority. -->
+      <map:match pattern="preprocess/eatsml/*/entities.xml">
+        <map:generate src="cocoon://_internal/eats/{1}/entities.xml" />
+        <map:serialize type="xml" />
+      </map:match>
+
+      <!-- The general case of preprocessing some type of TEI. -->
+      <map:match pattern="preprocess/*/**.xml">
+        <map:generate src="../content/xml/{2}.xml" />
+        <map:serialize type="xml" />
+      </map:match>
+    </map:pipeline>
+  </map:pipelines>
+</map:sitemap>

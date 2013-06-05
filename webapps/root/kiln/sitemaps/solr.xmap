@@ -16,6 +16,15 @@
       </map:match>
 
       <!-- Deleting. -->
+      <map:match pattern="delete-all">
+        <map:generate src="empty:empty" />
+        <map:transform src="../../stylesheets/solr/delete-all.xsl" />
+        <map:transform type="solr">
+          <map:parameter name="url" value="{global:solr-server}" />
+        </map:transform>
+        <map:serialize type="xml" />
+      </map:match>
+
       <map:match pattern="delete-by-file-path/**.xml">
         <map:generate src="empty:empty" />
         <map:transform src="../../stylesheets/solr/delete-by-file-path.xsl">
