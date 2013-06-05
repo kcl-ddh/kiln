@@ -22,11 +22,16 @@
   </xsl:template>
 
   <xsl:template match="file">
-    <h3><xsl:apply-templates /></h3>
+    <h3><xsl:value-of select="@path" /></h3>
 
-    <xsl:if test="not(local-name(following-sibling::*[1])='report')">
+    <!-- The XInclude may have failed to return a valid response, in
+         which case the indexing failed in a way that must be
+         determined and reported here. -->
+    <xsl:if test="not(report)">
       <p>Failed!</p>
     </xsl:if>
+
+    <xsl:apply-templates />
   </xsl:template>
 
   <xsl:template match="insert">

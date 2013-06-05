@@ -4,8 +4,14 @@
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-  <!-- XSLT to generate XInclude elements to index each XML document
-       in the source document's directory listing. -->
+  <!-- XSLT to generate a list of XInclude elements for each file in a
+       directory listing.
+
+       Includes a file element wrapping each xi:include element
+       specifying the file path of the file being processed. -->
+
+  <!-- Prefix to be added to XInclude URLs. -->
+  <xsl:param name="prefix" />
 
   <xsl:template match="dir:directory">
     <xincludes>
@@ -33,8 +39,9 @@
       <xsl:value-of select="@name" />
     </xsl:variable>
 
-    <file><xsl:value-of select="$filepath" /></file>
-    <xi:include href="tei/{$filepath}" />
+    <file path="{$filepath}">
+      <xi:include href="{$prefix}{$filepath}" />
+    </file>
   </xsl:template>
 
 </xsl:stylesheet>

@@ -42,7 +42,9 @@
           <map:parameter name="depth" value="99" />
           <map:parameter name="exclude" value="^\..*" />
         </map:generate>
-        <map:transform src="../stylesheets/solr/xml-dirs-to-index-xinclude.xsl" />
+        <map:transform src="../stylesheets/private/dir-to-xinclude.xsl">
+          <map:parameter name="prefix" value="tei/" />
+        </map:transform>
         <map:transform type="xinclude" />
         <map:serialize type="xml" />
       </map:match>
