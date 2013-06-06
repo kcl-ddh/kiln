@@ -12,9 +12,11 @@
 
 #-----------------------------------------------------------------------
 #some test synonym mappings unlikely to appear in real input text
-aaafoo => aaabar
-bbbfoo => bbbfoo bbbbar
-cccfoo => cccbar cccbaz
+aaa => aaaa
+bbb => bbbb1 bbbb2
+ccc => cccc1,cccc2
+a\=>a => b\=>b
+a\,a => b\,b
 fooaaa,baraaa,bazaaa
 
 # Some synonym groups specific to this example
@@ -26,6 +28,4 @@ Television, Televisions, TV, TVs
 
 # Synonym mappings can be used for spelling correction too
 pixima => pixma
-
-a\,a => b\,b
 
