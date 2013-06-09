@@ -59,6 +59,7 @@ Contents
     multilingual
     backend
     admin
+    pdf
     license
     projects
 

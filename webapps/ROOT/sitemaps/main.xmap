@@ -86,6 +86,22 @@
         </map:transform>
         <map:serialize />
       </map:match>
+
+      <!-- Example of providing content as PDF. -->
+      <map:match pattern="**.pdf">
+        <map:generate src="cocoon://internal/tei/preprocess/{1}/{2}.xml"
+                      label="tei" />
+        <map:transform src="cocoon://_internal/template/pdf.xsl" />
+        <map:serialize type="fo2pdf" />
+      </map:match>
+
+      <!-- Example of providing content as ePub. -->
+      <map:match pattern="**.epub">
+        <map:generate src="cocon://internal/tei/preprocess/{1}/{2}.xml"
+                      label="tei" />
+        <map:transform src="cocoon://_internal/template/epub.xsl" />
+        <map:serialize type="xhtml" />
+      </map:match>
     </map:pipeline>
 
     <!-- Kiln as backend pipeline. -->

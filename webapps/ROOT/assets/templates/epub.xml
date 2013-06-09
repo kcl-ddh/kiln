@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xmtp:root xmlns:tei="http://www.tei-c.org/ns/1.0"
+           xmlns:xi="http://www.w3.org/2001/XInclude"
+           xmlns:xmg="http://www.cch.kcl.ac.uk/xmod/global/1.0"
+           xmlns:xmtp="http://www.cch.kcl.ac.uk/xmod/template/1.0"
+           xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+  <!-- Template for generating ePub output from a TEI source
+       document. -->
+
+  <!-- Imports the default variables. -->
+  <xsl:import href="cocoon://_internal/template/xsl/stylesheets/defaults.xsl" />
+
+  <!-- Import a TEI to ePub XSLT, such as that provided by the tei-xsl
+       stylesheets available from http://www.tei-c.org. Due to the
+       large variations in both the requirements of different
+       projects, and the markup of the source TEI, Kiln does not
+       provide its own XSLT for this purpose. -->
+  <!--<xsl:import href="cocoon://_internal/template/xsl/stylesheets/tei/to-epub.xsl" />-->
+
+  <xmtp:block name="content">
+    <xsl:apply-templates select="/tei:TEI" />
+  </xmtp:block>
+</xmtp:root>
