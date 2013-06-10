@@ -14,7 +14,7 @@ the project-specific files, keeping each in their own directories.
 * local.build.xml — Local Ant build file to override core functionality.
 * sw — Software used in building and running Kiln.
 * webapps
-    * root — Project webapp.
+    * ROOT — Project webapp.
         * assets
             * images
             * menu — Navigation menu.
@@ -47,5 +47,5 @@ the project-specific files, keeping each in their own directories.
             * system — Cocoon stylesheets (do not modify).
             * tei — Stylesheets related to TEI display.
         * WEB—INF — Webapp configuration.
-    * sesame and sesame-workbench — RDF / Linked Open Data framework.
+    * openrdf-sesame and openrdf-workbench — RDF / Linked Open Data framework.
     * solr — Searching framework.

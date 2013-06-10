@@ -25,7 +25,7 @@
   <target depends="init, init.jetty" description="Runs the Jetty webserver"
     name="runserver">
     <mkdir dir="${jetty.home}/logs"/>
-    
+
     <jetty:jetty jettyXml="${jetty.home}/etc/jetty-ant.xml"
       tempDirectory="${jetty.home}/temp">
       <jetty:systemProperties>
@@ -37,20 +37,20 @@
       </jetty:connectors>
 
       <jetty:webApp contextpath="" name="kiln" scanIntervalSeconds="30"
-        warfile="${basedir}/webapps/root">
-        <jetty:scanTargets dir="${basedir}/webapps/root">
+        warfile="${basedir}/webapps/ROOT">
+        <jetty:scanTargets dir="${basedir}/webapps/ROOT">
           <include name="**" />
         </jetty:scanTargets>
       </jetty:webApp>
-      <jetty:webApp contextpath="sesame" name="sesame"
-        warfile="${basedir}/webapps/sesame/openrdf-sesame.war">
-        <jetty:scanTargets dir="${basedir}/webapps/sesame">
+      <jetty:webApp contextpath="openrdf-sesame" name="openrdf-sesame"
+        warfile="${basedir}/webapps/openrdf-sesame/openrdf-sesame.war">
+        <jetty:scanTargets dir="${basedir}/webapps/openrdf-sesame">
           <include name="**" />
         </jetty:scanTargets>
       </jetty:webApp>
-      <jetty:webApp contextpath="sesame-workbench" name="sesame-workbench"
-        warfile="${basedir}/webapps/sesame-workbench/openrdf-workbench.war">
-        <jetty:scanTargets dir="${basedir}/webapps/sesame-workbench">
+      <jetty:webApp contextpath="openrdf-workbench" name="openrdf-workbench"
+        warfile="${basedir}/webapps/openrdf-workbench/openrdf-workbench.war">
+        <jetty:scanTargets dir="${basedir}/webapps/openrdf-workbench">
           <include name="**" />
         </jetty:scanTargets>
       </jetty:webApp>

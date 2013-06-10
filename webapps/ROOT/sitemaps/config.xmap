@@ -26,7 +26,7 @@
       <global-variables>
         <eats-server>http://localhost:8000/</eats-server>
         <rdf-base-uri></rdf-base-uri>
-        <sesame-server>http://localhost:9999/sesame/</sesame-server>
+        <sesame-server>http://localhost:9999/openrdf-sesame/</sesame-server>
         <sesame-server-repository></sesame-server-repository>
         <solr-server>http://localhost:9999/solr/</solr-server>
       </global-variables>

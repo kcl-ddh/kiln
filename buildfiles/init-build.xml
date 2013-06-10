@@ -15,7 +15,7 @@
     <property location="${basedir}/dist" name="dist.dir" />
 
     <!-- Webapp directory -->
-    <property location="${basedir}/webapps/root" name="webapp.dir" />
+    <property location="${basedir}/webapps/ROOT" name="webapp.dir" />
 
     <!-- Stylesheets directory name and directory -->
     <property name="stylesheets.dir.name" value="stylesheets" />
@@ -26,7 +26,7 @@
     <mkdir dir="${webapp.dir}/content" />
     <mkdir dir="${webapp.dir}/content/xml/tei" />
     <mkdir dir="${webapp.dir}/content/images" />
-    
+
     <!-- Creates directory for schemas -->
     <mkdir dir="${webapp.dir}/assets/schema" />
   </target>
@@ -34,7 +34,7 @@
   <target description="Validates all the XML files in the project"
     name="validate">
     <xmlvalidate failonerror="yes" lenient="yes">
-      <fileset dir="${basedir}/webapps/root">
+      <fileset dir="${basedir}/webapps/ROOT">
         <include name="**/*.xmap" />
         <include name="**/*.xml" />
         <include name="**/*.xsl" />

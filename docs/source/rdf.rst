@@ -15,7 +15,7 @@ Setting up a repository
 The Sesame documentation covers how to `create a repository`_\. Once
 created, the name of the repository must be set as the value of the
 ``sesame-server-repository`` variable in
-``webapps/root/sitemaps/config.xmap``.
+``webapps/ROOT/sitemaps/config.xmap``.
 
 Integration with Cocoon
 -----------------------

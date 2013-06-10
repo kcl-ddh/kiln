@@ -13,7 +13,7 @@ the `GitHub repository`_.
 #. Open a browser and got to http://localhost:9999/. If all is well it should
    display a *Resource not found* error message!
 #. Store project XML content (TEI) in the folder
-   ``KILN_HOME/webapps/root/content/xml/tei``. By default Kiln needs a TEI
+   ``KILN_HOME/webapps/ROOT/content/xml/tei``. By default Kiln needs a TEI
    index.xml file at that location
 #. Reload the browser. It should now display the contents of the index file,
    together with some very basic :ref:`navigation <navigation>`.
