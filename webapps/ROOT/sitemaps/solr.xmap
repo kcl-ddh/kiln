@@ -43,7 +43,7 @@
           <map:parameter name="exclude" value="^\..*" />
         </map:generate>
         <map:transform src="../stylesheets/private/dir-to-xinclude.xsl">
-          <map:parameter name="prefix" value="tei/" />
+          <map:parameter name="prefix" value="cocoon://private/solr/add/tei/" />
         </map:transform>
         <map:transform type="xinclude" />
         <map:serialize type="xml" />
