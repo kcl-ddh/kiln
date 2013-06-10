@@ -6,3 +6,4 @@ sw/jetty/temp
 webapps/openrdf-sesame/app_dir
 webapps/solr/data
 webapps/ROOT/WEB-INF/logs
+docs/build
