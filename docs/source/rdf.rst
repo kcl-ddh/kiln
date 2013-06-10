@@ -4,8 +4,8 @@ RDF / Linked Open Data
 ======================
 
 Kiln includes the `Sesame`_ framework for handling RDF data. Sesame
-operates as a pair of Java webapps (``sesame`` and
-``sesame-workbench``), and work no differently within Kiln as they do
+operates as a pair of Java webapps (``openrdf-sesame`` and
+``openrdf-workbench``), and work no differently within Kiln as they do
 standalone. This includes extending it, for example by using OWLIM as
 the repository, and using its web interfaces.
 
@@ -15,7 +15,8 @@ Setting up a repository
 The Sesame documentation covers how to `create a repository`_\. Once
 created, the name of the repository must be set as the value of the
 ``sesame-server-repository`` variable in
-``webapps/ROOT/sitemaps/config.xmap``.
+``webapps/ROOT/sitemaps/config.xmap``, along with a base URI
+(``rdf-base-uri``).
 
 Integration with Cocoon
 -----------------------
