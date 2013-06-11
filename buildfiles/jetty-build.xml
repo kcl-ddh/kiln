@@ -43,13 +43,13 @@
         </jetty:scanTargets>
       </jetty:webApp>
       <jetty:webApp contextpath="openrdf-sesame" name="openrdf-sesame"
-        warfile="${basedir}/webapps/openrdf-sesame/openrdf-sesame.war">
+        warfile="${basedir}/webapps/openrdf-sesame">
         <jetty:scanTargets dir="${basedir}/webapps/openrdf-sesame">
           <include name="**" />
         </jetty:scanTargets>
       </jetty:webApp>
       <jetty:webApp contextpath="openrdf-workbench" name="openrdf-workbench"
-        warfile="${basedir}/webapps/openrdf-workbench/openrdf-workbench.war">
+        warfile="${basedir}/webapps/openrdf-workbench">
         <jetty:scanTargets dir="${basedir}/webapps/openrdf-workbench">
           <include name="**" />
         </jetty:scanTargets>
@@ -57,7 +57,7 @@
       <jetty:webApp contextpath="solr"
         jettyEnvXml="${basedir}/webapps/solr/conf/jetty-env.xml" name="solr"
         scanIntervalSeconds="30"
-        warfile="${basedir}/webapps/solr/apache-solr.war">
+        warfile="${basedir}/webapps/solr">
         <jetty:scanTargets dir="${basedir}/webapps/solr">
           <include name="**" />
         </jetty:scanTargets>

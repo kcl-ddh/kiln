@@ -1,0 +1,7 @@
+img, input {
+	background-image: expression(
+        this.runtimeStyle.backgroundImage = "none",
+        this.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + this.src + "', sizingMethod='image')",
+        this.src = "${path}/styles/msie-png-alpha.png"
+    );
+}

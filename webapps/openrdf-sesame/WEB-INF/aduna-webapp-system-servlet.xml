@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<!-- RESOURCES -->
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>info.aduna.webapp.system.messages</value>
+				<value>info.aduna.webapp.messages</value>
+			</list>
+		</property>
+	</bean>
+
+	<!--
+		Navigation model for the application. Intended to be extended by webapps based on this one.
+		To do so, add the navigation models from the list below at the end of the list of navigation models
+		of the extending webapp.
+	-->
+	<bean id="adunaWebappNavigation" class="info.aduna.webapp.navigation.NavigationModel">
+		<property name="navigationModels">
+			<list>
+				<value>/info/aduna/webapp/system/navigation.xml</value>
+				<value>/info/aduna/webapp/navigation.xml</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- MAPPINGS -->
+	<!-- Mappings for the "system configuration" part of a webapp. -->
+	<bean id="adunaWebappSystemUrlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="order" value="0" />
+		<property name="alwaysUseFullPath" value="true"/>
+		<property name="mappings">
+			<props>
+				<prop key="/system/overview.view">adunaWebappSystemOverviewController</prop>
+				<prop key="/system/info/overview.view">adunaWebappSystemInfoController</prop>
+				<prop key="/system/info/debug.view">filenameViewController</prop>
+				<prop key="/system/logging/overview.view">adunaWebappLoggingOverviewController</prop>
+			</props>
+		</property>
+		<property name="interceptors">
+			<list>
+				<ref bean="adunaWebappCommonValuesInserter" />
+				<ref bean="adunaWebappMessageInserter" />
+				<ref bean="adunaWebappNavigationInserter" />
+			</list>
+		</property>
+	</bean>
+
+	<!-- CONTROLLERS -->
+	<bean id="adunaWebappSystemOverviewController" class="info.aduna.webapp.system.SystemOverviewController">
+		<property name="view" value="system/overview" />
+		<property name="config" ref="adunaAppConfig" />
+	</bean>
+
+	<bean id="adunaWebappLoggingOverviewController" class="info.aduna.webapp.system.logging.LoggingOverviewController">
+		<property name="config" ref="adunaAppConfig" />
+	</bean>
+
+	<bean id="adunaWebappSystemInfoController" class="info.aduna.webapp.system.SystemInfoController">
+		<property name="view" value="system/info/overview" />
+		<property name="config" ref="adunaAppConfig" />
+	</bean>
+</beans>
