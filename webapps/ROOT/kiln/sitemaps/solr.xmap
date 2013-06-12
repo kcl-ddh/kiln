@@ -9,7 +9,7 @@
       <map:match pattern="index/*/**.xml">
         <map:aggregate element="response">
           <map:part element="delete" src="cocoon:/delete-by-file-path/{2}.xml" />
-          <map:part element="add" src="cocoon:/add/{1}/{2}.xml" />
+          <map:part element="add" src="cocoon://private/solr/add/{1}/{2}.xml" />
           <map:part element="optimize" src="cocoon:/optimize" />
         </map:aggregate>
         <map:serialize type="xml" />
@@ -29,53 +29,6 @@
         <map:generate src="empty:empty" />
         <map:transform src="../../stylesheets/solr/delete-by-file-path.xsl">
           <map:parameter name="file-path" value="{1}" />
-        </map:transform>
-        <map:transform type="solr">
-          <map:parameter name="url" value="{global:solr-server}" />
-        </map:transform>
-        <map:serialize type="xml" />
-      </map:match>
-
-      <!-- Adding TEI with EATS. -->
-      <map:match pattern="add/tei-eats/**.xml">
-        <map:aggregate element="aggregation">
-          <map:part element="tei"
-                    src="cocoon://private/solr/preprocess/tei-eats/{1}.xml" />
-          <map:part element="eats"
-                    src="cocoon://private/solr/preprocess/eatsml/entities.xml" />
-        </map:aggregate>
-        <map:transform src="../../stylesheets/solr/tei-eats-to-solr.xsl">
-          <map:parameter name="file-path" value="{1}" />
-        </map:transform>
-        <map:transform type="solr">
-          <map:parameter name="url" value="{global:solr-server}" />
-        </map:transform>
-        <map:serialize type="xml" />
-      </map:match>
-
-      <!-- Adding TEI with EATS specifying the authority. The first
-           parameter is the authority id. -->
-      <map:match pattern="add/tei-eats/*/**.xml">
-        <map:aggregate element="aggregation">
-          <map:part element="tei"
-                    src="cocoon://private/solr/preprocess/tei-eats/{2}.xml" />
-          <map:part element="eats"
-                    src="cocoon://private/solr/preprocess/eatsml/{1}/entities.xml" />
-        </map:aggregate>
-        <map:transform src="../../stylesheets/solr/tei-eats-to-solr.xsl">
-          <map:parameter name="file-path" value="{2}" />
-        </map:transform>
-        <map:transform type="solr">
-          <map:parameter name="url" value="{global:solr-server}" />
-        </map:transform>
-        <map:serialize type="xml" />
-      </map:match>
-
-      <!-- Adding TEI only. The first parameter is the file type. -->
-      <map:match pattern="add/*/**.xml">
-        <map:generate src="cocoon://private/solr/preprocess/{1}/{2}.xml" />
-        <map:transform src="../../stylesheets/solr/{1}-to-solr.xsl">
-          <map:parameter name="file-path" value="{2}" />
         </map:transform>
         <map:transform type="solr">
           <map:parameter name="url" value="{global:solr-server}" />
