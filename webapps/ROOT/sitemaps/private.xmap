@@ -19,6 +19,18 @@
     </map:pipeline>
 
     <map:pipeline>
+      <map:match pattern="index.html">
+        <map:generate src="empty:aggregation" />
+        <map:transform src="cocoon://_internal/template/admin/index.xsl" />
+        <map:serialize />
+      </map:match>
+
+      <map:match pattern="system-status.html">
+        <map:generate type="status" />
+        <map:transform src="cocoon://_internal/template/admin/system-status.xsl" />
+        <map:serialize />
+      </map:match>
+
       <!-- Present a table of XML documents and the processes that
            might be applied to them. -->
       <map:match pattern="xml/index.html">

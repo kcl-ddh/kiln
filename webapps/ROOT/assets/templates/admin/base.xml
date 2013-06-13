@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xmtp:root xmlns:xmtp="http://www.cch.kcl.ac.uk/xmod/template/1.0">
+
+  <xmtp:block name="html">
+    <html>
+      <xmtp:block name="head">
+        <head>
+          <title><xmtp:block name="title">Kiln admin: </xmtp:block></title>
+          <xmtp:block name="js"></xmtp:block>
+          <xmtp:block name="css"></xmtp:block>
+          <xmtp:block name="head-extra"></xmtp:block>
+        </head>
+      </xmtp:block>
+      <xmtp:block name="body">
+        <body>
+          <xmtp:block name="header"></xmtp:block>
+          <xmtp:block name="content"></xmtp:block>
+          <xmtp:block name="footer"></xmtp:block>
+        </body>
+      </xmtp:block>
+    </html>
+  </xmtp:block>
+
+</xmtp:root>
