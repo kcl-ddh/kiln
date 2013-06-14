@@ -23,14 +23,6 @@ A global variable called ``solr-server`` should be specified in the
 project's ``sitemaps/config.xmap``, with the value being the full URL
 of the Solr server (including a trailing slash).
 
-Kiln comes with a default indexing XSLT for TEI documents, using
-``kiln/stylesheets/solr/tei-to-solr.xsl``. This may be customised via
-changes to the importing XSLT
-``stylesheets/solr/tei-to-solr.xsl``. Other XSLT for indexing non-TEI
-documents may also be written; the Cocoon matches for these should
-follow the pattern of the TEI indexing match (in
-``private.xmap#local-solr``).
-
 The Solr schema may need to be modified to accomodate extra fields, or
 to enable various faceting approaches. It is less likely, but still
 possible, that the Solr configuration will need to be modified. Both
@@ -39,5 +31,24 @@ configuration files, are found in ``webapps/solr/conf``.
 
 Search and browse pages are so project-specific that the appropriate
 XSLT and Cocoon matches need to be created for them from scratch.
+
+Built-ins
+---------
+
+Kiln comes with a default indexing XSLT for TEI documents, using
+``kiln/stylesheets/solr/tei-to-solr.xsl``. This may be customised via
+changes to the importing XSLT
+``stylesheets/solr/tei-to-solr.xsl``. Other XSLT for indexing non-TEI
+documents may also be written; the Cocoon matches for these should
+follow the pattern of the TEI indexing match (in
+``private.xmap#local-solr``).
+
+Kiln also includes an XSLT,
+``kiln/stylehssets/solr/generate-query.xsl``, for adding XInclude
+elements that reference search results to an XML document, based on
+supplied query parameters in the source XML. See the documentation in
+the XSLT itself for details on the format of the supplied XML. When
+used in a pipeline, it must be followed by an XInclude transformation
+step.
 
 .. _Solr: http://lucene.apache.org/solr/
