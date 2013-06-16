@@ -19,7 +19,7 @@
     </map:pipeline>
 
     <map:pipeline>
-      <map:match pattern="index.html">
+      <map:match pattern="">
         <map:generate src="empty:aggregation" />
         <map:transform src="cocoon://_internal/template/admin/index.xsl" />
         <map:serialize />
@@ -33,7 +33,7 @@
 
       <!-- Present a table of XML documents and the processes that
            might be applied to them. -->
-      <map:match pattern="xml/index.html">
+      <map:match pattern="xml/">
         <map:generate src="../content/xml" type="directory">
           <map:parameter name="depth" value="99" />
           <map:parameter name="exclude" value="^\..*" />

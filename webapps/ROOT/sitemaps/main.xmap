@@ -38,9 +38,23 @@
 
     <!-- Main display pipeline. -->
     <map:pipeline type="noncaching">
+      <!-- Home page (at /). -->
       <map:match pattern="">
-        <!-- Redirect request to the root path to the index page. -->
-        <map:redirect-to uri="index.html" />
+        <map:aggregate element="aggregation" label="content">
+          <map:part src="cocoon://_internal/menu/main.xml" />
+          <map:part src="cocoon://internal/metadata/files.xml" />
+        </map:aggregate>
+        <map:transform src="../kiln/stylesheets/menu/contextualise-menu.xsl">
+          <map:parameter name="filedir" value="" />
+          <map:parameter name="filename" value="{1}.xml" />
+          <map:parameter name="fileextension" value="html" />
+        </map:transform>
+        <map:transform src="cocoon://_internal/template/index.xsl">
+          <map:parameter name="filedir" value="" />
+          <map:parameter name="filename" value="{1}.xml" />
+          <map:parameter name="fileextension" value="html" />
+        </map:transform>
+        <map:serialize />
       </map:match>
 
       <!-- Example of providing content in a single language. -->
