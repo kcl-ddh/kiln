@@ -13,7 +13,7 @@
           <map:parameter name="depth" value="99" />
           <map:parameter name="exclude" value="^\..*" />
         </map:generate>
-        <map:transform src="../stylesheets/private/xml-dirs-to-index-list-html.xsl" />
+        <map:transform src="../stylesheets/admin/xml-dirs-to-index-list-html.xsl" />
         <map:serialize />
       </map:match>
 
@@ -42,8 +42,8 @@
           <map:parameter name="depth" value="99" />
           <map:parameter name="exclude" value="^\..*" />
         </map:generate>
-        <map:transform src="../stylesheets/private/dir-to-xinclude.xsl">
-          <map:parameter name="prefix" value="cocoon://private/solr/add/tei/" />
+        <map:transform src="../stylesheets/admin/dir-to-xinclude.xsl">
+          <map:parameter name="prefix" value="cocoon://admin/solr/add/tei/" />
         </map:transform>
         <map:transform type="xinclude" />
         <map:serialize type="xml" />

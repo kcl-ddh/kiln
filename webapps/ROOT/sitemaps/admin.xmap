@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <map:sitemap xmlns:map="http://apache.org/cocoon/sitemap/1.0">
 
-  <!-- Project sitemap for private URLs, such as editorial processes
+  <!-- Project sitemap for admin URLs, such as editorial processes
        like Schematron validation. -->
 
   <map:pipelines>
     <!-- Mount sub-sitemaps. -->
-    <map:pipeline id="local-private-mount">
+    <map:pipeline id="local-admin-mount">
       <!-- Mount a sitemap for generating and querying RDF. -->
       <map:match pattern="rdf/**">
         <map:mount check-reload="yes" src="rdf.xmap" uri-prefix="rdf/" />
@@ -38,7 +38,7 @@
           <map:parameter name="depth" value="99" />
           <map:parameter name="exclude" value="^\..*" />
         </map:generate>
-        <map:transform src="../stylesheets/private/xml-dirs-to-process-list-html.xsl">
+        <map:transform src="../stylesheets/admin/xml-dirs-to-process-list-html.xsl">
           <map:parameter name="initial_path" value="content/" />
         </map:transform>
         <map:serialize />
@@ -88,8 +88,8 @@
     <map:pipeline id="local-internal-resource-check" internal-only="false">
       <map:match pattern="xml/resource-check/images/**.xml">
         <map:aggregate element="aggregation">
-          <map:part src="cocoon://private/xml/resource-check/image-refs/{1}.xml" />
-          <map:part src="cocoon://private/xml/resource-check/image-files.xml" />
+          <map:part src="cocoon:/xml/resource-check/image-refs/{1}.xml" />
+          <map:part src="cocoon:/xml/resource-check/image-files.xml" />
         </map:aggregate>
         <map:transform src="../kiln/stylesheets/resource-check/check-missing-resources.xsl" />
         <map:serialize type="xml" />
@@ -102,7 +102,7 @@
            thumbnails) of each image. -->
       <map:match pattern="xml/resource-check/image-refs/**.xml">
         <map:generate src="cocoon://_internal/metadata/images/{1}.xml" />
-        <map:transform src="../stylesheets/private/expand-image-refs.xsl" />
+        <map:transform src="../stylesheets/admin/expand-image-refs.xsl" />
         <map:serialize type="xml" />
       </map:match>
 

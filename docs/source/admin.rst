@@ -3,12 +3,12 @@
 Kiln's admin and editorial area
 ===============================
 
-Kiln provides a URL space, under ``/private/``, for administrative and
+Kiln provides a URL space, under ``/admin/``, for administrative and
 editorial tasks and resources. These may include indexing documents
 into the Solr search engine, generating OAI-PMH records, and
 creating and harvesting RDF triples into Sesame.
 
-``sitemaps/private.xmap`` specifies the applicable pipelines.
+``sitemaps/admin.xmap`` specifies the applicable pipelines.
 
 
 Adding authentication

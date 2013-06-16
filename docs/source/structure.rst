@@ -36,12 +36,11 @@ the project-specific files, keeping each in their own directories.
         * sitemaps — Project's sitemaps.
             * config.xmap — Project's Cocoon configuration sitemap.
             * main.xmap — Project's Cocoon sitemap.
-            * private.xmap — Project's private pipelines not accessible to the
-              general public.
+            * admin.xmap — Project's admin (and editorial) pipelines.
         * stylesheets — Project's XSLT stylesheets.
             * defaults.xsl — Defaults stylesheet, defines default globals and
               reads parameters from the sitemaps.
-            * private — Stylesheets related to private pipelines.
+            * admin — Stylesheets related to admin pipelines.
             * schematron — Stylesheets related to Schematron output.
             * solr — Stylesheets related to searching and indexing.
             * system — Cocoon stylesheets (do not modify).

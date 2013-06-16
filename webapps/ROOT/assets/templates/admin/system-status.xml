@@ -4,7 +4,7 @@
            xmlns:xmtp="http://www.cch.kcl.ac.uk/xmod/template/1.0"
            xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-  <xsl:import href="cocoon://_internal/template/xsl/stylesheets/private/system-status-to-html.xsl" />
+  <xsl:import href="cocoon://_internal/template/xsl/stylesheets/admin/system-status-to-html.xsl" />
 
   <xmtp:parent>
     <xi:include href="base.xml" />

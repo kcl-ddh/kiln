@@ -9,7 +9,7 @@
       <map:match pattern="index/*/**.xml">
         <map:aggregate element="response">
           <map:part element="delete" src="cocoon:/delete-by-file-path/{2}.xml" />
-          <map:part element="add" src="cocoon://private/solr/add/{1}/{2}.xml" />
+          <map:part element="add" src="cocoon://admin/solr/add/{1}/{2}.xml" />
           <map:part element="optimize" src="cocoon:/optimize" />
         </map:aggregate>
         <map:serialize type="xml" />

@@ -41,7 +41,7 @@ changes to the importing XSLT
 ``stylesheets/solr/tei-to-solr.xsl``. Other XSLT for indexing non-TEI
 documents may also be written; the Cocoon matches for these should
 follow the pattern of the TEI indexing match (in
-``private.xmap#local-solr``).
+``solr.xmap#local-solr``).
 
 Kiln also includes an XSLT,
 ``kiln/stylehssets/solr/generate-query.xsl``, for adding XInclude

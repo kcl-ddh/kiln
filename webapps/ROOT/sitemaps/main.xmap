@@ -15,10 +15,10 @@
   <map:pipelines>
     <!-- Mount sub-sitemaps. -->
     <map:pipeline id="local-mount">
-      <!-- Mount a sitemap for any private URLs, such as editorial
+      <!-- Mount a sitemap for any admin URLs, such as editorial
            processes like Schematron validation. -->
-      <map:match pattern="private/**">
-        <map:mount check-reload="yes" src="private.xmap" uri-prefix="private/" />
+      <map:match pattern="admin/**">
+        <map:mount check-reload="yes" src="admin.xmap" uri-prefix="admin/" />
       </map:match>
     </map:pipeline>
 

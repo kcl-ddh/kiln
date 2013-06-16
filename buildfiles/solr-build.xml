@@ -34,7 +34,7 @@
       <!-- because some pages can take a while -->
       <arg value="--timeout=10800" />
       <!-- home page -->
-      <arg value="http://localhost:${jetty.port}/private/solr/index/site-list.html" />
+      <arg value="http://localhost:${jetty.port}/admin/solr/index/site-list.html" />
     </exec>
   </target>
 </project>
