@@ -11,7 +11,7 @@
     <xmtp:block name="content">
       <ul>
         <li><a href="system-status.html">System status</a></li>
-        <li><a href="xml/index.html">XML documents</a></li>
+        <li><a href="xml/">XML documents</a></li>
         <li><a href="/solr/">Solr (search system) admin</a></li>
         <li><a href="/openrdf-workbench/">Sesame (RDF system) admin</a></li>
       </ul>
