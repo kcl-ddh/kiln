@@ -12,6 +12,11 @@ which is a named subset of rules within the schema. If all phases
 should be run, use ``#ALL`` as the value. The third parameter is the
 path to the XML file to be validated, relative to ``content/xml/``.
 
+If the first parameter begins with a hash character (#), the remainder
+of the value is used as the basename of an ODD file at
+``assets/schema/<basename>.xml``, from which all Schematron rules are
+extracted.
+
 ``sitemaps/admin.xmap#local-schematron`` contains an example match
 that is meant to automatically extract the schema from the project's
 encoding guidelines embedded in an ODD file. This functionality is not

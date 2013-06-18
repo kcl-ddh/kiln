@@ -38,9 +38,7 @@
           <map:parameter name="depth" value="99" />
           <map:parameter name="exclude" value="^\..*" />
         </map:generate>
-        <map:transform src="../stylesheets/admin/xml-dirs-to-process-list-html.xsl">
-          <map:parameter name="initial_path" value="content/" />
-        </map:transform>
+        <map:transform src="cocoon://_internal/template/admin/document-list.xsl" />
         <map:serialize />
       </map:match>
     </map:pipeline>
@@ -57,12 +55,13 @@
            map to Kiln's internal pipelines for greater control. -->
       <map:match pattern="xml/schematron/**.html">
         <map:aggregate element="aggregation">
-          <!-- #PROJECT means that the schema used is that extract
-               from the project's encoding guidelines. #ALL means that
-               all phases specified in the schema are used. -->
-          <map:part src="cocoon://_internal/schematron/validate/#PROJECT/#ALL/{1}.xml" />
+          <!-- #tei_all_doc means that the schema used is extracted
+               from the ODD file at
+               assets/schema/tei/tei_all_doc.xml. #ALL means that all
+               phases specified in the schema are used. -->
+          <map:part src="cocoon://_internal/schematron/validate/#tei_all_doc/#ALL/{1}.xml" />
         </map:aggregate>
-        <map:transform src="cocoon://_internal/template/schematron.xsl">
+        <map:transform src="cocoon://_internal/template/admin/schematron.xsl">
           <map:parameter name="file" value="{1}.xml" />
         </map:transform>
         <map:serialize />
