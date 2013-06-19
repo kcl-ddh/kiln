@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xmtp:root xmlns:dir="http://apache.org/cocoon/directory/2.0"
+           xmlns:xi="http://www.w3.org/2001/XInclude"
+           xmlns:xmtp="http://www.cch.kcl.ac.uk/xmod/template/1.0"
+           xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+  <!-- Template to display a list of documents and links to various
+       editorial processes that may be applied to them. -->
+
+  <xsl:import href="cocoon://_internal/template/xsl/stylesheets/admin/xml-dirs-to-process-list-html.xsl" />
+
+  <xmtp:parent>
+    <xi:include href="base.xml" />
+  </xmtp:parent>
+
+  <xmtp:child>
+    <xmtp:block name="title"><xmtp:super />Documents</xmtp:block>
+
+    <xmtp:block name="content">
+
+      <h2>Global processes</h2>
+
+      <ul>
+        <li><a href="../solr/index/all.html">Index all documents into
+        Solr</a></li>
+        <li><a href="../rdf/harvest/all.xml">Harvest all documents
+        into Sesame (RDF)</a></li>
+      </ul>
+
+      <h2>Individual processes</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">File</th>
+            <th colspan="2" scope="col">Validation</th>
+            <th scope="col">Search</th>
+            <th scope="col">View</th>
+          </tr>
+        </thead>
+        <tbody>
+          <xsl:apply-templates select="/dir:directory/*" />
+        </tbody>
+      </table>
+    </xmtp:block>
+  </xmtp:child>
+
+</xmtp:root>
