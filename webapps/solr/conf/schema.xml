@@ -112,6 +112,8 @@
           required="true" stored="true" type="text_general" />
    <field indexed="true" multiValued="true" name="author"
           required="true" stored="true" type="text_general" />
+   <field indexed="true" multiValued="true" name="editor"
+          required="false" stored="true" type="text_general" />
    <field indexed="true" multiValued="false" name="file_path"
           required="true" stored="true" type="string" />
    <field indexed="false" multiValued="false" name="document_id"

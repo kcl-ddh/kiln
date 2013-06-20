@@ -17,7 +17,7 @@
   
   <xsl:template match="/">
     <xsl:call-template name="delete-by-query">
-      <xsl:with-param name="query">file:<xsl:value-of select="$file-path" /></xsl:with-param>
+      <xsl:with-param name="query">file_path:<xsl:value-of select="$file-path" /></xsl:with-param>
     </xsl:call-template>
   </xsl:template>
 </xsl:stylesheet>
