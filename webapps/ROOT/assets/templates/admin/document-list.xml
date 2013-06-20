@@ -35,6 +35,7 @@
             <th scope="col">File</th>
             <th colspan="2" scope="col">Validation</th>
             <th scope="col">Search</th>
+            <th scope="col">RDF</th>
             <th scope="col">View</th>
           </tr>
         </thead>

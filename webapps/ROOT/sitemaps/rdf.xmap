@@ -25,6 +25,16 @@
       </map:match>
 
       <!-- Harvest RDF/XML into the server. -->
+      <map:match pattern="harvest/**.html">
+        <map:aggregate element="aggregation">
+          <map:part src="cocoon:/harvest/{1}.xml" />
+        </map:aggregate>
+        <map:transform src="cocoon://_internal/template/admin/rdf-harvest.xsl">
+          <map:parameter name="file" value="{1}.xml" />
+        </map:transform>
+        <map:serialize />
+      </map:match>
+
       <map:match pattern="harvest/**.xml">
         <!-- This will call rdf/generate/{1}.xml below. -->
         <map:generate src="cocoon://_internal/sesame/harvest/{1}.xml" />
