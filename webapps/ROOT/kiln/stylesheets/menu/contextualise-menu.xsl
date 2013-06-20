@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet exclude-result-prefixes="#all" version="2.0"
-                xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:xmg="http://www.cch.kcl.ac.uk/xmod/global/1.0"
                 xmlns:xmm="http://www.cch.kcl.ac.uk/xmod/menu/1.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">

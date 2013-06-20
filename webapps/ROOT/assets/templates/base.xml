@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xmtp:root xmlns:tei="http://www.tei-c.org/ns/1.0"
-           xmlns:xhtml="http://www.w3.org/1999/xhtml"
            xmlns:xi="http://www.w3.org/2001/XInclude"
            xmlns:xmg="http://www.cch.kcl.ac.uk/xmod/global/1.0"
            xmlns:xmm="http://www.cch.kcl.ac.uk/xmod/menu/1.0"
@@ -99,7 +98,7 @@
                 <xmtp:block name="main-navigation">
                   <nav class="primary" id="mainNavigation">
                     <xsl:apply-templates
-                        select="/aggregation/xhtml:div[@type='menu']"
+                        select="/aggregation/div[@type='menu']"
                         mode="main-menu" />
                   </nav>
                 </xmtp:block>
@@ -110,7 +109,7 @@
                 <xmtp:block name="local-navigation">
                   <div class="unit size1of4" id="localNavigation">
                     <xsl:apply-templates
-                        select="/aggregation/xhtml:div[@type='menu']"
+                        select="/aggregation/div[@type='menu']"
                         mode="local-menu" />
                   </div>
                 </xmtp:block>

@@ -1,6 +1,5 @@
 <xsl:stylesheet exclude-result-prefixes="#all"
                 version="2.0"
-                xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:dir="http://apache.org/cocoon/directory/2.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
@@ -33,19 +32,20 @@
       </td>
       <!-- Default Schematron link. -->
       <td>
-        <a href="schematron/{$initial_path}{$filepath}.html">
-          <xsl:text>Validate</xsl:text>
-        </a>
+        <a href="schematron/{$initial_path}{$filepath}.html">Validate</a>
       </td>
       <!-- Image checking. -->
       <td>
-        <a href="resource-check/images/{$initial_path}{$filepath}.html">
-          <xsl:text>Check images</xsl:text>
-        </a>
+        <a href="resource-check/images/{$initial_path}{$filepath}.html">Check images</a>
       </td>
       <!-- Search indexing. -->
       <td>
         <xsl:text>Index</xsl:text>
+      </td>
+      <!-- RDF harvesting. -->
+      <td>
+        <a href="../rdf/harvest/{$initial_path}{$filepath}.html"
+           title="Harvest RDF from document">Harvest</a>
       </td>
       <!-- View on site. -->
       <td>
