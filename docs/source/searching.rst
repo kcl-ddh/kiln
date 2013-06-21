@@ -51,4 +51,42 @@ the XSLT itself for details on the format of the supplied XML. When
 used in a pipeline, it must be followed by an XInclude transformation
 step.
 
+Upgrading Solr
+--------------
+
+There are two parts to upgrading Solr separately from a Kiln upgrade
+(if Kiln has not yet incorporated that version of Solr): upgrading the
+solr webapp, and upgrading the Solr Cocoon transformer.
+
+Upgrading the Solr webapp is straightforward, unless there are local
+modifications to the files under ``webapps/solr`` (except in ``conf``
+and ``data``). If there are, either these changes can be merged back
+in to the new versions (either manually or through whatever tools are
+available), or left in place.
+
+First, delete all content in ``webapps/solr`` except for the ``conf``
+and ``data`` directories. Next upack the contents of the solr WAR file
+distributed with Solr into ``webapps/solr``. This can be done with the
+command ``jar -xvf <filename>.war``. It is possible that there are
+incompatibilities between the new version of Solr and the
+existing configuration files in ``webapps/solr/conf``, in which case
+these will need to be resolved manually. The Solr admin web page can
+be helpful in finding problems.
+
+Upgrading the transformer is more complicated. After fetching a copy
+of the `transformer source code`_, the JAR files in the ``lib``
+directory must be replaced with those from the Solr
+distribution. Unless there has been a change to Solr's API, the
+transformer code does not need to be modified. The transformer can be
+rebuilt using `Apache Ant`_ with the command ``ant dist``. The newly
+created ``solr.transformer.jar`` file in the ``dist`` directory must
+then be copied to ``webapps/kiln/WEB-INF/lib/``, along with the JARs
+in the lib directory. These must be put in place of their equivalents
+(the filenames will differ, since the Solr JARs have the version
+number as part of the filename), and all in the
+``webapps/kiln/WEB-INF/lib/`` and not a subdirectory.
+
+
 .. _Solr: http://lucene.apache.org/solr/
+.. _transformer source code: https://github.com/kcl-ddh/solr-transformer
+.. _Apache Ant: https://ant.apache.org/
