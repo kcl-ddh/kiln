@@ -20,8 +20,8 @@ following statement applies: ::
     See the License for the specific language governing permissions and
     limitations under the License.
 
-Components licenses
--------------------
+Components' licenses
+--------------------
 
 * `Apache Cocoon`_, `Apache Solr`_ and `Apache Ant`_ are available under the
   `Apache License`_.
