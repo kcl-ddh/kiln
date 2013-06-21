@@ -40,7 +40,8 @@
       </td>
       <!-- Search indexing. -->
       <td>
-        <xsl:text>Index</xsl:text>
+        <a href="../solr/index/{$path}{$initial_path}{$filepath}.html"
+            title="Index document in search server">Index</a>
       </td>
       <!-- RDF harvesting. -->
       <td>

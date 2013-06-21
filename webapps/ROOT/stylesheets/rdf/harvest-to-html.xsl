@@ -37,9 +37,13 @@
   <xsl:template match="response" mode="rdf">
     <xsl:apply-templates mode="rdf" />
 
-    <p>Full XML response:</p>
+    <p>
+      <xsl:text>Full XML response: </xsl:text>
+      <span class="switch" id="{generate-id(.)}-switch"
+            onclick="toggle('{generate-id(.)}')">[show]</span>
+    </p>
 
-    <pre>
+    <pre id="{generate-id(.)}" style="display: none">
       <xsl:apply-templates mode="escape-xml" select="." />
     </pre>
   </xsl:template>

@@ -15,6 +15,11 @@
   <xmtp:child>
     <xmtp:block name="title"><xmtp:super />RDF harvest result for <xsl:value-of select="$file" /></xmtp:block>
 
+    <xmtp:block name="js">
+      <xmtp:super />
+      <script src="{$xmg:assets-path}/scripts/admin.js">&#160;</script>
+    </xmtp:block>
+
     <xmtp:block name="header">
       <h1>Kiln Admin: RDF harvest result for <xsl:value-of select="$file" /></h1>
     </xmtp:block>
