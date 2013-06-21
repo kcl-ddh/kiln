@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xmtp:root xmlns:xmtp="http://www.cch.kcl.ac.uk/xmod/template/1.0">
+<xmtp:root xmlns:xmg="http://www.cch.kcl.ac.uk/xmod/global/1.0"
+           xmlns:xmtp="http://www.cch.kcl.ac.uk/xmod/template/1.0"
+           xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+  <!-- Imports the default variables. -->
+  <xsl:import href="cocoon://_internal/template/xsl/stylesheets/defaults.xsl" />
 
   <xmtp:block name="html">
     <html>
@@ -7,15 +12,29 @@
         <head>
           <title><xmtp:block name="title">Kiln admin: </xmtp:block></title>
           <xmtp:block name="js"></xmtp:block>
-          <xmtp:block name="css"></xmtp:block>
+          <xmtp:block name="css">
+            <link href="http://yui.yahooapis.com/pure/0.2.0/pure-min.css"
+                  rel="stylesheet" />
+            <link href="{$xmg:assets-path}/styles/admin.css"
+                  rel="stylesheet" />
+          </xmtp:block>
           <xmtp:block name="head-extra"></xmtp:block>
         </head>
       </xmtp:block>
       <xmtp:block name="body">
         <body>
-          <xmtp:block name="header"></xmtp:block>
-          <xmtp:block name="content"></xmtp:block>
-          <xmtp:block name="footer"></xmtp:block>
+          <header><xmtp:block name="header"></xmtp:block></header>
+          <nav class="pure-menu pure-menu-open pure-menu-horizontal">
+            <xmtp:block name="nav">
+              <ul>
+                <li><a href="{$xmg:context-path}/">Site Home</a></li>
+                <li><a href="{$xmg:context-path}/admin/">Admin Home</a></li>
+                <li><a href="{$xmg:context-path}/admin/xml/">Documents</a></li>
+              </ul>
+            </xmtp:block>
+          </nav>
+          <main><xmtp:block name="content"></xmtp:block></main>
+          <footer><xmtp:block name="footer"></xmtp:block></footer>
         </body>
       </xmtp:block>
     </html>

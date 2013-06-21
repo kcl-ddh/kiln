@@ -11,7 +11,12 @@
   </xmtp:parent>
 
   <xmtp:child>
-    <xmtp:block name="title"><xmtp:super/>System Status</xmtp:block>
+    <xmtp:block name="title"><xmtp:super />System Status</xmtp:block>
+    <xmtp:block name="js">
+      <xmtp:super />
+      <script src="{$xmg:assets-path}/scripts/admin.js">&#160;</script>
+    </xmtp:block>
+    <xmtp:block name="header"><h1>Kiln Admin: System Status</h1></xmtp:block>
     <xmtp:block name="content">
       <xsl:apply-templates select="/status:statusinfo" />
     </xmtp:block>

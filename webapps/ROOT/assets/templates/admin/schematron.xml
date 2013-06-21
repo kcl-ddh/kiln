@@ -13,7 +13,7 @@
   </xmtp:parent>
 
   <xmtp:child>
-    <xmtp:block name="title">Schematron validation results for <xsl:value-of select="$file" /></xmtp:block>
+    <xmtp:block name="title"><xmtp:super />Schematron validation results for <xsl:value-of select="$file" /></xmtp:block>
 
     <xmtp:block name="css">
       <xmtp:super />
@@ -22,7 +22,7 @@
     </xmtp:block>
 
     <xmtp:block name="header">
-      <h1>Schematron validaton results for <xsl:value-of select="$file" /></h1>
+      <h1>Kiln Admin: Schematron validaton results for <xsl:value-of select="$file" /></h1>
     </xmtp:block>
 
     <xmtp:block name="content">

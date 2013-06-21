@@ -8,6 +8,7 @@
 
   <xmtp:child>
     <xmtp:block name="title"><xmtp:super/>Index</xmtp:block>
+    <xmtp:block name="header"><h1>Kiln Admin: Index</h1></xmtp:block>
     <xmtp:block name="content">
       <ul>
         <li><a href="system-status.html">System status</a></li>

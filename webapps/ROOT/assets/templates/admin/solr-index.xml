@@ -4,7 +4,7 @@
            xmlns:xmtp="http://www.cch.kcl.ac.uk/xmod/template/1.0"
            xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-  <xsl:import href="cocoon://_internal/template/xsl/stylesheets/rdf/harvest-to-html.xsl" />
+  <xsl:import href="cocoon://_internal/template/xsl/stylesheets/solr/index-to-html.xsl" />
 
   <xsl:param name="file" />
 
@@ -13,14 +13,14 @@
   </xmtp:parent>
 
   <xmtp:child>
-    <xmtp:block name="title"><xmtp:super />RDF harvest result for <xsl:value-of select="$file" /></xmtp:block>
+    <xmtp:block name="title">Solr index result for <xsl:value-of select="$file" /></xmtp:block>
 
     <xmtp:block name="header">
-      <h1>Kiln Admin: RDF harvest result for <xsl:value-of select="$file" /></h1>
+      <h1>Kiln Admin: Solr index result for <xsl:value-of select="$file" /></h1>
     </xmtp:block>
 
     <xmtp:block name="content">
-      <xsl:apply-templates select="/aggregation/response" mode="rdf" />
+      <xsl:apply-templates select="/aggregation/response" mode="solr" />
     </xmtp:block>
   </xmtp:child>
 

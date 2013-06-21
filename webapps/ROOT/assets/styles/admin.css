@@ -1,0 +1,23 @@
+body {
+       line-height: 1.7em;
+       margin: 0 5em 2em 3em;
+}
+
+header {
+         margin: 0 0 0 -3em;
+         padding: 0 0 0 1em;
+}
+
+nav {
+      margin: 0 0 0 -3em;
+}
+
+pre {
+      line-height: 1em;
+}
+
+.switch {
+          cursor: pointer;
+          margin-left: 0.5em;
+          text-decoration: underline;
+}

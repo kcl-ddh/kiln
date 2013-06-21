@@ -15,9 +15,8 @@
 
   <xmtp:child>
     <xmtp:block name="title"><xmtp:super />Documents</xmtp:block>
-
+    <xmtp:block name="header"><h1>Kiln Admin: Documents</h1></xmtp:block>
     <xmtp:block name="content">
-
       <h2>Global processes</h2>
 
       <ul>
@@ -29,7 +28,7 @@
 
       <h2>Individual processes</h2>
 
-      <table>
+      <table class="pure-table pure-table-horizontal">
         <thead>
           <tr>
             <th scope="col">File</th>
