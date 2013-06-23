@@ -30,10 +30,10 @@
           <map:part element="delete"
                     src="cocoon://_internal/solr/delete-all" />
           <map:part element="insert" src="cocoon:/add/" />
-          <map:part element="optimise"
+          <map:part element="optimize"
                     src="cocoon://_internal/solr/optimize" />
         </map:aggregate>
-        <map:transform src="../stylesheets/solr/results-to-html.xsl" />
+        <map:transform src="cocoon://_internal/template/admin/solr-index-all.xsl" />
         <map:serialize />
       </map:match>
 
