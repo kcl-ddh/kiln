@@ -12,6 +12,14 @@
            sent to the server. -->
 
       <!-- Bulk harvest of RDF/XML into the server. -->
+      <map:match pattern="harvest/all.html">
+        <map:aggregate element="aggregation">
+          <map:part src="cocoon:/harvest/all.xml" />
+        </map:aggregate>
+        <map:transform src="cocoon://_internal/template/admin/rdf-harvest-all.xsl" />
+        <map:serialize />
+      </map:match>
+
       <map:match pattern="harvest/all.xml">
         <map:generate src="../content/xml" type="directory">
           <map:parameter name="depth" value="99" />

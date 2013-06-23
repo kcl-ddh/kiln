@@ -16,6 +16,14 @@ pre {
       line-height: 1em;
 }
 
+.fail {
+        color: red;
+}
+
+.success {
+           color: green;
+}
+
 .switch {
           cursor: pointer;
           margin-left: 0.5em;

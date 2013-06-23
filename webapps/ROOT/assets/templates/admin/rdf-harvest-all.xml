@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xmtp:root xmlns:xi="http://www.w3.org/2001/XInclude"
+           xmlns:xmg="http://www.cch.kcl.ac.uk/xmod/global/1.0"
+           xmlns:xmtp="http://www.cch.kcl.ac.uk/xmod/template/1.0"
+           xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+  <xsl:import href="cocoon://_internal/template/xsl/stylesheets/rdf/harvest-all-to-html.xsl" />
+
+  <xsl:param name="file" />
+
+  <xmtp:parent>
+    <xi:include href="base.xml" />
+  </xmtp:parent>
+
+  <xmtp:child>
+    <xmtp:block name="title">
+      <xmtp:super />
+      <xsl:text>RDF harvest results for all documents</xsl:text>
+    </xmtp:block>
+
+    <xmtp:block name="js">
+      <xmtp:super />
+      <script src="{$xmg:assets-path}/scripts/admin.js">&#160;</script>
+    </xmtp:block>
+
+    <xmtp:block name="header">
+      <h1>Kiln Admin: RDF harvest results for all documents</h1>
+    </xmtp:block>
+
+    <xmtp:block name="content">
+      <xsl:apply-templates select="/aggregation/xincludes" mode="rdf" />
+    </xmtp:block>
+  </xmtp:child>
+
+</xmtp:root>
