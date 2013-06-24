@@ -22,9 +22,14 @@
 
   <xsl:template match="li/ul" mode="local-menu" />
 
-  <xsl:template match="@*|node()" mode="#all">
+  <xsl:template match="@*|node()" mode="main-menu">
     <xsl:copy>
-      <xsl:apply-templates mode="#current" select="@*|node()" />
+      <xsl:apply-templates mode="main-menu" select="@*|node()" />
+    </xsl:copy>
+  </xsl:template>
+  <xsl:template match="@*|node()" mode="local-menu">
+    <xsl:copy>
+      <xsl:apply-templates mode="local-menu" select="@*|node()" />
     </xsl:copy>
   </xsl:template>
 
