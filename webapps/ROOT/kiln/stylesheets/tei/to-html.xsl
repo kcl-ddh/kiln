@@ -415,9 +415,10 @@
     </xsl:choose>
   </xsl:template>
 
-  <xsl:template
-    match="tei:name[@key][contains(concat(' ', @nzetc:class, ' '), ' nested-link ')] |
-                       tei:rs[@key][contains(concat(' ', @nzetc:class, ' '), ' nested-link ')]">
+  <xsl:template match="tei:name[@key][contains(concat(' ', @nzetc:class, ' '),
+                                               ' nested-link ')] |
+                       tei:rs[@key][contains(concat(' ', @nzetc:class, ' '),
+                                             ' nested-link ')]">
     <xsl:call-template name="make-span" />
   </xsl:template>
 
@@ -1051,7 +1052,7 @@
   <xsl:template name="make-div">
     <div>
       <xsl:apply-templates select="@*" />
-      <xsl:if test="not(@xml:lang)">
+      <xsl:if test="not(@xml:lang) and ancestor::*[@xml:lang]">
         <xsl:attribute name="lang">
           <xsl:value-of select="ancestor::*[@xml:lang][1]/@xml:lang" />
         </xsl:attribute>
