@@ -51,6 +51,32 @@ the XSLT itself for details on the format of the supplied XML. When
 used in a pipeline, it must be followed by an XInclude transformation
 step.
 
+Additionally, the XSLT ``kiln/stylesheets/solr/merge-parameters.xsl``
+adds appropriate elements to the end of a query XML document, as
+above, from data supplied in a parameter. This data must be in the
+form of a query string (without a leading "?"; eg:
+``fq=widget&facet=off``). An example sitemap snippet using this::
+
+  <map:match pattern="search/*">
+    <map:generate src="../content/xml/solr/base_query.xml" />
+    <map:transform src="../kiln/stylesheets/solr/merge-parameters.xsl">
+      <map:parameter name="query-string" value="{1}" />
+    </map:transform>
+    <map:transform src="../kiln/stylesheets/solr/generate-query.xsl" />
+    <map:transform type="xinclude" />
+    <map:serialize type="xml" />
+  </map:match>
+
+This is not as redundant as it might seem, with a Solr query string
+being transformed into XML and then back into a query string that is
+run. It allows both for common query elements to be specified in an
+XML file, and also does not require that the query string passed to
+``merge-parameters.xsl`` be formatted as Solr requires. Parameters can
+be repeated that ``generate-query.xsl`` will join together in the
+correct fashion. This frees whatever process generates the XSLT
+parameter value from knowing anything about Solr's details (eg, it can
+be a simple form with no processing).
+
 Upgrading Solr
 --------------
 
