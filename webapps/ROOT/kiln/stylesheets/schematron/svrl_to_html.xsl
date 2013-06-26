@@ -1,13 +1,13 @@
 <xsl:stylesheet exclude-result-prefixes="#all"
-		version="2.0"
-		xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-		xmlns:xmg="http://www.cch.kcl.ac.uk/xmod/global/1.0"
-		xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+                version="2.0"
+                xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                xmlns:xmg="http://www.cch.kcl.ac.uk/xmod/global/1.0"
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
   <xsl:import href="cocoon://_internal/template/xsl/stylesheets/defaults.xsl" />
 
   <xsl:key name="failed-asserts-by-pattern" match="svrl:failed-assert"
-	   use="preceding-sibling::svrl:active-pattern[1]/@id"/>
+           use="preceding-sibling::svrl:active-pattern[1]/@id"/>
 
   <xsl:variable name="schematron-images-path">
     <xsl:value-of select="$xmg:assets-path" />
@@ -17,21 +17,27 @@
   <xsl:template match="svrl:schematron-output">
     <div class="overall-status">
       <h2>Summary Status</h2>
-      <xsl:if test="svrl:failed-assert/@flag='has-errors'">
-        <p class="error">
-          <img src="{$schematron-images-path}/error.png" alt=""/>
-          <xsl:text> Errors were found in the document!</xsl:text>
-        </p>
-      </xsl:if>
-      <xsl:if test="svrl:failed-assert/@flag='has-warnings'">
-        <p class="warning">
-          <img src="{$schematron-images-path}/warning.png" alt=""/>
-          <xsl:text> Warnings were found in the document!</xsl:text>
-        </p>
-      </xsl:if>
-      <xsl:if test="not(svrl:failed-assert)">
-        <p class="clean">No errors or warnings reported.</p>
-      </xsl:if>
+
+      <xsl:choose>
+        <xsl:when test="svrl:failed-assert">
+          <xsl:if test="svrl:failed-assert/@flag='has-errors' or
+                        svrl:failed-assert[not(@flag)]">
+            <p class="error">
+              <img src="{$schematron-images-path}/error.png" alt=""/>
+              <xsl:text> Errors were found in the document!</xsl:text>
+            </p>
+          </xsl:if>
+          <xsl:if test="svrl:failed-assert/@flag='has-warnings'">
+            <p class="warning">
+              <img src="{$schematron-images-path}/warning.png" alt=""/>
+              <xsl:text> Warnings were found in the document!</xsl:text>
+            </p>
+          </xsl:if>
+        </xsl:when>
+        <xsl:otherwise>
+          <p class="clean">No errors or warnings reported.</p>
+        </xsl:otherwise>
+      </xsl:choose>
     </div>
 
     <xsl:apply-templates select="svrl:active-pattern"/>
@@ -39,28 +45,28 @@
 
   <xsl:template match="svrl:active-pattern">
     <xsl:variable name="failed-asserts"
-		  select="key('failed-asserts-by-pattern', @id)"/>
+                  select="key('failed-asserts-by-pattern', @id)"/>
 
     <xsl:if test="$failed-asserts">
       <div class="pattern">
-	<h2>
-	  <xsl:value-of select="@name"/>
-	</h2>
+        <h2>
+          <xsl:value-of select="@name"/>
+        </h2>
 
-	<table>
-	  <thead>
-	    <tr>
-	      <th/>
-	      <th scope="col">Failure message</th>
-	      <th scope="col">Diagnostic messages</th>
-	      <th scope="col">References</th>
+        <table>
+          <thead>
+            <tr>
+              <th/>
+              <th scope="col">Failure message</th>
+              <th scope="col">Diagnostic messages</th>
+              <th scope="col">References</th>
               <th scope="col">XPath Location</th>
-	    </tr>
-	  </thead>
-	  <tbody>
-	    <xsl:apply-templates select="$failed-asserts"/>
-	  </tbody>
-	</table>
+            </tr>
+          </thead>
+          <tbody>
+            <xsl:apply-templates select="$failed-asserts"/>
+          </tbody>
+        </table>
       </div>
     </xsl:if>
   </xsl:template>
@@ -68,19 +74,26 @@
   <xsl:template match="svrl:failed-assert">
     <tr>
       <td>
-	<xsl:apply-templates select="@icon"/>
+        <xsl:choose>
+          <xsl:when test="@when">
+            <xsl:apply-templates select="@icon"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <img alt="" src="{$schematron-images-path}/error.png" />
+          </xsl:otherwise>
+        </xsl:choose>
       </td>
       <td>
         <xsl:apply-templates select="svrl:text"/>
       </td>
       <td>
-	<xsl:apply-templates select="svrl:diagnostic-reference"/>
+        <xsl:apply-templates select="svrl:diagnostic-reference"/>
       </td>
       <td>
-	<xsl:apply-templates select="@see"/>
+        <xsl:apply-templates select="@see"/>
       </td>
       <td>
-	<xsl:apply-templates select="@location"/>
+        <xsl:apply-templates select="@location"/>
       </td>
     </tr>
   </xsl:template>
