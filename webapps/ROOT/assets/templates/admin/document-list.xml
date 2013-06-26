@@ -22,7 +22,7 @@
       <ul>
         <li><a href="../solr/index/all.html">Index all documents into
         Solr</a></li>
-        <li><a href="../rdf/harvest/all.xml">Harvest all documents
+        <li><a href="../rdf/harvest/all.html">Harvest all documents
         into Sesame (RDF)</a></li>
       </ul>
 
