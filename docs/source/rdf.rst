@@ -24,8 +24,8 @@ Integration with Cocoon
 Kiln integrates Sesame into its Cocoon processing via a Sesame
 transformer and a set of pipelines. The local sitemap
 ``sitemaps/rdf.xmap`` can be extended with matches to generate RDF/XML
-and SPARQL graph queries. The basic operations are defined in the
-internal kiln sitemap ``kiln/sitemaps/sesame.xmap``.
+and SPARQL graph queries. The basic operations are defined and
+described in the internal kiln sitemap ``kiln/sitemaps/sesame.xmap``.
 
 Upgrading Sesame
 ----------------

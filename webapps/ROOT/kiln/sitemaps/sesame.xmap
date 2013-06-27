@@ -61,7 +61,9 @@
         <map:serialize type="xml" />
       </map:match>
 
-      <!-- Perform a SPARQL Graph Query (ie, using CONSTRUCT). -->
+      <!-- Perform a SPARQL Graph Query (ie, using CONSTRUCT). The
+           source XML document must consist solely of a root element
+           and text content describing the query. -->
       <map:match pattern="query/graph/**.xml">
         <map:generate src="cocoon://admin/rdf/construct/graph/{1}.xml" />
         <map:transform type="sesame">
