@@ -1,0 +1,215 @@
+<?xml version="1.0"?>
+<!-- Project main sitemap. -->
+<map:sitemap xmlns:map="http://apache.org/cocoon/sitemap/1.0">
+
+  <map:views>
+    <map:view from-label="content" name="content">
+      <map:serialize type="xml" />
+    </map:view>
+
+    <map:view from-label="tei" name="tei">
+      <map:serialize type="xml" />
+    </map:view>
+  </map:views>
+
+  <map:pipelines>
+    <!-- Mount sub-sitemaps. -->
+    <map:pipeline id="local-mount">
+      <!-- Mount a sitemap for any admin URLs, such as editorial
+           processes like Schematron validation. -->
+      <map:match pattern="admin/**">
+        <map:mount check-reload="yes" src="admin.xmap" uri-prefix="admin/" />
+      </map:match>
+    </map:pipeline>
+
+    <map:pipeline id="local-images">
+      <map:match pattern="images/**.gif">
+        <map:read mime-type="image/gif" src="../content/images/{1}.gif" />
+      </map:match>
+
+      <map:match pattern="images/**.jpg">
+        <map:read mime-type="image/jpeg" src="../content/images/{1}.jpg" />
+      </map:match>
+
+      <map:match pattern="images/**.png">
+        <map:read mime-type="image/png" src="../content/images/{1}.png" />
+      </map:match>
+    </map:pipeline>
+
+    <!-- Main display pipeline. -->
+    <map:pipeline type="noncaching">
+      <!-- Home page (at /). -->
+      <map:match pattern="">
+        <map:aggregate element="aggregation" label="content">
+          <map:part src="cocoon://_internal/menu/main.xml" />
+          <map:part src="cocoon://internal/metadata/files.xml" />
+        </map:aggregate>
+        <map:transform src="../kiln/stylesheets/menu/contextualise-menu.xsl">
+          <map:parameter name="filedir" value="" />
+          <map:parameter name="filename" value="" />
+          <map:parameter name="fileextension" value="" />
+        </map:transform>
+        <map:transform src="cocoon://_internal/template/index.xsl">
+          <map:parameter name="filedir" value="" />
+          <map:parameter name="filename" value="" />
+          <map:parameter name="fileextension" value="html" />
+        </map:transform>
+        <map:serialize />
+      </map:match>
+
+      <map:match pattern="entity/*/">
+        <map:aggregate element="aggregation" label="content">
+          <map:part src="cocoon://_internal/menu/main.xml" />
+          <map:part src="cocoon://_internal/sesame/query/graph/entity-names/{1}.xml" />
+          <map:part src="cocoon://_internal/sesame/query/graph/entity-occurrences/{1}.xml" />
+        </map:aggregate>
+        <map:transform src="../kiln/stylesheets/menu/contextualise-menu.xsl">
+          <map:parameter name="filedir" value="" />
+          <map:parameter name="filename" value="" />
+          <map:parameter name="fileextension" value="" />
+        </map:transform>
+        <map:transform src="cocoon://_internal/template/entity.xsl">
+          <map:parameter name="filedir" value="" />
+          <map:parameter name="filename" value="" />
+          <map:parameter name="fileextension" value="" />
+        </map:transform>
+        <map:serialize />
+      </map:match>
+
+      <map:match pattern="*/records/*.html/*">
+        <map:redirect-to uri="/record/{2}/{3}/" />
+      </map:match>
+
+      <map:match pattern="record/*/*/">
+        <map:aggregate element="aggregation" label="content">
+          <map:part src="cocoon://_internal/menu/main.xml" />
+          <map:part label="tei"
+                    src="cocoon://internal/tei/preprocess/records/{1}.xml" />
+        </map:aggregate>
+        <map:transform src="../kiln/stylesheets/menu/contextualise-menu.xsl">
+          <map:parameter name="filedir" value="" />
+          <map:parameter name="filename" value="" />
+          <map:parameter name="fileextension" value="" />
+        </map:transform>
+        <map:transform src="cocoon://_internal/template/record.xsl">
+          <map:parameter name="filedir" value="" />
+          <map:parameter name="filename" value="" />
+          <map:parameter name="fileextension" value="" />
+          <map:parameter name="record-id" value="{2}" />
+        </map:transform>
+        <map:serialize />
+      </map:match>
+
+      <map:match pattern="record/*/supporting/*/*/">
+        <map:aggregate element="aggregation" label="content">
+          <map:part src="cocoon://_internal/menu/main.xml" />
+          <map:part label="tei"
+                    src="cocoon://internal/tei/preprocess/supporting/{2}.xml" />
+        </map:aggregate>
+        <map:transform src="../kiln/stylesheets/menu/contextualise-menu.xsl">
+          <map:parameter name="filedir" value="" />
+          <map:parameter name="filename" value="" />
+          <map:parameter name="fileextension" value="" />
+        </map:transform>
+        <map:transform src="cocoon://_internal/template/document.xsl">
+          <map:parameter name="record-id" value="{3}" />
+        </map:transform>
+        <map:serialize />
+      </map:match>
+
+      <map:match pattern="search/">
+        <map:redirect-to uri="start=0/" />
+      </map:match>
+
+      <map:match pattern="search/*/">
+        <map:aggregate element="aggregation" label="content">
+          <map:part src="cocoon://_internal/menu/main.xml" />
+          <map:part src="cocoon://internal/metadata/files.xml" />
+          <map:part src="cocoon:/internal/facet-search/{1}" />
+        </map:aggregate>
+        <map:transform src="../kiln/stylesheets/menu/contextualise-menu.xsl">
+          <map:parameter name="filedir" value="search" />
+          <map:parameter name="filename" value="" />
+          <map:parameter name="fileextension" value="" />
+        </map:transform>
+        <map:transform src="cocoon://_internal/template/search.xsl">
+          <map:parameter name="filedir" value="search" />
+          <map:parameter name="filename" value="" />
+          <map:parameter name="fileextension" value="html" />
+        </map:transform>
+        <map:serialize />
+      </map:match>
+
+      <map:match pattern="*/">
+        <map:aggregate element="aggregation" label="content">
+          <map:part src="cocoon://internal/metadata/files.xml" />
+          <map:part src="cocoon://_internal/menu/main.xml" />
+        </map:aggregate>
+        <map:transform src="../kiln/stylesheets/menu/contextualise-menu.xsl">
+          <map:parameter name="filedir" value="{1}" />
+          <map:parameter name="filename" value="" />
+          <map:parameter name="fileextension" value="" />
+        </map:transform>
+        <!-- Put the static content directly in individual templates,
+             rather than in XML documents transformed into a single
+             template. This is a design choice and both approaches
+             have their benefits. -->
+        <map:transform src="cocoon://_internal/template/{1}.xsl">
+          <map:parameter name="filedir" value="{1}" />
+          <map:parameter name="filename" value="" />
+          <map:parameter name="fileextension" value="" />
+        </map:transform>
+        <map:serialize />
+      </map:match>
+    </map:pipeline>
+
+    <map:pipeline internal-only="true">
+      <map:match pattern="internal/facet-search/*">
+        <map:generate src="../content/xml/solr/facet_query.xml" />
+        <map:transform src="../kiln/stylesheets/solr/merge-parameters.xsl">
+          <map:parameter name="query-string" value="{1}" />
+        </map:transform>
+        <map:transform src="../kiln/stylesheets/solr/generate-query.xsl" />
+        <map:transform type="xinclude" />
+        <map:serialize type="xml" />
+      </map:match>
+
+      <!-- Process a TEI document prior to its use in another
+           pipeline, normalising and annotating it as required. -->
+      <map:match pattern="internal/tei/preprocess/**.xml">
+        <map:generate src="../content/xml/tei/{1}.xml" />
+        <map:transform src="../kiln/stylesheets/tei/join-elements.xsl" />
+        <map:transform src="../kiln/stylesheets/tei/annotate.xsl" />
+        <map:serialize type="xml" />
+      </map:match>
+    </map:pipeline>
+
+    <!-- Metadata pipeline. -->
+    <map:pipeline id="metadata" internal-only="true">
+      <map:match pattern="internal/allxmlcontent.xml">
+        <map:generate src="../content/xml" type="directory">
+          <map:parameter name="depth" value="99" />
+          <map:parameter name="exclude" value="^\..*" />
+        </map:generate>
+        <map:serialize type="xml" />
+      </map:match>
+
+      <map:match pattern="internal/metadata/*/**.xml">
+        <map:generate src="../content/xml/{2}.xml" />
+        <map:transform src="../stylesheets/metadata/{1}-metadata-generator.xsl">
+          <map:parameter name="path" value="{2}.xml" />
+        </map:transform>
+        <map:serialize type="xml" />
+      </map:match>
+
+      <map:match pattern="internal/metadata/*.xml">
+        <map:generate src="cocoon://internal/allxmlcontent.xml" />
+        <map:transform src="../stylesheets/metadata/xinclude.xsl">
+          <map:parameter name="type" value="{1}" />
+        </map:transform>
+        <map:transform type="xinclude" />
+        <map:serialize type="xml" />
+      </map:match>
+    </map:pipeline>
+  </map:pipelines>
+</map:sitemap>

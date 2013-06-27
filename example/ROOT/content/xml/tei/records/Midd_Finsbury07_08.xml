@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?><TEI xml:id="Midd_Finsbury07_08" xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title type="main">The Fortune Theatre Records: A Prototype Digital Edition</title>
+                <funder><orgName>Andrew W. Mellon Foundation</orgName>, Scholarly Communications and Information Technology Program. Program Officer: <persName>Donald J. Waters</persName></funder>
+                <respStmt>
+                    <persName>Carolyn Black</persName>
+                    <orgName>Records of Early English Drama (REED)</orgName>
+                    <resp>Senior Editorial Consultant</resp>
+                </respStmt>
+                <respStmt>
+                    <persName xml:id="jboyd">Jason Boyd</persName>
+                    <orgName>Centre for Digital Humanities</orgName> 
+                    <orgName>Ryerson University, Canada</orgName>
+                    <resp>TEI Customization and Implementation; Entity Authority Tool Set (EATS) Supervision</resp>
+                </respStmt>
+                <respStmt>
+                    <persName>John Bradley</persName>
+                    <orgName>Department of Digital Humanities (DDH)</orgName>
+                    <orgName>King's College London, UK</orgName>
+                    <resp>Technical Direction</resp>
+                </respStmt>
+                <respStmt>
+                    <persName>Paul Caton</persName>
+                    <orgName>Department of Digital Humanities (DDH)</orgName>
+                    <orgName>King's College London, UK</orgName>
+                    <resp>TEI/XML Consultant; Entity Authority Tool Set (EATS) Data Design</resp>
+                </respStmt>
+                <respStmt>
+                    <persName>Peter Clifford</persName>
+                    <orgName>Boydell and Brewer</orgName>
+                    <resp></resp>
+                </respStmt>
+                <respStmt>
+                    <persName>Jessica Freedman</persName>
+                    <resp>Editor, REED Middlesex inlcuding Westminster collection</resp>
+                </respStmt>
+                <respStmt>
+                    <persName>Trieneke Gastmeier</persName>
+                    <orgName>Centre for Digital Humanities</orgName>
+                    <orgName>Ryerson University, Canada</orgName>
+                    <resp>EATS Implementation</resp>
+                </respStmt>
+                <respStmt>
+                    <persName>John Geck</persName>
+                    <orgName>Records of Early English Drama (REED)</orgName>
+                    <resp>Project Manager</resp>
+                </respStmt>
+                <respStmt>
+                    <persName>Patrick Gregory</persName>
+                    <orgName>Records of Early English Drama (REED)</orgName>
+                    <resp>Paleographer</resp>
+                </respStmt>
+                <respStmt>
+                    <persName>Tanya Hagen</persName>
+                    <orgName>Records of Early English Drama (REED)</orgName>
+                    <resp>Bibliographer; Editor, <title type="database">Early Modern London Theatres</title> (EMLoT) Fortune Theatre records</resp>
+                </respStmt>
+                <respStmt>
+                    <persName>Stephanie Hovland</persName>
+                    <orgName>Records of Early English Drama (REED)</orgName>
+                    <resp>Associate Paleographer</resp>
+                </respStmt>
+                <respStmt>
+                    <persName>Sally-Beth MacLean</persName>
+                    <orgName>Records of Early English Drama (REED)</orgName>
+                    <resp>Principal Investigator; Editorial Direction</resp>
+                </respStmt>
+                <respStmt>
+                    <persName>Sian Meikle</persName>
+                    <orgName>Information Technology Services, University of Toronto Libraries</orgName>
+                    <orgName>University of Toronto, Canada</orgName>
+                    <resp></resp>
+                </respStmt>
+                <respStmt>
+                    <persName>Daniela Robibero</persName>
+                    <orgName>Centre for Digital Humanities</orgName>
+                    <orgName>Ryerson University, Canada</orgName>
+                    <resp>Cumulative London REED Collection Index Compiler</resp>
+                </respStmt>
+                <respStmt>
+                    <persName>Mike Stumpf</persName>
+                    <resp>Supplementary Fortune Theatre Records Research</resp>
+                </respStmt>
+                <respStmt>
+                    <persName>Paul Vetch</persName>
+                    <orgName>Department of Digital Humanities</orgName>
+                    <orgName>King's College, London, UK</orgName>
+                    <resp>Boydell and Brewer Liason</resp>
+                </respStmt>
+                <respStmt>
+                    <persName>Jose Miguel Viera</persName>
+                    <orgName>Department of Digital Humanities</orgName>
+                    <orgName>King's College, London</orgName>
+                    <resp>Prototype Web Application Creator</resp>
+                </respStmt>
+            </titleStmt>
+            <editionStmt>
+                <edition>Prototype digital edition, version 1, released March 26 2013.</edition>
+            </editionStmt>
+            <publicationStmt>
+                <authority><orgName>Records of Early English Drama (REED)</orgName>
+                    <address>
+          <addrLine>University of Toronto</addrLine>
+          <addrLine>170 St George Street, Suite 810</addrLine>
+          <addrLine>Toronto, Ontario, Canada</addrLine>
+          <addrLine>M5R 2M8</addrLine>
+        </address>
+                </authority>
+                <availability>
+                    <p>Copyright <orgName>Records of Early English Drama (REED)</orgName>, <date>2012</date></p>
+                    <licence target="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_US">Distributed under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported (CC BY-NC-SA 3.0) licence.</licence>
+                </availability>
+            </publicationStmt>
+            <seriesStmt>
+                <title>Records of Early English Drama</title>
+            </seriesStmt>
+            <sourceDesc>
+                <p>Born digital. Information on original sources for transcriptions can be accessed via the transcriptions.</p>
+            </sourceDesc>
+        </fileDesc>
+        <encodingDesc><!--Requires further exploration-->
+            <projectDesc>
+                <p>The Fortune Theatre Reecords: A Prototype Digital Edition is the outcome of a project exploring methods and means for the publication of Records of Early English Drama (REED)
+                    collections in a digital format.</p>
+            </projectDesc>
+            <editorialDecl>
+                <p>Do we want to use this for the Editorial Procedures section of the REED collection apparatus?</p>
+            </editorialDecl>
+            <tagsDecl>
+                <namespace name="http://www.tei-c.org/ns/1.0">
+                    <tagUsage gi="del">Used to enclose cancelled text in record transcriptions. At-code practise: cancelled text enclosed in square brackets ([...]).</tagUsage>
+                </namespace>
+            </tagsDecl>
+            <refsDecl>
+                <p>For infomation on attribues and values.</p>
+            </refsDecl>
+        </encodingDesc>
+        <revisionDesc>
+            <change n="1.0" when="2013-03-26" who="#jboyd">First public version</change>
+        </revisionDesc>
+    </teiHeader>
+    <text type="REED_record_group" corresp="SOME_AUSPICE_ID_FROM_ASSOCIATED_COLLECTION_CONTEXT_FILE">
+        <group>
+            <text type="record" subtype="AC" xml:id="rec174_FIN_1574_89_HNAW_ff57_7v">
+                <body>          
+                    <head type="main">
+                        <placeName>
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date from-iso="1574" to-iso="1589">1574–89</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/39826/" type="man">Hunter</name>’s
+                            <name key="http://reed.utoronto.ca/django/eats/entity/39860/" type="document">Notes</name> on 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/2980/" type="occupation">Actors</name>
+                            <note type="antiquarian_source" corresp="#abbr_AC">(AC)</note>
+                        </title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository" corresp="#abbr_BL">BL</idno>:
+                            <idno type="shelfmark">Additional MS 24502</idno>
+                        </seg></head>
+                    <head type="sub">ff [57—7v]*</head>
+                    <div type="transcription">
+                       <pb type="folio" n="57"/>
+                       <ab type="body">
+                        <name key="http://reed.utoronto.ca/django/eats/entity/39882/" type="man">Robert Wilson</name><lb/>
+                        One &#x28C;<add rend="above">of</add> five 
+                        <name key="http://reed.utoronto.ca/django/eats/entity/14377/" type="occupation">Servants</name> to the 
+                        <name key="http://reed.utoronto.ca/django/eats/entity/39928/" type="rank">Earl of Leicester</name> to whom a 
+                        <name key="http://reed.utoronto.ca/django/eats/entity/10013/" type="document">Licence</name> for 
+                        <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">Acting</name> was granted in 1574.<lb/>
+                        Perhaps he is 
+                        <name key="http://reed.utoronto.ca/django/eats/entity/39882/" type="man">Mr Wilson</name>
+                        who is named 4<hi rend="superscript">th</hi> among the excellent old
+                        <name key="http://reed.utoronto.ca/django/eats/entity/2980/" type="occupation">Actors</name>
+                        who lived before his time &amp; whose names are almost forgotten by
+                        <name key="http://reed.utoronto.ca/django/eats/entity/39958/" type="man">Thomas Heywood</name> in his 
+                        <name key="http://reed.utoronto.ca/django/eats/entity/40012/" type="work_title">Apology for Actors</name> 1612.<lb/>
+                        A Sharer in the 
+                        <name key="http://reed.utoronto.ca/django/eats/entity/25091/" type="place_playing">Black Friars</name>
+                        Nov<ex>ember</ex> 1589. New Tracts 10.<lb/>
+                        a 
+                        <name key="http://reed.utoronto.ca/django/eats/entity/39882/" type="man">Robert Wilson</name> said by
+                        <name key="http://reed.utoronto.ca/django/eats/entity/40046/" type="man">Malcolm</name> to be an 
+                        <name key="http://reed.utoronto.ca/django/eats/entity/2980/" type="occupation">actor</name> at the 
+                        <name key="http://reed.utoronto.ca/django/eats/entity/1444/" type="place_playing">Fortune Th<ex>eater</ex></name> at
+                        <name key="http://reed.utoronto.ca/django/eats/entity/2664/" type="place_religion">St Giles Cripplegate</name>
+                        1600. Mal<ex>colm</ex> Lond<ex>oni</ex> Rev<ex>ividum</ex>.<lb/>
+                        <pb type="folio" n="57v"/>
+                        <name key="http://reed.utoronto.ca/django/eats/entity/18640/" type="document">Certificate</name> Iune 6. 
+                        <name key="http://reed.utoronto.ca/django/eats/entity/5231/" type="rank">Lord How<ex>ard</ex> Effingham</name> 
+                        <name key="http://reed.utoronto.ca/django/eats/entity/19858/" type="office">lord Chamberlain</name> to 
+                        <name key="http://reed.utoronto.ca/django/eats/entity/40080/" type="man">Sir Ch<ex>ristophe</ex>r Hatton</name>
+                        <name key="http://reed.utoronto.ca/django/eats/entity/40699/" type="office">Vice Chamberlain</name>. Com<ex>mission</ex>er of the Subsidy granted 27 
+                        <name key="http://reed.utoronto.ca/django/eats/entity/278/" type="woman">Eliz<ex>abeth</ex></name>
+                           <note xml:id="rec01_fn01" type="foot">27 Eliz<ex>abeth</ex>: <hi rend="italic">1585</hi></note> that 
+                        <name key="http://reed.utoronto.ca/django/eats/entity/39882/" type="man">Robert Wilson</name> one of 
+                        <name key="http://reed.utoronto.ca/django/eats/entity/15275/" type="troupe">Her Majestys Players</name> is mostly resident in the
+                        <name key="http://reed.utoronto.ca/django/eats/entity/2015/" type="court">Court</name> &amp; is valued therein after the rate of 5 li. in goods.</ab><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote"><ab type="endnote">The 19th century 
+                        <name key="http://reed.utoronto.ca/django/eats/entity/40126/" type="occupation">antiquarian</name>, 
+                        <name key="http://reed.utoronto.ca/django/eats/entity/39826/" type="man">Hunter</name>, 
+                        often included additional 
+                        <name key="http://reed.utoronto.ca/django/eats/entity/39860/" type="document">notes</name> to existing
+                        <name key="http://reed.utoronto.ca/django/eats/entity/39759/" type="document">records</name> as here. The original 
+                        <name key="http://reed.utoronto.ca/django/eats/entity/18640/" type="document">certificate</name> of residence for
+                        <name key="http://reed.utoronto.ca/django/eats/entity/39882/" type="man">Robert Wilson</name> in 1585 can be 
+                        found at TNA: PRO E115/403/110, although this is dated 'Vltimo Die Iunij.'</ab></div>
+                </body>
+                <link type="document_desc" target="#Midd_HNAW"/>
+            </text>
+            <text type="record" xml:id="rec175_FIN_1630_PCOR_f40">
+                <body>
+                    <head type="main">
+                        <placeName>
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date when-iso="1630-04-23">1630</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/2851/" type="document">Order</name> from the
+                            <name key="http://reed.utoronto.ca/django/eats/entity/678/" type="council">Privy Council</name> to 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/40148/" type="man">Sir James Cambell</name>,
+                            <name key="http://reed.utoronto.ca/django/eats/entity/18514/" type="office">Mayor of London</name>
+                        </title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository" corresp="#abbr_LMA">LMA</idno>:
+                            <idno type="shelfmark">COL/RMD/PA/01/007</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">f 40 (23 April)</head>
+                    <div type="transcription">
+                        <pb type="folio" n="40"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="marginalia">
+                            <note xml:id="rec02_mn02" type="marginal" place="margin_left">An 
+                                <name key="http://reed.utoronto.ca/django/eats/entity/2851/" type="document">ordre</name> from the
+                                Lords the 23<hi rend="superscript">th</hi> Aprill 1630, for suppressing of assemblies at 
+                                <name key="http://reed.utoronto.ca/django/eats/entity/19784/" type="place_playing">Cockepitts</name>
+                                &amp; oth<ex>e</ex>r publique meetings/.
+                            </note>
+                        </ab><lb/>
+                        <ab type="table">
+                            <table rows="1" cols="3" >
+                                <row>
+                                    <cell>
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/40725/" type="office">Lo<ex>rd</ex> Arche B<ex>isho</ex>p of yorke</name>
+                                    </cell>
+                                    <cell>
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/18392/" type="office">Lo<ex>rd</ex>
+                                            <anchor corresp="#rec02_mn02"/> Tre<ex>asure</ex>r</name><lb/>
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/40747/" type="office">Lo<ex>rd</ex> President</name><lb/>
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/19414/" type="office">Lo<ex>rd</ex> Priuie Seale</name><lb/>
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/40769/" type="rank">Ea<ex>rl</ex> Marshall</name><lb/>
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/5321/" type="rank">Ea<ex>rl</ex> Suffolke</name><lb/>
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/40787/" type="rank">Ea<ex>rl</ex> Dorsett</name>
+                                    </cell>
+                                    <cell>
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/40805/" type="rank">Ea<ex>le</ex> Salisberry</name>.<lb/>
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/40823/" type="rank">Ea<ex>rl</ex> Danby</name>.<lb/>
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/40841/" type="rank">Lo<ex>rd</ex> Vis<ex>count</ex> Dorchester</name><lb/>
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/40859/" type="rank">Lo<ex>rd</ex> Vis<ex>count</ex> Wentworth</name>.<lb/> 
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/40877/" type="rank">Lo<ex>rd</ex> Vis<ex>count</ex> ffalkland</name>.<lb/>
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/40895/" type="rank">Lo<ex>rd</ex> Newburgh</name><lb/>
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/18392/" type="office">M<ex>aste</ex>r Tre<ex>asure</ex>r</name><lb/>
+                                        M<ex>aste</ex>r Secre<ex>tary</ex> Cooke
+                                    </cell>
+                                </row>
+                            </table>
+                        </ab><lb/>
+                        <lb/>
+                        <ab type="body"> It was this day ordered in reguard of the daunger &amp; feare of the increase of the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/2833/" type="issue_social">sciknes</name>
+                            . that aswell the
+                            <name key="http://reed.utoronto.ca/django/eats/entity/18514/" type="office">Lord Maio<ex>ur</ex></name>, as the
+                            <name key="http://reed.utoronto.ca/django/eats/entity/18536/" type="office">Iustices of peace</name>, of
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3527/" type="place_region">Midd<ex>lesex</ex></name> &amp;
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3720/" type="place_region">Surrey</name> shall take effectuall 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/2851/" type="document">ordre</name>, to prohibite &amp; suppresse all Assemblies at Prizes, by 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/23798/" type="activity">ffencers</name>, and all other meetings at
+                            <name key="http://reed.utoronto.ca/django/eats/entity/40198/" type="activity">Cockfights</name>, 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/39792/" type="activity">Bullbaitings</name>, &amp; in Close
+                            <name key="http://reed.utoronto.ca/django/eats/entity/40216/" type="place_built">Bowling Alleys</name>
+                            , w<ex>hi</ex>ch Assemblies weere not perticularly menc<ex>i</ex>oned in the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/2851/" type="document">ordre</name>
+                            of this Board of the 14<hi rend="superscript">th</hi> of this present, but wee thereby intended to bee 
+                            suppressed as well as the Assemblies therein named/</ab><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote"/>
+                </body>
+                <link type="document_desc" target="#Midd_PCOR"/>
+            </text>
+            <text type="record" xml:id="rec176_FIN_1640_PC52_p725">
+                <body>
+                    <head type="main">
+                        <placeName>
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date when-iso="1640-09-11">1640</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/678/" type="council">Privy Council</name> Register
+                        </title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository" corresp="#abbr_TNA_PRO">TNA: PRO</idno>
+                            <idno type="shelfmark">PC2/52</idno>
+                        </seg>
+                    </head> 
+                    <head type="sub">p 725 (11 September) (
+                        <name key="http://reed.utoronto.ca/django/eats/entity/678/" type="council">Privy Council</name> order to restrain
+                        <name key="http://reed.utoronto.ca/django/eats/entity/40913/" type="activity">playgoing</name> due to 
+                        <name key="http://reed.utoronto.ca/django/eats/entity/2833/" type="issue_social">plague</name>)
+                    </head>
+                    <div type="transcription">
+                        <pb type="page" n="725"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="marginalia"><note xml:id="rec03_mn03" type="marginal" place="margin_left">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/2851/" type="document">Order</name> for supp<ex>re</ex>ssing all 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1713/" type="place_playing">Playhouses</name></note></ab><lb/>
+                        <ab type="body">
+                            <ref target="#rec03_fn04" type="foot_anchor"><hi rend="initial_florish">W</hi>hereas</ref>
+                            <note xml:id="rec03_fn04" type="foot">Whereas: <hi rend="italic">flourished initial</hi>W</note><anchor corresp="#rec03_mn03"/> the
+                            <name key="http://reed.utoronto.ca/django/eats/entity/2833/" type="issue_social">Infecc<ex>i</ex>on</name> of the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/2833/" type="issue_social">Plague</name> doeth much increase in and about 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/2501/" type="place_settlement">London</name> and it is very dangerous to permit any Company
+                            or concourse of people to meete and assemble together at 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1713/" type="place_playing">Playhouses</name>. It was therefore this day 
+                            Ordered at ye Boord that all
+                            <name key="http://reed.utoronto.ca/django/eats/entity/2980/" type="occupation">Players</name>, both their 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15275/" type="troupe">Ma<ex>ies</ex>t<ex>es</ex> servants</name> and others 
+                            as also the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/40961/" type="office">Keepers of</name>
+                            <name key="http://reed.utoronto.ca/django/eats/entity/40935/" type="place_playing">Paris Garden</name> bee hereby commanded and required
+                            forthw<ex>i</ex>th to shut vp their Play houses, and not to exercise or 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">play</name>
+                            in any of them or in any other place w<ex>i</ex>thin ye Citty or Suburbs of 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/2501/" type="place_settlement">London</name>
+                            till it shall please God to cease the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/2833/" type="issue_social">Infecc<ex>i</ex>on</name> and that further 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/2851/" type="document">Order</name> shalbee given by the Boord. Hereof all the 
+                            Masters and 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/2980/" type="occupation">Actors</name> of the said 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1713/" type="place_playing">Playhouses</name>
+                            are to take notice and to conforme themselves as they will answere it at their perills./</ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote"/>
+                </body>
+                <link type="document_desc" target="#Midd_PC52"/>
+                <link type="emlot" target="http://www.emlot.kcl.ac.uk/db/record/event/1752/"/>
+            </text>
+        </group>
+    </text>
+</TEI>

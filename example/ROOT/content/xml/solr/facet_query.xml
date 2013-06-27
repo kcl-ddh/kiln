@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Base for Solr facet queries. -->
+<query>
+  <q>document_type:record</q>
+  <rows>15</rows>
+  <facet>on</facet>
+  <facet.mincount>1</facet.mincount>
+  <facet.field>entity_type</facet.field>
+</query>

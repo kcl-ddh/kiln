@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<map:sitemap xmlns:map="http://apache.org/cocoon/sitemap/1.0">
+  <!-- Local sitemap for Solr indexing. -->
+
+  <map:pipelines>
+    <map:pipeline id="local-solr">
+      <!-- List links to all index URLs for the site. Note that the
+           URL matched here is referenced by the Ant build task used
+           for performing the recursive crawl to actual perform the
+           indexing, so do not change it! -->
+      <map:match pattern="index/site-list.html">
+        <map:generate src="../content/xml" type="directory">
+          <map:parameter name="depth" value="99" />
+          <map:parameter name="exclude" value="^\..*" />
+        </map:generate>
+        <map:transform src="../stylesheets/admin/xml-dirs-to-index-list-html.xsl" />
+        <map:serialize />
+      </map:match>
+
+      <!-- Indexing. -->
+
+      <!-- Index all XML content in a single (user) request.
+
+           For efficiency reasons, delete the whole index first
+           (obviously a bad idea if the index also contains material
+           harvested from non-XML sources!), then add each document
+           via an XInclude. -->
+      <map:match pattern="index/all.html">
+        <map:aggregate element="aggregation">
+          <map:part element="delete"
+                    src="cocoon://_internal/solr/delete-all" />
+          <map:part element="insert" src="cocoon:/add/" />
+          <map:part element="optimize"
+                    src="cocoon://_internal/solr/optimize" />
+        </map:aggregate>
+        <map:transform src="cocoon://_internal/template/admin/solr-index-all.xsl" />
+        <map:serialize />
+      </map:match>
+
+      <!-- Index an individual document. -->
+      <map:match pattern="index/*/**.html">
+        <map:aggregate element="aggregation">
+          <map:part src="cocoon://_internal/solr/index/{1}/{2}.xml" />
+        </map:aggregate>
+        <map:transform src="cocoon://_internal/template/admin/solr-index.xsl">
+          <map:parameter name="file" value="{2}" />
+        </map:transform>
+        <map:serialize />
+      </map:match>
+
+      <!-- Adding all documents as XIncludes. It's almost certain that
+           this match needs to be modified in one way or another,
+           since it uses the same XSLT to process all XML files, that
+           either shouldn't be indexed or should be indexed
+           differently. -->
+      <map:match pattern="add/">
+        <map:generate src="../content/xml/tei" type="directory">
+          <map:parameter name="depth" value="99" />
+          <map:parameter name="exclude" value="^\..*" />
+        </map:generate>
+        <map:transform src="../stylesheets/admin/dir-to-xinclude.xsl">
+          <map:parameter name="prefix" value="cocoon://admin/solr/add/tei/" />
+        </map:transform>
+        <map:transform type="xinclude" />
+        <map:serialize type="xml" />
+      </map:match>
+
+      <!-- Adding TEI only. The first parameter is the file type. -->
+      <map:match pattern="add/*/**.xml">
+        <map:generate src="../content/xml/{1}/{2}.xml" />
+        <map:transform src="../stylesheets/solr/{1}-to-solr.xsl">
+          <map:parameter name="file-path" value="{2}" />
+        </map:transform>
+        <map:transform type="solr">
+          <map:parameter name="url" value="{global:solr-server}" />
+        </map:transform>
+        <map:serialize type="xml" />
+      </map:match>
+    </map:pipeline>
+  </map:pipelines>
+</map:sitemap>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<map:sitemap xmlns:map="http://apache.org/cocoon/sitemap/1.0">
+
+  <!--
+
+    Project configuration sitemap.
+
+    This sitemap defines default components and global variables for
+    this project.
+
+  -->
+
+  <map:components>
+    <map:serializers>
+      <map:serializer logger="sitemap.serializer.xml"
+                      mime-type="text/xml" name="xml_nodecl"
+                      src="org.apache.cocoon.serialization.XMLSerializer">
+        <omit-xml-declaration>yes</omit-xml-declaration>
+      </map:serializer>
+    </map:serializers>
+  </map:components>
+
+  <map:pipelines>
+    <map:component-configurations>
+      <global-variables>
+        <eats-server>http://localhost:8000/</eats-server>
+        <rdf-base-uri>http://www.example.org/</rdf-base-uri>
+        <sesame-server>http://localhost:9999/openrdf-sesame/</sesame-server>
+        <sesame-server-repository>test</sesame-server-repository>
+        <solr-server>http://localhost:9999/solr/</solr-server>
+      </global-variables>
+    </map:component-configurations>
+
+    <!-- Mount sub-sitemaps. -->
+    <map:pipeline>
+      <!-- Mount the main kiln sitemap, which in turn mounts the main
+           project sitemap, main.xmap. -->
+      <map:match pattern="**">
+        <map:mount check-reload="yes" src="../kiln/sitemaps/main.xmap"
+                   uri-prefix="" />
+      </map:match>
+    </map:pipeline>
+  </map:pipelines>
+</map:sitemap>

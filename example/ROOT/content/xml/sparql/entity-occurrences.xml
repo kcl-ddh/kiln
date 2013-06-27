@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<query>
+PREFIX crm: &lt;http://www.cidoc-crm.org/cidoc-crm/>
+PREFIX rdf:&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX entity:&lt;http://reed.utoronto.ca/django/eats/entity/>
+
+CONSTRUCT {
+    ?record crm:P67_refers_to ?entity .
+    ?record crm:P149_is_identified_by ?record_title .
+    ?record crm:P48_has_preferred_identifier ?record_id .
+    ?record crm:P148i_is_component_of ?document .
+    ?document crm:P48_has_preferred_identifier ?document_id .
+}
+
+WHERE {
+    SELECT DISTINCT ?document ?document_id ?entity ?record ?record_id ?record_title
+    WHERE {
+        ?entity crm:P48_has_preferred_identifier "<entity_id/>"^^crm:E42_Identifier .
+        ?record crm:P67_refers_to ?entity ;
+                crm:P149_is_identified_by ?record_title ;
+                crm:P48_has_preferred_identifier ?record_id ;
+                crm:P148i_is_component_of ?document .
+        ?document crm:P48_has_preferred_identifier ?document_id .
+    }
+}
+</query>

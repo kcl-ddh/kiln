@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<map:sitemap xmlns:map="http://apache.org/cocoon/sitemap/1.0">
+  <!-- Local sitemap for RDF generation and querying. -->
+
+  <map:pipelines>
+    <!-- Pipeline for performing RDF harvesting and querying. -->
+    <map:pipeline id="local-rdf-harvest-query">
+      <!-- These matches call the built-in Kiln pipelines for
+           harvesting and querying that communcate with the RDF
+           server. In turn, they call the generate and construct
+           pipelines defined below to create the RDF or query that is
+           sent to the server. -->
+
+      <!-- Bulk harvest of RDF/XML into the server. -->
+      <map:match pattern="harvest/all.html">
+        <map:aggregate element="aggregation">
+          <map:part src="cocoon:/harvest/all.xml" />
+        </map:aggregate>
+        <map:transform src="cocoon://_internal/template/admin/rdf-harvest-all.xsl" />
+        <map:serialize />
+      </map:match>
+
+      <map:match pattern="harvest/all.xml">
+        <map:generate src="../content/xml/tei" type="directory">
+          <map:parameter name="depth" value="99" />
+          <map:parameter name="exclude" value="^\..*" />
+        </map:generate>
+        <map:transform src="../stylesheets/admin/dir-to-xinclude.xsl">
+          <map:parameter name="prefix" value="cocoon://admin/rdf/harvest/tei/" />
+        </map:transform>
+        <map:transform type="xinclude" />
+        <map:serialize type="xml" />
+      </map:match>
+
+      <!-- Harvest RDF/XML into the server. -->
+      <map:match pattern="harvest/**.html">
+        <map:aggregate element="aggregation">
+          <map:part src="cocoon:/harvest/{1}.xml" />
+        </map:aggregate>
+        <map:transform src="cocoon://_internal/template/admin/rdf-harvest.xsl">
+          <map:parameter name="file" value="{1}.xml" />
+        </map:transform>
+        <map:serialize />
+      </map:match>
+
+      <map:match pattern="harvest/**.xml">
+        <!-- This will call rdf/generate/{1}.xml below. -->
+        <map:generate src="cocoon://_internal/sesame/harvest/{1}.xml" />
+        <map:serialize type="xml" />
+      </map:match>
+
+      <!-- Query the server, returning RDF/XML. -->
+      <map:match pattern="query/graph/**.xml">
+        <!-- This will call rdf/construct/graph/{1}.xml below. -->
+        <map:generate src="cocoon://_internal/sesame/query/graph/{1}.xml" />
+        <map:serialize type="rdf-xml" />
+      </map:match>
+    </map:pipeline>
+
+    <!-- Pipeline for constructing an RDF/XML document. -->
+    <map:pipeline id="local-rdf-generate">
+      <!-- TEI file. -->
+      <map:match pattern="generate/tei/**.xml">
+        <map:generate src="../content/xml/tei/{1}.xml" />
+        <map:transform src="../stylesheets/rdf/tei-to-rdf.xsl" />
+        <map:serialize type="xml" />
+      </map:match>
+
+      <!-- Static RDF/XML file. -->
+      <map:match pattern="generate/rdf/**.xml">
+        <map:generate src="../content/xml/rdf/{1}.xml" />
+        <map:serialize type="rdf-xml" />
+      </map:match>
+    </map:pipeline>
+
+    <!-- Pipeline for constructing an XML document containing a SPARQL
+         query for the RDF server. This document must consist of a
+         "query" root element containing only text. -->
+    <map:pipeline id="local-rdf-query">
+      <map:match pattern="construct/graph/entity-*/*.xml">
+        <map:generate src="../content/xml/sparql/entity-{1}.xml" />
+        <map:transform src="../stylesheets/rdf/add-entity-id.xsl">
+          <map:parameter name="entity_id" value="{2}" />
+        </map:transform>
+        <map:serialize type="xml" />
+      </map:match>
+
+      <!-- Construct a graph query document from a SPARQL query in a
+           file. -->
+      <map:match pattern="construct/graph/**.xml">
+        <map:generate src="../content/xml/sparql/{1}.xml" />
+        <map:serialize type="xml" />
+      </map:match>
+
+    </map:pipeline>
+
+  </map:pipelines>
+</map:sitemap>

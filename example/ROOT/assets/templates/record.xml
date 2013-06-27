@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xmtp:root xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:xi="http://www.w3.org/2001/XInclude"
+  xmlns:xmg="http://www.cch.kcl.ac.uk/xmod/global/1.0"
+  xmlns:xmtp="http://www.cch.kcl.ac.uk/xmod/template/1.0"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+  <!-- Imports stylesheet to convert TEI into HTML. -->
+  <xsl:import href="cocoon://_internal/template/xsl/stylesheets/tei/to-html.xsl" />
+
+  <xmtp:parent>
+    <xi:include href="base.xml" />
+  </xmtp:parent>
+
+  <xmtp:child>
+    <xmtp:block name="css">
+      <xmtp:super />
+      <style type="text/css">
+        <xsl:text>.center { display: block; text-align: center; }</xsl:text>
+        <xsl:text>.left { foat: left; }</xsl:text>
+        <xsl:text>.right { float: right; }</xsl:text>
+
+        <xsl:text>.label { background-color: inherit; border-radius: inherit; color: inherit;
+          font-size: inherit; font-weight: inherit; line-height: inherit; padding: inherit;
+          text-shadow: inherit; vertical-align: inherit; white-space: inherit; }</xsl:text>
+
+        <xsl:text>ul { list-style: none; }</xsl:text>
+
+        <xsl:text>.table { width: auto; margin-top: 9px; }</xsl:text>
+        <xsl:text>.table th, .table td { border: none; padding: 4px; }</xsl:text>
+        <xsl:text>.table td ul { margin: 0; }</xsl:text>
+        <xsl:text>.table tbody tr:hover td, .table tbody tr:hover th { background-color: #ffffff; }</xsl:text>
+        <xsl:text>td.braced_left, td.braced_right { border-left: 2px solid black; vertical-align: middle; }</xsl:text>
+
+        <xsl:text>.footnotes { clear: both; }</xsl:text>
+      </style>
+    </xmtp:block>
+
+    <xmtp:block name="title">
+      <xsl:call-template name="record-title" />
+      <xmtp:super />
+    </xmtp:block>
+
+    <xmtp:block name="page-header">
+      <div class="page-header">
+        <xmtp:block name="page-heading">
+          <xsl:call-template name="record-heading" />
+        </xmtp:block>
+      </div>
+    </xmtp:block>
+
+    <xmtp:block name="content">
+      <div class="span3">
+        <xsl:call-template name="marginalia">
+          <xsl:with-param name="place" select="'margin_left'" />
+        </xsl:call-template>
+        <xsl:text>&#160;</xsl:text>
+      </div>
+      <div class="span8 main">
+        <xsl:call-template name="record-content" />
+        <xsl:call-template name="record-pagination" />
+      </div>
+      <div class="span1">
+        <xsl:text>&#160;</xsl:text>
+      </div>
+    </xmtp:block>
+
+    <xmtp:block name="js">
+      <xmtp:super />
+      <!--<script type="text/javascript" src="http://www.jquery-css.com/js/magic.min.js">&#160;</script>-->
+      <script type="text/javascript">
+        <!--<xsl:text>var overrideResizable = true;</xsl:text>-->
+        <xsl:text>$(document).ready(function () {</xsl:text>
+        <xsl:text>$('.add').tooltip();</xsl:text>
+        <xsl:text>$('.orig').tooltip();</xsl:text>
+        <xsl:text>$('.sic').tooltip();</xsl:text>
+        <xsl:text>$('.gap').tooltip();</xsl:text>
+        <xsl:text>$('.del').tooltip();</xsl:text>
+        <xsl:text>$('.ex').tooltip();</xsl:text>
+        <xsl:text>$('.signed').tooltip();</xsl:text>
+        <xsl:text>$('.signed_mark').tooltip();</xsl:text>
+
+        <xsl:call-template name="popover-marginalia" />
+        <!--<xsl:call-template name="align-marginalia" />-->
+        <xsl:text>});</xsl:text>
+      </script>
+    </xmtp:block>
+  </xmtp:child>
+</xmtp:root>

@@ -1,0 +1,2332 @@
+<?xml version="1.0" encoding="UTF-8"?><TEI xml:id="Midd_Finsbury02" xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title type="main">The Fortune Theatre Records: A Prototype Digital Edition</title>
+                <funder><orgName>Andrew W. Mellon Foundation</orgName>, Scholarly Communications and Information Technology Program. Program Officer: <persName>Donald J. Waters</persName></funder>
+                <respStmt>
+                    <persName>Carolyn Black</persName>
+                    <orgName>Records of Early English Drama (REED)</orgName>
+                    <resp>Senior Editorial Consultant</resp>
+                </respStmt>
+                <respStmt>
+                    <persName xml:id="jboyd">Jason Boyd</persName>
+                    <orgName>Centre for Digital Humanities</orgName> 
+                    <orgName>Ryerson University, Canada</orgName>
+                    <resp>TEI Customization and Implementation; Entity Authority Tool Set (EATS) Supervision</resp>
+                </respStmt>
+                <respStmt>
+                    <persName>John Bradley</persName>
+                    <orgName>Department of Digital Humanities (DDH)</orgName>
+                    <orgName>King's College London, UK</orgName>
+                    <resp>Technical Direction</resp>
+                </respStmt>
+                <respStmt>
+                    <persName>Paul Caton</persName>
+                    <orgName>Department of Digital Humanities (DDH)</orgName>
+                    <orgName>King's College London, UK</orgName>
+                    <resp>TEI/XML Consultant; Entity Authority Tool Set (EATS) Data Design</resp>
+                </respStmt>
+                <respStmt>
+                    <persName>Peter Clifford</persName>
+                    <orgName>Boydell and Brewer</orgName>
+                    <resp></resp>
+                </respStmt>
+                <respStmt>
+                    <persName>Jessica Freedman</persName>
+                    <resp>Editor, REED Middlesex inlcuding Westminster collection</resp>
+                </respStmt>
+                <respStmt>
+                    <persName>Trieneke Gastmeier</persName>
+                    <orgName>Centre for Digital Humanities</orgName>
+                    <orgName>Ryerson University, Canada</orgName>
+                    <resp>EATS Implementation</resp>
+                </respStmt>
+                <respStmt>
+                    <persName>John Geck</persName>
+                    <orgName>Records of Early English Drama (REED)</orgName>
+                    <resp>Project Manager</resp>
+                </respStmt>
+                <respStmt>
+                    <persName>Patrick Gregory</persName>
+                    <orgName>Records of Early English Drama (REED)</orgName>
+                    <resp>Paleographer</resp>
+                </respStmt>
+                <respStmt>
+                    <persName>Tanya Hagen</persName>
+                    <orgName>Records of Early English Drama (REED)</orgName>
+                    <resp>Bibliographer; Editor, <title type="database">Early Modern London Theatres</title> (EMLoT) Fortune Theatre records</resp>
+                </respStmt>
+                <respStmt>
+                    <persName>Stephanie Hovland</persName>
+                    <orgName>Records of Early English Drama (REED)</orgName>
+                    <resp>Associate Paleographer</resp>
+                </respStmt>
+                <respStmt>
+                    <persName>Sally-Beth MacLean</persName>
+                    <orgName>Records of Early English Drama (REED)</orgName>
+                    <resp>Principal Investigator; Editorial Direction</resp>
+                </respStmt>
+                <respStmt>
+                    <persName>Sian Meikle</persName>
+                    <orgName>Information Technology Services, University of Toronto Libraries</orgName>
+                    <orgName>University of Toronto, Canada</orgName>
+                    <resp></resp>
+                </respStmt>
+                <respStmt>
+                    <persName>Daniela Robibero</persName>
+                    <orgName>Centre for Digital Humanities</orgName>
+                    <orgName>Ryerson University, Canada</orgName>
+                    <resp>Cumulative London REED Collection Index Compiler</resp>
+                </respStmt>
+                <respStmt>
+                    <persName>Mike Stumpf</persName>
+                    <resp>Supplementary Fortune Theatre Records Research</resp>
+                </respStmt>
+                <respStmt>
+                    <persName>Paul Vetch</persName>
+                    <orgName>Department of Digital Humanities</orgName>
+                    <orgName>King's College, London, UK</orgName>
+                    <resp>Boydell and Brewer Liason</resp>
+                </respStmt>
+                <respStmt>
+                    <persName>Jose Miguel Viera</persName>
+                    <orgName>Department of Digital Humanities</orgName>
+                    <orgName>King's College, London</orgName>
+                    <resp>Prototype Web Application Creator</resp>
+                </respStmt>
+            </titleStmt>
+            <editionStmt>
+                <edition>Prototype digital edition, version 1, released March 26 2013.</edition>
+            </editionStmt>
+            <publicationStmt>
+                <authority><orgName>Records of Early English Drama (REED)</orgName>
+                    <address>
+          <addrLine>University of Toronto</addrLine>
+          <addrLine>170 St George Street, Suite 810</addrLine>
+          <addrLine>Toronto, Ontario, Canada</addrLine>
+          <addrLine>M5R 2M8</addrLine>
+        </address>
+                </authority>
+                <availability>
+                    <p>Copyright <orgName>Records of Early English Drama (REED)</orgName>, <date>2012</date></p>
+                    <licence target="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_US">Distributed under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported (CC BY-NC-SA 3.0) licence.</licence>
+                </availability>
+            </publicationStmt>
+            <seriesStmt>
+                <title>Records of Early English Drama</title>
+            </seriesStmt>
+            <sourceDesc>
+                <p>Born digital. Information on original sources for transcriptions can be accessed via the transcriptions.</p>
+            </sourceDesc>
+        </fileDesc>
+        <encodingDesc><!--Requires further exploration-->
+            <projectDesc>
+                <p>The Fortune Theatre Reecords: A Prototype Digital Edition is the outcome of a project exploring methods and means for the publication of Records of Early English Drama (REED)
+                    collections in a digital format.</p>
+            </projectDesc>
+            <editorialDecl>
+                <p>Do we want to use this for the Editorial Procedures section of the REED collection apparatus?</p>
+            </editorialDecl>
+            <tagsDecl>
+                <namespace name="http://www.tei-c.org/ns/1.0">
+                    <tagUsage gi="del">Used to enclose cancelled text in record transcriptions. At-code practise: cancelled text enclosed in square brackets ([...]).</tagUsage>
+                </namespace>
+            </tagsDecl>
+            <refsDecl>
+                <p>For infomation on attribues and values.</p>
+            </refsDecl>
+        </encodingDesc>
+        <revisionDesc>
+            <change n="1.0" when="2013-03-26" who="#jboyd">First public version</change>
+        </revisionDesc>
+    </teiHeader>
+    <text type="REED_record_group" corresp="SOME_AUSPICE_ID_FROM_ASSOCIATED_COLLECTION_CONTEXT_FILE">
+        <group>
+            <text type="record" xml:id="rec19_FIN_1559_HMD6_f109v">
+                <body>
+                    <head type="main">                      
+                        <placeName><name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName> 
+                        <date when-iso="1559-08-27">1559</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/11285/" type="man">Henry Machyn’s</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/11263/" type="document">Diary</name></title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository" corresp="#abbr_BL">BL</idno>:
+                            <idno type="shelfmark">Cotton Vitellius F.v.</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">f 109v (27 August) (
+                        <name key="http://reed.utoronto.ca/django/eats/entity/18928/" type="activity">Shooting tournament</name> and other 
+                        <name key="http://reed.utoronto.ca/django/eats/entity/11377/" type="subject">games</name>)</head>
+                    <div type="transcription">
+                        <pb type="folio" n="109v"/>
+                        <ab type="body">The xxvij day of august ther was a 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/11395/" type="prop">tentt</name> 
+                            se<damage><gap unit="chars" extent="1"/></damage> vp at 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/2745/" type="place_sub_settlement">ffynsbere ffeld</name> ffor my 
+                           <name key="http://reed.utoronto.ca/django/eats/entity/18514/" type="office">lord mare</name>
+                            &amp; ye <name key="http://reed.utoronto.ca/django/eats/entity/11465/" type="office">enbassadurs</name> &amp; ye 
+                            m<ex>asters</ex> ye 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/18718/" type="office">alterme<ex>n</ex></name> &amp; mony 
+                            commenars &amp; ther 
+                            w<damage><gap unit="chars" extent="2"/></damage> the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/18928/" type="activity">shutyng of ye standard</name> for ye best 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/11377/" type="subject">game</name> &amp; 
+                            dy<damage><gap unit="chars" extent="3"/></damage> odur dyd shut for odur 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/11377/" type="subject">games</name> after ye wyche was to be 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/18950/" type="activity">wrastelyng</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/11553/" type="occasion_religion">bathellmuw day</name> &amp;
+                            iij sondays after</ab><lb/>
+                        <gap reason="omitted"/><lb/>        
+                    </div>
+                    <div type="translation">
+                    </div>
+                    <div type="endnote">
+                    </div>
+                </body>
+                <link type="document_desc" target="#Midd_HMD6"/>
+            </text>
+            <text type="record" xml:id="rec20_FIN_1565_FMHA_p11">
+                <body>
+                    <head type="main">                      
+                        <placeName>
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date when-iso="1565-11-30">1565</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">Finsbury</name> Manor 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8057/" type="document">Records</name>
+                        </title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository" corresp="#abbr_LMA">LMA</idno>:
+                            <idno type="shelfmark">MS CLA/043/01/003</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">p 11 (30 November) (Freeholders' inquest)</head>
+                    <div type="transcription">
+                        <pb type="page" n="11"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="table">
+                            <table rows="2" cols="2">
+                                <row>
+                                    <cell>Item we p<ex>rese</ex>nte and also find 
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/11575/" type="man">m<ex>r</ex> medcalf</name> 
+                                        for stoping the 
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/11647/" type="occupation">Comon sewer</name> ageinst his houses in the 
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/11669/" type="place_sub_settlement">old strete</name>,
+                                        and all along his gardeins and to pay for ev<ex>er</ex>y pole in length</cell>
+                                    <cell rend="right">xij d.</cell>
+                                </row>
+                                <row>
+                                    <cell>Item we p<ex>rese</ex>nte and also find the said 
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/11575/" type="man">mr medcalfe</name> ageine for a noying a certein
+                                        Dich w<ex>i</ex>t<ex>h</ex> wed<ex>es</ex> and Rubish betwene the Lond<ex>es</ex> of the said 
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/11575/" type="man">medcalf</name> &amp; the Lond<ex>es</ex> of 
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/11695/" type="man">Iohn Hilliard</name></cell>
+                                    <cell rend="right"><space/></cell>
+                                </row>
+                            </table>
+                            </ab><lb/>
+                        <gap reason="omitted"/><lb/>         
+                    </div>
+                    <div type="translation">
+                    </div>
+                    <div type="endnote">
+                    </div>
+                </body>
+                <link type="document_desc" target="#Midd_FMHA"/>
+            </text>
+            <text type="record" xml:id="rec21_FIN_1566_FMHA_p12">
+                <body>
+                    <head type="main">                      
+                        <placeName><name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName> 
+                        <date when-iso="1566-11-30">1566</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">Finsbury</name> Manor 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8057/" type="document">Records</name>
+                        </title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository" corresp="#abbr_LMA">LMA</idno>:
+                            <idno type="shelfmark">MS CLA/043/01/003</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">p 12 (30 November) (Freeholders’ inquest)</head>
+                    <div type="transcription">
+                        <pb type="page" n="12"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="table">
+                            <table rows="1" cols="2">
+                                <row>
+                                    <cell>ITem we p<ex>rese</ex>nte and also find 
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/12375/" type="man">William Gill</name> 
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/11741/" type="occupation">gardino<ex>ur</ex></name> hath purchaised of 
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/11763/" type="man">Thomas Langham</name> 
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/11809/" type="occupation">ffishmonger</name> a certen cottaige
+                                        w<ex>i</ex>t<ex>h</ex> a garden lieng in 
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/7075/" type="place_sub_settlement">whitcrosstret</name> on the west sid &amp; paieth yerely</cell>
+                                    <cell rend="right">xxij d.</cell>
+                                </row>    
+                            </table>
+                        </ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="body">Item we p<ex>rese</ex>nte &amp; also find 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/11575/" type="man">m<ex>r</ex> medcalf</name> for that he hath incroched a dich that
+                            belongeth to 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/11695/" type="man">Iohn hilliard</name>
+                            &amp; 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/11831/" type="woman">Iohan<ex>na</ex></name> his wief w<ex>hi</ex>ch ledeth betwene the
+                            gardens that the said 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/11575/" type="man">medcalf</name> holdeth of the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/11881/" type="place_built">Chamber of London</name> &amp;
+                            the Lond<ex>es</ex> of the said 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/11695/" type="man">Iohn</name> &amp; 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/11831/" type="woman">Iohan<ex>na</ex></name> his wief now called 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/11903/" type="place_sub_settlement">Glosseters gardeins</name></ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation">
+                    </div>
+                    <div type="endnote">
+                    </div>
+                </body>
+                <link type="document_desc" target="#Midd_FMHA"/>
+            </text>
+            <text type="record" xml:id="rec22_FIN_1567_FHMA_p12">
+                <body>
+                    <head type="main">
+                        <placeName><name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName> 
+                        <date when-iso="1567-11-30">1567</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">Finsbury</name> Manor 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8057/" type="document">Records</name>
+                        </title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository" corresp="#abbr_LMA">LMA</idno>:
+                            <idno type="shelfmark">MS CLA/043/01/003</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">p 12 (30 November) (Freeholders’ inquest)</head>
+                    <div type="transcription">
+                        <pb type="page" n="12"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="body">Item we p<ex>rese</ex>nte and also finde 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/11575/" type="man">m<ex>r</ex> medcalfe</name> 
+                            for anoying of a certen dich w<ex>i</ex>th wed<ex>es</ex> and Rubishe
+                            betwext the lond<ex>es</ex> of late 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/11937/" type="man">w<ex>illia</ex>m wakefeild</name> &amp; now in thand<ex>es</ex> of 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/11695/" type="man">Iohn hilliard</name> often tymes
+                            p<ex>rese</ex>nted &amp; not amended</ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote"/>
+                </body>
+                <link type="document_desc" target="#Midd_FMHA"/>
+            </text>
+            <text type="record" xml:id="rec23_FIN_1573_FMHA_p14">
+                <body>
+                    <head type="main">
+                        <placeName><name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date when-iso="1573">1573</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">Finsbury</name> Manor 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8057/" type="document">Records</name></title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository" corresp="#abbr_LMA">LMA</idno>:
+                            <idno type="shelfmark">MS CLA/043/01/003</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">p 14 <!--no day/month? On outstanding check list 3/8/2013--> (Freeholders’ inquest)</head>
+                    <div type="transcription">
+                        <pb type="page" n="14"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="table">
+                            <note xml:id="rec05_mn01" type="marginal" place="margin_left">
+                                <table rows="10" cols="2">
+                                    <row>
+                                        <cell><name key="http://reed.utoronto.ca/django/eats/entity/11695/" type="man">Iohn Hilliard</name></cell>
+                                        <cell role="braced_right" rows="10"/>
+                                    </row>
+                                    <row>
+                                        <cell><name key="http://reed.utoronto.ca/django/eats/entity/11983/" type="man">Ric<ex>hard</ex> Roper</name></cell>
+                                        <cell/>
+                                    </row>
+                                    <row>
+                                        <cell><name key="http://reed.utoronto.ca/django/eats/entity/12029/" type="man">w<ex>illia</ex>m Blighton</name></cell>
+                                        <cell/>
+                                    </row>
+                                    <row>
+                                        <cell><name key="http://reed.utoronto.ca/django/eats/entity/12075/" type="man">w<ex>illia</ex>m hall</name></cell>
+                                        <cell/>
+                                    </row>
+                                    <row>
+                                        <cell><name key="http://reed.utoronto.ca/django/eats/entity/12121/" type="man">Tho<ex>mas</ex> vere</name></cell>
+                                        <cell/>
+                                    </row>
+                                    <row>
+                                        <cell><name key="http://reed.utoronto.ca/django/eats/entity/12167/" type="man">Io<ex>hn</ex> Iremonger</name></cell>
+                                        <cell/>
+                                    </row>
+                                    <row>
+                                        <cell><name key="http://reed.utoronto.ca/django/eats/entity/12213/" type="man">humfry Toy</name></cell>
+                                        <cell/>
+                                    </row>
+                                    <row>
+                                        <cell><name key="http://reed.utoronto.ca/django/eats/entity/12259/" type="man">hugh Evance</name></cell>
+                                        <cell/>
+                                    </row>
+                                    <row>
+                                        <cell><name key="http://reed.utoronto.ca/django/eats/entity/11763/" type="man">Tho<ex>mas</ex> Langham</name></cell>
+                                        <cell/>
+                                    </row>
+                                    <row>
+                                        <cell><name key="http://reed.utoronto.ca/django/eats/entity/12305/" type="man">henry kene</name></cell>
+                                        <cell/>
+                                    </row>
+                                </table>
+                            </note>
+                        </ab><lb/>
+                        <ab>To the iij iiij v. vj vij. viij. ix. x. xj. we know nothing/<lb/>
+                            To<anchor corresp="#rec05_mn01"/> the xij we know not whether the alley betwene the gardeins of the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">lordship of ffynnysbury</name>/ and the
+                            lond<ex>es</ex> of 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/11575/" type="man">Iohn medcalfe</name> be p<ex>ar</ex>cell of the 
+                            manno<ex>u</ex>r of
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">ffynnysbury</name>
+                            But we knowe the same Alley was a thorowghe faire tyme out of mynde &amp; we thinke it to be a p<ex>ar</ex>tie Alley
+                        </ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote"/>
+                </body>
+                <link type="document_desc" target="#Midd_FMHA"/>
+            </text>
+            <text type="record" xml:id="rec24_FIN_1577_FMHA_p15">
+                <body>
+                    <head type="main">
+                        <placeName><name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date when-iso="1577-11-29">1577</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">Finsbury</name> Manor 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8057/" type="document">Records</name>
+                        </title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository" corresp="#abbr_LMA">LMA</idno>:
+                            <idno type="shelfmark">MS CLA/043/01/003</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">p 15 (29 November) (Freeholders’ inquest)</head>
+                    <div type="transcription">
+                        <pb type="page" n="15"/>
+                        <ab type="body">We p<ex>rese</ex>nte y<ex>a</ex>t 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/12375/" type="man">William Gill</name>
+                            <name key="http://reed.utoronto.ca/django/eats/entity/11741/" type="occupation">gardinor</name> is ded since the last 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15212/" type="court_legal">Courte</name> and that 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/12425/" type="woman">Katherin</name> his wiefe is
+                            Tenau<ex>n</ex>te for terme of her liefe and after her decease to one 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/6925/" type="man">Danyell Gill thelder</name> and his heires foreuer
+                        </ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote"/>
+                </body>
+                <link type="document_desc" target="#Midd_FMHA"/>
+            </text>
+            <text type="record" xml:id="rec25_FIN_1582_FMHA_p15">
+                <body>
+                    <head type="main">
+                        <placeName><name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date when-iso="1582-06-11">1582</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">Finsbury</name> Manor 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8057/" type="document">Records</name>
+                        </title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository" corresp="#abbr_LMA">LMA</idno>:
+                            <idno type="shelfmark">MS CLA/043/01/003</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">p 15 (11 June) (Freeholders’ inquest)</head>
+                    <div type="transcription">
+                        <pb type="page" n="15"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="table">
+                            <table cols="2" rows="1">
+                                <row>
+                                    <cell>
+                                        ITem we p<ex>rese</ex>nte that 
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/12425/" type="woman">Katherin Gill</name> is ded since the last 
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/15212/" type="court_legal">Courte</name> and y<ex>a</ex>t 
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/6925/" type="man">Daniell Gill thelder</name> dwelling in the
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/3932/" type="place_region">ile of man</name> is heire vnto all such Lond<ex>es</ex> as 
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/12375/" type="man">William Gill</name> did purchaise of 
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/11763/" type="man">Tho<ex>mas</ex> Langham</name>
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/15242/" type="occupation">Browenbaker</name> as appereth by the last
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/12543/" type="document">will</name>
+                                        of the said W<ex>illia</ex>m Gill/ w<ex>hi</ex>ch is a Cottaige w<ex>i</ex>t<ex>h</ex> a garden in 
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/7075/" type="place_sub_settlement">whitcrosstrete</name> on the west side and payeth
+                                        yerelie quiet 
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/4164/" type="subject">rent</name></cell>
+                                    <cell rend="right">xxij d.</cell><!--might also need a rend="bottom" so that it displays on the bottom of the cell-->
+                                </row>
+                            </table>
+                        </ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote"/>
+                </body>
+                <link type="document_desc" target="#Midd_FMHA"/>
+            </text>
+            <text type="record" xml:id="rec26_FIN_1584_FMHA_p19">
+                <body>
+                    <head type="main">
+                        <placeName><name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date when-iso="1584-11">1584</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">Finsbury</name> Manor 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8057/" type="document">Records</name>
+                        </title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository" corresp="#abbr_LMA">LMA</idno>:
+                            <idno type="shelfmark">MS CLA/043/01/003</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">p 19 (November) (Freeholders’ inquest)</head>
+                    <div type="transcription">
+                        <pb type="page" n="19"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="body">It<ex>e</ex>m we ye homage fynde yat 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/12425/" type="woman">kateryn gyll</name> <del>wydow</del> wydowe late ye wyffe of 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/12375/" type="man">w<ex>illia</ex>m gyll</name> decessyd. who hylde
+                            certin lande<ex>s</ex> or tenem<ex>en</ex>te<ex>s</ex> of ye lorde of this 
+                            mano<damage><gap unit="chars" extent="1"/></damage><note xml:id="rec08_fn02" type="foot">mano<damage><gap unit="chars" extent="1"/></damage>:
+                            <hi rend="italic">
+                                <name key="http://reed.utoronto.ca/django/eats/entity/8079/" type="document">letter</name> lost due to trimming</hi></note> of 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">ffynsburye</name>
+                            for terme of hur lyf. ys deade &amp; yat 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/6925/" type="man">Danyell gyll</name> ys nowe tenante
+                            to ye lorde of the same mano<ex>ur</ex>. of ye sayde land<ex>es</ex> &amp; Tenem<ex>en</ex>t<ex>es</ex> bye the gyfte of ye sayde w<ex>illia</ex>m
+                            gyll by his laste wylle &amp; Testam<ex>ent</ex>./ &amp; paythe yerelye quyttrente – xxij d.
+                        </ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote"/>
+                </body>
+                <link type="document_desc" target="#Midd_FMHA"/>
+            </text>
+            <text type="record" xml:id="rec27_FIN_1586_FMHA_pp24_5">
+                <body>
+                    <head type="main">
+                        <placeName><name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date when-iso="1586-10-06">1586</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">Finsbury</name> Manor 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8057/" type="document">Records</name>
+                        </title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository" corresp="#abbr_LMA">LMA</idno>:
+                            <idno type="shelfmark">MS CLA/043/01/003</idno>
+                        </seg>
+                        </head>
+                    <head type="sub">pp 24–5 (6 October) (Freeholders’ inquest)</head>
+                    <div type="transcription">
+                        <pb type="page" n="24"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="body_p">We finde that 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/11575/" type="man">Iohn Medcofe</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/12605/" type="occupation">skinner</name> hathe of the citty by 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/4164/" type="subject">lease</name> a p<ex>ar</ex>cell of grounde deuided into many gardens lyinge and
+                            beinge one the weste side of that parte of 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/2745/" type="place_sub_settlement">ffynsbury field</name> called 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/12627/" type="place_sub_settlement">Bunehill field</name> w<ex>hi</ex>ch pece of grounde adioyning to 
+                            tenem<ex>en</ex>t<ex>es</ex> &amp; gardenes supposed to be the free hold lande of his one neare vnto the highe waye leadinge from 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/12694/" type="place_sub_settlement">Pictehedge</name> to
+                            <name key="http://reed.utoronto.ca/django/eats/entity/12657/" type="place_religion">shorddiche 
+                                <ref target="#rec90_fn03" type="foot_anchor"><subst><add place="over">C</add><del>s</del></subst>hurche</ref></name>
+                                <note xml:id="rec09_fn03" type="foot">Churche: C <hi rend="italic">written over</hi> s</note> And that their is an Alle betwene
+                            the said ground of the Cittie and the said subposed to be free lande of the said 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/11575/" type="man">Medcaulfe</name> whervppo<ex>n</ex> he hathe over theaste ende of the same
+                            Alle builded or suffered to be builded by his Tenna<ex>un</ex>t<ex>es</ex>
+                        <pb type="page" n="25"/>a newe howse the southe ende of w<ex>hi</ex>ch
+                            howse standeth into the gardenes belongine to the Cittie twoo fete &amp; a half in lenghte westward<ex>es</ex> 
+                            .xiiij<hi rend="superscript">tine</hi> fute &amp; a half or their about<ex>es</ex>. wherfore wee pr<ex>e</ex>sente him for the same. And likewiese
+                            for theaste side of the same howse stande into the felde caulled 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/12627/" type="place_sub_settlement">Bunehille field</name> Nine Inches And that he hathe sett vpp a butteris of 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/11093/" type="material_building">Bricke</name> 
+                            standinge into the said field three foute
+                        </ab><lb/>
+                        <ab type="body_p">Also wee p<ex>re</ex>sente the said 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/11575/" type="man">Medcaulf</name> land w<ex>hi</ex>ch he holdethe lyethe w<ex>i</ex>thin the 
+                            Manno<ex>ur</ex> of 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">ffynsbury</name>
+                            but wether yt be holden of the 
+                            Manno<ex>ur</ex> or noe we knowe notte But that is w<ex>i</ex>thin the circuite and bound<ex>es</ex> of the same
+                            Mannur
+                        </ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                        <lb/>
+                        <ab type="subhead">pp 25–7*</ab>
+                        <pb type="page" n="25"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="marginalia">
+                            <note xml:id="rec09_mn04" type="marginal" place="margin_left"><add><handShift/>Boundry of 
+                                <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">Finsbury</name>/+</add></note>
+                        </ab><lb/>
+                        <ab type="body">Wee<anchor corresp="#rec09_mn04"/> finde that the true boundes of the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/2580/" type="place_sub_settlement">Manno<ex>u</ex>r of ffinsbury</name> 
+                            beginnethe at the southe weste corner of the
+                            gardens adoiyninge to the 
+                        <pb type="page" n="26"/>
+                            <name key="http://reed.utoronto.ca/django/eats/entity/12790/" type="place_sub_settlement">ffarme howse of finsbury</name> 
+                            <del>and goethe</del> belonginge to the said 
+                            mannor of 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">ffynsbury</name> and
+                            goethe Easte ward allonge one the southe side of the same gardens allonge thorowe the Alle w<ex>hi</ex>ch Alle is in the same 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/2580/" type="place_sub_settlement">Manno<ex>u</ex>r</name> and
+                            so alonge by the Ralle w<ex>hi</ex>ch separt<ex>es</ex> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15943/" type="place_sub_settlement">mallowe felde</name> &amp; 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15917/" type="place_sub_settlement">more feld</name> and so 
+                            alonge by the southe ende of the gardens adoiyninge to 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15917/" type="place_sub_settlement">More feld</name> and so alonge by the southe ende of 
+                            the gardens adoiyninge to More feld into a diche of watter called the como<ex>n</ex>e sewer 
+                            w<ex>hi</ex>ch runnethe into 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15969/" type="place_sub_settlement">more diche</name>.  
+                            And from thence the same diche Northewarde alonge one theaste side the gardens belonginge to 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/12816/" type="man">Iohn Worssopp</name>
+                            and so alonge one theaste side of twoo closes of the same 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/12816/" type="man">Iohn Worssopp</name> nowe in the occupac<ex>i</ex>on of 
+                           <name key="http://reed.utoronto.ca/django/eats/entity/12862/" type="man">Thomas Lee thelder</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/12908/" type="occupation">buttcher</name> for
+                            w<ex>hi</ex>ch gardens &amp; Closses the said 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/12816/" type="man">Iohn Worssopp</name> payethe quitrent to the 
+                            manno<ex>u</ex>r of 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">ffynsbury</name> as aperethe by
+                            the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8057/" type="document">Recorde</name>.
+                            And so the same bound<ex>es</ex> <del>g</del> goe over the highewaye close by a barren latly builded by one 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/12965/" type="man">Niccolles</name> includinge the same barren and
+                            so northe as the comon sewer &amp; waye goethe to the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1713/" type="place_playing">playehowse</name> called the  
+                            <name key="http://reed.utoronto.ca/django/eats/entity/12987/" type="place_playing">Theater</name> And so tournethe by the same comon sewer
+                            to 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15995/" type="place_sub_settlement">Dame agnes the clere</name> 
+                            And then the same bound<ex>es</ex> turne weste wardes as the way goethe to the new howses latly builded by 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/12213/" type="man">Humffry Toye</name>/ w<ex>hi</ex>ch is
+                            heald by lease of the Cittie for three yerely 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/4164/" type="subject">Rente</name> of xx s. w<ex>hi</ex>ch howses standethe one theaste side of the waye leadinge from 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/13017/" type="place_sub_settlement">Aldersgate strett</name> and so turninge to 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/13043/" type="place_settlement">Islingeton</name> by 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/13069/" type="place_built">Charter howse</name> walle 
+                         <pb type="page" n="27"/>
+                            And then the same bound<ex>es</ex> turne southe <del>ward</del> toward<ex>es</ex> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/13017/" type="place_sub_settlement">Aldersegatt</name> includinge 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/18885/" type="man">Didimus Bucklandes</name> ground<ex>es</ex> howe<add rend="above">farre</add> <del>for</del> furder wee doe not
+                            well know But wee finde that diu<ex>er</ex>s quitrent<ex>es</ex> ar and haue bene payed to the same Manno<ex>ur</ex> for land<ex>es</ex> lyinge in
+                            <name key="http://reed.utoronto.ca/django/eats/entity/13121/" type="place_sub_settlement">Goswell</name>,
+                             <name key="http://reed.utoronto.ca/django/eats/entity/13147/" type="place_settlement">Barbicaine</name>, 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/2419/" type="place_sub_settlement">Redcrossteret</name>, 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/2811/" type="place_sub_settlement">gouldinge lane</name>,<!--uneccessary footnote fn05 deleted--> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/13169/" type="place_sub_settlement">Bechlane</name>, 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7075/" type="place_sub_settlement">Whitecrosstret</name>, 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/13095/" type="place_sub_settlement">Cheswell strete</name>, and 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/13191/" type="place_sub_settlement">Grubstrete</name>, 
+                            aswell w<ex>i</ex>t<ex>h</ex>in the fredom of the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/2501/" type="place_settlement">Cittie of London</name> as w<ex>i</ex>t<ex>h</ex>out/
+                        </ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote">
+                        <ab type="endnote">Although this 1586 inquest describes the then boundaries of the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/2580/" type="place_sub_settlement">manor of Finsbury</name>, the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1713/" type="place_playing">playhouse</name> mentioned is the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/12987/" type="place_playing">Theatre</name>,
+                            in 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/13217/" type="place_settlement">Shoreditch</name>.</ab>
+                    </div>
+                </body>
+                <link type="document_desc" target="#Midd_FMHA"/>
+            </text>
+            <text type="record" xml:id="rec28_FIN_1591_FMHA_p35">
+                <body>
+                    <head type="main">
+                        <placeName><name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date when-iso="1591-10-14">1591</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">Finsbury</name> Manor 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8057/" type="document">Records</name>
+                        </title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository" corresp="#abbr_LMA">LMA</idno>:
+                            <idno type="shelfmark">MS CLA/043/01/003</idno>
+                        </seg>
+                        </head>
+                        <head type="sub">p 35 (14 October) (Freeholders’ inquest)</head>
+                    <div type="transcription">
+                        <pb type="page" n="35"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="body">we p<ex>re</ex>sent y<ex>a</ex>t Danyell gyll is at his sute 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/6903/" type="document">fyne</name> &amp; is to paye xij d. for his Absens at this 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/12483/" type="court_legal">cowrte</name>.
+                        </ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote"/>
+                </body>
+                <link type="document_desc" target="#Midd_FMHA"/>
+            </text>
+            <text type="record" xml:id="rec29_FIN_1592_FMHA_pp38_9">
+                <body>
+                    <head type="main">
+                        <placeName><name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date>1592</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">Finsbury</name> Manor 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8057/" type="document">Records</name>
+                        </title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository" corresp="#abbr_LMA">LMA</idno>:
+                            <idno type="shelfmark">MS CLA/043/01/003</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">pp 38–9 (28 October) (Freeholders’ inquest)</head>
+                    <div type="transcription">
+                        <pb type="page" n="38"/>
+                        <ab type="marginalia">
+                            <note xml:id="rec11_mn06" type="marginal" place="margin_left">The Names of
+                            <damage><gap unit="chars" extent="1"/></damage>e Defalter<ex>es</ex> <damage><gap unit="chars" extent="2"/></damage> this 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/12483/" type="court_legal">corte</name>.</note>
+                        </ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="body"><anchor corresp="#rec11_mn06"/>Daniell Gylle<gap reason="omitted"/></ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="body">We doe preasentt that where at a 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/12483/" type="court_legal">covrte</name> holden at 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">ffynsbury</name> in An<ex>n</ex>o .1586. yt was supposed that 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/11575/" type="man">Io<ex>h</ex>n medcalfe</name>.
+                            should be one of the Lord<ex>es</ex> Tennantt<ex>es</ex>. of this Mannor/ the sayd 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/11575/" type="man">Io<ex>h</ex>n mettcalfe</name> hath shewed further vnto vs. this
+                            preasentt day. A 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/4164/" type="subject">Deade</name> 
+                            Dated the Laste day of septembar .An<ex>n</ex>o. xxxvj<hi rend="superscript">th</hi> of 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/13332/" type="man">henry the eighte</name> made by one
+                            <name key="http://reed.utoronto.ca/django/eats/entity/13382/" type="man">Thomas Buttcher</name> .gentelman. vnto 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/13286/" type="man">Roger Mettcalfe</name>. of one Aker. and thre Rodd<ex>es</ex>. of Lande w<ex>i</ex>th the 
+                            Apurtenanc<ex>es</ex> Lyinge
+                            and beeinge w<ex>i</ex>th in the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/2664/" type="place_religion">p<ex>ar</ex>ishe of St Glyles w<ex>i</ex>thowt crypplegate</name>. 
+                            Late in the tennor of one 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/13428/" type="man">Io<ex>h</ex>n. Rastall</name>.
+                            and allso in the occupacyon of the sayd 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/13286/" type="man">Roger Medcalfe</name>. w<ex>hi</ex>ch Aker &amp;. iij Rodd<ex>es</ex>. of Land. ap<ex>eres</ex>. by this 
+                            Deade
+                            ys holden of the Late 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/13509/" type="place_religion">monestary. of hallywell</name> 
+                            as allso further app<ex>er</ex>ith. by the king<ex>es</ex> Lettar<ex>es</ex>. pattent<ex>es</ex>.
+                            w<ex>hi</ex>ch he wilbe Redy to shewe at all tymes when yt shall please. ye 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/13535/" type="office">steward</name> for the Lorde to cale for the same 
+                            <pb type="page" n="39"/>
+                            And that other Land<ex>es</ex> he hold<ex>es</ex> not w<ex>i</ex>th in this mannor. other wise then by 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/4164/" type="subject">Lease</name>. w<ex>hi</ex>ch he hath from the Lorde
+                            of this mannor
+                        </ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote"/>
+                </body>
+                <link type="document_desc" target="#Midd_FMHA"/>
+            </text>
+            <text type="record" xml:id="rec30_FIN_1592_FMHA_p49">
+                <body>
+                    <head type="main">
+                        <placeName><name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date when-iso="1599-10-02">1599</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">Finsbury</name> Manor 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8057/" type="document">Records</name>
+                        </title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository" corresp="#abbr_LMA">LMA</idno>:
+                            <idno type="shelfmark">MS CLA/043/01/003</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">p 49 (2 October) (Freeholders’ inquest)</head>
+                    <div type="transcription">
+                        <pb type="page" n="49"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="body">We p<ex>re</ex>sente that Danyell gyll is at his sewte 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/6903/" type="document">fyned</name> and not to be Amersyd payinge .xij d. for every 
+                            <ref target="#rec12_fn07" type="foot_anchor">cour<damage agent="cropping"><gap unit="chars" extent="1"/></damage></ref>
+                            <note xml:id="rec12_fn07" type="foot">cour<damage agent="cropping"><gap unit="chars" extent="1"/></damage>:
+                                <hi rend="italic">letter lost due to cropping</hi>
+                            </note>
+                        </ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote"/>
+                </body>
+                <link type="document_desc" target="#Midd_FMHA"/>
+            </text>
+            <text type="record" xml:id="rec31_FIN_1603_BW04_f422">
+                <body>
+                    <head type="main">
+                        <placeName><name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date>1603</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/13633/" type="office">Governors of Bridewell's</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/12483/" type="court_legal">Court</name> Book
+                        </title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository">Bethlem Royal Hospital Archives and Museum</idno>:
+                            <idno type="shelfmark">BCB – 04</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">f 422* (16 December)</head>
+                    <div type="transcription">
+                        <pb type="folio" n="422"/>
+                        <gap reason="omitted"/>
+                        <ab type="marginalia">
+                            <note xml:id="rec13_mn09" type="marginal" place="margin_left">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/13553/" type="woman">Ienning<ex>es</ex></name></note></ab><lb/>
+                        <ab type="body">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/13553/" type="woman">Iohan<anchor corresp="#rec13_mn09"/> Ienning<ex>es</ex></name> who lodgeth w<ex>i</ex>th one 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/13599/" type="woman">Goodwief Kinge</name> nere the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1713/" type="place_playing">playehouse</name> in 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7075/" type="place_sub_settlement">White crosse streete</name>
+                            exa<ex>m</ex>i<ex>n</ex>ed saieth she lodged theare half a yere but for as muche as she cannot geue a good accompt howe she lyveth she is ponished
+                            and kept till furder order/.
+                        </ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote">
+                        <ab type="endnote">The playhouse in question was almost certainly the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1444/" type="place_playing">Fortune</name> in 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/2811/" type="place_sub_settlement">Golding Lane</name>, a short distance from 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7075/" type="place_sub_settlement">Whitecross Street</name>.</ab>
+                    </div>
+                </body>
+                <link type="document_desc" target="#Midd_FMHA"/>
+            </text>
+            <text type="record" xml:id="rec32_FIN_1606_LPHM_mb26">
+                <body>
+                    <head type="main">
+                        <placeName><name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date when-iso="1606-04-30">1606</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/10013/" type="document">Licence</name> for 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/13681/" type="troupe">Prince Henry’s Men</name>
+                        </title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository" corresp="#abbr_TNA_PRO">TNA: PRO</idno>
+                            <idno type="shelfmark">C66/1709</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">mb [26]* (30 April)</head>
+                    <div type="transcription">
+                        <pb type="membrane" n="[26]"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="marginalia">
+                            <note xml:id="rec14_mn10" type="marginal" place="margin_left">D<ex>e</ex> Conc<ex>essione</ex> 
+                                <name key="http://reed.utoronto.ca/django/eats/entity/10013/" type="document">licen<ex>cie</ex></name> p<ex>ro</ex>
+                            <name key="http://reed.utoronto.ca/django/eats/entity/13707/" type="man">Thoma Downton</name> &amp; al<ex>ijs</ex>.</note>
+                        </ab><lb/>
+                        <ab type="body">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/2873/" type="man">Iames</name><anchor corresp="#rec14_mn10"/> by the grace of God &amp;c To all 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/781/" type="office">Iustices</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/13788/" type="office">Maiors</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/13828/" type="office">Sheriff<ex>es</ex></name>
+                            &#x28C;<add rend="above"><name key="http://reed.utoronto.ca/django/eats/entity/13846/" type="office">bailiff<ex>es</ex></name></add> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1120/" type="office">Constables</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/13868/" type="office">headboroughes</name>
+                            and other our officers and loving subiect<ex>es</ex> greeting knowe ye that
+                            wee of our esp<ex>ec</ex>iall grace certaine knowledge and meere mocion haue licenced and authorized and by theise p<ex>re</ex>sent<ex>es</ex>
+                            doe licence and authorize 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/13707/" type="man">Thomas Downton</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/13921/" type="man">Thomas Towne</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7327/" type="man">William Byrde</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/13967/" type="man">Edwarde Iuby</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14013/" type="man">Samuell Rowle</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14059/" type="man">humfrey Ieff<ex>es</ex></name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/9476/" type="man">Charles Massey</name> and 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14105/" type="man">Anthonie Ieffs</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14377/" type="occupation">servauntes</name>
+                            to our dearest sonne the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3078/" type="man">Prince</name> and the rest of theire Associates to vse and exercise the arte and facultie of 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">playing</name>
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14151/" type="subject">Com<ex>m</ex>edies</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14217/" type="subject">Tragedies</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14173/" type="subject">histories</name>
+                            <name key="http://reed.utoronto.ca/django/eats/entity/16762/" type="subject">Enterludes</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14239/" type="subject">Morralls</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14195/" type="subject">Pastoralls</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">Stageplayes</name> and such other like as they haue alreadie studied or hereafter
+                            shall vse or studie aswell for the recreacion of our lovinge subiectes as for our solace and pleasure when wee shall thincke good to see them during
+                            our pleasure  And the said Com<ex>m</ex>edies Tragedies histories Enterludes Morralls pastoralls 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">stageplaies</name> and suche like to shewe and exercise
+                            publiquelie to their best Com<ex>m</ex>oditie  aswell within theire nowe vsuall house called the
+                            <note xml:id="rec14_fn11" type="foot">the: <hi rend="italic">written over erasure</hi></note> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1444/" type="place_playing">ffortune</name> within our 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3527/" type="place_region">Countie of Midd<ex>lesex</ex></name>
+                            as alsoe within anie 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14261/" type="place_built">Towne Halls</name> 
+                            or 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14261/" type="place_built">Moutehalls</name> or other convenient places within the lib<ex>er</ex>tie and ffredomes of anie other Cittie
+                            vniversitie Towne or Boroughe whatsoeuer within our Realmes and Domynions willing and Com<ex>m</ex>aundinge you and everie of you as you tender our
+                            pleasure not only to p<ex>er</ex>mitt and suffer them herein without anie your lett<ex>es</ex> hindraunces or molestacions during our saide pleasure
+                            but alsoe to be aiding and assisting vnto them yf anie wrong be to them offered And to allowe them such former curtesies as hath been given to men
+                            of theire place and quallitie And alsoe what further favour you shall shewe vnto them for our sake wee shall take kindelie at your handes
+                            Prouided alwaies and our will and pleasure ys that all auctoritie power priuiledges and p<ex>ro</ex>fitt<ex>es</ex> whatsoever belonging and
+                            p<ex>ro</ex>perlie appertaining to the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14283/" type="office">Maister of our Revells</name> 
+                            in respecte of his office and everie Clause article or graunte conteined within the
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8079/" type="document"> l<ex>ett</ex>res</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14301/" type="document">patent<ex>es</ex></name> or 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15891/" type="document">Com<ex>m</ex>ission</name> which haue heretofore been 
+                            graunted or directed by the late 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/278/" type="woman">Queene Elizabeth our deere Sister</name> 
+                            or by our selves to our welbeloued 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14377/" type="occupation">servants</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14327/" type="man">Edmonde Tilney</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14283/" type="office">Maister of the office of our said Revells</name> or to 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14399/" type="man">Sir George Bucke</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/6240/" type="rank">knighte</name> or to
+                            either of them in possession or reversion shall be remayne and abide entire and in full force estate and vertue and in as ample sorte as yf this
+                            our <name key="http://reed.utoronto.ca/django/eats/entity/15891/" type="document">Com<ex>m</ex>ission</name> had never been made  In witnesse whereof &amp;c witnesse our selfe at 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14449/" type="place_settlement">westm<ex>inster</ex></name> the Thirtith daie of Aprill.
+                            ex<ex>tracta</ex>
+                        </ab><lb/>
+                        <ab rend="right">p<ex>er</ex> br<ex>rev</ex>e de priuato sigillo &amp;c</ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote">
+                        <ab type="endnote">This 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/10013/" type="document">licence</name> was printed in 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14475/" type="man">E.K Chambers</name> and 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14521/" type="man">W.W. Greg</name>  (eds), ‘
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14567/" type="document">Dramatic Records</name> from the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14301/" type="document">Patent Rolls</name>. Company Licences,’
+                            <title type="monograph">Collections 1, pt 3</title>, Malone Society (Oxford, 1909), 268–9.  It was also printed by 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14589/" type="man">T.E. Tomlins</name> in the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14635/" type="document">Shakespeare Society’s <title type="periodical">Papers</title></name>, 4 (1849), 42, although it was mistakenly described as 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/18792/" type="document">Privy Seal</name> and misdated 1607.  The Signet 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8877/" type="document">Bill</name> itself is indexed under April 1606 in TNA: PRO SO3/3.
+                        </ab>
+                    </div>
+                </body>
+                <link type="document_desc" target="#Midd_LPHM"/>
+                <link type="emlot" target="http://www.emlot.kcl.ac.uk/db/record/event/1788/"/>
+            </text>
+            <text type="record" xml:id="rec33_FIN_1609s10_BW05_f416">
+                <body>
+                    <head type="main">
+                        <placeName><name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date calendar="old_style" when-iso="1610-02-24">1609/10</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/16036/" type="court">
+                                <name key="http://reed.utoronto.ca/django/eats/entity/16036/" type="court">Governors of Bridewell's Court</name></name> Book
+                        </title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository">Bethlem Royal Hospital Archives and Museum</idno>
+                            <idno type="shelfmark">BCB – 05</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">f 416* (24 February)</head>
+                    <div type="transcription">
+                        <pb type="folio" n="416"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="marginalia"><note xml:id="rec15_mn13" type="marginal" place="margin_left">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14731/" type="man">Netherdoode</name>/</note></ab><lb/>
+                        <ab type="body">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14731/" type="man">Robert<anchor corresp="#rec15_mn13"/> Netherwood</name> brought in by 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/745/" type="document">warr<ex>an</ex>t</name> from the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14812/" type="office">Sherifes of London</name> by Anie one of theire officers for
+                            sondrie misdemeano<ex>u</ex>rs by him done vpon 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14838/" type="occasion_religion">Shrovetusday</name> it was testefeid 
+                            against him that he said the day before that he would bringe 500
+                            p<ex>er</ex>sons vpon 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14838/" type="occasion_religion">Shrovetuisday</name> to pull downe the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1444/" type="place_playing">ffortune playhouse</name> &amp; 
+                            therevpon he examined said, that it was true, he said he would
+                            bringe fyve score for that p<ex>ur</ex>pose, but was in drincke when so he said he is by order of 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/12483/" type="court_legal">Court</name> po<ex>nished</ex> and kepte att worke./
+                        </ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote">
+                        <ab type="endnote">In his 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/11263/" type="document">diary</name> under the date of 24 March 1668, 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14860/" type="man">Samuel Pepys</name> describes the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14950/" type="issue_social">riots at Shrovetide</name> with 'the prentices, taking liberty of these
+                            holidays to pull down 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14976/" type="place_built">bawdy-houses</name>&#x2026; 
+                            which is one of the great grievances of the nation' (The 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/11263/" type="document">Diary</name> of 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14860/" type="man">Samuel Pepys</name>, 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15009/" type="man">Robert C. Latham</name> and
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15055/" type="man">William Matthews</name> (eds), vol 9  (London, 1976), 128–30). See the other 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14950/" type="issue_social">Shrovetide riots</name> in 1617/18.</ab>
+                    </div>
+                </body>
+                <link type="document_desc" target="#Midd_BW05"/>
+            </text>
+            <text type="record" xml:id="rec34_FIN_1610_FMHA_p68">
+                <body>
+                    <head type="main">
+                        <placeName><name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date when-iso="1610-10-02">1610</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">Finsbury</name> Manor 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8057/" type="document">Records</name>
+                        </title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository" corresp="#abbr_LMA">LMA</idno>:
+                            <idno type="shelfmark">MS CLA/043/01/003</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">p 68* (2 October) (Freeholders’ inquest)</head> 
+                    <div type="transcription">
+                        <pb type="page" n="68"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="body">It<ex>e</ex>m wee finde, that &#x28C;<add rend="above">one 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/6925/" type="man">Danyell Gill</name></add> <del>
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15101/" type="man">Thomas Hollyman</name></del> late tena<ex>n</ex>t of this
+                            Manno<ex>ur</ex> hath since the last 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/12483/" type="court_legal">Court</name> (as wee are informed) alyened a certen 
+                            p<ex>ar</ex>cell of land betwene 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/2811/" type="place_sub_settlement">Golding lane</name> &amp; 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7075/" type="place_sub_settlement">Whitecrosse street</name>, vpon w<ex>hi</ex>ch a 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1713/" type="place_playing">play howse</name> is nowe buylt, W<ex>hi</ex>ch he held of the same 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/2580/" type="place_sub_settlement">Manno<ex>ur</ex></name> by the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/4164/" type="subject">rent</name> of xij d. &amp; other
+                            seruic<ex>es</ex>, vnto 
+                           <name key="http://reed.utoronto.ca/django/eats/entity/236/" type="man">Edward Allyn</name>, By reason whereof there is due vnto the 
+                           <name key="http://reed.utoronto.ca/django/eats/entity/15182/" type="rank">lord<ex>es</ex> of this Manno<ex>ur</ex></name> for a relief.
+                        </ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote">
+                        <ab type="endnote"><name key="http://reed.utoronto.ca/django/eats/entity/12375/" type="man">William Gill</name>, 
+                            '<name key="http://reed.utoronto.ca/django/eats/entity/11741/" type="occupation">gardino<ex>ur</ex></name>,' 
+                            first appears in the list of freeholders in 1551 or 1564 (it is unclear as to which date the
+                            list should be assigned). His death was reported to the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15212/" type="court_legal">Manor Court</name> in November 1577, when 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/12425/" type="woman">Katherine</name> his wife was to hold his lands for life,
+                            after which they were to descend to 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/6925/" type="man">Daniel Gill the elder</name> (pp 10 and 15).  In 1582, and again in 1584, 
+                            it was reported to the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15212/" type="court_legal">Manor Court</name> that
+                            <name key="http://reed.utoronto.ca/django/eats/entity/12425/" type="woman">Katherine Gill (Gyll)</name> had died and that 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/6925/" type="man"> Daniel Gill the elder</name>, ‘dwelling in the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3932/" type="place_region">ile of Man</name>’ was heir, by 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/12543/" type="document">will</name>, to such lands as 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/12375/" type="man">William Gill</name>
+                            had purchased from 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/11763/" type="man">Thomas Langham</name>, 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15242/" type="occupation">brownbaker</name>, which 'is a Cottaige w<ex>i</ex>t<ex>h</ex> a garden in 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7075/" type="place_sub_settlement">whitecrosstrete</name> on the west side,' for 
+                            which he paid a yearly quit 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/4164/" type="subject">rent</name> of 22d (pp 15 and 19).
+                        </ab>
+                    </div>
+                </body>
+                <link type="document_desc" target="#Midd_FMHA"/>
+            </text>
+            <text type="record" xml:id="rec35_FIN_1611_FMHA_p69">
+                <body>
+                    <head type="main">
+                        <placeName><name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date when-iso="1611-10-01">1611</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">Finsbury</name> Manor 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8057/" type="document">Records</name>
+                        </title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository" corresp="#abbr_LMA">LMA</idno>:
+                            <idno type="shelfmark">MS CLA/043/01/003</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">p 69* (1 October) (Freeholders’ inquest)</head>
+                    <div type="transcription">
+                        <pb type="page" n="69"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="marginalia">
+                            <note xml:id="rec17_mn14" type="marginal" place="margin_left">Homage</note>
+                        </ab><lb/>
+                        <ab type="table">
+                            <table rows="1" cols="2">
+                                <row>
+                                    <cell><name key="http://reed.utoronto.ca/django/eats/entity/236/" type="man">Edward<anchor corresp="#rec17_mn14"/> Allyn</name> <del>gent</del> 
+                                    <name key="http://reed.utoronto.ca/django/eats/entity/7842/" type="rank">esq<ex>ui</ex>r</name></cell>
+                                    <cell>
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/781/" type="office">Iur<ex>or</ex></name>
+                                    </cell>
+                                </row>
+                            </table>
+                        </ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote">
+                        <ab type="endnote">This is the first and only record that 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/236/" type="man">Edward Alleyn</name> attended 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15212/" type="court_legal">Finsbury manor court</name>, when he was one of ten 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/781/" type="office">jurors </name>whose names were bracketed together. He signs his name on p 70, '
+                            <name key="http://reed.utoronto.ca/django/eats/entity/236/" type="man">Ed Alleyn</name>.' Between 1615–26 his name regularly appears in the 
+                            list of defaulters who are fined for not attending the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15212/" type="court_legal">manor court</name> (pp 79, 81–3, 85–6, 88, 90, 92, 94, 97,
+                            and 99), and it appears in error in 1630 (p 108), by which time he was dead.
+                        </ab>
+                    </div>
+                </body>
+                <link type="document_desc" target="#Midd_FMHA"/>
+            </text>
+            <text type="record" xml:id="rec36_FIN_1612s13_PLEM_s_mb">
+                <body>
+                    <head type="main">
+                        <placeName><name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date calendar="old_style" when-iso="1613-01-11">1612/13</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14301/" type="document">Patent</name> for 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15275/" type="troupe">Lady Elizabeth’s Men</name>
+                        </title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository" corresp="#abbr_TNA_PRO">TNA: PRO</idno>
+                            <idno type="shelfmark">C82/1822</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">single mb (11 January)</head>
+                    <div type="transcription">
+                        <ab type="head"><hi rend="center"><add><handShift/>
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15312/" type="document">M<ex>emoran</ex>d<ex>um</ex></name> 
+                            q<ex>uo</ex>d vndecimo die Ianuarij Anno Decimo et xlvj Iacobi
+                            R<ex>egis</ex> istud Br<ex>ev</ex>e Delib<ex>er</ex>at<ex>um</ex> fuit D<ex>omi</ex>no Cancellar<ex>io</ex> Angl<ex>ie</ex> apud
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14449/" type="place_settlement">westm<ex>onasterium</ex></name> exequend<ex>um</ex>./</add></hi>
+                        </ab><lb/>
+                        <lb/>
+                        <ab type="body">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/2873/" type="man">JAMES by the grace of God King of England, Scotland, ffrance and Ireland defendo<ex>ur</ex> of the faith &amp;c</name> To o<ex>ur</ex>
+                            right trusty and welbeloved 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15338/" type="man">Counsello<ex>ur</ex> Thomas Lord Ellesmere o<ex>ur</ex> Chauncello<ex>ur</ex></name> 
+                            of England greeting. Wee will and
+                            com<ex>m</ex>aund yow that vnder our 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/10632/" type="office">great Seale of England</name> yow cause our 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8079/" type="document">l<ex>ett</ex>res</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14301/" type="document">patent<ex>es</ex></name> to be made forth in forme following.
+                            <name key="http://reed.utoronto.ca/django/eats/entity/2873/" type="man">
+                                <ref target="#rec18_fn15" type="foot_anchor"><hi rend="italic">Iames</hi></ref></name>
+                                <note xml:id="rec18_fn15" type="foot">Iames: <hi rend="italic">in italic script</hi></note> 
+                            by the grace of God &amp;c. To all 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/781/" type="office">Iustices</name>,
+                            <name key="http://reed.utoronto.ca/django/eats/entity/13788/" type="occupation">Mayo<ex>ur</ex>s</name>, 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/13828/" type="occupation">Sheriff<ex>es</ex></name>, 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/13846/" type="occupation">Bayliff<ex>es</ex></name>, 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1120/" type="rank">Constables</name>, 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/13868/" type="occupation">Headboroughes</name>, 
+                            and all other our Officers and loving Subiect<ex>es</ex>,
+                            greetinge, 
+                                <ref target="#rec18_fn16" type="foot_anchor"><hi rend="italic">Knowe</hi></ref>
+                                <note xml:id="rec18_fn16" type="foot">Knowe: <hi rend="italic">in italic script</hi></note> yee that wee of our especiall grace
+                            certaine knowledg &amp; meere moc<ex>i</ex>on have licensed and authorized, and by theise present<ex>es</ex> doe License and authorise 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/13707/" type="man">Thomas Downton</name>, 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7327/" type="man">William Bird</name>, 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/13967/" type="man">Edward Iuby</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14013/" type="man">Samuell Rowle</name>, 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/9476/" type="man">Charles Massey</name>, 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14059/" type="man">Humfrey Ieff<ex>es</ex></name>, 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15462/" type="man">ffranck Grace</name>, 
+                           <name key="http://reed.utoronto.ca/django/eats/entity/15508/" type="man"> William Cartwright</name>, 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15572/" type="man">Edward Colbrand</name>,
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15618/" type="man">William Parr</name>, 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15664/" type="man">William Stratford</name>, 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15710/" type="man">Richard Gunell</name> 
+                            &#x28C;<add rend="above"><name key="http://reed.utoronto.ca/django/eats/entity/15756/" type="man">Iohn Shancke</name></add> and 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15802/" type="man">Richard Price</name> 
+                            Servant<ex>es</ex> to our sonne in lawe the Elector 
+                                <ref target="#rec18_fn17" type="foot_anchor"><hi rend="italic">Palatine</hi></ref>
+                                <note xml:id="rec18_fn17" type="foot">Palatine: <hi rend="italic">in italic script</hi></note> and the rest of their
+                            Associat<ex>es</ex>, to vse and exercise the art and facultie of 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">playing</name> 
+                           <name key="http://reed.utoronto.ca/django/eats/entity/14151/" type="subject">Comedies</name>, 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14217/" type="subject">Tragedies</name>, 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14173/" type="subject">Histories</name>, 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/16762/" type="subject">Enterludes</name>, 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14239/" type="subject">Morall<ex>es</ex></name>, 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14195/" type="subject">Pastoralles</name>,
+                            <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">Stageplayes</name> and such other like, as they haue alreadie studied, or hereafter shall vse or studie, aswell for the recreac<ex>i</ex>on of our loving
+                            Subiect<ex>es</ex>, as for our solace and pleasure, when wee shall thinke good to see them, during our pleasure. And the said Comedies, Tragedies,
+                            Histories, Enterludes, Morall<ex>es</ex>, Pastorall<ex>es</ex> Stageplayes and such like, to shewe and exercise publicquely to their best
+                            com<ex>m</ex>oditie, aswell within their now vsuall howse called the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1444/" type="place_playing">ffortune</name> within our 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">County of Middlesex</name>, as also within any 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14261/" type="place_built">Towne Hall<ex>es</ex></name>, or 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14261/" type="place_built">Moutehall<ex>es</ex></name> or other convenient places within the libertie and freedome of any Cittie, Vniuersitie, Towne or Borough
+                            whatsoever within our Realmes and Dominions. Willinge and com<ex>m</ex>aundinge yow and every of yow as yow tender our pleasure, not only to permitt
+                            and suffer them herein without any yo<ex>ur</ex> Lett<ex>es</ex>, hinderanes or molestac<ex>i</ex>ons during our said pleasure; but also to be
+                            ayding and assisting vnto them, if any wrong be to them offered, And to allowe them such former curtesies, as hath been given to men of their place
+                            and qualitie; And alsoe what further favo<ex>ur</ex> yow shall shewe vnto them for our sake, wee shall take kindly at your handes.
+                                <ref target="#rec18_fn18" type="foot_anchor"><hi rend="italic">Prouided</hi></ref>
+                                <note xml:id="rec18_fn18" type="foot">Prouided: <hi rend="italic">in italic script</hi></note> alwaies and our will and pleasure is,
+                            That all authoritie, power, priviledges and proffitt<ex>es</ex> whatsoever belonging and properly app<ex>er</ex>teyning to the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14283/" type="office">master of our Revell<ex>es</ex></name>, 
+                            in respect of his office, and every clause, article or graunt conteyned with in the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8079/" type="document">l<ex>ett</ex>res</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14301/" type="document">patent<ex>es</ex></name> or
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15891/" type="document">Com<ex>m</ex>ission</name>, which haue been heretofore graunted or directed to our welbeloved 
+                            servant 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14399/" type="man">S<ex>ir</ex> George Buck</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/6240/" type="rank">knight</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14283/" type="office">master of our said Revell<ex>es</ex></name>, 
+                            shalbe remayne and abide entire and in full force estate and vertue, and in as ample sorte as if this our 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15891/" type="document">Com<ex>m</ex>ission</name>
+                            had never been made. 
+                                <ref target="#rec18_fn19" type="foot_anchor"><hi rend="italic">In wittnes</hi></ref>
+                                <note xml:id="rec18_fn19" type="foot">In witnes: <hi rend="italic">in italic script</hi></note> 
+                            whereof &amp;c. Given vnder our 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/18792/" type="document">privie Seale</name> at our 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/16160/" type="court">Pallace of Westm<ex>inste</ex>r</name> 
+                            the sixth day of Ianuarie, in the Tenth yeare of our raigne
+                            of England ffraunce and Ireland, and of Scotland the sixe and 
+                                <ref target="#rec18_fn20" type="foot_anchor"><choice><sic>thirtieth</sic><corr>fortieth</corr></choice></ref>./.
+                                <note xml:id="rec18_fn20" type="foot">thirtieth: <hi rend="italic">for</hi> fortieth</note>
+                        </ab><lb/>
+                        <ab rend="right">
+                            <seg type="signed">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/16186/" type="man">Ia<ex>mes</ex> Hylles</name></seg>   
+                            <name key="http://reed.utoronto.ca/django/eats/entity/16232/" type="office">dep<ex>u</ex>t<ex>y</ex></name>
+                            <seg type="signed">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/16258/" type="man">fra<ex>ncis</ex> Hylles</name></seg></ab><lb/>
+                        <ab rend="right">Rec<ex>eptum</ex> .11. Ianuarij .1612</ab><lb/>
+                        <ab rend="left">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/13707/" type="man">Downton</name><lb/>
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15275/" type="troupe">Players</name>.<lb/>
+                            <add><handShift/>Ex<ex>tractum</ex></add> Com<ex>m</ex>ission/</ab><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote"/>
+                </body>
+                <link type="document_desc" target="#Midd_PLEM"/>
+            </text>
+            <text type="record" xml:id="rec37_FIN_1612s13_PPGM_mbs14d_15d">
+                <body>
+                    <head type="main">
+                        <placeName><name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName> 
+                        <date calendar="old_style" when-iso="1613-01-11">1612/13</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14301/" type="document">Patent</name> for 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7697/" type="troupe">Palsgrave's Men</name>
+                        </title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository" corresp="#abbr_TNA_PRO">TNA: PRO</idno>
+                            <idno type="shelfmark">C66/1967</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">mbs [14d–15d]* (11 January)</head>
+                    <div type="transcription">
+                        <pb type="membrane" n="[14d]"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="marginalia">
+                            <note xml:id="rec19_mn21" type="marginal" place="margin_left">A speciall 
+                                <name key="http://reed.utoronto.ca/django/eats/entity/15891/" type="document">Com<ex>m</ex>ission</name> for 
+                                <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">playes</name>.</note>
+                        </ab><lb/>
+                        <ab type="body">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/2873/" type="man">Iames</name><anchor corresp="#rec19_mn21"/> by the grace of god &amp;c To all 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/781/" type="office">Iustices</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/13788/" type="office">Mayors</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/13828/" type="office">Sheriffes</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/13846/" type="office">Bayliffes</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1120/" type="office">Constables</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/13868/" type="office">headborroughes</name> and
+                            all other our officers and lovinge subiect<ex>es</ex> greetinge knowe yee that wee of our speciall grace c<ex>er</ex>tayne knowledge and meere
+                            moc<ex>i</ex>on haue licenced and aucthorized, and by these p<ex>re</ex>sent<ex>es</ex> doe license and aucthorise 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/13707/" type="man">Thomas Downton</name>, 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7327/" type="man">Will<ex>ia</ex>m Bird</name>, 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/13967/" type="man">Edward Iuby</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14013/" type="man">Samuell Rowle</name>, 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/9476/" type="man">Charles Massey</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14059/" type="man">humfrey Ieff<ex>es</ex></name>, 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15462/" type="man">ffranck Grace</name>, 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15508/" type="man">Will<ex>ia</ex>m Cartwright</name>, 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15572/" type="man">Edward Colbrand</name>, 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15618/" type="man">Will<ex>ia</ex>m Parr</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15664/" type="man">Will<ex>ia</ex>m Stratford</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15710/" type="man">Richard Gunell</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15756/" type="man">Iohn Shancke</name> and 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15802/" type="man">Richard Price</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7697/" type="troupe">s<ex>er</ex>vaunt<ex>es</ex> to our sonne in lawe the elector Palatyne</name> 
+                            and the rest of their associat<ex>es</ex> to vse and ex<ex>er</ex>cise the arte and facultie of 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">playinge</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14151/" type="subject">Comedies</name>, 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14217/" type="subject">tragedies</name>,
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14173/" type="subject">histories</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/16762/" type="subject">Enterludes</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14239/" type="subject">Morralles</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14195/" type="subject">Pastoralles</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">Stageplayes</name> and suche other like, as they have alredy studyed or hereafter shall vse or study aswell for
+                            the recreac<ex>i</ex>on of our lovinge subiect<ex>es</ex> as for our solace and pleasure, when wee shall 
+                            <pb type="membrane" n="[15d]"/> thinke good to
+                            see them, during our pleasure, And the said Comedies tragedies histories Enterludes Morralls Pastoralls, Stageplayes and such other like to shewe
+                            and ex<ex>er</ex>cise Publickly to theire beste com<ex>m</ex>oditie aswell within theire nowe vsuall house called the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1444/" type="place_playing">ffortune</name> within our 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3527/" type="place_region">County of Middlesex</name>, as also within anye 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14261/" type="place_built">towne halls</name>, or 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14261/" type="place_built">moutehalls</name>
+                            or other convenient places within the lib<ex>er</ex>tie and freedome of any Cittie,
+                            vniu<ex>er</ex>sitie Towne or borrough whatsoever within our Realmes and Dominions willinge and com<ex>m</ex>aundinge you and eu<ex>er</ex>ye of
+                            you as you tender our pleasure not onely to p<ex>er</ex>mitt and suffer them herein without any your lett<ex>es</ex>, hynderaunes or 
+                            molestac<ex>io</ex>ns duringe our said pleasure, but also to be aydinge and assistinge vnto them, yf anye wronge be to them offered, And to allowe
+                            them suche former curtesies, as hath bene geven to men of their place and qualitie, and also what further favoure you shall shewe vnto them for our
+                            sake, we shall take kindly at your handes.  Prouided alwayes and our will and pleasure is, that all auctoritie power priuiledges and
+                            p<ex>ro</ex>fitt<ex>es</ex> whatsoever belonginge and p<ex>ro</ex>perly appertayninge to the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14283/" type="office">Master of our Revell<ex>es</ex></name> in respecte of his
+                            office and eu<ex>er</ex>y clause article or graunt conteyned with in the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8079/" type="document">letters</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14301/" type="document">patent<ex>es</ex></name> or 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15891/" type="document">Com<ex>m</ex>ission</name> which have beene
+                            heretofore graunted or directed to our welbeloved s<ex>er</ex>uaunt 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14399/" type="man">Sir George Buck</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/6240/" type="rank">knight</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14283/" type="office">Master of our said Revells</name>, shalbe remayne and abyde
+                            entire and in full force estate and v<ex>ir</ex>tue, and in as ample sorte as yf this our Com<ex>m</ex>ission had never been made  In witnes 
+                            whereof &amp;c. witnes our selfe at 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14449/" type="place_settlement">westm<ex>inster</ex></name> the eleventh daye of Ianuarye.
+                        </ab><lb/>
+                        <ab rend="right">p<ex>e</ex>r br<ex>ev</ex>e de priuato Sigillo</ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote">
+                        <ab type="endnote">This 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/10013/" type="document">licence</name> was printed by 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14475/" type="man">E.K Chambers</name> and 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14521/" type="man">W.W. Greg</name> (eds), ‘
+                            Dramatic Records from the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14301/" type="document">Patent Rolls</name>. Company Licences,’
+                            <title type="monograph">Collections 1, pt 3</title>, Malone Society (Oxford, 1909), 275–7. The Signet 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8877/" type="document">Bill</name>, misdescribed as a Privy Seal, was printed by Collier,
+                            <title type="monograph">H.E.D.P</title>, vol 1, p 366, and Hazlitt, <title type="monograph">English Drama and Stage</title>, p 44.
+                        </ab>
+                    </div>
+                </body>
+                <link type="document_desc" target="#Midd_PPGM"/>
+                <link type="emlot" target="http://www.emlot.kcl.ac.uk/db/record/event/1793/"/>
+            </text>
+            <text type="record" xml:id="rec38_FIN_1615_FMHA_p79">
+                <body>
+                    <head type="main"><placeName><name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                    <date when-iso="1615-10-03">1615</date>
+                    <title type="record_head">
+                        <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">Finsbury</name> Manor 
+                        <name key="http://reed.utoronto.ca/django/eats/entity/8057/" type="document">Records</name>
+                    </title>
+                    <seg type="repository_shelfmark">
+                        <idno type="repository" corresp="#abbr_LMA">LMA</idno>:
+                        <idno type="shelfmark">MS CLA/043/01/003</idno>
+                    </seg>
+                    </head>
+                    <head type="sub">p 79* (3 October) (Amercements to defaulters)</head>
+                    <div type="transcription">
+                        <pb type="page" n="79"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="table">
+                            <table rows="1" cols="2">
+                                <row>
+                                    <cell>
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/236/" type="man">Edward Allen</name> 
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/16304/" type="rank">Ar<ex>miger</ex></name>
+                                    </cell>
+                                    <cell rend="right">xij d.</cell>
+                                </row>
+                            </table>
+                        </ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote">
+                        <ab type="endnote">The sequence in the MS strongly suggests that the date, given as '1613,' is in error for '1615.'</ab>
+                    </div>
+                </body>
+                <link type="document_desc" target="#Midd_FMHA"/>
+            </text>
+            <text type="record" xml:id="rec39_FIN_1613s14_WJTA_sigsB3_B3v">
+                <body>
+                    <head type="main">
+                        <placeName><name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date calendar="old_style" when-iso="1614">1613/14</date>
+                        <title type="record_head">
+                            <title type="monograph"><name key="http://reed.utoronto.ca/django/eats/entity/16326/" type="man">Fennor</name>'s Defence</title>
+                        </title>    
+                        <seg type="STC_ref">
+                            <idno type="publication" corresp="#abbr_STC">STC</idno>:
+                            <idno type="STC_number">10783</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">sigs B3–B3v (
+                            <name key="http://reed.utoronto.ca/django/eats/entity/16326/" type="man">William Fennor</name> tells of his challenge to 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/16372/" type="man">Kendall</name> to a contest at the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1444/" type="place_playing">Fortune playhouse</name>)
+                    </head>
+                    <div type="transcription">
+                        <pb type="signature" n="B3"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="body">
+                            And let me tell thee this, to calme thy Rage.<lb/>
+                            I chaleng'd 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/16372/" type="man">Kendall</name> on the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1444/" type="place_playing">Fortune</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7517/" type="prop">Stage</name>;<lb/>
+                            And he did promise 'fore an Audience,<lb/>
+                            For to oppose me; note the Accidence:<lb/>
+                            I set vp 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8877/" type="document">Bills</name>, the People throng'd apace,<lb/>
+                            With full intention to disgrace, or grace:<lb/>
+                            <fw type="catch" place="foot">The</fw>
+                            <pb type="signature" n="B3v"/>
+                            <ref target="#rec21_fn22" type="foot_anchor">The</ref>
+                            <note xml:id="rec21_fn22" type="foot">The: <hi rend="italic">also printed as a catchword at the foot of B3</hi></note>
+                            House was ful, the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/16394/" type="instrument">Tru<ex>m</ex>pets</name> twice had sou<ex>n</ex>ded,<lb/>
+                            And though he came not, I was not confounded,<lb/>
+                            But stept vpon the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7517/" type="prop">Stage</name> and told them this;<lb/>
+                            My Aduerse would not come: not one did hisse;<lb/>
+                            But flung me Theames: I then extempore<lb/>
+                            Did blot his name from out their memorie,<lb/>
+                            And pleasd them all, in spight of one to braue me,<lb/>
+                            Witnesse the Ringing Plaudits that they gaue me.
+                        </ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote"/>
+                </body>
+                <link type="document_desc" target="#Midd_WJTA"/>
+                <link type="emlot" target="http://www.emlot.kcl.ac.uk/db/record/event/4001/"/>
+            </text>
+            <text type="record" xml:id="rec40_FIN_1615_FMHA_p77">
+                <body>
+                    <head type="main">
+                        <placeName><name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date when-iso="1615-05-03">1615</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">Finsbury</name> Manor 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8057/" type="document">Records</name>
+                        </title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository" corresp="#abbr_LMA">LMA</idno>:
+                            <idno type="shelfmark">MS CLA/043/01/003</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">p 77 (3 May) (Freeholders’ inquest)</head>
+                    <div type="transcription">
+                        <pb type="page" n="77"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="body">Item we fynde 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/16554/" type="man">Edward Bleytou<ex>n</ex></name> gen<ex>tleman</ex> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/16462/" type="man">Rob<ex>er</ex>tus Iackson</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/16508/" type="man">Ric<ex>ard</ex>us Shrawley</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/16416/" type="man">Thomas Walton</name> and
+                            <name key="http://reed.utoronto.ca/django/eats/entity/236/" type="man">Edward Allen</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/16304/" type="rank">ar<ex>miger</ex></name>
+                            haue not had suffycient warninge of this 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/12483/" type="court_legal">Court</name>
+                        </ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote"/>
+                </body>
+                <link type="document_desc" target="#Midd_FMHA"/>
+            </text>
+            <text type="record" xml:id="rec41_FIN_1616_FMHA_p81">
+                <body>
+                    <head type="main">
+                        <placeName><name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName> 
+                        <date when-iso="1616-10-08">1616</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">Finsbury</name> Manor 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8057/" type="document">Records</name>
+                        </title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository" corresp="#abbr_LMA">LMA</idno>:
+                            <idno type="shelfmark">MS CLA/043/01/003</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">p 81 (8 October) (Freeholders’ inquest: defaulters)</head>
+                    <div type="transcription">
+                        <pb type="page" n="81"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="table">
+                            <table rows="1" cols="1">
+                                <row>
+                                    <cell>
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/236/" type="man">Edwardus Allen</name> 
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/16304/" type="rank">ar<ex>miger</ex></name>
+                                    </cell>
+                                    <cell rend="right">xij 
+                                        <ref target="#rec23_fn23" type="foot_anchor"><damage agent="cropping"><gap unit="chars" extent="1"/></damage></ref>
+                                        <note xml:id="rec23_fn23" type="foot"><damage agent="cropping"><gap unit="chars" quantity="1"/></damage>:
+                                        <hi rend="italic">monetary abbreviation lost due to cropping</hi><!--given similar entries, shouldn't this not at least suggest that the
+                                            monetary abbreviation is 'd.'?-->
+                                        </note>
+                                    </cell>
+                                </row>
+                            </table>
+                        </ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote"/>
+                </body>
+                <link type="document_desc" target="#Midd_FMHA"/>
+            </text>
+            <text type="record" xml:id="rec42_FIN_1617_FMHA_p82">
+                <body>
+                    <head type="main">
+                        <placeName><name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date when-iso="1617-10-07">1617</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">Finsbury</name> Manor 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8057/" type="document">Records</name>
+                        </title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository" corresp="#abbr_LMA">LMA</idno>:
+                            <idno type="shelfmark">MS CLA/043/01/003</idno>
+                        </seg>
+                        </head>
+                    <head type="sub">p 82 (7 October) (Freeholders’ inquest: defaulters)</head>
+                    <div type="transcription">
+                        <pb type="page" n="82"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="table">
+                            <table rows="1" cols="2">
+                                <row>
+                                    <cell>
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/236/" type="man">Edwardus Allen</name> 
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/16304/" type="rank">ar<ex>miger</ex></name>
+                                    </cell>
+                                    <cell rend="right">xviij d.</cell>
+                                </row>
+                            </table>
+                        </ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote"/>
+                </body>
+                <link type="document_desc" target="#Midd_FMHA"/>
+            </text>
+            <text type="record" xml:id="rec43_FIN_1619_FMHA_p83">
+                <body>
+                    <head type="main">
+                        <placeName><name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date from-iso="1619-04-06" to-iso="1619-10-05">1619</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">Finsbury</name> Manor 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8057/" type="document">Records</name>
+                        </title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository" corresp="#abbr_LMA">LMA</idno>:
+                            <idno type="shelfmark">MS CLA/043/01/003</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">p 83 (<date when-iso="1619-04-06">6 April</date>) (Freeholders’ inquest: defaulters)</head>
+                    <div type="transcription">
+                        <pb type="page" n="83"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="table">
+                            <table rows="1" cols="2">
+                                <row>
+                                    <cell>
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/236/" type="man">Edwardus Allen</name> gen<ex>erosus</ex> ad
+                                    </cell>
+                                    <cell rend="right">xviij d.</cell>
+                                </row>
+                            </table>
+                        </ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                        <lb/>
+                        <ab type="subhead">p 85 <date when-iso="1619-10-05">(5 October)</date></ab><lb/>
+                        <pb type="page" n="85"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="table">
+                            <table rows="1" cols="2">
+                                <row>
+                                    <cell>
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/236/" type="man">Eduardus Allen</name>, gen<ex>erosus</ex>, ad
+                                    </cell>
+                                    <cell rend="right">xviij d.</cell>
+                                </row>
+                            </table>
+                        </ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote"/>
+                </body>
+                <link type="document_desc" target="#Midd_FMHA"/>
+            </text>
+            <text type="record" xml:id="rec44_FIN_1621_FMHA_p88">
+                <body>
+                    <head type="main">
+                        <placeName><name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date when-iso="1621-10-02">1621</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">Finsbury</name> Manor 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8057/" type="document">Records</name>
+                        </title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository" corresp="#abbr_LMA">LMA</idno>:
+                            <idno type="shelfmark">MS CLA/043/01/003</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">p 88 (2 October) (Freeholders’ inquest: defaulters)</head>
+                    <pb type="page" n="88"/>
+                    <div type="transcription">
+                        <gap reason="omitted"/><lb/>
+                        <ab type="table">
+                            <table rows="1" cols="2">
+                                <row>
+                                    <cell>
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/236/" type="man">Ed<ex>wa</ex>r<ex>d</ex>us Allen</name> 
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/16304/" type="rank">Ar<ex>miger</ex></name> ad
+                                    </cell>
+                                    <cell rend="right">v s.</cell>
+                                </row>
+                            </table>
+                        </ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote"/>
+                </body>
+                <link type="document_desc" target="#Midd_FMHA"/>
+            </text>
+            <text type="record" xml:id="rec45_FIN_1622_FMHA_p90">
+                <body>
+                    <head type="main">
+                        <placeName><name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date when-iso="1622-10-08">1622</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">Finsbury</name> Manor 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8057/" type="document">Records</name>
+                        </title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository" corresp="#abbr_LMA">LMA</idno>:
+                            <idno type="shelfmark">MS CLA/043/01/003</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">p 90 (8 October) (Freeholders’ inquest: defaulters)</head>
+                    <div type="transcription">
+                        <pb type="page" n="90"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab>
+                            <table rows="3" cols="2">
+                                <row>
+                                    <cell>
+                                        <gap reason="omitted"/>
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/14105/" type="man">Anthony Jeffes</name> gent<ex>leman</ex><gap reason="omitted"/>
+                                    </cell>
+                                    <cell rend="right">ij s. p<ex>er</ex> poll.</cell>
+                                </row>
+                                <row>
+                                    <cell/>
+                                    <cell/>
+                                </row>
+                                <row>
+                                    <cell><gap reason="omitted"/>
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/236/" type="man">Edward Allen</name> 
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/7842/" type="rank">esquier</name><gap reason="omitted"/>
+                                    </cell>
+                                    <cell rend="right">xij d. p<ex>er</ex> poll.</cell>
+                                </row>      
+                            </table>
+                        </ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote"/>
+                </body>
+                <link type="document_desc" target="#Midd_FMHA"/>
+            </text>
+            <text type="record" xml:id="rec45_FIN_1623_FMHA_p92">
+                <body>
+                    <head type="main">
+                        <placeName><name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date when-iso="1623-10-07">1623</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">Finsbury</name> Manor 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8057/" type="document">Records</name>
+                        </title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository" corresp="#abbr_LMA">LMA</idno>:
+                            <idno type="shelfmark">MS CLA/043/01/003</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">p 92 (7 October) (Freeholders’ inquest: defaulters)</head>
+                    <div type="transcription">
+                        <pb type="page" n="92"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="table">
+                            <table rows="3" cols="2">
+                                <row>
+                                    <cell>
+                                        <gap reason="omitted"/>
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/14105/" type="man">Anthony Ieffes</name><gap reason="omitted"/>
+                                    </cell>
+                                    <cell rend="right">ijs vjd p<ex>er</ex> poll.</cell>
+                                </row>
+                                <row>
+                                    <cell/>
+                                    <cell/>
+                                </row>
+                                <row>
+                                    <cell>
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/16635/" type="man">Francis Michell</name> gent<ex>leman</ex> 
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/236/" type="man">Edward Allen</name>
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/7842/" type="rank">esq<ex>uire</ex></name> 
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/16681/" type="man">Richard Wotton</name>
+                                        gent<ex>leman</ex> for not app<ex>ear</ex>ance in
+                                    </cell>
+                                    <cell rend="right">xij d. p<ex>er</ex> poll</cell>
+                                </row>    
+                            </table>
+                        </ab><lb/>    
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote"/>
+                </body>
+                <link type="document_desc" target="#Midd_FMHA"/>
+            </text>
+            <text type="record" xml:id="rec46_FIN_1623_FMHA_p94">
+                <body>
+                    <head type="main">
+                        <placeName><name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date when-iso="1624-10-12">1624</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">Finsbury</name> Manor 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8057/" type="document">Records</name>
+                        </title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository" corresp="#abbr_LMA">LMA</idno>:
+                            <idno type="shelfmark">MS CLA/043/01/003</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">p 94 (12 October) (Freeholders’ inquest: defaulters)</head>
+                    <div type="transcription">
+                        <pb type="page" n="94"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="table">
+                            <table rows="1" cols="2">
+                                <row>
+                                    <cell>
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/16635/" type="man">Francis Michell</name> gent<ex>leman</ex> 
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/236/" type="man">Edward Allen</name> 
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/7842/" type="rank">esq<ex>uire</ex></name> 
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/16681/" type="man">Richard wotton</name> gent<ex>leman</ex> for not 
+                                        app<ex>ar</ex>ance at this
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/15212/" type="court_legal">Courte</name> and amerced in
+                                    </cell>
+                                    <cell rend="right">xviij s. p<ex>er</ex> poll</cell>
+                                </row>    
+                            </table>
+                        </ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote"/>
+                </body>
+                <link type="document_desc" target="#Midd_FMHA"/>
+            </text>
+            <text type="record" xml:id="rec47_FIN_1625_FMHA_p97">
+                <body>
+                    <head type="main">
+                        <placeName><name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date when-iso="1625-11-15">1625</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">Finsbury</name> Manor 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8057/" type="document">Records</name>
+                        </title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository" corresp="#abbr_LMA">LMA</idno>:
+                            <idno type="shelfmark">MS CLA/043/01/003</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">p 97 (15 November) (Freeholders’ inquest: defaulters)</head>
+                    <div type="transcription">
+                        <pb type="page" n="97"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="body">
+                            It<ex>e</ex>m they doe present <gap reason="omitted"/> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/236/" type="man">Edward Allen</name> <gap reason="omitted"/> for not app<ex>er</ex>inge at this 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15212/" type="court_legal">Courte</name> in ij s. p<ex>er</ex> polle
+                        </ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote"/>
+                </body>
+                <link type="document_desc" target="#Midd_FMHA"/>
+            </text>
+            <text type="record" xml:id="rec48_FIN_1626_FMHA_p99">
+                <body>
+                    <head type="main">
+                        <placeName><name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date when-iso="1626-10-03">1626</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">Finsbury</name> Manor 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8057/" type="document">Records</name>
+                        </title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository" corresp="#abbr_LMA">LMA</idno>:
+                            <idno type="shelfmark">MS CLA/043/01/003</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">p 99 (3 October) (Freeholders’ inquest: defaulters)</head>
+                    <div type="transcription">
+                        <pb type="page" n="99"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="body">It<ex>e</ex>m wee doe present <gap reason="omitted"/> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/236/" type="man">Edward Allen</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7842/" type="rank">esq<ex>uire</ex></name> <gap reason="omitted"/> in vj d. p<ex>er</ex> poll for not app<ex>er</ex>einge
+                            at this 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15212/" type="court_legal">Courte</name> to doe their suite &amp; service
+                        </ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote"/>
+                </body>
+                <link type="document_desc" target="#Midd_FMHA"/>
+            </text>
+            <text type="record" xml:id="rec49_FIN_1628_FMHA_p102">
+                <body>
+                    <head type="main">
+                        <placeName><name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date when-iso="1628-10-07">1628</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">Finsbury</name> Manor 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8057/" type="document">Records</name>
+                        </title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository" corresp="#abbr_LMA">LMA</idno>:
+                            <idno type="shelfmark">MS CLA/043/01/003</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">p 102 (7 October) (Freeholders’ inquest: defaulters)</head>
+                    <div type="transcription">
+                        <pb type="page" n="102"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="body">The homage doe present at this 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15212/" type="court_legal">Courte</name> <gap reason="omitted"/> thexecutors &amp; oversers of 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/236/" type="man">Edward Allin</name> <gap reason="omitted"/> are amerced in xij d. p<ex>er</ex>
+                            poll for not app<ex>er</ex>inge at this 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15212/" type="court_legal">Courte</name> to do their seu<ex>er</ex>all suites &amp; seruices.
+                        </ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                        <lb/>
+                        <ab type="subhead">p 104*  (Freeholders’ inquest: new tenants)</ab>
+                        <pb type="page" n="104"/><lb/>
+                        <ab type="body">Item the homage doe present that 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/16784/" type="man">Iames Travers</name> gent<ex>leman</ex> one of the Tenutes of this 
+                            Mannour dyed before this 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/12483/" type="court_legal">Courte</name> &amp;
+                            that 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/16784/" type="man">Iames Travers</name> is his second sonne vnto whome the land<ex>es</ex>
+                            hereafter menc<ex>i</ex>oned are bequevethed by the last will &amp;
+                            Testament of the said 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/16784/" type="man">Iames Travers</name> deceased, &amp; that the said 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/16784/" type="man">Iames Travers</name> deceased dyed seised of a little p<ex>ar</ex>cell of Comen
+                            grounde in 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7075/" type="place_sub_settlement">whitecrosse street</name> late in the tenure of 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/11695/" type="man">Iohn Hillyard</name> &amp; before in the tenure of 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/12816/" type="man">Iohn Worsopp</name> vpon w<ex>hi</ex>ch p<ex>ar</ex>cell
+                            of grounde divers ten<ex>emen</ex>tes have bene &amp; nowe are lately erected &amp; builted, nowe or late in the seu<ex>er</ex>all
+                            enures or
+                            occupac<ex>i</ex>ons of 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15710/" type="man">Richard Gonnell</name>, 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/16939/" type="man">Mathewe Smithe</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/16985/" type="man">Iohn Massey</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/17031/" type="man">Richard Stratford</name>, 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/17455/" type="woman">widowe Baseley</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/17077/" type="man">Richard Browne</name>, 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/17421/" type="woman">widow Butler</name>, 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/17123/" type="man">Iohn Palmer</name>,
+                            <name key="http://reed.utoronto.ca/django/eats/entity/17169/" type="man">Charles Browne</name>, 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/17215/" type="man">Walter Hill</name>, 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/17307/" type="woman">Aveline Bradley widowe</name>, 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/17489/" type="woman">widowe Aveice</name>, 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/17353/" type="woman">widowe mason</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/17387/" type="woman">widowe wade</name>, &amp; 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/17261/" type="man">Thomas Browne</name> for w<ex>hi</ex>ch said
+                            ten<ex>emen</ex>tes &amp; premisses the said 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/16784/" type="man">Iames Travers</name> did doe his ffealtie &amp; that xij d. p<ex>er</ex> Ann<ex>um</ex> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/4164/" type="subject">quittrent</name> is
+                            due to the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15182/" type="rank">lord<ex>es</ex> of this Manor</name>.
+                        </ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote">
+                        <ab type="endnote">The new tenements erected in 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7075/" type="place_sub_settlement">Whitecross Street</name>
+                            were now occupied by various 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/2980/" type="occupation">players</name> at the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1444/" type="place_playing">Fortune playhouse</name>.</ab>
+                    </div>
+                </body>
+                <link type="document_desc" target="#Midd_FMHA"/>
+            </text>
+            <text type="record" xml:id="rec50_FIN_1629_FMHA_p107">
+                <body>
+                    <head type="main">
+                        <placeName><name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date when-iso="1629-10-06">1629</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">Finsbury</name> Manor 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8057/" type="document">Records</name>
+                        </title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository" corresp="#abbr_LMA">LMA</idno>:
+                            <idno type="shelfmark">MS CLA/043/01/003</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">p 107* (6 October) (Freeholders’ inquest: new tenant)</head>
+                    <div type="transcription">
+                        <pb type="page" n="107"/>
+                        <ab type="body">It<ex>e</ex>m 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8127/" type="man">Thomas Allyn</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7886/" type="man"> Maister Mathias Allin</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8613/" type="office">warden of the Colledge</name> named 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7932/" type="place_built">Godsguifte</name> in 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/10654/" type="place_settlement">dulwich</name> in the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3720/" type="place_region">Countie of Surrey</name> appeared
+                            at this 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15212/" type="court_legal">Courte</name> &amp; have given in evidence to the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15212/" type="court_legal">Courte</name> that the land<ex>es</ex> late of 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/236/" type="man">Edward Allin</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7842/" type="rank">esquier </name>deceased holden of this
+                            <name key="http://reed.utoronto.ca/django/eats/entity/9209/" type="place_sub_settlement">Manno<ex>u</ex>r</name> scituate in 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7075/" type="place_sub_settlement">whitecrosse streete</name> &amp; in 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/2811/" type="place_sub_settlement">Goldinge lane</name> w<ex>hi</ex>ch the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1713/" type="place_playing">playhowse</name> called the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1444/" type="place_playing">fortune</name>, (w<ex>hi</ex>ch
+                            ten<ex>emen</ex>tes in 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7075/" type="place_sub_settlement">whitecrosse street</name> are nowe in the severall tenures of 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/17609/" type="man">Roger Iveson</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/17659/" type="man">Richard Hill</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/17709/" type="man">Iohn Gibbs</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/17759/" type="man">Iohn Harte</name> &amp; divers
+                            others &amp; of 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/17809/" type="man">Thomas Pitts</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1044/" type="man">Mr Iohnson</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/17863/" type="man">Willyam Weason</name> &amp; 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/17913/" type="man">Gyles Turke</name> in 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/2811/" type="place_sub_settlement">Golding lane</name>) 
+                            All w<ex>hi</ex>ch land<ex>es</ex> were given in
+                            Mortmayne by 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/10013/" type="document">licence</name>, by the said 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/236/" type="man">Edward Allen</name> for &amp; toward<ex>es</ex> the maintenance of the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7932/" type="place_built">Colledge</name> abovesaid &amp; that there is
+                            <ex>(blank)</ex> p<ex>er</ex> Ann<ex>um</ex> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/4164/" type="subject">quittrente</name> due for the presmises.
+                        </ab><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote">
+                        <ab type="endnote">The 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8613/" type="office">wardens</name> (or 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8035/" type="office">master</name> and 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/17995/" type="office">governors</name>) of 
+                            '<name key="http://reed.utoronto.ca/django/eats/entity/7932/" type="place_built">godsguifte colledge</name>' were fined for non-appearance at the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15212/" type="court_legal">Manor Court</name> in 1632, 1634, and
+                            1636, the heirs of 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/236/" type="man">Edward Alleyn</name> in 1633, the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/17995/" type="office">governors</name> (or 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8035/" type="office">masters</name>) and 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8613/" type="office">wardens</name> of 
+                            '<name key="http://reed.utoronto.ca/django/eats/entity/7932/" type="place_built">Godsguifte at Dulwich</name>' in 1637–42, 1645–8, 1652–6, 1658–9, and
+                            still in 1857.  
+                            Edward Allin<!--EATS-->, gentleman, appears as a defaulter from 1642 for 
+                            several years, only in 1646 at the same time as the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7932/" type="place_built">Dulwich College</name>
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8613/" type="office">wardens</name>, but he was probably a different man from the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/2980/" type="occupation">actor</name> (pp 112, 116, 120, 124, 126, 128, 132, 140, 144, 146, 148, 150, 153, 157, 172, 175, 177,
+                            179, 184, 192, 203, 220).
+                        </ab>
+                    </div>
+                </body>
+                <link type="document_desc" target="#Midd_FMHA"/>
+            </text>
+            <text type="record" xml:id="rec51_FIN_1630_FMHA_p108">
+                <body>
+                    <head type="main">
+                        <placeName><name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date when-iso="1630-10-12">1630</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">Finsbury</name> Manor 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8057/" type="document">Records</name>
+                        </title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository" corresp="#abbr_LMA">LMA</idno>:
+                            <idno type="shelfmark">MS CLA/043/01/003</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">p 108 (12 October) (Freeholders’ inquest: defaulters)</head>
+                    <div type="transcription">
+                        <pb type="page" n="108"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="body">At this 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15212/" type="court_legal">Courte</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/236/" type="man">Edward Allin</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7842/" type="rank">esq<ex>uire</ex></name> <gap reason="omitted"/> are 
+                            amerced in vi d. p<ex>er</ex> poll for not appeareinge at this 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15212/" type="court_legal">Courte</name> to doe
+                            their suite and services./
+                        </ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote"/>
+                </body>
+                <link type="document_desc" target="#Midd_FMHA"/>
+            </text>
+            <text type="record" xml:id="rec52_FIN_1634_FMHA_p120">
+                <body>
+                    <head type="main">
+                        <placeName><name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName> 
+                        <date when-iso="1634-10-07">1634</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">Finsbury</name> Manor 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8057/" type="document">Records</name>
+                        </title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository" corresp="#abbr_LMA">LMA</idno>:
+                            <idno type="shelfmark">MS CLA/043/01/003</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">p 120 (7 October) (Freeholders’ inquest: defaulters)</head>
+                    <div type="transcription">
+                        <pb type="page" n="120"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="body">At this 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15212/" type="court_legal">Courte</name> the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8035/" type="office">M<ex>aste</ex>r</name> &amp; 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/17995/" type="office">Governors</name> of 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7932/" type="place_built">Godsguifte Colledge</name>
+                            <gap reason="omitted"/> are amerced in iiij d. p<ex>er</ex> poll for not
+                            app<ex>er</ex>einge at this 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15212/" type="court_legal">Courte</name> do doe their seuerall suites &amp; services
+                        </ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote"/>
+                </body>
+                <link type="document_desc" target="#Midd_FMHA"/>
+            </text>
+            <text type="record" xml:id="rec53_FIN_1636_FMHA_p124">
+                <body>
+                    <head type="main">
+                        <placeName><name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date when-iso="1636-10-25">1636</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">Finsbury</name> Manor 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8057/" type="document">Records</name>
+                        </title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository" corresp="#abbr_LMA">LMA</idno>:
+                            <idno type="shelfmark">MS CLA/043/01/003</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">p 124 (25 October) (Freeholders’ inquest: defaulters)</head>
+                    <div type="transcription">
+                        <pb type="page" n="124"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="body">At this 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15212/" type="court_legal">Courte</name> the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8035/" type="office">M<ex>aste</ex>r</name> &amp; 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/17995/" type="office">Governours</name> of 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7932/" type="place_built">Godsguifte Colledge</name>
+                            <gap reason="omitted"/> for not app<ex>er</ex>einge at this 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15212/" type="court_legal">Courte</name> to doe
+                            their suite &amp; service and amerced in iiij d. p<ex>er</ex> poll
+                        </ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="body">It<ex>e</ex>m the homage doe fynde that before this 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15212/" type="court_legal">Courte</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/16784/" type="man">Mr Iames 
+                                <ref target="rec36_fn24" type="foot_anchor">Trave<damage agent="cropping"><gap unit="chars" extent="2"/></damage></ref></name>
+                                <note xml:id="rec36_fn24" type="foot">Trave<damage><gap unit="chars" quantity="2"/></damage>: <hi rend="italic">letters lost due to cropping</hi>
+                                </note> &amp; others did bargaine sell &amp; conveye vnto the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/18056/" type="office">vicear</name> &amp; 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/18108/" type="office">Churchwardens</name> of 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/2664/" type="place_religion">St Gyles w<ex>i</ex>t<ex>h</ex>out Creplegate</name>
+                            <name key="http://reed.utoronto.ca/django/eats/entity/2501/" type="place_settlement">London</name>
+                            &amp; their Successors a certaine p<ex>ar</ex>cell of grou<ex>n</ex>de in 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7075/" type="place_sub_settlement">Whitecrossestreete</name>
+                            neare the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1444/" type="place_playing">Fortune Playehowse</name> in mortmayne
+                            w<ex>hi</ex>ch is converted &amp; vsed for a 
+                            Churchyard to buy the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/4164/" type="subject">deade</name> in &amp; at this 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/12483/" type="court_legal">Courte</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/18174/" type="man">Iohn Bowman</name> one of the
+                            <name key="http://reed.utoronto.ca/django/eats/entity/18108/" type="office">Churchwarden<ex>es</ex></name> of the said 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/2664/" type="place_religion">p<ex>ar</ex>ishe Churche</name> did app<ex>er</ex>e at this 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15212/" type="court_legal">Courte</name> &amp; doe his fealtie for himseffe &amp; the
+                            rest of the feoffees for the said p<ex>ar</ex>cell of grounde./
+                        </ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote"/>
+                </body>
+                <link type="document_desc" target="#Midd_FMHA"/>
+            </text>
+            <text type="record" xml:id="rec54_FIN_1637_FMHA_p126">
+                <body>
+                    <head type="main">
+                        <placeName><name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date when-iso="1637-10-03">1637</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">Finsbury</name> Manor 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8057/" type="document">Records</name>
+                        </title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository" corresp="#abbr_LMA">LMA</idno>:
+                            <idno type="shelfmark">MS CLA/043/01/003</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">p 126 (3 October) (Freeholders’ inquest: defaulters)</head>
+                    <div type="transcription">
+                        <pb type="page" n="126"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="body">At this 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15212/" type="court_legal">Courte</name> <gap reason="omitted"/> the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/17995/" type="office">Governour</name> &amp; 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8613/" type="office">wardens</name> <add rend="above">vj d.</add> of 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7932/" type="place_built">Godsguifte at Dulwich</name> <gap reason="omitted"/> are amerced as on
+                            their head<ex>es</ex> app<ex>er</ex>eth for not app<ex>er</ex>inge at this 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15212/" type="court_legal">Courte</name> to doe their suites &amp; services,
+                        </ab><lb/> 
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote"/>
+                </body>
+                <link type="document_desc" target="#Midd_FMHA"/>
+            </text>
+            <text type="record" xml:id="rec55_FIN_1638_FMHA_p128">
+                <body>
+                    <head type="main">
+                        <placeName><name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date when-iso="1638-10-18">1638</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">Finsbury</name> Manor 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8057/" type="document">Records</name>
+                        </title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository" corresp="#abbr_LMA">LMA</idno>:
+                            <idno type="shelfmark">MS CLA/043/01/003</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">p 128 (18 October) (Freeholders’ inquest: defaulters)</head>
+                    <div type="transcription">
+                        <pb type="page" n="128"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="body">At this 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15212/" type="court_legal">Courte</name> the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8035/" type="office">M<ex>aste</ex>r</name> &amp; 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8613/" type="office">wardens</name> of 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7932/" type="place_built">Godsguift College</name>
+                            &#x28C;<add rend="above">2 d.</add> <gap reason="omitted"/> for not appereinge
+                            at this 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15212/" type="court_legal">Courte</name>
+                            to doe their severall sutes &amp; services are amerced as on their head<ex>es</ex> app<ex>er</ex>eth.
+                        </ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote"/>
+                </body>
+                <link type="document_desc" target="#Midd_FMHA"/>
+            </text>
+            <text type="record" xml:id="rec56_FIN_1639_FMHA_p130">
+                <body>
+                    <head type="main">
+                        <placeName><name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date when-iso="1639-10-08">1639</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">Finsbury</name> Manor 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8057/" type="document">Records</name>
+                        </title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository" corresp="#abbr_LMA">LMA</idno>:
+                            <idno type="shelfmark">MS CLA/043/01/003</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">p 130 (8 October) (Freeholders’ inquest: defaulters)</head>
+                    <div type="transcription">
+                        <pb type="page" n="130"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="body">At this 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15212/" type="court_legal">Courte</name> <gap reason="omitted"/> the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/17995/" type="office">Governour</name> <add rend="above">iiij d.</add> &amp; 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8613/" type="office">wardens</name> of 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7932/" type="place_built">Godsguift Colledge</name> at
+                            <name key="http://reed.utoronto.ca/django/eats/entity/10654/" type="place_settlement">Dulwich</name> <gap reason="omitted"/> for not
+                            app<ex>er</ex>einge at this 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15212/" type="court_legal">Courte</name>
+                            to doe their serveral suites &amp; services are amerced as on their head<ex>es</ex> app<ex>er</ex>eth.
+                        </ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote"/>
+                </body>
+                <link type="document_desc" target="#Midd_FMHA"/>
+            </text>
+            <text type="record" xml:id="rec57_FIN_1641_FMHA_p140">
+                <body>
+                    <head type="main">
+                        <placeName><name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date when-iso="1641-10-19">1641</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">Finsbury</name> Manor
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8057/" type="document">Records</name>
+                        </title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository" corresp="#abbr_LMA">LMA</idno>:
+                            <idno type="shelfmark">MS CLA/043/01/003</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">p 140 (19 October) (Freeholders’ inquest: defaulters)</head>
+                    <div type="transcription">
+                        <pb type="page" n="140"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="body">At this <name key="http://reed.utoronto.ca/django/eats/entity/15212/" type="court_legal">Courte</name> <gap reason="omitted"/> the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/17995/" type="office">Governour</name> &amp; 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8613/" type="office">wardens</name> of 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7932/" type="place_built">Godsguift</name> <add rend="above">4 d.</add> at 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/10654/" type="place_settlement">Dulwich</name> <gap reason="omitted"/> for note
+                            app<ex>er</ex>inge at this 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15212/" type="court_legal">Courte</name>
+                            to doe their seu<ex>er</ex>all suites &amp; services are amerced as on their severall head<ex>es</ex>
+                            app<ex>er</ex>eth.
+                        </ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote"/>
+                </body>
+                <link type="document_desc" target="#Midd_FMHA"/>
+            </text>
+            <text type="record" xml:id="rec58_FIN_1642_FMHA_p144">
+                <body>
+                    <head type="main">
+                        <placeName><name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date when-iso="1642-10-11">1642</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">Finsbury</name> Manor 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8057/" type="document">Records</name>
+                        </title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository" corresp="#abbr_LMA">LMA</idno>:
+                            <idno type="shelfmark">MS CLA/043/01/003</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">p 144 (11 October) (Freeholders’ inquest: defaulters)</head>
+                    <div type="transcription">
+                        <pb type="page" n="144"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="body">At this 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15212/" type="court_legal">Courte</name> <gap reason="omitted"/> the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/17995/" type="office">Governour</name> &amp; 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8613/" type="office">wardens</name> <add rend="above">ij d.</add> of 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7932/" type="place_built">Godsguifte Colledge</name> <gap reason="omitted"/> for not 
+                            app<ex>er</ex>inge to doe their severall suites &amp; services are amerced as on their severall head<ex>es</ex> app<ex>er</ex>eth./.
+                        </ab><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote"/>
+                </body>
+                <link type="document_desc" target="#Midd_FMHA"/>
+            </text>
+            <text type="record" xml:id="rec59_FIN_1649_FMHA_p162">
+                <body>
+                   <head type="main">
+                        <placeName><name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date when-iso="1649-10-26">1649</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">Finsbury</name> Manor 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8057/" type="document">Records</name>
+                        </title>
+                       <seg type="repository_shelfmark">
+                            <idno type="repository" corresp="#abbr_LMA">LMA</idno>:
+                            <idno type="shelfmark">MS CLA/043/01/003</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">p 162 (26 October) (Court Baron)</head>
+                    <div type="transcription">
+                        <pb type="page" n="162"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="body">At this 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15212/" type="court_legal">Co<ex>u</ex>rte</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8127/" type="man">Tho<ex>mas</ex> Allen</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8035/" type="office">M<ex>aste</ex>r</name> of 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7932/" type="place_built">Gods guift Colledge</name> in 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/10654/" type="place_settlement">Dullw<ex>i</ex>ch</name> did his fealty for the
+                            land<ex>es</ex> he <del>holdeth</del> &amp; the rest of that Corporac<ex>i</ex>on holde of this 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/9209/" type="place_sub_settlement">Manno<ex>u</ex>r</name> now in the tenure of 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/18262/" type="man">Anthony Hancock</name>
+                            or his assignes scittuate in 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/2811/" type="place_sub_settlement">Golding lane</name> &amp; 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7075/" type="place_sub_settlement">Whitecrosse streete</name> w<ex>i</ex>thin the said 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/9209/" type="place_sub_settlement">Mannor</name> And to pay xxij d. yearly 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/4164/" type="subject">quitrent</name>
+                        </ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                        <lb/>
+                        <ab type="subhead"><pb type="page" n="163"/>p 163</ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="body">The Difference betweene 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/18312/" type="man">Edward Thicknes</name> and 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8127/" type="man">Thomas Allen</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/8035/" type="office">M<ex>aste</ex>r</name> of 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7932/" type="place_built">Dulw<ex>i</ex>ch Colledge</name>
+                            Conc<ex>er</ex>ning a
+                            &#x28C;<add rend="above">
+                                <name key="http://reed.utoronto.ca/django/eats/entity/11093/" type="material_building">brick</name></add> wall on the south side of the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1713/" type="place_playing">Playhouse</name> yarde 
+                            <ref target="#rec42_fn25" type="foot_anchor"><choice><sic>beweene</sic><corr>betweene</corr></choice></ref>
+                            <note xml:id="rec42_fn25" type="foot">beweene: <hi rend="italic">for</hi> betweene</note> &amp; 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/2811/" type="place_sub_settlement">golding Lane</name>
+                            hath beene viewed by vs whose names are vnder wrytten doe finde that the said
+                            <name key="http://reed.utoronto.ca/django/eats/entity/11093/" type="material_building">brick</name> wall doth belong to 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7932/" type="place_built">Dullw<ex>i</ex>ch Colledge</name>
+                            aforesaid./
+                        </ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote"/>
+                </body>
+                <link type="document_desc" target="#Midd_FMHA"/>
+            </text>
+        </group>
+    </text>
+</TEI>

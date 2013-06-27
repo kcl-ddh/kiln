@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xmtp:root xmlns:xi="http://www.w3.org/2001/XInclude"
+           xmlns:xmg="http://www.cch.kcl.ac.uk/xmod/global/1.0"
+           xmlns:xmtp="http://www.cch.kcl.ac.uk/xmod/template/1.0"
+           xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+  <xmtp:parent>
+    <xi:include href="base.xml" />
+  </xmtp:parent>
+
+  <xmtp:child>
+    <xmtp:block name="title">
+      <xsl:text>About<xmtp:super /></xsl:text>
+    </xmtp:block>
+
+    <xmtp:block name="page-header">
+      <h1>About</h1>
+    </xmtp:block>
+
+    <xmtp:block name="content">
+      <div class="span12">
+        <h3><strong>About this edition</strong></h3>
+
+        <p>This prototype edition features a representative range of
+        dramatic records, collected by Jessica Freeman, that pertain
+        to the Fortune theatre on Golding Lane, north of the London
+        City wall. The Fortune was built in 1600 and operated until
+        the mid-17th century. Our prototype does not include every
+        Fortune theatre record that will eventually appear in Dr
+        Freeman’s Middlesex collection in the REED series, but the
+        records here have served as a useful sample for development of
+        a new online production environment for REED editorial staff,
+        experimentation with TEI markup of complex texts, digital
+        indexing of persons and places, and linking with related data
+        in REED’s <em>Early Modern London Theatres</em> and
+        <em>Patrons and Performances</em> websites.</p>
+
+        <p>The public interface for this Fortune Theatre Records
+        project is intended to share initial results of our
+        collaboration and to give our users an early glimpse of some
+        aspects of the form a digital REED collection might take.</p>
+
+        <p>We are pleased to make freely available the Fortune Theatre
+        TEI records in a ZIP file on the REED information website,
+        linked <a
+        href="http://www.reed.utoronto.ca/FortuneDirectory.zip">here</a>. The
+        data is licensed under a Creative Commons
+        Attribution-NonCommercial-ShareAlike 3.0 Unported License.</p>
+
+        <p>Fuller details of the project are provided in the partners’
+        <a
+        href="http://www.reed.utoronto.ca/FortuneWhitePaper.pdf">white
+        paper</a>, also on the REED website. We welcome contact and
+        suggestions.</p>
+
+        <h3><strong>What the prototype does not include</strong></h3>
+
+        <p>The Fortune Theatre Records is a draft selection of
+        dramatic records only, not intended to be as comprehensive or
+        as thoroughly vetted as a typical REED edition. The Records
+        text has been transcribed according to long-established REED
+        editorial principles and checked in paleographical
+        detail. Document descriptions and textual notes are here
+        linked directly with their records. However, the user will not
+        find a full Introduction, Translations, or Glossaries and the
+        Endnotes remain a work in progress, so only those drafts
+        contributed by the editor are linked with their records.</p>
+
+        <p>At present, as part of our experimental process, we have
+        enabled searching the Records via only selected facets for
+        people, places, troupes, and play titles on the left side of
+        the screen.</p>
+
+        <h3><strong>About REED</strong></h3>
+
+        <p>The Records of Early English Drama (REED) is an
+        international humanities research project whose aim is to
+        find, transcribe, and publish original records of English
+        dramatic and other secular entertainment from earliest times
+        to 1642. From the beginning, the principal product of the REED
+        enterprise has been the conventional print volume, now
+        numbering 33, with another set of volumes in production for
+        <em>Civic London to 1558</em>. REED’s main focus has, of
+        necessity, been directed toward activities related to the
+        ongoing, regular production of volumes in the series. This has
+        meant that only limited resources, both in terms of staff time
+        and funding, could be allocated to implementing the digital
+        transformation of its primary output, which REED sees as a
+        critical change, essential to its future role in
+        scholarship.</p>
+
+        <p>In recent years REED has been working in deliberate steps
+        towards the transition from a traditional editorial project
+        producing a print series to a digital humanities-oriented
+        project producing <a
+        href="http://www.reed.utoronto.ca/"><em>REED Online</em></a>,
+        a web-accessible repository of all REED’s resources. At
+        present there are two research and educational datasets
+        available as open access websites: <a
+        href="http://link.library.utoronto.ca/reed/"><em>Patrons and
+        Performances</em></a>, launched in 2003 in partnership with
+        the University of Toronto Libraries, and <a
+        href="http://www.emlot.kcl.ac.uk/"><em>Early Modern London
+        Theatres</em></a>, launched in 2011 in partnership with the
+        Department of Digital Humanities, King’s College London (DDH)
+        and the University of Southampton. REED is now determined to
+        revolutionize its production processes in order to deliver
+        forthcoming county and city collections as fully searchable,
+        interactive online editions linked with other resources on the
+        internet and integrated with its own current digital projects,
+        <em>Patrons and Performances </em>and EMLoT.</p>
+
+        <p>There has been considerable exploration of the components
+        of this digital future, first through a NEH Digital Humanities
+        Startup grant (2007–9) and then thanks to a SSHRC-funded 2011
+        workshop ‘Envisioning REED in the Digital Age’ that brought
+        together 20 digital humanists to advise and bring fresh
+        perspectives to the challenge of moving REED fully online. The
+        2012 grant from the Mellon Foundation for the Fortune Theatre
+        Records prototype has amply demonstrated and tested some of
+        the essential features of the online editorial production
+        processes and moved REED significantly closer to realizing its
+        digital goals.</p>
+      </div>
+    </xmtp:block>
+
+  </xmtp:child>
+</xmtp:root>

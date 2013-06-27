@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xmtp:root xmlns:crm="http://www.cidoc-crm.org/cidoc-crm/"
+           xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+           xmlns:xi="http://www.w3.org/2001/XInclude"
+           xmlns:xmg="http://www.cch.kcl.ac.uk/xmod/global/1.0"
+           xmlns:xmtp="http://www.cch.kcl.ac.uk/xmod/template/1.0"
+           xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+  <xmtp:parent>
+    <xi:include href="base.xml" />
+  </xmtp:parent>
+
+  <xmtp:child>
+    <xmtp:block name="title">
+      <xsl:text>Entity: </xsl:text>
+      <xsl:value-of select="/aggregation/rdf:RDF[1]/rdf:Description/*[1]" />
+      <xmtp:super />
+    </xmtp:block>
+
+    <xmtp:block name="page-header">
+      <h1>
+        <xsl:text>Entity: </xsl:text>
+        <xsl:value-of select="/aggregation/rdf:RDF[1]/rdf:Description/*[1]" />
+      </h1>
+    </xmtp:block>
+
+    <xmtp:block name="content">
+      <div class="span12">
+        <p>Due to unavailable data, display of entities is truncated
+        in this example version of eREED.</p>
+
+        <div class="accordion" id="entity">
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <h2>
+                <a class="accordion-toggle" data-parent="#entity"
+                   data-toggle="collapse" href="#collapseNames">
+                  <xsl:text>Names used to refer to this entity</xsl:text>
+                </a>
+              </h2>
+            </div>
+            <div class="accordion-body collapse in" id="collapseNames">
+              <div class="accordion-inner">
+                <ul class="unstyled">
+                  <xsl:for-each select="/aggregation/rdf:RDF[1]/rdf:Description/*">
+                    <li><xsl:value-of select="." /></li>
+                  </xsl:for-each>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <h2>
+              <a class="accordion-toggle" data-parent="#entity"
+                 data-toggle="collapse" href="#collapseOccurrences">
+                <xsl:text>Occurrences</xsl:text>
+              </a>
+            </h2>
+          </div>
+          <div class="accordion-body collapse in" id="collapseOccurrences">
+            <div class="accordion-inner">
+              <ul class="unstyled">
+                <xsl:for-each select="/aggregation/rdf:RDF[2]/rdf:Description[crm:P67_refers_to]">
+                  <xsl:variable name="document_url" select="crm:P148i_is_component_of/@rdf:resource" />
+                  <li>
+                    <a>
+                      <xsl:attribute name="href">
+                        <xsl:text>../../record/</xsl:text>
+                        <xsl:value-of select="../rdf:Description[@rdf:about=$document_url]/crm:P48_has_preferred_identifier" />
+                        <xsl:text>/</xsl:text>
+                        <xsl:value-of select="crm:P48_has_preferred_identifier" />
+                        <xsl:text>/</xsl:text>
+                      </xsl:attribute>
+                      <xsl:value-of select="crm:P149_is_identified_by" />
+                    </a>
+                  </li>
+                </xsl:for-each>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </xmtp:block>
+
+  </xmtp:child>
+</xmtp:root>

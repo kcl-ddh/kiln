@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xmtp:root xmlns:xi="http://www.w3.org/2001/XInclude"
+           xmlns:xmg="http://www.cch.kcl.ac.uk/xmod/global/1.0"
+           xmlns:xmtp="http://www.cch.kcl.ac.uk/xmod/template/1.0"
+           xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+  <xmtp:parent>
+    <xi:include href="base.xml" />
+  </xmtp:parent>
+
+  <xmtp:child>
+    <xmtp:block name="title">
+      <xsl:text>Contact Us<xmtp:super /></xsl:text>
+    </xmtp:block>
+
+    <xmtp:block name="page-header">
+      <h1>Contact Us</h1>
+    </xmtp:block>
+
+    <xmtp:block name="content">
+      <div class="span12">
+        <p>We welcome your comments, suggestions, and corrections as
+        we continue to develop the public interface for future REED
+        online editions.</p>
+
+        <p>Please send your message to REED’s project manager, Carolyn
+        Black, at ca.black@utoronto.ca.</p>
+      </div>
+    </xmtp:block>
+
+  </xmtp:child>
+</xmtp:root>

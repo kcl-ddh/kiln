@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:id="Midd_Finsbury_Symbols" xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title type="main">The Fortune Theatre Records: A Prototype Digital Edition</title>
+        <funder><orgName>Andrew W. Mellon Foundation</orgName>, Scholarly Communications and Information Technology Program. Program Officer: <persName>Donald J. Waters</persName></funder>
+        <respStmt>
+          <persName>Carolyn Black</persName>
+          <orgName>Records of Early English Drama (REED)</orgName>
+          <resp>Senior Editorial Consultant</resp>
+        </respStmt>
+        <respStmt>
+          <persName xml:id="jboyd">Jason Boyd</persName>
+          <orgName>Centre for Digital Humanities</orgName> 
+          <orgName>Ryerson University, Canada</orgName>
+          <resp>TEI Customization and Implementation; Entity Authority Tool Set (EATS) Supervision</resp>
+        </respStmt>
+        <respStmt>
+          <persName>John Bradley</persName>
+          <orgName>Department of Digital Humanities (DDH)</orgName>
+          <orgName>King's College London, UK</orgName>
+          <resp>Technical Direction</resp>
+        </respStmt>
+        <respStmt>
+          <persName>Paul Caton</persName>
+          <orgName>Department of Digital Humanities (DDH)</orgName>
+          <orgName>King's College London, UK</orgName>
+          <resp>TEI/XML Consultant; Entity Authority Tool Set (EATS) Data Design</resp>
+        </respStmt>
+        <respStmt>
+          <persName>Peter Clifford</persName>
+          <orgName>Boydell and Brewer</orgName>
+          <resp></resp>
+        </respStmt>
+        <respStmt>
+          <persName>Jessica Freedman</persName>
+          <resp>Editor, REED Middlesex inlcuding Westminster collection</resp>
+        </respStmt>
+        <respStmt>
+          <persName>Trieneke Gastmeier</persName>
+          <orgName>Centre for Digital Humanities</orgName>
+          <orgName>Ryerson University, Canada</orgName>
+          <resp>EATS Implementation</resp>
+        </respStmt>
+        <respStmt>
+          <persName>John Geck</persName>
+          <orgName>Records of Early English Drama (REED)</orgName>
+          <resp>Project Manager</resp>
+        </respStmt>
+        <respStmt>
+          <persName>Patrick Gregory</persName>
+          <orgName>Records of Early English Drama (REED)</orgName>
+          <resp>Paleographer</resp>
+        </respStmt>
+        <respStmt>
+          <persName>Tanya Hagen</persName>
+          <orgName>Records of Early English Drama (REED)</orgName>
+          <resp>Bibliographer; Editor, <title type="database">Early Modern London Theatres</title> (EMLoT) Fortune Theatre records</resp>
+        </respStmt>
+        <respStmt>
+          <persName>Stephanie Hovland</persName>
+          <orgName>Records of Early English Drama (REED)</orgName>
+          <resp>Associate Paleographer</resp>
+        </respStmt>
+        <respStmt>
+          <persName>Sally-Beth MacLean</persName>
+          <orgName>Records of Early English Drama (REED)</orgName>
+          <resp>Principal Investigator; Editorial Direction</resp>
+        </respStmt>
+        <respStmt>
+          <persName>Sian Meikle</persName>
+          <orgName>Information Technology Services, University of Toronto Libraries</orgName>
+          <orgName>University of Toronto, Canada</orgName>
+          <resp></resp>
+        </respStmt>
+        <respStmt>
+          <persName>Daniela Robibero</persName>
+          <orgName>Centre for Digital Humanities</orgName>
+          <orgName>Ryerson University, Canada</orgName>
+          <resp>Cumulative London REED Collection Index Compiler</resp>
+        </respStmt>
+        <respStmt>
+          <persName>Mike Stumpf</persName>
+          <resp>Supplementary Fortune Theatre Records Research</resp>
+        </respStmt>
+        <respStmt>
+          <persName>Paul Vetch</persName>
+          <orgName>Department of Digital Humanities</orgName>
+          <orgName>King's College, London, UK</orgName>
+          <resp>Boydell and Brewer Liason</resp>
+        </respStmt>
+        <respStmt>
+          <persName>Jose Miguel Viera</persName>
+          <orgName>Department of Digital Humanities</orgName>
+          <orgName>King's College, London</orgName>
+          <resp>Prototype Web Application Creator</resp>
+        </respStmt>
+      </titleStmt>
+      <editionStmt>
+        <edition>Prototype digital edition, version 1, released March 26 2013.</edition>
+      </editionStmt>
+      <publicationStmt>
+        <authority><orgName>Records of Early English Drama (REED)</orgName>
+          <address>
+          <addrLine>University of Toronto</addrLine>
+          <addrLine>170 St George Street, Suite 810</addrLine>
+          <addrLine>Toronto, Ontario, Canada</addrLine>
+          <addrLine>M5R 2M8</addrLine>
+        </address>
+        </authority>
+        <availability>
+          <p>Copyright <orgName>Records of Early English Drama (REED)</orgName>, <date>2012</date></p>
+          <licence target="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_US">Distributed under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported (CC BY-NC-SA 3.0) licence.</licence>
+        </availability>
+      </publicationStmt>
+      <seriesStmt>
+        <title>Records of Early English Drama</title>
+      </seriesStmt>
+      <sourceDesc>
+        <p>Born digital. Information on original sources for transcriptions can be accessed via the transcriptions.</p>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc><!--Requires further exploration-->
+      <projectDesc>
+        <p>The Fortune Theatre Reecords: A Prototype Digital Edition is the outcome of a project exploring methods and means for the publication of Records of Early English Drama (REED)
+          collections in a digital format.</p>
+      </projectDesc>
+      <editorialDecl>
+        <p>Do we want to use this for the Editorial Procedures section of the REED collection apparatus?</p>
+      </editorialDecl>
+      <tagsDecl>
+        <namespace name="http://www.tei-c.org/ns/1.0">
+          <tagUsage gi="del">Used to enclose cancelled text in record transcriptions. At-code practise: cancelled text enclosed in square brackets ([...]).</tagUsage>
+        </namespace>
+      </tagsDecl>
+      <refsDecl>
+        <p>For infomation on attribues and values.</p>
+      </refsDecl>
+    </encodingDesc>
+    <revisionDesc>
+      <change n="1.0" when="2013-03-26" who="#jboyd">First public version</change>
+    </revisionDesc>
+  </teiHeader>
+  <text type="abbreviations_symbols">
+    <body>
+      <head>SYMBOLS</head>
+      <div type="repository_abbr">
+        <list>
+          <item xml:id="abbr_BL">
+            <abbr>BL</abbr>
+            <expan>British Library</expan>
+          </item>
+          <item xml:id="abbr_Bodl.">
+            <abbr>Bodl.</abbr>
+            <expan>Bodleian Library</expan>
+          </item>
+          <item xml:id="abbr_DCA">
+            <abbr>DCA</abbr>
+            <expan>Dulwich College Archives</expan>
+          </item>
+          <item xml:id="abbr_LMA">
+            <abbr>LMA</abbr>
+            <expan>London Metropolitan Archives</expan>
+          </item>
+          <item xml:id="abbr_TNA_PRO">
+            <abbr>TNA: PRO</abbr>
+            <expan>The National Archives: Public Record Office</expan>
+          </item>
+        </list>
+      </div>
+      <div type="symbols">
+        <list>
+          <item xml:id="abbr_A">
+            <abbr>A</abbr>
+            <expan>Antiquarian Compilation</expan>
+          </item>
+          <item xml:id="abbr_AC">
+            <abbr>AC</abbr>
+            <expan>Antiquarian Collection</expan>
+          </item>
+          <item xml:id="abbr_STC">
+            <abbr rend="italic">STC</abbr>
+            <expan>A.W. Pollard and G.R. Redgrave (comps), <title type="monograph">Short-Title Catalogue...1475–1640</title></expan>
+          </item>
+          <item xml:id="abbr_Wing">
+            <abbr>Wing</abbr>
+            <expan>D.G. Wing (comp), <title type="monograph">Short-Title Catalogue...1641–1700</title></expan>
+          </item>
+          <item xml:id="symbol_damage_gap">
+            <term>&#x3008;&#x2026;&#x3009;</term>
+            <gloss>lost or illegible letters in the original</gloss>
+          </item>
+          <item xml:id="symbol_del">
+            <term>[ ]</term>
+            <gloss>cancellation in the original</gloss>
+          </item>
+          <item xml:id="symbol_space">
+            <term rend="italic">(blank)</term>
+            <gloss>a blank in the original where writing would be expected</gloss>
+          </item>
+          <item xml:id="symbol_add_handShift">
+            <term>&#x00B0; &#x00B0;</term>
+            <gloss>matter in the original added in another hand</gloss>
+          </item>
+          <item xml:id="symbol_add_above">
+            <term>&#x2E22; &#x2E23;</term>
+            <gloss>text written above the line</gloss>
+          </item>
+          <item xml:id="symbol_add_below">
+            <term>&#x2E24; &#x2E25;</term>
+            <gloss>text written below the line</gloss>
+          </item>
+          <item xml:id="symbol_caret">
+            <term>^</term>
+            <gloss>caret mark in the original</gloss>
+          </item>
+          <item xml:id="symbol_pb">
+            <term>|</term>
+            <gloss>change of folio, membrane, page, or sheet in continuous text</gloss>
+          </item>
+        </list>
+      </div>
+    </body>
+  </text>
+</TEI>

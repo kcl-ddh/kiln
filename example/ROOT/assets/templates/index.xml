@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xmtp:root xmlns:xi="http://www.w3.org/2001/XInclude"
+           xmlns:xmg="http://www.cch.kcl.ac.uk/xmod/global/1.0"
+           xmlns:xmtp="http://www.cch.kcl.ac.uk/xmod/template/1.0"
+           xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+  <xmtp:parent>
+    <xi:include href="base.xml" />
+  </xmtp:parent>
+
+  <xmtp:child>
+    <xmtp:block name="title">
+      <xsl:text>Home | The Fortune Theatre Records</xsl:text>
+    </xmtp:block>
+
+    <xmtp:block name="page-header">
+      <div class="hero-unit">
+        <div class="container">
+          <h1>The Fortune Theatre Records</h1>
+
+          <p class="lead">Welcome to a Prototype Digital Edition by
+          Records of Early English Drama (REED).</p>
+        </div>
+      </div>
+    </xmtp:block>
+
+    <xmtp:block name="content">
+      <div class="span12">
+        <p>The Fortune Theatre Records: A Prototype Digital Edition is
+        an important first stage of development for the future
+        publication of born-digital editions in the Records of Early
+        English Drama series. This initiative grew out of a
+        collaboration between the <a
+        href="http://www.reed.utoronto.ca/" target="_new">Records of
+        Early English Drama</a> (REED) and the <a
+        href="http://onesearch.library.utoronto.ca/about-us?source=aboutus"
+        target="_new">University of Toronto Libraries</a> at the
+        University of Toronto, the <a
+        href="http://www.kcl.ac.uk/artshums/depts/ddh/"
+        target="_new">Department of Digital Humanities</a> (DDH) at
+        King's College London, the <a
+        href="http://www.ryerson.ca/cdh/" target="_new">Centre for
+        Digital Humanities</a> at Ryerson University, and REED’s
+        academic publisher, <a
+        href="http://www.boydellandbrewer.com/default.asp"
+        target="_new">Boydell &amp; Brewer</a>.  We are very grateful
+        to the <a href="http://www.mellon.org/" target="_new">Andrew
+        W. Mellon Foundation</a> for a grant to fund this initiative
+        (for further details, please see <a
+        href="http://ereed.cch.kcl.ac.uk/home/team-and-sponsor/"
+        target="_new">Team and Sponsor</a>).</p>
+      </div>
+    </xmtp:block>
+  </xmtp:child>
+</xmtp:root>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="../schema/menu/menu.rng" type="xml"?>
+<root label="" xmlns="http://www.cch.kcl.ac.uk/xmod/menu/1.0">
+  <menu href="" label="Home" />
+  <menu href="search/" label="Search" />
+  <menu href="editorial/" label="Editorial Abbreviations and Symbols" />
+  <menu href="about/" label="About" />
+  <menu href="team/" label="Team and Sponsor" />
+  <menu href="contact/" label="Contact Us" />
+  <menu href="admin/" label="Admin" />
+</root>

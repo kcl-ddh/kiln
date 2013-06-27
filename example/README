@@ -1,0 +1,27 @@
+Example Application
+===================
+
+The following documentation is specifically for setting up and using
+the example Kiln application, and is in addition to the more general
+Kiln documentation.
+
+The example site is an adaptation (with reduced functionality and
+content) of the eREED project (http://ereed.cch.kcl.ac.uk/), and makes
+use of the TEI content and code of that project.
+
+
+Installation and setup
+----------------------
+
+* Copy all of the files in this directory into the webapps directory,
+  replacing any existing files with the same paths.
+
+* Create a new Sesame RDF repository at /openrdf-workbench/ with the
+  ID "test".
+
+* Run the webserver and go to /admin/xml/ and harvest and index all of
+  the documents.
+
+Note that this example site does depend on core Kiln files not
+provided in this directory but in the main distribution (the webapps
+directory)

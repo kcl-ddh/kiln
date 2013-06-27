@@ -1,0 +1,1480 @@
+<?xml version="1.0" encoding="UTF-8"?><TEI xml:id="Midd_Finsbury06" xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title type="main">The Fortune Theatre Records: A Prototype Digital Edition</title>
+                <funder><orgName>Andrew W. Mellon Foundation</orgName>, Scholarly Communications and Information Technology Program. Program Officer: <persName>Donald J. Waters</persName></funder>
+                <respStmt>
+                    <persName>Carolyn Black</persName>
+                    <orgName>Records of Early English Drama (REED)</orgName>
+                    <resp>Senior Editorial Consultant</resp>
+                </respStmt>
+                <respStmt>
+                    <persName xml:id="jboyd">Jason Boyd</persName>
+                    <orgName>Centre for Digital Humanities</orgName> 
+                    <orgName>Ryerson University, Canada</orgName>
+                    <resp>TEI Customization and Implementation; Entity Authority Tool Set (EATS) Supervision</resp>
+                </respStmt>
+                <respStmt>
+                    <persName>John Bradley</persName>
+                    <orgName>Department of Digital Humanities (DDH)</orgName>
+                    <orgName>King's College London, UK</orgName>
+                    <resp>Technical Direction</resp>
+                </respStmt>
+                <respStmt>
+                    <persName>Paul Caton</persName>
+                    <orgName>Department of Digital Humanities (DDH)</orgName>
+                    <orgName>King's College London, UK</orgName>
+                    <resp>TEI/XML Consultant; Entity Authority Tool Set (EATS) Data Design</resp>
+                </respStmt>
+                <respStmt>
+                    <persName>Peter Clifford</persName>
+                    <orgName>Boydell and Brewer</orgName>
+                    <resp></resp>
+                </respStmt>
+                <respStmt>
+                    <persName>Jessica Freedman</persName>
+                    <resp>Editor, REED Middlesex inlcuding Westminster collection</resp>
+                </respStmt>
+                <respStmt>
+                    <persName>Trieneke Gastmeier</persName>
+                    <orgName>Centre for Digital Humanities</orgName>
+                    <orgName>Ryerson University, Canada</orgName>
+                    <resp>EATS Implementation</resp>
+                </respStmt>
+                <respStmt>
+                    <persName>John Geck</persName>
+                    <orgName>Records of Early English Drama (REED)</orgName>
+                    <resp>Project Manager</resp>
+                </respStmt>
+                <respStmt>
+                    <persName>Patrick Gregory</persName>
+                    <orgName>Records of Early English Drama (REED)</orgName>
+                    <resp>Paleographer</resp>
+                </respStmt>
+                <respStmt>
+                    <persName>Tanya Hagen</persName>
+                    <orgName>Records of Early English Drama (REED)</orgName>
+                    <resp>Bibliographer; Editor, <title type="database">Early Modern London Theatres</title> (EMLoT) Fortune Theatre records</resp>
+                </respStmt>
+                <respStmt>
+                    <persName>Stephanie Hovland</persName>
+                    <orgName>Records of Early English Drama (REED)</orgName>
+                    <resp>Associate Paleographer</resp>
+                </respStmt>
+                <respStmt>
+                    <persName>Sally-Beth MacLean</persName>
+                    <orgName>Records of Early English Drama (REED)</orgName>
+                    <resp>Principal Investigator; Editorial Direction</resp>
+                </respStmt>
+                <respStmt>
+                    <persName>Sian Meikle</persName>
+                    <orgName>Information Technology Services, University of Toronto Libraries</orgName>
+                    <orgName>University of Toronto, Canada</orgName>
+                    <resp></resp>
+                </respStmt>
+                <respStmt>
+                    <persName>Daniela Robibero</persName>
+                    <orgName>Centre for Digital Humanities</orgName>
+                    <orgName>Ryerson University, Canada</orgName>
+                    <resp>Cumulative London REED Collection Index Compiler</resp>
+                </respStmt>
+                <respStmt>
+                    <persName>Mike Stumpf</persName>
+                    <resp>Supplementary Fortune Theatre Records Research</resp>
+                </respStmt>
+                <respStmt>
+                    <persName>Paul Vetch</persName>
+                    <orgName>Department of Digital Humanities</orgName>
+                    <orgName>King's College, London, UK</orgName>
+                    <resp>Boydell and Brewer Liason</resp>
+                </respStmt>
+                <respStmt>
+                    <persName>Jose Miguel Viera</persName>
+                    <orgName>Department of Digital Humanities</orgName>
+                    <orgName>King's College, London</orgName>
+                    <resp>Prototype Web Application Creator</resp>
+                </respStmt>
+            </titleStmt>
+            <editionStmt>
+                <edition>Prototype digital edition, version 1, released March 26 2013.</edition>
+            </editionStmt>
+            <publicationStmt>
+                <authority><orgName>Records of Early English Drama (REED)</orgName>
+                    <address>
+          <addrLine>University of Toronto</addrLine>
+          <addrLine>170 St George Street, Suite 810</addrLine>
+          <addrLine>Toronto, Ontario, Canada</addrLine>
+          <addrLine>M5R 2M8</addrLine>
+        </address>
+                </authority>
+                <availability>
+                    <p>Copyright <orgName>Records of Early English Drama (REED)</orgName>, <date>2012</date></p>
+                    <licence target="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_US">Distributed under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported (CC BY-NC-SA 3.0) licence.</licence>
+                </availability>
+            </publicationStmt>
+            <seriesStmt>
+                <title>Records of Early English Drama</title>
+            </seriesStmt>
+            <sourceDesc>
+                <p>Born digital. Information on original sources for transcriptions can be accessed via the transcriptions.</p>
+            </sourceDesc>
+        </fileDesc>
+        <encodingDesc><!--Requires further exploration-->
+            <projectDesc>
+                <p>The Fortune Theatre Reecords: A Prototype Digital Edition is the outcome of a project exploring methods and means for the publication of Records of Early English Drama (REED)
+                    collections in a digital format.</p>
+            </projectDesc>
+            <editorialDecl>
+                <p>Do we want to use this for the Editorial Procedures section of the REED collection apparatus?</p>
+            </editorialDecl>
+            <tagsDecl>
+                <namespace name="http://www.tei-c.org/ns/1.0">
+                    <tagUsage gi="del">Used to enclose cancelled text in record transcriptions. At-code practise: cancelled text enclosed in square brackets ([...]).</tagUsage>
+                </namespace>
+            </tagsDecl>
+            <refsDecl>
+                <p>For infomation on attribues and values.</p>
+            </refsDecl>
+        </encodingDesc>
+        <revisionDesc>
+            <change n="1.0" when="2013-03-26" who="#jboyd">First public version</change>
+        </revisionDesc>
+    </teiHeader>
+    <text type="REED_record_group" corresp="SOME_AUSPICE_ID_FROM_ASSOCIATED_COLLECTION_CONTEXT_FILE">
+        <group>
+            <text type="record" xml:id="rec149_FIN_1643_ABDC_f9">
+                <body>
+                    <head type="main">
+                        <placeName><name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date when-iso="1643-09-04">1643</date>
+                        <title type="record_head">Extracts from the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7932/" type="place_built">Dulwich College</name> Audit 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/19934/" type="document">Books</name></title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository" corresp="#abbr_BL">BL</idno>: 
+                            <idno type="shelfmark">Additional MS 29479 A</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">f 9 (4 September)</head>
+                    <div type="transcription">
+                        <pb type="folio" n="9"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="marginalia"><note xml:id="rec01_mn01" type="marginal" place="margin_left">1643 Sept 4</note></ab><lb/>
+                        <ab type="body">
+                            <gap reason="omitted"/>
+                            <name key="http://reed.utoronto.ca/django/eats/entity/4164/" type="subject">Rents</name><anchor corresp="#rec01_mn01"/> of the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1444/" type="place_playing">Fortune playhouse</name> returned, nil £00..0..
+                            <ref target="#rec01_fn02" type="foot_anchor"><subst><del>0</del><add place="over" scope="partial">the</add></subst></ref>
+                            <note xml:id="rec01_fn02" type="foot">the: <hi rend="italic">partially written over</hi> <del>0</del></note> two last times
+                        </ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote"/>
+                </body>
+                <link type="document_desc" target="#Midd_ABDC"/>
+            </text>
+            <text type="record" xml:id="rec150_FIN_1649s50_ABDC_f12">
+                <body>
+                    <head type="main">
+                        <placeName>
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date when-iso="1650-03-04">1649/50</date>
+                        <title type="record_head">Extracts from the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7932/" type="place_built">Dulwich College</name> Audit 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/19934/" type="document">Books</name></title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository" corresp="#abbr_BL">BL</idno>: 
+                            <idno type="shelfmark">Additional MS 29479 A</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">f 12* (4 March)</head>
+                    <div type="transcription">
+                        <pb type="folio" n="12"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="marginalia"><note xml:id="rec02_mn03" type="marginal" place="margin_left">1649. March 4.</note></ab><lb/>
+                        <ab type="body">
+                            Due<anchor corresp="#rec02_mn03"/> to the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7932/" type="place_built">College</name> £19.141½. 
+                            Arrears £1041..10..5.<lb/>
+                            owing the same £29 And £50 to 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/37427/" type="man">Mr Lock</name>, as above.<lb/>
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15312/" type="document">Mem<ex>orandum</ex></name> The 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7932/" type="place_built">College</name> entered upon the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1444/" type="place_playing">Fortune Playhouse</name>
+                            Nov 21<hi rend="superscript">st</hi> the arrears having increased at aboue
+                            £64 half yearly till they reached the sum above stated viz £1041..10..5.
+                        </ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote">
+                        <ab type="endnote">Since 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/236/" type="man">Edward Alleyn</name>
+                            died on 25 November 1626, these extracts are from a continuation of his own account books.</ab>
+                    </div>
+                </body>
+                <link type="document_desc" target="#Midd_ABDC"/>
+            </text>
+            <text type="record" xml:id="rec151_FIN_1599_1610_EAMB_f6v">
+                <body>
+                    <head type="main">
+                        <placeName>
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date from-iso="1599-11" to-iso="1610-06">1599–1610</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/236/" type="man">Edward Alleyn</name>'s 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15312/" type="document">Memorandum</name>
+                            <name key="http://reed.utoronto.ca/django/eats/entity/19934/" type="document">Book</name></title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository" corresp="#abbr_DCA">DCA</idno>:
+                            <idno type="shelfmark">MS VIII</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">f 6v* (Expenses on building the
+                        <name key="http://reed.utoronto.ca/django/eats/entity/1713/" type="place_playing">playhouse</name>)</head>
+                    <div type="transcription">
+                        <pb type="folio" n="6v"/>
+                        <ab type="body">What The 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1444/" type="place_playing">fortune</name> cost me</ab><lb/>
+                        <ab rend="right">novemb<ex>er</ex> <ref target="#rec03_fn04" type="foot_anchor"><hi rend="underline">1599</hi></ref>
+                            <note xml:id="rec03_fn04" type="foot">1599: <hi rend="italic">underlined</hi></note>
+                        </ab><lb/>
+                        <ab type="table"> 
+                            <table rows="4" cols="2">
+                                <row>
+                                    <cell>first for ye 
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/4164/" type="subject">leas</name> to
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/3814/" type="man">brew</name></cell>
+                                    <cell rend="right">240 li.</cell>
+                                </row>
+                                <row>
+                                    <cell>then for ye building ye 
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/1713/" type="place_playing">playhowe</name></cell>
+                                    <cell rend="right">520 li.</cell>
+                                </row>
+                                <row>
+                                    <cell>for other priuat buildings of myn owne</cell>
+                                    <cell rend="right">120 li.</cell>
+                                </row>
+                                <row>
+                                    <cell>so in all itt hath Cost me for ye 
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/4164/" type="subject">Leasse</name></cell>
+                                    <cell rend="right">880 li.</cell>
+                                </row>
+                            </table>
+                        </ab><lb/>
+                        <ab type="body">bought the Inheritance of the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1444/" type="place_playing">Land of the gills</name> of ye 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3932/" type="place_region">Isle of man</name> w<ex>hi</ex>ch;
+                            is ye 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1444/" type="place_playing">fortune</name>
+                            &amp; all the Howses in 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7075/" type="place_sub_settlement">whight crosstrett</name> &amp; 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/2811/" type="place_sub_settlement">gowlding Lane</name>
+                            in Iune 1610 for the some of <seg rend="right">340 li.</seg>
+                        <gap reason="omitted"/>
+                        </ab><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote">
+                        <ab type="endnote">'
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3814/" type="man">Brew</name>' was probably 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3814/" type="man">Patrick Brewe</name>, a cousin of the 
+                            Gill family, who acted as their 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/37496/" type="office">attorney</name>.</ab>
+                    </div>
+                </body>
+                <link type="document_desc" target="#Midd_EAMB"/>
+            </text>
+            <text type="record" xml:id="rec152_FIN_1622s3_BURN_p203">
+                <body>
+                    <head type="main">
+                        <placeName>
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName> 
+                        <date when-iso="1623-01-08">1622/3</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/19956/" type="man">Sir Henry Herbert</name>’s Office 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/19934/" type="document">Book</name></title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository">Beinecke Rare Book and Manuscript Library</idno>:
+                            <idno type="shelfmark">Osborn Shelves d1.</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">p 203 (8 January) (Licence for a play)</head>
+                    <div type="transcription">
+                        <pb type="page" n="203"/>
+                        <gap reason="omitted"/><lb/>
+                        <p rend="indented">The 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/37526/" type="work_title">
+                                <ref target="#rec04_fn05" type="foot_anchor"><hi rend="underline">Troublesome Statesman</hi></ref></name>
+                            <note xml:id="rec04_fn05" type="foot">Troublesome Statesman: <hi rend="italic">underlined</hi></note>
+                            a new
+                            <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">P<ex>lay</ex></name> 
+                            perused and all<ex>owe</ex>d Jan 8, 1622–3; to be
+                            <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">acted</name> at the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1444/" type="place_playing">Fortune</name>, by the
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7697/" type="troupe">Prince Palatine's servants</name>, 1 li.
+                        </p><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote"/>
+                </body>
+                <link type="document_desc" target="#Midd_BURN"/>
+            </text>
+            <text type="record" xml:id="rec153_FIN_1623_HP05_p41">
+                <body>
+                    <head type="main">
+                        <placeName>
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date when-iso="1623-07-27">1623</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/19956/" type="man">Sir Henry Herbert</name>’s Office 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/19934/" type="document">Book</name></title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository">Folger Shakespeare Library</idno>:
+                            <idno type="shelfmark">W.b.156</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">p 41 (27 July) (Licence for a play)</head>
+                    <div type="transcription">
+                        <pb type="page" n="41"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="body">The 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7697/" type="troupe">Palsgraves Players</name> –
+                            <name key="http://reed.utoronto.ca/django/eats/entity/37552/" type="man">A Trajedy of Richard the thirde or the English Prophett</name>
+                            with the reformation contaynginge 17 sheetes
+                            written by 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14013/" type="man">Samuell Rowleye</name> for the companye at the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1444/" type="place_playing">Fortune</name>
+                            this 27<hi rend="superscript">th</hi> Iuly 1623 – 1 li.: 0.
+                        </ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote"/>
+                </body>
+                <link type="document_desc" target="#Midd_HP05"/>
+            </text>
+            <text type="record" xml:id="rec154_FIN_1623_ORDB_p199">
+                <body>
+                    <head type="main">
+                        <placeName>
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date from-iso="1623-08-23" to-iso="1623-08-28">1623</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/19956/" type="man">Sir Henry Herbert</name>’s Office 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/19934/" type="document">Book</name></title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository">Beinecke Rare Book and Manuscript Library</idno>:
+                            <idno type="shelfmark">Osborn Shelves d1.</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">p 199* (<date when-iso="1623-08-23">23 August</date>)</head>
+                    <div type="transcription">
+                        <pb type="page" n="199"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="body">
+                            This was done by the
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15275/" type="troupe">La<ex>dy</ex> Elizabeths servants</name> att the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/19784/" type="place_playing">Cockpitt</name> –– An olde 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">Playe</name> called the
+                            <name key="http://reed.utoronto.ca/django/eats/entity/37628/" type="work_title">
+                                <ref target="#rec06_fn06" type="foot_anchor"><hi rend="underline">Martir'd Soldier</hi></ref></name>
+                            <note xml:id="rec06_fn06" type="foot">Martir'd Soldier: <hi rend="italic">underlined</hi></note> formerlye allowed by
+                            <name key="http://reed.utoronto.ca/django/eats/entity/37654/" type="man">Sir John Ashley</name> but
+                            called in &amp; reallowed with reformations: which were not observed, for to euery cross they added a star of their owne &amp; for this
+                            cause I have thought fitt to peruse itt &amp; to keep the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/19934/" type="document">booke</name> for a president to the office and to take my fee this 
+                            23<hi rend="superscript">d</hi> Aug<ex>us</ex>t 1623.
+                        </ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                        <lb/>
+                        <ab type="subhead">(<date when-iso="1623-08-28">28 August</date>) (Licence for a play)</ab>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="marginalia"><note xml:id="rec06_mn07" type="marginal" place="margin_left">for the
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7697/" type="troupe"><lb/>Palsgraves<lb/>Players</name>.</note></ab><lb/>
+                        <ab type="body">Under<anchor corresp="#rec06_mn07"/> another name that itt may pass the better Att the Intreaty of 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15710/" type="man">Mr Gunnell</name> who prevailed with mee to gett the consent
+                            of
+                            <name key="http://reed.utoronto.ca/django/eats/entity/37700/" type="man">Mr 
+                                <ref target="#rec06_fn08" type="foot_anchor"><hi rend="underline">Biston</hi></ref></name>
+                            <note xml:id="rec06_fn08" type="foot">Biston: <hi rend="italic">underlined</hi></note> to the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/19784/" type="place_playing">Cockpitt</name> itt bears the name of the
+                            <name key="http://reed.utoronto.ca/django/eats/entity/37628/" type="work_title">
+                                <ref target="#rec06_fn09" type="foot_anchor"><hi rend="underline">Martir'd Soldier</hi></ref></name>
+                            <note xml:id="rec06_fn09" type="foot">Martir'd Soldier: <hi rend="italic">underlined</hi></note> this 
+                            28<hi rend="superscript">th</hi> of Aug<ex>us</ex>t 1623 – 1 li.
+                        </ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote">
+                        <ab type="endnote">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7697/" type="troupe">Palsgrave's men</name> had
+                            <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">acted</name> at the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1444/" type="place_playing">Fortune playhouse</name>
+                            , but this had been destroyed by fire in December 1621, when their losses
+                            included their 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14567/" type="document">play texts</name>.  After the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1444/" type="place_playing">Fortune</name>
+                            was rebuilt in 1622, with 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15710/" type="man">Richard Gunnell</name> as
+                            manager of 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7697/" type="troupe">Palsgrave's men</name>, they would have been
+                            looking for replacement
+                            <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">plays</name>. He must have learnt that 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/19956/" type="man">Herbert</name> had decided to impound the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14567/" type="document">play book</name> of 
+                            <title type="play">
+                                <name key="http://reed.utoronto.ca/django/eats/entity/37628/" type="work_title">The Martyred Soldier</name></title>, and was now asking to put it on, albeit with 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7647/" type="man">Beeston</name>’s permission (Bawcutt,
+                            <title type="monograph">Control and Censorship</title>, p 144).
+                        </ab>
+                    </div>
+                </body>
+                <link type="document_desc" target="#Midd_ORDB"/>
+            </text>
+            <text type="record" xml:id="rec155_FIN_1623_BURN_p197">
+                <body>
+                    <head type="main">
+                        <placeName>
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date from-iso="1623-10-29" to-iso="1623-12-04">1623</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/19956/" type="man">Sir Henry Herbert</name>’s Office
+                            <name key="http://reed.utoronto.ca/django/eats/entity/19934/" type="document">Book</name></title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository">Beinecke Rare Book and Manuscript Library</idno>:
+                            <idno type="shelfmark">Osborn Shelves d1.</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">p 197 (<date when-iso="1623-10-29">29 October</date>) (Licence for a play)</head>
+                    <div type="transcription">
+                        <pb type="page" n="197"/>
+                        <gap reason="omitted"/><lb/>
+                        <p rend="indented">
+                            A New 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14151/" type="subject">Com<ex>edy</ex></name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/37734/" type="work_title">
+                                <ref target="#rec07_fn10" type="foot_anchor"><hi rend="underline">Hardshipe for Husbands</hi></ref></name>
+                            ,<note xml:id="rec07_fn10" type="foot">Hardshipe for Husbands: 
+                            <hi rend="italic">underlined</hi></note> or 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/37734/" type="work_title">Bilboes the best blade</name>, containing 13 sheets, written by 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14013/" type="man">Sam<ex>uel</ex> Rowley</name>
+                            all<ex>owe</ex>d Oct<ex>ober</ex> 29, 1623, for the
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7697/" type="troupe">Palsgrave's company</name>.
+                        </p><lb/>
+                        <gap reason="omitted"/><lb/>
+                        <lb/>
+                        <ab type="subhead">p 198 (<date when-iso="1623-12-04">4 December</date>) (Licence for a play)</ab>
+                        <pb type="page" n="198"/>
+                        <gap reason="omitted"/><lb/>
+                        <p rend="indented">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/37779/" type="work_title">
+                                <ref target="#rec07_fn11"><hi rend="underline">The Hungarian Lion</hi></ref></name>
+                            ,<note xml:id="rec07_fn11" type="foot">Hungarian Lion: <hi rend="italic">underlined</hi></note> written by
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15710/" type="man">Gunnell</name>, licensed
+                            for the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7697/" type="troupe">Palsgrave's Company</name> 4 Dec<ex>ember</ex> 1623. 1 li.
+                        </p><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote"/>
+                </body>
+                <link type="document_desc" target="#Midd_BURN"/>
+            </text>
+            <text type="record" xml:id="rec156_FIN_1623_HP05_p149">
+                <body>
+                    <head type="main">
+                        <placeName>
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName> 
+                        <date when-iso="1623-11-19">1623</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/19956/" type="man">Sir Henry Herbert</name>’s Office
+                            <name key="http://reed.utoronto.ca/django/eats/entity/19934/" type="document">Book</name></title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository">Folger Shakespeare Library</idno>:
+                            <idno type="shelfmark">W.b.156</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">p 149 (19 November) (Licence for a play)</head>
+                    <div type="transcription">
+                        <pb type="page" n="149"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="body">For the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7697/" type="troupe">Palsgraves Players</name> November<lb/>
+                            A new 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14217/" type="subject">Tragedye</name> called 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/37809/" type="work_title">2 kings in a 
+                                <ref target="#rec08_fn12" type="foot_anchor">cottag<subst><add place="over">e</add><del>g</del></subst></ref></name>
+                            <note xml:id="rec08_fn12" type="foot">cottage: e <hi rend="italic">written over a second</hi> g</note>
+                            written by 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/37835/" type="man">Bowen</name> this 19<hi rend="superscript">th</hi> 1623 – 1 li.
+                        </ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote"/>
+                </body>
+                <link type="document_desc" target="#Midd_HP05"/>
+            </text>
+            <text type="record" xml:id="rec157_FIN_1623s4_HP08_p153">
+                <body>
+                    <head type="main">
+                        <placeName>
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date when-iso="1624-01-02">1623/4</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/19956/" type="man">Sir Henry Herbert</name>’s Office 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/19934/" type="document">Book</name></title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository">Folger Shakespeare Library</idno>:
+                            <idno type="shelfmark">W.b.160</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">p 153* (2 January) (Licence for a play)</head>
+                    <div type="transcription">
+                        <pb type="page" n="153"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="body">For the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7697/" type="troupe">Palsgrave's Company</name>. Ianuary<lb/>
+                            The 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14173/" type="subject">history</name> of the
+                            <name key="http://reed.utoronto.ca/django/eats/entity/37873/" type="work_title">Dutchess of Suffolk</name> by
+                            <name key="http://reed.utoronto.ca/django/eats/entity/37903/" type="man">Mr Drewe</name>
+                            being full of dan<hi rend="superscript">ge</hi>rous matter was much reformed &amp; for my
+                            paines this 2<hi rend="superscript">d</hi> Jan. 1623 <hi rend="superscript">I had 2 li.</hi>
+                        </ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote">
+                        <ab type="endnote">Also noted by 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/37949/" type="man">Malone</name> in his copy of the play, Bodl.: Mal 190(3).</ab>
+                    </div>
+                </body>
+                <link type="document_desc" target="#Midd_HP08"/>
+            </text>
+            <text type="record" xml:id="rec158_FIN_1623s4_BURN_p197">
+                <body>
+                    <head type="main">
+                        <placeName>
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date from-iso="1624-01-06" to-iso="1624-01-26">1623/4</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/19956/" type="man">Sir Henry Herbert</name>’s Office
+                            <name key="http://reed.utoronto.ca/django/eats/entity/19934/" type="document">Book</name></title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository">Beinecke Rare Book and Manuscript Library</idno>:
+                            <idno type="shelfmark">Osborn Shelves d1.</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">p 197* (<date when-iso="1624-01-06">6 January</date>) (
+                        <name key="http://reed.utoronto.ca/django/eats/entity/10013/" type="document">Licence</name> for a 
+                        <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">play</name>)</head>
+                    <div type="transcription">
+                        <pb type="page" n="197"/>
+                        <gap reason="omitted"/><lb/>
+                        <p rend="indented">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/37983/" type="work_title">
+                                <ref target="#rec10_fn13" type="foot_anchor"><hi rend="underline">The Foure Sons of Amon</hi></ref></name>
+                            ,<note xml:id="rec10_fn13" type="foot">Foure&#x2026;Amon: <hi rend="italic">underlined</hi></note> att the intreaty of
+                            <name key="http://reed.utoronto.ca/django/eats/entity/24233/" type="man">Worth</name>, and another, being an olde
+                            <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">Playe</name>
+                            tho' never allowed of before, nor of a legible hand, with promise of my fee 6 Ian<ex>uary</ex> 1623,
+                            for 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3130/" type="troupe">Prince's Company</name>
+                            1 <ref target="#rec10_fn14" type="foot_anchor"><hi rend="underline">li.</hi></ref>
+                            <note xml:id="rec10_fn14" type="foot">li.: <hi rend="italic">underlined</hi></note>
+                        </p><lb/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="sub">p 204 (<date when-iso="1624-01-26">26 January</date>) (
+                            <name key="http://reed.utoronto.ca/django/eats/entity/10013/" type="document">Licence</name> for a 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">play</name>)</ab>
+                        <pb type="page" n="204"/>
+                        <gap reason="omitted"/><lb/>
+                        <p rend="indented">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/38009/" type="work_title">
+                                <ref target="#rec10_fn15" type="foot_anchor"><hi rend="underline">The Whore in Grain</hi></ref></name>
+                            ,<note xml:id="rec10_fn15" type="foot">Whore in Grain: <hi rend="italic">underlined</hi></note> a 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14217/" type="subject">Traj<ex>edy</ex></name> may be
+                            <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">acted</name> 26 Ian<ex>unary</ex> 1623–4. 1 li. For the
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7697/" type="troupe">Palsgrave's Company</name>.
+                        </p><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote">
+                        <ab type="endnote">The 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">play</name> was mentioned by 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/2767/" type="man">Philip Henslowe</name> in his
+                            <name key="http://reed.utoronto.ca/django/eats/entity/11263/" type="document">Diary</name> when he paid
+                            <name key="http://reed.utoronto.ca/django/eats/entity/40320/" type="man">Shaa</name> on behalf of the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/519/" type="troupe">Admiral's men</name> (then at the
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1444/" type="place_playing">Fortune</name>)
+                            on 10 December 1602 (probably in fact February 1602/3), 'for (vpon) a 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/19934/" type="document">boocke</name>,' £2. 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/40320/" type="man">Shaa</name> was possibly not the author of the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">play</name>, which had 
+                            already been performed by an English company at Amsterdam around 1601 (Greg, <title type="monograph">Henslowe's Diary</title>, vol 2, p 227).
+                        </ab>
+                    </div>
+                </body>
+                <link type="document_desc" target="#Midd_BURN"/>
+            </text>
+            <text type="record" xml:id="rec159_FIN_1624_HP05_p85">
+                <body>
+                    <head type="main">
+                        <placeName>
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName> 
+                        <date from-iso="1624-04-06" to-iso="1624-04-17">1624</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/19956/" type="man">Sir Henry Herbert</name>’s Office
+                            <name key="http://reed.utoronto.ca/django/eats/entity/19934/" type="document">Book</name></title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository">Folger Shakespeare Library</idno>:
+                            <idno type="shelfmark">W.b.156</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">p 85 (<date when-iso="1624-04-06">6 April</date>) (
+                        <name key="http://reed.utoronto.ca/django/eats/entity/10013/" type="document">Licence</name> for a 
+                        <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">play</name>)</head>
+                    <div type="transcription">
+                        <pb type="page" n="85"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="body">
+                            For the
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1444/" type="place_playing">Fortune</name> –1624<lb/>
+                            A new 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14151/" type="subject">Comedy</name> called 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/38039/" type="work_title">a Match or no Match</name> written by
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14013/" type="man">Mr. Rowlye</name>
+                            this 6<hi rend="superscript">th</hi> Apr<ex>il</ex> 1624 – I li.<lb/>
+                            <gap reason="omitted"/>
+                        </ab><lb/>
+                        <lb/>
+                        <ab type="sub">p 41 (<date when-iso="1624-04-17">17 April</date>) (
+                            <name key="http://reed.utoronto.ca/django/eats/entity/10013/" type="document">Licence</name> for a 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">play</name>)</ab>
+                        <ab type="body">
+                            <pb type="page" n="41"/>
+                            <gap reason="omitted"/><lb/>
+                            For the
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1444/" type="place_playing">Fortune</name> –<lb/>
+                            <name key="http://reed.utoronto.ca/django/eats/entity/38069/" type="work_title">The Way to content all Women or how a man may please his wife</name>
+                            <lb/>
+                            written by 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15710/" type="man">Gunnell</name> this 17 Apr<ex>il</ex> 1624 – 1 li.<lb/>
+                            <gap reason="omitted"/>
+                        </ab><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote"/>
+                </body>
+                <link type="document_desc" target="#Midd_HP05"/>
+            </text>
+            <text type="record" xml:id="rec160_FIN_1624_CHAL_p218">
+                <body>
+                    <head type="main">
+                        <placeName>
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date when-iso="1624-05-03">1624</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/19956/" type="man">Sir Henry Herbert</name>'s Office 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/19934/" type="document">Book</name></title>
+                        <seg type="publication">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/38110/" type="man">
+                                <idno type="author_surname">Chalmers</idno></name><name key="http://reed.utoronto.ca/django/eats/entity/38148/" type="work_title"><idno type="short_title">Supplemental Apology</idno></name>
+                        </seg>
+                    </head>
+                    <head type="sub">p 218 (3 May) (
+                        <name key="http://reed.utoronto.ca/django/eats/entity/10013/" type="document">Licence</name> for a 
+                        <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">play</name>)</head>
+                    <div type="transcription">
+                        <pb type="page" n="218"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="table">
+                            <table rows="1" cols="3">
+                                <row>
+                                    <cell>1624</cell>
+                                    <cell>3 May</cell>
+                                    <cell>For the
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/3130/" type="troupe">Prince's Company</name>; A New 
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">Play</name>, called, 
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/38178/" type="work_title">The Madcap</name>: Written by 
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/38204/" type="man">Barnes</name>.
+                                    </cell>
+                                </row>
+                            </table>
+                            <gap reason="omitted"/><lb/>
+                        </ab><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote"/>
+                </body>
+                <link type="document_desc" target="#Midd_CHAL"/>
+            </text>
+            <text type="record" xml:id="rec161_FIN_1624_BURN_p198">
+                <body>
+                    <head type="main">
+                        <placeName>
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName> 
+                        <date from-iso="1624-05-21" to-iso="1624-07-26">1624</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/19956/" type="man">Sir Henry Herbert</name>’s Office
+                            <name key="http://reed.utoronto.ca/django/eats/entity/19934/" type="document">Book</name></title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository">Beinecke Rare Book and Manuscript Library</idno>:
+                            <idno type="shelfmark">Osborn Shelves d1.</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">p 198 (<date when-iso="1624-05-21">21 May</date>) (
+                        <name key="http://reed.utoronto.ca/django/eats/entity/10013/" type="document">Licence</name> for a
+                        <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">play</name>)</head>
+                    <div type="transcription">
+                        <pb type="page" n="198"/>
+                        <gap reason="omitted"/><lb/>
+                        <p rend="indented">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/38246/" type="work_title">
+                                <ref target="#rec13_fn16" type="foot_anchor"><hi rend="underline">Honour in the End</hi></ref></name>,
+                            <note xml:id="rec13_fn16" type="foot">Honour&#x2026;End: <hi rend="italic">underlined</hi></note> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14151/" type="subject">Com<ex>edy</ex></name> conteyninge
+                            12 sheets and half, allowed for the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7697/" type="troupe">Palsgrave's company</name>
+                            &#x005B;<add rend="above">21</add> May 1624 1 <ref target="#rec13_fn17" type="foot_anchor"><hi rend="underline">li.</hi></ref>
+                            <note xml:id="rec13_fn17" type="foot">li.: <hi rend="italic">underlined</hi></note>
+                        </p><lb/>
+                        <gap reason="omitted"/><lb/>
+                        <lb/>
+                        <ab type="subhead">p 201 (<date when-iso="1624-05-27">27 May</date>) (Licence for play)</ab>
+                        <pb type="page" n="201"/>
+                        <gap reason="omitted"/><lb/>
+                        <p rend="indented">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/38276/" type="work_title">
+                                The<ref target="#rec13_fn18" type="foot_anchor"><hi rend="underline">Parricide</hi></ref></name>,
+                            <note xml:id="rec13_fn18" type="foot">Parricide: <hi rend="italic">underlined</hi></note> containing 13 sheets and a half, allowed for the
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3130/" type="troupe">Princes Company</name> 27 May 1624  4l<add><handShift/>?</add>
+                        </p><lb/>
+                        <gap reason="omitted"/><lb/>
+                        <lb/>
+                        <ab type="subhead">p 198 (<date when-iso="1624-07">July</date>) (
+                            <name key="http://reed.utoronto.ca/django/eats/entity/10013/" type="document">Licence</name> for a 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">play</name>)</ab>
+                        <pb type="page" n="198"/>
+                        <gap reason="omitted"/><lb/>
+                        <p rend="indented">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/38302/" type="work_title">
+                                <ref target="#rec13_fn19" type="foot_anchor"><hi rend="underline">Love me or Love me not</hi></ref></name>,
+                            <note xml:id="rec13_fn19" type="foot">Love&#x2026;not: <hi rend="italic">underlined</hi></note> a new 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14151/" type="subject">Comedy</name> by
+                            <name key="http://reed.utoronto.ca/django/eats/entity/37903/" type="man">Drew</name>, all<ex>owe</ex>d for the
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7697/" type="troupe">Palsgrave's Company</name> Iuly 1624, 1 
+                            <ref target="#rec13_fn20" type="foot_anchor"><hi rend="underline">li.</hi></ref>
+                            <note xml:id="rec13_fn20" type="foot">li.: <hi rend="italic">underlined</hi></note>
+                        </p><lb/>
+                        <gap reason="omitted"/><lb/>
+                        <lb/>
+                        <ab type="subhead">p 198 (<date when-iso="1624-07-14">14 July</date>) (
+                            <name key="http://reed.utoronto.ca/django/eats/entity/10013/" type="document">Licence</name> for a 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">play</name>)</ab>
+                        <pb type="page" n="198"/>
+                        <gap reason="omitted"/><lb/>
+                        <p rend="indented">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/38359/" type="work_title">
+                                The <ref target="rec13_fn21" type="foot_anchor"><hi rend="underline">Honest Citizen</hi></ref></name>,
+                            <note xml:id="rec13_fn21" type="foot">Honest Citizen: <hi rend="italic">underlined</hi></note> an English
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14173/" type="subject">History</name>, by 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/38389/" type="man">Deye</name>, 
+                            all<ex>owe</ex>d for the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3130/" type="troupe">Prince's Company</name>, 14 July 1624  I 
+                            <ref target="#rec13_fn22" type="foot_anchor"><hi rend="underline">li.</hi></ref>
+                            <note xml:id="rec13_fn22" type="foot">li.: <hi rend="italic">underlined</hi></note>
+                        </p><lb/>
+                        <gap reason="omitted"/><lb/>
+                        <lb/>
+                        <ab type="subhead">p 195 (<date when-iso="1624-07-26">26 July</date>) (
+                            <name key="http://reed.utoronto.ca/django/eats/entity/10013/" type="document">Licence</name> for a
+                            <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">play</name>)</ab>
+                        <pb type="page" n="195"/>
+                        <gap reason="omitted"/><lb/>
+                        <p rend="indented">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/38431/" type="work_title">A Wedding, or a 
+                                <ref target="#rec13_fn23" type="foot_anchor"><hi rend="underline">Cure for a Cuckold</hi></ref></name>,
+                            <note xml:id="rec13_fn23" type="foot">Cure&#x2026;Cuckold: <hi rend="italic">underlined</hi></note> by 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/38468/" type="man">Webster</name>, allowed July 
+                            26<hi rend="superscript">th.</hi> 1624, for the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3130/" type="troupe">Princes Company</name> I li.
+                        </p><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote"/>
+                </body>
+                <link type="document_desc" target="#Midd_BURN"/>
+            </text>
+            <text type="record" xml:id="rec162_FIN_1624_HP05_p149">
+                <body>
+                    <head type="main">
+                        <placeName>
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date from-iso="1624-09-15" to-iso="1624-11-11">1624</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/19956/" type="man">Sir Henry Herbert</name>’s Office
+                            <name key="http://reed.utoronto.ca/django/eats/entity/19934/" type="document">Book</name></title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository">Folger Shakespeare Library</idno>:
+                            <idno type="shelfmark">W.b.156</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">p 149 (<date when-iso="1624-09-15">15 September</date>) (
+                        <name key="http://reed.utoronto.ca/django/eats/entity/10013/" type="document">Licence</name> for a 
+                        <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">play</name>)</head>
+                    <div type="transcription">
+                        <pb type="page" n="149"/>    
+                        <gap reason="omitted"/><lb/>
+                        <ab type="body">For the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7697/" type="troupe">Palsg<ex>rave</ex> comp<ex>any</ex></name> – A 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14217/" type="subject">Trag<ex>edy</ex></name> called 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/38510/" type="work_title">the Faire Star of Antwerp</name>
+                            15<hi rend="superscript">th</hi> 
+                            Sept<ex>ember</ex> 1624  1 li.<lb/>
+                            <gap reason="omitted"/>
+                        </ab><lb/>
+                        <lb/>
+                        <ab type="subhead">p 149 (<date when-iso="1624-10-15">15 October</date>) (
+                            <name key="http://reed.utoronto.ca/django/eats/entity/10013/" type="document">Licence</name> for a
+                            <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">play</name>)</ab>
+                        <ab type="body">
+                            <pb type="page" n="149"/>
+                            <gap reason="omitted"/><lb/>
+                            For the
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7697/" type="troupe">Palsg<ex>rave</ex> comp<ex>any</ex></name> – A new 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">P<ex>lay</ex></name> call<ex>ed</ex> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/38540/" type="work_title">The Angell King</name> 15 Oct<ex>ober</ex> 1624. I li.<lb/>
+                            <gap reason="omitted"/>
+                        </ab><lb/>
+                        <lb/>
+                        <ab type="subhead">p 149* (<date when-iso="1624-10-22">22 October</date>) (
+                            <name key="http://reed.utoronto.ca/django/eats/entity/10013/" type="document">Licence</name> for a 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">play</name>)</ab>
+                        <ab type="body">
+                            <pb type="page" n="149"/>
+                            <gap reason="omitted"/><lb/>
+                            For the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7697/" type="troupe">Palsgrave's comp<ex>any</ex></name>: A new 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">P<ex>lay</ex></name>, call<ex>ed</ex>, 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/38566/" type="work_title">The Bristowe Merchant</name>: written by 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/38639/" type="man">Forde</name> &amp; 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/25339/" type="man">Decker</name>. 
+                            22 Oct<ex>ober</ex><lb/>
+                            1624. 1 li.
+                            <gap reason="omitted"/>
+                        </ab><lb/>
+                        <lb/>
+                        <ab type="subhead">p 149* (<date when-iso="1624-11-11">11 November</date>) (
+                            <name key="http://reed.utoronto.ca/django/eats/entity/10013/" type="document">Licence</name> for a 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">play</name>)</ab>
+                        <ab type="body">
+                            <pb type="page" n="149"/>
+                            <gap reason="omitted"/><lb/>
+                            For the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7697/" type="troupe">Palsg<ex>rave</ex> comp<ex>any</ex></name>A new
+                            <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">P<ex>lay</ex></name> call<ex>ed</ex>
+                            <name key="http://reed.utoronto.ca/django/eats/entity/38728/" type="work_title">the Masque</name>
+                            11<hi rend="superscript">th</hi> Nov<ex>embe</ex>r
+                            1624
+                        </ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote">
+                        <ab type="endnote">The expansion of 'P' in
+                            <name key="http://reed.utoronto.ca/django/eats/entity/38110/" type="man">Chalmers</name>
+                            , <title type="monograph">Supplemental Apology</title>, to '
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7697/" type="troupe">Palsgrave's</name>' is set against the expansion to '
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3130/" type="troupe">Prince's</name>' in
+                            Burn. The latter is probably correct, as 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/25339/" type="man">Thomas Dekker</name>
+                            was usually writing for either the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3130/" type="troupe">Prince's company</name> at the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/10734/" type="place_playing">Red Bull</name>, or the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15275/" type="troupe">Lady Elizabeth's company</name> at the
+                            <name key="http://reed.utoronto.ca/django/eats/entity/19784/" type="place_playing">Cockpit</name>. The 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">play</name> was probably by
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15710/" type="man">Richard Gunnell</name>
+                            and is now lost (Bentley, <title type="monograph">Jacobean and
+                            Caroline Stage</title>, vol 4, 518–19).
+                        </ab>
+                    </div>
+                </body>
+                <link type="document_desc" target="#Midd_HP05"/>
+            </text>
+            <text type="record" xml:id="rec163_FIN_1624s5_HP10_p131">
+                <body>
+                    <head type="main">
+                        <placeName>
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date when-iso="1625-01-25">1624/5</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/19956/" type="man">Sir Henry Herbert</name>’s Office
+                            <name key="http://reed.utoronto.ca/django/eats/entity/19934/" type="document">Book</name></title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository">Folger Shakespeare Library</idno>:
+                            <idno type="shelfmark">W.b.165</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">p 131 (25 January) (
+                        <name key="http://reed.utoronto.ca/django/eats/entity/10013/" type="document">Licence</name> for a 
+                        <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">play</name>)</head>
+                    <div type="transcription">
+                        <pb type="page" n="131"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="body">
+                            For the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3130/" type="troupe">Prin<ex>ces</ex> comp<ex>any</ex></name> A new
+                            <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">P<ex>lay</ex></name> call<ex>ed</ex> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/38754/" type="work_title">the Widowes prize</name>
+                            contayning much abusive matter was allowed by mee
+                            on condition my reformations were observed 25 Jan<ex>uary</ex> 1624.
+                            </ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote"/>
+                </body>
+                <link type="document_desc" target="#Midd_HP10"/>
+            </text>
+            <text type="record" xml:id="rec164_FIN_1629_ALCT_p101">
+                <body>
+                    <head type="main">
+                        <placeName>
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name>
+                        </placeName>
+                        <date when-iso="1629-12-14">1629</date>
+                        <title type="record_head">Account of London Companies and Theatres</title><!--EATS-->
+                        <seg type="publication">
+                            <idno type="author_surname">Malone</idno>:
+                            <idno type="short_title">Plays and Poems, Vol 1, Part 2</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">p 101, n 1 (14 December) (French company of 
+                        <name key="http://reed.utoronto.ca/django/eats/entity/2980/" type="occupation">players</name>)</head>
+                    <div type="transcription">
+                        <pb type="page" n="101"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="body">"For allowinge of a Frenche companie att the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1444/" type="place_playing">Fortune</name> to
+                            <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">play</name> one afternoone, 
+                            this 14 of Decem<ex>ber</ex> 1629, – £l  0. 0.<lb/>
+                            "I should have had another peece, but in respect of their ill fortune, I was content to bestow a peece back." 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/38780/" type="woman">Ms. Herbert</name><lb/>
+                            <gap reason="omitted"/>
+                        </ab><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote"><ab type="endnote">Malone quotes here a section of Henry Herbert's Office Book that is now otherwise lost.</ab></div><!--EATS-->
+                </body>
+                <link type="document_desc" target="#Midd_ALCT"/>
+            </text>
+            <text type="record" xml:id="rec165_FIN_1630_BURN_p200">
+                <body>
+                    <head type="main">
+                        <placeName>
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName> 
+                        <date when-iso="1630">1630</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/19956/" type="man">Sir Henry Herbert</name>’s Office 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/19934/" type="document">Book</name></title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository">Beinecke Rare Book and Manuscript Library</idno>:
+                            <idno type="shelfmark">Osborn Shelves d1.</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">p 200* (
+                        <name key="http://reed.utoronto.ca/django/eats/entity/10013/" type="document">Licence</name> for a
+                        <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">play</name>)</head>
+                    <div type="transcription">
+                        <pb type="page" n="200"/>
+                        <gap reason="omitted"/><lb/>
+                        <p rend="indented">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/38814/" type="work_title">
+                                <ref target="#rec17_fn24" type="foot_anchor"><hi rend="underline">Merry Marriage</hi></ref></name>
+                            <note xml:id="rec17_fn24" type="foot">Merry Marriage: <hi rend="italic">underlined</hi></note> allowed to 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1444/" type="place_playing">Fortune</name> Company.
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14151/" type="subject">Com<ex>edy</ex></name> 1630.
+                        </p><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote">
+                        <ab type="endnote"><title type="play">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/38814/" type="work_title">The Merry Marriage</name>
+                        </title> is not otherwise known.
+                        </ab>
+                    </div>
+                </body>
+                <link type="document_desc" target="#Midd_BURN"/>
+            </text>
+            <text type="record" xml:id="rec166_FIN_1632s3_ALCT_p190">
+                <body>
+                    <head type="main">
+                        <placeName>
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name>
+                        </placeName>
+                        <date when-iso="1633-03">1632/3</date>
+                        <title type="record_head">Account of London Companies and Theatres</title><!--EATS-->
+                        <seg type="publication">
+                            <idno type="author_surname">Malone</idno>:
+                            <idno type="short_title">Plays and Poems, Vol 1, Part 2</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">p 190 (March) (
+                        <name key="http://reed.utoronto.ca/django/eats/entity/38844/" type="man">William Heminges</name>'s 
+                        <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">play</name>)</head>
+                    <div type="transcription">
+                        <pb type="page" n="190"/>
+                        <gap reason="omitted"/><lb/>
+                        <p rend="indented">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/38844/" type="man">William</name> <gap reason="omitted"/> was a 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/39619/" type="office">student</name> of 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/38979/" type="place_built">Christ-chruch</name>, 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/21502/" type="place_settlement">Oxford</name>, where he took the 
+                            degree of Master of Arts in 1628. Soon after his
+                            <ref target="#rec18_fn25" type="foot_anchor">father's death</ref>
+                            <note xml:id="rec18_fn25" type="foot">father’s death: <hi rend="italic">
+                                <name key="http://reed.utoronto.ca/django/eats/entity/38929/" type="man">John Hemmings</name>,
+                                whose will was dated 9, and proved 11 
+                                October, 1630</hi></note> he commenced
+                            <name key="http://reed.utoronto.ca/django/eats/entity/39012/" type="work_title">a dramatick poet</name>
+                            , having produced in March, 1632–3, a 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14151/" type="subject">comedy</name> entitled
+                            <ref target="#rec18_fn26" type="foot_anchor"><hi rend="underline">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/38178/" type="work_title">The Coursinge of a Hare</name>, or
+                            <name key="http://reed.utoronto.ca/django/eats/entity/38178/" type="work_title">the Madcapp</name></hi></ref>,
+                            <note xml:id="rec18_fn26" type="foot">The&#x2016;Madcapp: <hi rend="italic">underlined</hi></note> <hi rend="superscript">1</hi>, 
+                            which was
+                            performed at the
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1444/" type="place_playing">Fortune theatre</name>, but is now lost<gap reason="omitted"/>.
+                        </p><lb/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="body"><hi rend="superscript">1</hi>
+                            <name key="http://reed.utoronto.ca/django/eats/entity/38780/" type="woman">Ms. Herbert</name>.</ab><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote"><ab type="endnote">Malone cites here a section of Henry Herbert's Office Book that is now otherwise lost.</ab></div>
+                </body>
+                <link type="document_desc" target="#Midd_ALCT"/>
+            </text>
+            <text type="record" xml:id="rec167_FIN_1634s5_HP05_p46">
+                <body>
+                    <head type="main">
+                        <placeName>
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date when-iso="1635-03-07">1634/5</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/19956/" type="man">Sir Henry Herbert</name>’s Office 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/19934/" type="document">Book</name></title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository">Folger Shakespeare Library</idno>:
+                            <idno type="shelfmark">W.b.156</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">p 46 (7 March) (
+                        <name key="http://reed.utoronto.ca/django/eats/entity/2958/" type="occasion_religion">Lenten</name> dispensations at the
+                        <name key="http://reed.utoronto.ca/django/eats/entity/1444/" type="place_playing">Fortune</name>)</head>
+                    <div type="transcription">
+                        <pb type="page" n="46"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="body">
+                            From 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/39065/" type="man">Vincent</name> – For 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/20095/" type="activity">dancing on the Ropes</name> this 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/2958/" type="occasion_religion">Lent</name> at ye 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1444/" type="place_playing">Fortune</name> by 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/40451/" type="man">Blagrave</name> 7 March 1634 – 2 li.
+                        </ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote">
+                        <ab type="endnote">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/39065/" type="man">William Vincent</name>, alias
+                            <name key="http://reed.utoronto.ca/django/eats/entity/39065/" type="man">Hocus Pocus</name>, was the 
+                            leader of a troupe of 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/39138/" type="activity">jugglers</name>, 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/39160/" type="activity">conjurers</name>, 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/20095/" type="activity">tight-rope dancers</name>,
+                            <name key="http://reed.utoronto.ca/django/eats/entity/39182/" type="activity">acrobats</name>, and 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/39208/" type="activity">sword-swallowers</name>,
+                            and the most famous travelling 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3487/" type="subject">entertainer</name> of his day. In
+                            <name key="http://reed.utoronto.ca/django/eats/entity/2501/" type="place_settlement">London</name>, he lived in the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/2664/" type="place_religion">parish of St Giles without Cripplegate</name>,
+                            where the
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1444/" type="place_playing">Fortune playhouse</name>
+                            was sited, but was known in 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/4720/" type="place_settlement">Leicester</name>, 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/39230/" type="place_region">Coventry</name>, 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/21502/" type="place_settlement">Oxford</name>, and
+                            <name key="http://reed.utoronto.ca/django/eats/entity/39252/" type="place_settlement">Norwich</name>. 
+                            For his career see N.W. Bawcutt, 'William Vincent, alias Hocus
+                            Pocus: A travelling entertainer of the seventeenth century,' <title type="periodical">Theatre Notebook</title> 54 (2000), 130–8.
+                        </ab>
+                    </div>
+                </body>
+                <link type="document_desc" target="#Midd_HP05"/>
+            </text>
+            <text type="record" xml:id="rec168_FIN_1636_SFAJ_p406">
+                <body>
+                    <head type="main">
+                        <placeName>
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date when-iso="1636-05-12">1636</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">Play</name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/10013/" type="document">Licence</name> for the
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1444/" type="place_playing">Fortune</name></title>
+                        <seg type="publication">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/37949/" type="man">
+                                <idno type="author_surname">Malone</idno></name>:
+                            <name key="http://reed.utoronto.ca/django/eats/entity/39300/" type="work_title">
+                                <idno type="short_title">Plays and Poems</idno></name>, Vol 1
+                        </seg>
+                    </head>
+                    <head type="sub">p 406 (12 May) (
+                        <name key="http://reed.utoronto.ca/django/eats/entity/10013/" type="document">Licence</name> for a
+                        <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">play</name>)</head>
+                    <div type="transcription">
+                        <pb type="page" n="406"/>
+                        <gap reason="omitted"/><lb/>
+                        <p rend="indented">
+                            "Received of ould 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15508/" type="man">Cartwright</name> for allowing the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1444/" type="place_playing"><ref target="#rec20_fn27" type="foot_anchor"><orig>[</orig>Fortune<orig>]</orig></ref></name>
+                            <note xml:id="rec20_fn27" type="foot">[Fortune]: <hi rend="italic">square brackets in original transcript</hi></note> 
+                            company to add
+                            scenes to an ould
+                            <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">play</name>,
+                            and to give it out for a new one, this 12th of May, 1636, £. 1 0 0."
+                        </p><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote"> 
+                        <ab type="endnote">Old '
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15508/" type="man">Cartwright</name>' was
+                            <name key="http://reed.utoronto.ca/django/eats/entity/15508/" type="man">William Cartwright</name>, the
+                            <name key="http://reed.utoronto.ca/django/eats/entity/2980/" type="occupation">actor</name>, who died in December 1686.</ab>
+                    </div>
+                </body>
+                <link type="document_desc" target="#Midd_SFAJ"/>
+            </text>
+            <text type="record" xml:id="rec169_FIN_1638_BURN_p200">
+                <body>
+                    <head type="main">
+                        <placeName>
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date when-iso="1638">1638</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/19956/" type="man">Sir Henry Herbert</name>’s Office 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/19934/" type="document">Book</name></title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository">Beinecke Rare Book and Manuscript Library</idno>:
+                            <idno type="shelfmark">Osborn Shelves d1.</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">p 200* (
+                        <name key="http://reed.utoronto.ca/django/eats/entity/10013/" type="document">Licences</name> for a 
+                        <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">play</name>)</head>
+                    <div type="transcription">
+                        <pb type="page" n="200"/>
+                        <gap reason="omitted"/><lb/>
+                        <p rend="indented">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/39334/" type="work_title">
+                                <ref target="#rec21_fn28" type="foot_anchor"><hi rend="underline">Messanissa</hi></ref></name>,
+                            <note xml:id="rec21_fn28" type="foot">Messanissa: <hi rend="italic">underlined</hi></note> allowed to 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1444/" type="place_playing">Fortune</name>'s Comp<ex>any</ex> 1638
+                        </p><lb/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="subhead">(
+                            <name key="http://reed.utoronto.ca/django/eats/entity/10013/" type="document">Licences</name> for a 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">play</name>)</ab>
+                        <ab type="body">
+                            <gap reason="omitted"/><lb/>
+                            <name key="http://reed.utoronto.ca/django/eats/entity/39360/" type="work_title">
+                                <ref target="#rec21_fn29" type="foot_anchor"><hi rend="underline">More Fields</hi></ref></name>,
+                            <note xml:id="rec21_fn29" type="foot">More Fields: <hi rend="italic">underlined</hi></note> all<ex>owe</ex>d 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1444/" type="place_playing">Fortune</name> Company 1638<lb/>
+                            <gap reason="omitted"/>
+                        </ab><lb/>
+                        <lb/>
+                        <ab type="subhead">p 202* (
+                            <name key="http://reed.utoronto.ca/django/eats/entity/10013/" type="document">Licences</name> for a
+                            <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">play</name>)</ab>
+                        <pb type="page" n="202"/>
+                        <gap reason="omitted"/><lb/>
+                        <p rend="indented">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/39386/" type="work_title">
+                                <ref target="#rec21_fn30" type="foot_anchor"/><hi rend="underline">Seven Stars</hi></name>,
+                            <note xml:id="rec21_fn30" type="foot">Seven Stars: <hi rend="italic">underlined</hi></note> allowed 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1444/" type="place_playing">Fortune</name> Company 1638
+                        </p><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote">
+                        <ab type="endnote"><title type="play">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/39334/" type="work_title">Messanissa</name></title>, <title type="play">
+                                <name key="http://reed.utoronto.ca/django/eats/entity/39360/" type="work_title">More Fields</name></title>, and <title type="play">
+                                    <name key="http://reed.utoronto.ca/django/eats/entity/39386/" type="work_title">Seven Stars</name></title>
+                            are all otherwise unknown.
+                        </ab>
+                    </div>
+                </body>
+                <link type="document_desc" target="#Midd_BURN"/>
+            </text>
+            <text type="record" xml:id="rec170_FIN_1639_BURN_p195">
+                <body>
+                    <head type="main">
+                        <placeName>
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName>
+                        <date when="1639">1639</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/19956/" type="man">Sir Henry Herbert</name>’s Office 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/19934/" type="document">Book</name></title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository">Beinecke Rare Book and Manuscript Library</idno>:
+                            <idno type="shelfmark">Osborn Shelves d1.</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">p 195* (
+                        <name key="http://reed.utoronto.ca/django/eats/entity/10013/" type="document">Licences</name> for
+                        <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">plays</name>)</head>
+                    <div type="transcription">
+                        <pb type="page" n="195"/>
+                        <gap reason="omitted"/><lb/>
+                        <p rend="indented">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/39412/" type="work_title">
+                                <ref target="#rec22_fn31" type="foot_anchor"><hi rend="underline">Dido and &#x00C6;neas</hi></ref></name>,
+                            <note xml:id="rec22_fn31" type="foot">Dido and &#x00C6;neas: <hi rend="italic">underlined</hi></note> all<ex>owe</ex>d 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3037/" type="troupe">Queen's Company</name> 1639.
+                        </p><lb/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="subhead">p 198 (Licences for a play)</ab>
+                        <pb type="page" n="198"/>
+                        <gap reason="omitted"/><lb/>
+                        <p rend="indented">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/39442/" type="work_title">The
+                                <ref target="#rec22_fn32" type="foot_anchor"><hi rend="underline">Jewell</hi></ref></name>,
+                            <note xml:id="rec22_fn32" type="foot">Jewell: <hi rend="italic">underlined</hi></note> a 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/14151/" type="subject">Com.<ex>edy</ex></name> 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1444/" type="place_playing">Fortune</name>, lic<ex>ensed</ex> 1639
+                        </p><lb/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="subhead">p 202 (
+                            <name key="http://reed.utoronto.ca/django/eats/entity/10013/" type="document">Licence</name> for a
+                            <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">play</name>)</ab>
+                        <pb type="page" n="202"/>
+                        <gap reason="omitted"/><lb/>
+                        <p rend="indented">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/39472/" type="work_title">
+                                <ref target="#rec22_fn33" type="foot_anchor"><hi rend="underline">A Queen and No Queen</hi></ref></name>,
+                            <note xml:id="rec22_fn33" type="foot">A Queen&#x2026;Queen: <hi rend="italic">underlined</hi></note> all<ex>owe</ex>d to 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1444/" type="place_playing">Fortune</name> Comp<ex>any</ex>
+                            1639
+                        </p><lb/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="subhead">p 204</ab>
+                        <pb type="page" n="204"/>
+                        <gap reason="omitted"/><lb/>
+                        <p rend="indented">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/39498/" type="work_title">
+                                <ref target="#rec22_fn34" type="foot_anchor"><hi rend="underline">Woman Monster</hi></ref></name>,
+                            <note xml:id="rec22_fn34" type="foot">Woman Monster: underlined</note> all<ex>owe</ex>d 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1444/" type="place_playing">Fortune</name> Comp<ex>any</ex> 1639
+                        </p><lb/>
+                        <gap reason="omitted"/><lb/> 
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote">
+                        <ab type="endnote"><title type="play">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/39412/" type="work_title">Dido and Æneas</name></title> was probably a new
+                            <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">play</name>, rather than the anonymous lost
+                           <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity"> play</name> of 1598 with this
+                            title. <title type="play">
+                                <name key="http://reed.utoronto.ca/django/eats/entity/39472/" type="work_title">A Queen and No Queen</name></title> is possibly
+                            <name key="http://reed.utoronto.ca/django/eats/entity/39524/" type="man">Richard Brome</name>'s <title type="play">
+                                <name key="http://reed.utoronto.ca/django/eats/entity/39472/" type="work_title">The Queen and Concubine</name></title> (Bentley,
+                            <title type="monograph">Jacobean and Caroline Stage</title>, vol 3, 85–6). <title type="play">
+                                <name key="http://reed.utoronto.ca/django/eats/entity/39442/" type="work_title">The Jewell</name></title> and 
+                            <title type="play">
+                                <name key="http://reed.utoronto.ca/django/eats/entity/39498/" type="work_title">Woman Monster</name></title> are not otherwise known.
+                        </ab>
+                    </div>
+                </body>
+                <link type="document_desc" target="#Midd_BURN"/>
+            </text>
+            <text type="record" xml:id="rec171_FIN_1639_BURN_p195">
+                <body>
+                    <head type="main">
+                        <placeName>
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName> 
+                        <date when-iso="1640">1640</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/19956/" type="man">Sir Henry Herbert</name>’s Office 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/19934/" type="document">Book</name></title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository">Beinecke Rare Book and Manuscript Library</idno>:
+                            <idno type="shelfmark">Osborn Shelves d1.</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">p 198* (
+                        <name key="http://reed.utoronto.ca/django/eats/entity/10013/" type="document">Licence</name> for a 
+                        <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">play</name>)</head>
+                    <div type="transcription">
+                        <pb type="page" n="198"/>
+                        <gap reason="omitted"/><lb/>
+                        <p rend="indented">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/39593/" type="work_title">
+                                <ref target="#rec23_fn35" type="foot_anchor"><hi rend="underline">The Humours of Rome</hi></ref></name>,
+                            <note xml:id="rec23_fn35" type="foot">Humours of Rome: <hi rend="italic">underlined</hi></note> made by a 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/39619/" type="office">Schollar</name>, all<ex>owe</ex>d
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1444/" type="place_playing">Fortune</name>
+                            Company, 1640.
+                        </p><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote">
+                        <ab type="endnote"><title type="play">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/39593/" type="work_title">The Humours of Rome</name></title> is not otherwise known.</ab>
+                    </div>
+                </body>
+                <link type="document_desc" target="#Midd_BURN"/>
+            </text>
+            <text type="record" xml:id="rec172_FIN_1639_BURN_p48">
+                <body>
+                    <head type="main">
+                        <placeName>
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName> 
+                        <date when-iso="1641-06-23">1641</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/19956/" type="man">Sir Henry Herbert</name>’s Office
+                            <name key="http://reed.utoronto.ca/django/eats/entity/19934/" type="document">Book</name></title>
+                        <seg type="repository_shelfmark">
+                            <idno type="repository">Folger Shakespeare Library</idno>:
+                            <idno type="shelfmark">W.b.156</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">p 48* (23 June) (
+                        <name key="http://reed.utoronto.ca/django/eats/entity/10013/" type="document">Licence</name> for a 
+                        <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">play</name>)</head>
+                    <div type="transcription">
+                        <pb type="page" n="48"/>
+                        <gap reason="omitted"/><lb/>
+                        <ab type="body">
+                            23<hi rend="superscript">d</hi> Iune 1641 Rec<ex>eiv</ex>ed for the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/10013/" type="document">licensinge</name> a 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/19934/" type="document">booke</name> for the
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1444/" type="place_playing">Fortune</name> comp<ex>any</ex> called 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/39641/" type="work_title">the Doge &amp; the Dragon</name>. 2 li.
+                        </ab><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote">
+                        <ab type="endnote"><title type="play">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/39641/" type="work_title">The Dog and the Dragon</name>
+                        </title>, by an anonymous author, is now lost.</ab>
+                    </div>
+                </body>
+                <link type="document_desc" target="#Midd_BURN"/>
+            </text>
+            <text type="record" xml:id="rec173_FIN_1629_EHJS_p1004">
+                <body>
+                    <head type="main">
+                        <placeName>
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3360/" type="place_settlement">FINSBURY</name></placeName> 
+                        <date when-iso="1629">1629</date>
+                        <title type="record_head">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/39667/" type="man">Edmund Howes</name>' Continuation of 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/39713/" type="man">John Stow</name>’s
+                            <name key="http://reed.utoronto.ca/django/eats/entity/39759/" type="document">Annales</name></title>
+                        <seg type="STC_ref">
+                            <idno type="publication" corresp="#abbr_STC">STC</idno>:
+                            <idno type="STC_number">23340</idno>
+                        </seg>
+                    </head>
+                    <head type="sub">p 1004 col 1* (
+                        <name key="http://reed.utoronto.ca/django/eats/entity/39759/" type="document">History</name> of 
+                        <name key="http://reed.utoronto.ca/django/eats/entity/1713/" type="place_playing">playhouses</name>)</head>
+                    <div type="transcription">
+                        <pb type="page" n="1004"/>
+                        <gap reason="omitted"/><lb/>
+                        <p rend="indented">
+                            And about foure years after, a fayre strong new built 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1713/" type="place_playing">Play-house</name>, neere
+                            <name key="http://reed.utoronto.ca/django/eats/entity/2811/" type="place_sub_settlement">Gouldinglane</name>, called the
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1444/" type="place_playing">Fortune</name>, by negligence of a 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/40527/" type="prop">candle</name>, was cleane
+                            burnt to the ground, but shortly after, rebuilt farre fairer. In the yeare one thousand sixe hundred twenty nine there was builded a new faire
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1713/" type="place_playing">Play-house</name>, neere the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/28415/" type="place_playing">white Fryers</name>. And this is the seauenteenth 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7517/" type="prop">Stage</name>, or common
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1713/" type="place_playing">Play-house</name>, which hath beene
+                            new made within the space of
+                            threescore yeeres within 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/2501/" type="place_settlement">London</name> and the
+                            Suburbs, viz.
+                        </p><lb/>
+                        <p rend="indented">
+                            <name key="http://reed.utoronto.ca/django/eats/entity/40545/" type="place_built">
+                                <name key="http://reed.utoronto.ca/django/eats/entity/2207/" type="place_playing">
+                                    <name key="http://reed.utoronto.ca/django/eats/entity/10734/" type="place_playing">
+                                        <name key="http://reed.utoronto.ca/django/eats/entity/40583/" type="place_built">
+                                            <name key="http://reed.utoronto.ca/django/eats/entity/40613/" type="place_built">Fiue Innes</name></name></name></name></name>, 
+                            or common 
+                            Osteryes turned to 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1713/" type="place_playing">Play-houses</name>, one 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/19784/" type="place_playing">Cock-pit</name>, 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/40643/" type="place_playing">S. Paules singing Schoole</name>, one in the
+                            <name key="http://reed.utoronto.ca/django/eats/entity/25091/" type="place_playing">Black-fryers</name>, and one in the
+                            <name key="http://reed.utoronto.ca/django/eats/entity/28415/" type="place_playing">White-fryers</name>, 
+                            which was built last of all, in the yeare one thousand sixe hundred twentynine, all the rest not named, were erected only for
+                            common 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1713/" type="place_playing">Play-houses</name>, besides the new built
+                            <name key="http://reed.utoronto.ca/django/eats/entity/20006/" type="place_built">Beare garden</name>, which was built as well for 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/4138/" type="activity">playes</name>, and
+                            <name key="http://reed.utoronto.ca/django/eats/entity/23798/" type="activity">Fencers</name> prizes, as 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/39792/" type="activity">Bull Bayting</name>; besides, one
+                            in former time at
+                            <name key="http://reed.utoronto.ca/django/eats/entity/49348/" type="place_playing">Newington Buts</name>; Before the space of threescore yeares abouesayd, I neither knew heard nor read of any such 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1713/" type="place_playing">Theatres</name>,
+                            <name key="http://reed.utoronto.ca/django/eats/entity/7517/" type="prop">set Stages</name>,
+                            or
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1713/" type="place_playing">Play-houses</name>, as haue beene purposely built within mans memory.
+                        </p><lb/>
+                        <gap reason="omitted"/><lb/>
+                    </div>
+                    <div type="translation"/>
+                    <div type="endnote">
+                        <ab type="endnote">The
+                            <name key="http://reed.utoronto.ca/django/eats/entity/3160/" type="place_playing">Globe</name> burnt down on 1 August 1613,
+                            so this disaster was placed around or after 1617 ('four years after'); it was in fact
+                            December 1621. A 'new faire
+                            <name key="http://reed.utoronto.ca/django/eats/entity/1713/" type="place_playing">Play-house</name>, neere the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/28415/" type="place_playing">white Fryers</name>' refers to the 
+                            <name key="http://reed.utoronto.ca/django/eats/entity/29273/" type="place_playing">Salisbury Court playhouse</name>.
+                        </ab>
+                    </div>
+                </body>
+                <link type="document_desc" target="#Midd_EHJS"/>
+                <link type="emlot" target="http://www.emlot.kcl.ac.uk/db/record/event/710/"/>
+            </text>
+        </group>
+    </text>
+</TEI>
