@@ -1009,7 +1009,7 @@
   <!-- Highlighted text. -->
 
   <!-- Generic (CSS-based) -->
-  <xsl:template match="tei:hi[@rend]">
+  <xsl:template match="tei:hi[@rend]" priority="-1">
     <xsl:variable name="class">
       <xsl:apply-templates mode="rend-class" select="@rend" />
     </xsl:variable>
