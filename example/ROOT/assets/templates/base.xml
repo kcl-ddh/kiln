@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xmtp:root xmlns:tei="http://www.tei-c.org/ns/1.0"
+<kiln:root xmlns:tei="http://www.tei-c.org/ns/1.0"
            xmlns:xi="http://www.w3.org/2001/XInclude"
-           xmlns:xmg="http://www.cch.kcl.ac.uk/xmod/global/1.0"
-           xmlns:xmm="http://www.cch.kcl.ac.uk/xmod/menu/1.0"
-           xmlns:xmtp="http://www.cch.kcl.ac.uk/xmod/template/1.0"
+           xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
            xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
   <!-- Imports the default variables. -->
@@ -12,19 +10,19 @@
   <!-- Imports the menu stylesheet -->
   <xsl:import href="cocoon://_internal/template/xsl/stylesheets/menu/menu.xsl" />
 
-  <xmtp:block name="html">
+  <kiln:block name="html">
     <html lang="en">
-      <xmtp:block name="head">
+      <kiln:block name="head">
         <head>
           <title>
-            <xmtp:block name="title"> | The Fortune Theatre Records</xmtp:block>
+            <kiln:block name="title"> | The Fortune Theatre Records</kiln:block>
           </title>
           <meta content="width=device-width, initial-scale=1.0"
                 name="viewport" />
-          <xmtp:block name="css">
-            <link href="{$xmg:assets-path}/styles/bootstrap.css"
+          <kiln:block name="css">
+            <link href="{$kiln:assets-path}/styles/bootstrap.css"
                   rel="stylesheet" type="text/css" />
-            <link href="{$xmg:assets-path}/styles/bootstrap.responsive.css"
+            <link href="{$kiln:assets-path}/styles/bootstrap.responsive.css"
                   rel="stylesheet" type="text/css" />
             <style type="text/css">
               <xsl:text>body { padding-top: 60px; position: relative; }</xsl:text>
@@ -43,14 +41,14 @@
             <!--[if lt IE 9]>
                 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
                 <![endif]-->
-          </xmtp:block>
-          <xmtp:block name="head-extra"></xmtp:block>
+          </kiln:block>
+          <kiln:block name="head-extra"></kiln:block>
         </head>
-      </xmtp:block>
+      </kiln:block>
       <body id="body">
-        <xmtp:block name="body">
-          <xmtp:block name="navigation">
-            <xmtp:block name="main-navigation">
+        <kiln:block name="body">
+          <kiln:block name="navigation">
+            <kiln:block name="main-navigation">
               <div class="navbar navbar-inverse navbar-fixed-top">
                 <div class="navbar-inner">
                   <div class="container">
@@ -65,30 +63,30 @@
                   </div>
                 </div>
               </div>
-            </xmtp:block>
-          </xmtp:block>
+            </kiln:block>
+          </kiln:block>
           <div class="container-fluid">
-            <xmtp:block name="page-header">
+            <kiln:block name="page-header">
               <h1>
-                <xmtp:block name="page-heading">
+                <kiln:block name="page-heading">
                   <xsl:text>eREED: </xsl:text>
-                </xmtp:block>
+                </kiln:block>
               </h1>
-            </xmtp:block>
+            </kiln:block>
           </div>
 
           <div class="container-fluid">
-            <xmtp:block name="content-section">
-              <xmtp:block name="local-navigation" />
-              <xmtp:block name="content-block">
+            <kiln:block name="content-section">
+              <kiln:block name="local-navigation" />
+              <kiln:block name="content-block">
                 <div class="row-fluid">
-                  <xmtp:block name="content" />
+                  <kiln:block name="content" />
                 </div>
-              </xmtp:block>
-            </xmtp:block>
+              </kiln:block>
+            </kiln:block>
           </div>
 
-          <xmtp:block name="footer">
+          <kiln:block name="footer">
             <footer class="footer">
               <div class="container-fluid">
                 <div class="row-fluid">
@@ -96,14 +94,14 @@
                     <a href="http://www.mellon.org" target="_blank">
                       <img alt="" class="img_block" width="200"
                            longdesc="http://www.mellon.org"
-                           src="{$xmg:assets-path}/images/mellonlogo.jpg"
+                           src="{$kiln:assets-path}/images/mellonlogo.jpg"
                            title="The Andrew W. Mellon Foundation" />
                     </a>
                   </div>
                   <div class="span3">
                     <a href="http://www.reed.utoronto.ca/" target="_blank">
                       <img alt="" class="img_block" width="150"
-                           src="{$xmg:assets-path}/images/ReedLogo.png"
+                           src="{$kiln:assets-path}/images/ReedLogo.png"
                            title="Records of Early English Drama" />
                     </a>
                   </div>
@@ -111,14 +109,14 @@
                     <a href="http://www.kcl.ac.uk/artshums/depts/ddh/"
                        target="_blank">
                       <img alt="" class="img_block" width="75"
-                           src="{$xmg:assets-path}/images/Digital-Humanities-logo-OL.png"
+                           src="{$kiln:assets-path}/images/Digital-Humanities-logo-OL.png"
                            title="Department of Digital Humanities, King's College London" />
                     </a>
                   </div>
                   <div class="span3">
                     <a href="http://www.ryerson.ca/cdh/" target="_blank">
                       <img alt="" class="img_block" width="150"
-                           src="{$xmg:assets-path}/images/CDHlogo.png"
+                           src="{$kiln:assets-path}/images/CDHlogo.png"
                            title="Centre for Digital Humanities, Ryerson Unviersity" />
                     </a>
                   </div>
@@ -154,15 +152,15 @@
                 </div>
               </div>
             </footer>
-          </xmtp:block>
-        </xmtp:block>
+          </kiln:block>
+        </kiln:block>
 
-        <xmtp:block name="js">
+        <kiln:block name="js">
           <!-- jQuery from Google CDN. -->
           <script src="http://code.jquery.com/jquery-1.8.0.min.js">&#160;</script>
-          <script src="{$xmg:assets-path}/scripts/bootstrap.min.js">&#160;</script>
-        </xmtp:block>
+          <script src="{$kiln:assets-path}/scripts/bootstrap.min.js">&#160;</script>
+        </kiln:block>
       </body>
     </html>
-  </xmtp:block>
-</xmtp:root>
+  </kiln:block>
+</kiln:root>

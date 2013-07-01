@@ -1,33 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xmtp:root xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+<kiln:root xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
            xmlns:tei="http://www.tei-c.org/ns/1.0"
            xmlns:xi="http://www.w3.org/2001/XInclude"
-           xmlns:xmg="http://www.cch.kcl.ac.uk/xmod/global/1.0"
-           xmlns:xmtp="http://www.cch.kcl.ac.uk/xmod/template/1.0"
+           xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
            xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
   <xsl:import href="cocoon://_internal/template/xsl/stylesheets/schematron/svrl_to_html.xsl" />
 
-  <xmtp:parent>
+  <kiln:parent>
     <xi:include href="base.xml" />
-  </xmtp:parent>
+  </kiln:parent>
 
-  <xmtp:child>
-    <xmtp:block name="title"><xmtp:super />Schematron validation results for <xsl:value-of select="$file" /></xmtp:block>
+  <kiln:child>
+    <kiln:block name="title"><kiln:super />Schematron validation results for <xsl:value-of select="$file" /></kiln:block>
 
-    <xmtp:block name="css">
-      <xmtp:super />
-      <link href="{$xmg:assets-path}/styles/schematron.css" rel="stylesheet"
+    <kiln:block name="css">
+      <kiln:super />
+      <link href="{$kiln:assets-path}/styles/schematron.css" rel="stylesheet"
             type="text/css" />
-    </xmtp:block>
+    </kiln:block>
 
-    <xmtp:block name="header">
+    <kiln:block name="header">
       <h1>Kiln Admin: Schematron validaton results for <xsl:value-of select="$file" /></h1>
-    </xmtp:block>
+    </kiln:block>
 
-    <xmtp:block name="content">
+    <kiln:block name="content">
       <xsl:apply-templates select="/aggregation/svrl:schematron-output" />
-    </xmtp:block>
-  </xmtp:child>
+    </kiln:block>
+  </kiln:child>
 
-</xmtp:root>
+</kiln:root>

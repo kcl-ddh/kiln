@@ -30,25 +30,25 @@ Writing a template
 
 The basic structure of a template is as follows: ::
 
-    <xmtp:root xmlns:xmtp="http://www.cch.kcl.ac.uk/xmod/template/1.0"
+    <kiln:root xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
                xmlns:xi="http://www.w3.org/2001/XInclude">
-        <xmtp:parent>
+        <kiln:parent>
             <xi:include href="base.xml"/>
-        </xmtp:parent>
-        <xmtp:child>
-            <xmtp:block name="head-title">
-            </xmtp:block>
-        </xmtp:child>
-    </xmtp:root>
+        </kiln:parent>
+        <kiln:child>
+            <kiln:block name="head-title">
+            </kiln:block>
+        </kiln:child>
+    </kiln:root>
 
 In a base template (that is, one that does not extend another
-template), there are no ``xmtp:parent`` or ``xmtp:child`` elements,
-only ``xmtp:root`` and ``xmtp:block`` elements (and whatever content
+template), there are no ``kiln:parent`` or ``kiln:child`` elements,
+only ``kiln:root`` and ``kiln:block`` elements (and whatever content
 the template may hold, of course).
 
 In a template that extends another, the template being extended is
 referenced by an ``xi:include``, the only allowed content of
-``xmtp:parent``.
+``kiln:parent``.
 
 Blocks
 ------
@@ -66,9 +66,9 @@ specifying the name of the attribute it is a block for in the
 ::
 
     <ul>
-        <xmtp:block name="ul-class" attribute="class">
+        <kiln:block name="ul-class" attribute="class">
             <xsl:text>block default</xsl:text>
-        </xmtp:block>
+        </kiln:block>
     </ul>
 
 Multiple attribute blocks for the same element should simply be
@@ -80,18 +80,18 @@ Inheriting content
 
 In addition to supplying its own content, a block may include the
 content of the block it is inheriting from. To do so, an empty
-``xmtp:super`` element should be added wherever the inherited content
-is wanted (multiple ``xmtp:super`` elements may occur within a single
+``kiln:super`` element should be added wherever the inherited content
+is wanted (multiple ``kiln:super`` elements may occur within a single
 block.
 
 ::
 
-    <xmtp:block name="nav">
-        <xmtp:super/>
+    <kiln:block name="nav">
+        <kiln:super/>
         <p>Extra navigation here.</p>
-    </xmtp:block>
+    </kiln:block>
 
-If the block being inherited also contains an ``xmtp:super`` element, then that
+If the block being inherited also contains an ``kiln:super`` element, then that
 referenced content will also be included.
 
 Dynamic content

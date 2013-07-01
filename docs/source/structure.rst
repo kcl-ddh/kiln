@@ -31,7 +31,6 @@ the project-specific files, keeping each in their own directories.
             * images — Project/content images.
             * xml
                 * tei — TEI content files.
-
         * kiln — Kiln core files, should not need to be modified.
         * mount-table.xml — Cocoon's sitemap mount table (do not modify).
         * not-found.xml — Default file to display when a resource is not found.

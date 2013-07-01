@@ -1,28 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xmtp:root xmlns:tei="http://www.tei-c.org/ns/1.0"
+<kiln:root xmlns:tei="http://www.tei-c.org/ns/1.0"
            xmlns:xi="http://www.w3.org/2001/XInclude"
-           xmlns:xmg="http://www.cch.kcl.ac.uk/xmod/global/1.0"
-           xmlns:xmm="http://www.cch.kcl.ac.uk/xmod/menu/1.0"
-           xmlns:xmtp="http://www.cch.kcl.ac.uk/xmod/template/1.0"
+           xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
            xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
   <!-- Imports the default variables. -->
   <xsl:import href="cocoon://_internal/template/xsl/stylesheets/defaults.xsl" />
 
   <!-- Imports the menu stylesheet -->
-  <xsl:import
-    href="cocoon://_internal/template/xsl/stylesheets/menu/menu.xsl" />
+  <xsl:import href="cocoon://_internal/template/xsl/stylesheets/menu/menu.xsl" />
 
-  <xmtp:block name="html">
+  <kiln:block name="html">
     <!--[if IE 7 ]> <html class="no-js ie7" lang="en"> <![endif]-->
     <!--[if IE 8 ]> <html class="no-js ie8" lang="en"> <![endif]-->
     <!--[if (gte IE 9)|!(IE)]><!-->
     <html class="no-js" lang="en">
       <!--<![endif]-->
-      <xmtp:block name="head">
+      <kiln:block name="head">
         <head>
-          <title><xmtp:block name="title">Kiln: </xmtp:block></title>
-          <xmtp:block name="js">
+          <title><kiln:block name="title">Kiln: </kiln:block></title>
+          <kiln:block name="js">
             <!-- jQuery from Google CDN. -->
             <script
               src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js"
@@ -31,28 +28,28 @@
             <script
               src="http://cdn.jquerytools.org/1.2.5/all/jquery.tools.min.js"
               >&#160;</script>
-          </xmtp:block>
-          <xmtp:block name="css">
-            <link href="{$xmg:assets-path}/styles/base.css" rel="stylesheet"
+          </kiln:block>
+          <kiln:block name="css">
+            <link href="{$kiln:assets-path}/styles/base.css" rel="stylesheet"
               type="text/css" />
-            <link href="{$xmg:assets-path}/styles/site.css" rel="stylesheet"
+            <link href="{$kiln:assets-path}/styles/site.css" rel="stylesheet"
               type="text/css" />
-          </xmtp:block>
-          <xmtp:block name="head-extra">
+          </kiln:block>
+          <kiln:block name="head-extra">
             <!-- Mobile etc. devices: courtesy of 320+Up:
                  http://stuffandnonsense.co.uk/projects/320andup/ -->
             <!-- For Nokia. -->
-            <link href="{$xmg:assets-path}/images/apple-touch-icon.png"
+            <link href="{$kiln:assets-path}/images/apple-touch-icon.png"
               rel="shortcut icon" />
             <!-- For everything else. -->
-            <link href="{$xmg:assets-path}/images/favicon.ico"
+            <link href="{$kiln:assets-path}/images/favicon.ico"
               rel="shortcut icon" />
 
             <!--iOS. Delete if not required. -->
             <meta content="yes" name="apple-mobile-web-app-capable" />
             <meta content="black-translucent"
               name="apple-mobile-web-app-status-bar-style" />
-            <link href="{$xmg:assets-path}/images/i/splash.png"
+            <link href="{$kiln:assets-path}/images/i/splash.png"
               rel="apple-touch-startup-image" />
 
             <!--Microsoft. Delete if not required. -->
@@ -61,14 +58,14 @@
             <meta content="width=device-width,initial-scale=1" name="viewport" />
             <!-- Modernizr: this should be called AFTER CSS to avoid
                  FOUC. -->
-            <script src="{$xmg:assets-path}/scripts/libs/modernizr-dev.js"
+            <script src="{$kiln:assets-path}/scripts/libs/modernizr-dev.js"
               >&#160;</script>
-          </xmtp:block>
+          </kiln:block>
         </head>
-      </xmtp:block>
-      <xmtp:block name="body">
+      </kiln:block>
+      <kiln:block name="body">
         <body>
-          <xmtp:block name="skip-navigation">
+          <kiln:block name="skip-navigation">
             <div class="hidden">
               <ul>
                 <li>
@@ -82,52 +79,52 @@
                 </li>
               </ul>
             </div>
-          </xmtp:block>
+          </kiln:block>
           <div class="wrapper">
-            <xmtp:block name="page-header">
+            <kiln:block name="page-header">
               <header class="line headerSection">
                 <div class="unit size1of1 lastUnit">
                   <h1 class="headerLogo">
-                    <xmtp:block name="page-heading">Page heading</xmtp:block>
+                    <kiln:block name="page-heading">Page heading</kiln:block>
                   </h1>
                 </div>
               </header>
-            </xmtp:block>
-            <xmtp:block name="navigation">
+            </kiln:block>
+            <kiln:block name="navigation">
               <div class="line">
-                <xmtp:block name="main-navigation">
+                <kiln:block name="main-navigation">
                   <nav class="primary" id="mainNavigation">
                     <xsl:apply-templates
                         select="/aggregation/div[@type='menu']"
                         mode="main-menu" />
                   </nav>
-                </xmtp:block>
+                </kiln:block>
               </div>
-            </xmtp:block>
-            <xmtp:block name="content-section">
+            </kiln:block>
+            <kiln:block name="content-section">
               <div class="line contentSection">
-                <xmtp:block name="local-navigation">
+                <kiln:block name="local-navigation">
                   <div class="unit size1of4" id="localNavigation">
                     <xsl:apply-templates
                         select="/aggregation/div[@type='menu']"
                         mode="local-menu" />
                   </div>
-                </xmtp:block>
-                <xmtp:block name="content-block">
+                </kiln:block>
+                <kiln:block name="content-block">
                   <div class="unit size3of4 lastUnit" id="content">
-                    <xmtp:block name="content" />
+                    <kiln:block name="content" />
                   </div>
-                </xmtp:block>
+                </kiln:block>
               </div>
-            </xmtp:block>
+            </kiln:block>
           </div>
-          <xmtp:block name="footer">
+          <kiln:block name="footer">
             <footer class="line footerSection">
               <p>This is the footer.</p>
             </footer>
-          </xmtp:block>
+          </kiln:block>
         </body>
-      </xmtp:block>
+      </kiln:block>
     </html>
-  </xmtp:block>
-</xmtp:root>
+  </kiln:block>
+</kiln:root>

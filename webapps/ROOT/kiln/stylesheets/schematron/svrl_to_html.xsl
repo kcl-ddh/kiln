@@ -1,7 +1,7 @@
 <xsl:stylesheet exclude-result-prefixes="#all"
                 version="2.0"
                 xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                xmlns:xmg="http://www.cch.kcl.ac.uk/xmod/global/1.0"
+                xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
   <xsl:import href="cocoon://_internal/template/xsl/stylesheets/defaults.xsl" />
@@ -10,7 +10,7 @@
            use="preceding-sibling::svrl:active-pattern[1]/@id"/>
 
   <xsl:variable name="schematron-images-path">
-    <xsl:value-of select="$xmg:assets-path" />
+    <xsl:value-of select="$kiln:assets-path" />
     <xsl:text>/images/schematron</xsl:text>
   </xsl:variable>
 

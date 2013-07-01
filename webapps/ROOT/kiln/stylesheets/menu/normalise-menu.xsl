@@ -1,13 +1,13 @@
-<xsl:stylesheet version="2.0" xmlns:xmm="http://www.cch.kcl.ac.uk/xmod/menu/1.0"
-  xmlns:xmg="http://www.cch.kcl.ac.uk/xmod/global/1.0"
-  xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:stylesheet version="2.0"
+                xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-  <!-- Transform a menu document into a normalised form, with all 
-    hrefs expanded into full root relative paths. -->
+  <!-- Transform a menu document into a normalised form, with all
+       hrefs expanded into full root relative paths. -->
 
   <xsl:import href="cocoon://_internal/template/xsl/stylesheets/defaults.xsl" />
 
-  <xsl:template match="xmm:menu[not(@href)][not(xmm:external)]">
+  <xsl:template match="kiln:menu[not(@href)][not(kiln:external)]">
     <xsl:copy>
       <xsl:apply-templates select="@*"/>
       <xsl:call-template name="make-full-href">
@@ -29,7 +29,7 @@
     <xsl:variable name="path">
       <xsl:choose>
         <xsl:when test="starts-with($attribute, '/')">
-          <xsl:value-of select="$xmg:context-path"/>
+          <xsl:value-of select="$kiln:context-path"/>
         </xsl:when>
         <xsl:otherwise>
           <xsl:call-template name="get-path">
@@ -52,7 +52,7 @@
 
   <xsl:template name="get-path">
     <xsl:param name="context"/>
-    <xsl:value-of select="$xmg:context-path"/>
+    <xsl:value-of select="$kiln:context-path"/>
     <xsl:for-each select="$context/ancestor-or-self::*[@root]">
       <xsl:text>/</xsl:text>
       <xsl:value-of select="@root"/>

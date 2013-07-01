@@ -1,28 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xmtp:root xmlns:tei="http://www.tei-c.org/ns/1.0"
+<kiln:root xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
+           xmlns:tei="http://www.tei-c.org/ns/1.0"
            xmlns:xi="http://www.w3.org/2001/XInclude"
-           xmlns:xmg="http://www.cch.kcl.ac.uk/xmod/global/1.0"
-           xmlns:xmtp="http://www.cch.kcl.ac.uk/xmod/template/1.0"
            xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
   <!-- Imports stylesheet to convert TEI into HTML. -->
-  <xsl:import
-    href="cocoon://_internal/template/xsl/stylesheets/tei/to-html.xsl" />
+  <xsl:import href="cocoon://_internal/template/xsl/stylesheets/tei/to-html.xsl" />
 
-  <xmtp:parent>
+  <kiln:parent>
     <xi:include href="base.xml" />
-  </xmtp:parent>
+  </kiln:parent>
 
-  <xmtp:child>
-    <xmtp:block name="title"><xmtp:super /><xsl:value-of
-    select="/aggregation/tei:TEI/tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title[not(@type)]" /></xmtp:block>
+  <kiln:child>
+    <kiln:block name="title"><kiln:super /><xsl:value-of
+    select="/aggregation/tei:TEI/tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title[not(@type)]" /></kiln:block>
 
-    <xmtp:block name="page-heading"><xmtp:super /><xsl:value-of
-    select="/aggregation/tei:TEI/tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title[not(@type)]" /></xmtp:block>
+    <kiln:block name="page-heading"><kiln:super /><xsl:value-of
+    select="/aggregation/tei:TEI/tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title[not(@type)]" /></kiln:block>
 
-    <xmtp:block name="content">
+    <kiln:block name="content">
       <xsl:apply-templates select="/aggregation/tei:TEI" />
-    </xmtp:block>
-  </xmtp:child>
+    </kiln:block>
+  </kiln:child>
 
-</xmtp:root>
+</kiln:root>

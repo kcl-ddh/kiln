@@ -1,43 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xmtp:root xmlns:xmg="http://www.cch.kcl.ac.uk/xmod/global/1.0"
-           xmlns:xmtp="http://www.cch.kcl.ac.uk/xmod/template/1.0"
+<kiln:root xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
            xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
   <!-- Imports the default variables. -->
   <xsl:import href="cocoon://_internal/template/xsl/stylesheets/defaults.xsl" />
 
-  <xmtp:block name="html">
+  <kiln:block name="html">
     <html>
-      <xmtp:block name="head">
+      <kiln:block name="head">
         <head>
-          <title><xmtp:block name="title">Kiln admin: </xmtp:block></title>
-          <xmtp:block name="js"></xmtp:block>
-          <xmtp:block name="css">
+          <title><kiln:block name="title">Kiln admin: </kiln:block></title>
+          <kiln:block name="js"></kiln:block>
+          <kiln:block name="css">
             <link href="http://yui.yahooapis.com/pure/0.2.0/pure-min.css"
                   rel="stylesheet" />
-            <link href="{$xmg:assets-path}/styles/admin.css"
+            <link href="{$kiln:assets-path}/styles/admin.css"
                   rel="stylesheet" />
-          </xmtp:block>
-          <xmtp:block name="head-extra"></xmtp:block>
+          </kiln:block>
+          <kiln:block name="head-extra"></kiln:block>
         </head>
-      </xmtp:block>
-      <xmtp:block name="body">
+      </kiln:block>
+      <kiln:block name="body">
         <body>
-          <header><xmtp:block name="header"></xmtp:block></header>
+          <header><kiln:block name="header"></kiln:block></header>
           <nav class="pure-menu pure-menu-open pure-menu-horizontal">
-            <xmtp:block name="nav">
+            <kiln:block name="nav">
               <ul>
-                <li><a href="{$xmg:context-path}/">Site Home</a></li>
-                <li><a href="{$xmg:context-path}/admin/">Admin Home</a></li>
-                <li><a href="{$xmg:context-path}/admin/xml/">Documents</a></li>
+                <li><a href="{$kiln:context-path}/">Site Home</a></li>
+                <li><a href="{$kiln:context-path}/admin/">Admin Home</a></li>
+                <li><a href="{$kiln:context-path}/admin/xml/">Documents</a></li>
               </ul>
-            </xmtp:block>
+            </kiln:block>
           </nav>
-          <main><xmtp:block name="content"></xmtp:block></main>
-          <footer><xmtp:block name="footer"></xmtp:block></footer>
+          <main><kiln:block name="content"></kiln:block></main>
+          <footer><kiln:block name="footer"></kiln:block></footer>
         </body>
-      </xmtp:block>
+      </kiln:block>
     </html>
-  </xmtp:block>
+  </kiln:block>
 
-</xmtp:root>
+</kiln:root>

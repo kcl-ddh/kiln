@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xmtp:root xmlns:xi="http://www.w3.org/2001/XInclude"
-           xmlns:xmg="http://www.cch.kcl.ac.uk/xmod/global/1.0"
-           xmlns:xmtp="http://www.cch.kcl.ac.uk/xmod/template/1.0"
+<kiln:root xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
+           xmlns:xi="http://www.w3.org/2001/XInclude"
            xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-  <xmtp:parent>
+  <kiln:parent>
     <xi:include href="base.xml" />
-  </xmtp:parent>
+  </kiln:parent>
 
-  <xmtp:child>
-    <xmtp:block name="title">
-      <xsl:text>Team and Sponsor<xmtp:super /></xsl:text>
-    </xmtp:block>
+  <kiln:child>
+    <kiln:block name="title">
+      <xsl:text>Team and Sponsor<kiln:super /></xsl:text>
+    </kiln:block>
 
-    <xmtp:block name="page-header">
+    <kiln:block name="page-header">
       <h1>Team and Sponsor</h1>
-    </xmtp:block>
+    </kiln:block>
 
-    <xmtp:block name="content">
+    <kiln:block name="content">
       <div class="span12">
         <h3>The Fortune Theatre Records: A Prototype Digital Edition
         by Records of Early English Drama (REED) could not have been
@@ -65,7 +64,7 @@
         <p>Thanks also to Mike Stumpf for supplementary research on some of the Fortune Theatre records to facilitate EATS implementation.</p>
         <p class="MsoNormal">Server infrastructure has been kindly provided by the Department of Digital Humanities, King’s College London.</p>
       </div>
-    </xmtp:block>
+    </kiln:block>
 
-  </xmtp:child>
-</xmtp:root>
+  </kiln:child>
+</kiln:root>

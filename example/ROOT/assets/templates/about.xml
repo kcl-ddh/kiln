@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xmtp:root xmlns:xi="http://www.w3.org/2001/XInclude"
-           xmlns:xmg="http://www.cch.kcl.ac.uk/xmod/global/1.0"
-           xmlns:xmtp="http://www.cch.kcl.ac.uk/xmod/template/1.0"
+<kiln:root xmlns:xi="http://www.w3.org/2001/XInclude"
+           xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
            xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-  <xmtp:parent>
+  <kiln:parent>
     <xi:include href="base.xml" />
-  </xmtp:parent>
+  </kiln:parent>
 
-  <xmtp:child>
-    <xmtp:block name="title">
-      <xsl:text>About<xmtp:super /></xsl:text>
-    </xmtp:block>
+  <kiln:child>
+    <kiln:block name="title">
+      <xsl:text>About<kiln:super /></xsl:text>
+    </kiln:block>
 
-    <xmtp:block name="page-header">
+    <kiln:block name="page-header">
       <h1>About</h1>
-    </xmtp:block>
+    </kiln:block>
 
-    <xmtp:block name="content">
+    <kiln:block name="content">
       <div class="span12">
         <h3><strong>About this edition</strong></h3>
 
@@ -122,7 +121,7 @@
         processes and moved REED significantly closer to realizing its
         digital goals.</p>
       </div>
-    </xmtp:block>
+    </kiln:block>
 
-  </xmtp:child>
-</xmtp:root>
+  </kiln:child>
+</kiln:root>

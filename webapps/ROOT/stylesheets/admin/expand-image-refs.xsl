@@ -1,6 +1,5 @@
 <xsl:stylesheet exclude-result-prefixes="#all"
                 version="2.0"
-                xmlns:xmmi="http://www.cch.kcl.ac.uk/xmod/metadata/images/1.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
   <!-- Expand on a base list of images referenced in XML files in
@@ -8,13 +7,13 @@
        (eg thumbnails), and to specify full filesystem paths for
        each. -->
 
-  <xsl:template match="xmmi:file">
+  <xsl:template match="file">
     <referring_file>
       <xsl:apply-templates select="@*|node()"/>
     </referring_file>
   </xsl:template>
 
-  <xsl:template match="xmmi:image">
+  <xsl:template match="image">
     <xsl:variable name="current" select="."/>
     <file>
       <xsl:apply-templates select="@*"/>
@@ -23,10 +22,9 @@
         <xsl:value-of select="@url"/>
       </xsl:attribute>
     </file>
-    <!-- @xmt:type (on the original image; here just @type) specifies
-         the extra formats an image is available in, such as
-         thumbnail. The space-separated values are used as directory
-         names in the image path. -->
+    <!-- @type specifies the extra formats an image is available in,
+         such as thumbnail. The space-separated values are used as
+         directory names in the image path. -->
     <xsl:for-each select="tokenize(@type, ' ')">
       <file>
         <xsl:apply-templates select="$current/@*" mode="thumbnail"/>

@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xmtp:root xmlns:xi="http://www.w3.org/2001/XInclude"
-           xmlns:xmg="http://www.cch.kcl.ac.uk/xmod/global/1.0"
-           xmlns:xmtp="http://www.cch.kcl.ac.uk/xmod/template/1.0"
+<kiln:root xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
+           xmlns:xi="http://www.w3.org/2001/XInclude"
            xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-  <xmtp:parent>
+  <kiln:parent>
     <xi:include href="base.xml" />
-  </xmtp:parent>
+  </kiln:parent>
 
-  <xmtp:child>
-    <xmtp:block name="title">
+  <kiln:child>
+    <kiln:block name="title">
       <xsl:text>Home | The Fortune Theatre Records</xsl:text>
-    </xmtp:block>
+    </kiln:block>
 
-    <xmtp:block name="page-header">
+    <kiln:block name="page-header">
       <div class="hero-unit">
         <div class="container">
           <h1>The Fortune Theatre Records</h1>
@@ -22,9 +21,9 @@
           Records of Early English Drama (REED).</p>
         </div>
       </div>
-    </xmtp:block>
+    </kiln:block>
 
-    <xmtp:block name="content">
+    <kiln:block name="content">
       <div class="span12">
         <p>The Fortune Theatre Records: A Prototype Digital Edition is
         an important first stage of development for the future
@@ -50,6 +49,6 @@
         href="http://ereed.cch.kcl.ac.uk/home/team-and-sponsor/"
         target="_new">Team and Sponsor</a>).</p>
       </div>
-    </xmtp:block>
-  </xmtp:child>
-</xmtp:root>
+    </kiln:block>
+  </kiln:child>
+</kiln:root>

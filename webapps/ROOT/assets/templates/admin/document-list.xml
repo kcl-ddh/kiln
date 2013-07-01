@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xmtp:root xmlns:dir="http://apache.org/cocoon/directory/2.0"
+<kiln:root xmlns:dir="http://apache.org/cocoon/directory/2.0"
            xmlns:xi="http://www.w3.org/2001/XInclude"
-           xmlns:xmtp="http://www.cch.kcl.ac.uk/xmod/template/1.0"
+           xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
            xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
   <!-- Template to display a list of documents and links to various
@@ -9,14 +9,14 @@
 
   <xsl:import href="cocoon://_internal/template/xsl/stylesheets/admin/xml-dirs-to-process-list-html.xsl" />
 
-  <xmtp:parent>
+  <kiln:parent>
     <xi:include href="base.xml" />
-  </xmtp:parent>
+  </kiln:parent>
 
-  <xmtp:child>
-    <xmtp:block name="title"><xmtp:super />Documents</xmtp:block>
-    <xmtp:block name="header"><h1>Kiln Admin: Documents</h1></xmtp:block>
-    <xmtp:block name="content">
+  <kiln:child>
+    <kiln:block name="title"><kiln:super />Documents</kiln:block>
+    <kiln:block name="header"><h1>Kiln Admin: Documents</h1></kiln:block>
+    <kiln:block name="content">
       <h2>Global processes</h2>
 
       <ul>
@@ -42,7 +42,7 @@
           <xsl:apply-templates select="/dir:directory/*" />
         </tbody>
       </table>
-    </xmtp:block>
-  </xmtp:child>
+    </kiln:block>
+  </kiln:child>
 
-</xmtp:root>
+</kiln:root>

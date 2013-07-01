@@ -100,7 +100,7 @@
            expanded to accommodate multiple derivatives (eg,
            thumbnails) of each image. -->
       <map:match pattern="xml/resource-check/image-refs/**.xml">
-        <map:generate src="cocoon://_internal/metadata/images/{1}.xml" />
+        <map:generate src="cocoon://internal/metadata/images/{1}.xml" />
         <map:transform src="../stylesheets/admin/expand-image-refs.xsl" />
         <map:serialize type="xml" />
       </map:match>

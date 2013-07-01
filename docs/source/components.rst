@@ -84,34 +84,36 @@ block it is inheriting from.
 
 * Example of basic structure: ::
 
-    <xmtp:root>
-        <xmtp:parent>
+    <kiln:root>
+        <kiln:parent>
             <!-- Extend another template by including it. -->
             <xi:include href="base.xml" />
-        </xmtp:parent>
-        <xmtp:child>
+        </kiln:parent>
+        <kiln:child>
             <!-- Override a block defined in an ancestor template. -->
-            <xmtp:block name="title">
+            <kiln:block name="title">
                 <h1>Title here</h1>
-            </xmtp:block>
-        </xmtp:child>
-    </xmtp:root>
+            </kiln:block>
+        </kiln:child>
+    </kiln:root>
 
 * Example of inheriting content: ::
 
-    <xmtp:block name="title">
+    <kiln:block name="title">
         <!-- Include the parent template's content for this block. -->
-        <xmtp:super />
+        <kiln:super />
         <!-- Add in new content. -->
         <h2>Smaller title here</h2>
-    </xmtp:block>
+    </kiln:block>
+
+:ref:`Fuller documentation <templating>` is available.
 
 .. _Apache Cocoon: http://cocoon.apache.org/2.1/
 .. _Apache Solr: http://lucene.apache.org/solr/
 .. _Sesame 2: http://www.openrdf.org/
 .. _Apache Ant: http://ant.apache.org/
 .. _Jetty: http://www.mortbay.org/
-.. _Django’s template block system: 
+.. _Django’s template block system:
     http://docs.djangoproject.com/en/dev/topics/templates/#template-inheritance
 .. _SPIL:
     http://wip.cch.kcl.ac.uk/2011/10/28/you-spiltd-my-code-a-modular-approach-to-creating-web-front-ends/>

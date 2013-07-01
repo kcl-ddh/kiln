@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet exclude-result-prefixes="#all" version="2.0"
-                xmlns:xmg="http://www.cch.kcl.ac.uk/xmod/global/1.0"
-                xmlns:xmm="http://www.cch.kcl.ac.uk/xmod/menu/1.0"
+                xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <!-- Transforms a context-free menu into one annotated based on the
        supplied context (ie, place in the menu structure). -->
@@ -13,32 +12,32 @@
     <xsl:copy-of select="." />
   </xsl:template>
 
-  <xsl:template match="/aggregation/xmm:root" priority="100">
+  <xsl:template match="/aggregation/kiln:root" priority="100">
     <div type="menu">
       <ul>
-        <xsl:apply-templates select="xmm:menu" mode="menu" />
+        <xsl:apply-templates select="kiln:menu" mode="menu" />
       </ul>
     </div>
     <div type="breadcrumbs">
       <ul>
         <xsl:choose>
-          <xsl:when test=".//*[@href=$xmg:path]">
+          <xsl:when test=".//*[@href=$kiln:path]">
             <xsl:apply-templates mode="breadcrumbs"
-                                 select=".//xmm:menu[descendant::*[@href=$xmg:path]]" />
+                                 select=".//kiln:menu[descendant::*[@href=$kiln:path]]" />
           </xsl:when>
           <xsl:otherwise>
             <xsl:apply-templates mode="breadcrumbs"
-                                 select=".//xmm:menu[starts-with($xmg:path, @path)]" />
+                                 select=".//kiln:menu[starts-with($kiln:path, @path)]" />
           </xsl:otherwise>
         </xsl:choose>
       </ul>
     </div>
   </xsl:template>
 
-  <xsl:template match="xmm:menu | xmm:item" mode="menu">
+  <xsl:template match="kiln:menu | kiln:item" mode="menu">
     <li>
       <!-- Active item. -->
-      <xsl:if test="@href = $xmg:path">
+      <xsl:if test="@href = $kiln:path">
         <xsl:attribute name="class" select="'active-menu-item'" />
       </xsl:if>
       <a>
@@ -56,7 +55,7 @@
     </li>
   </xsl:template>
 
-  <xsl:template match="xmm:menu" mode="breadcrumbs">
+  <xsl:template match="kiln:menu" mode="breadcrumbs">
     <li>
       <a href="{@href}">
         <xsl:value-of select="@label" />
@@ -64,7 +63,7 @@
     </li>
   </xsl:template>
 
-  <xsl:template match="xmm:menu[not(@root)]" mode="breadcrumbs" />
+  <xsl:template match="kiln:menu[not(@root)]" mode="breadcrumbs" />
 
   <xsl:template match="@*|node()">
     <xsl:copy>
