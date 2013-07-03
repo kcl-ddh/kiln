@@ -36,7 +36,7 @@
         <jetty:selectChannelConnector port="${jetty.port}" />
       </jetty:connectors>
 
-      <jetty:webApp contextpath="" name="kiln" scanIntervalSeconds="30"
+      <jetty:webApp contextpath="" name="kiln" scanIntervalSeconds="3600"
         warfile="${basedir}/webapps/ROOT">
         <jetty:scanTargets dir="${basedir}/webapps/ROOT">
           <include name="**" />
@@ -56,7 +56,7 @@
       </jetty:webApp>
       <jetty:webApp contextpath="solr"
         jettyEnvXml="${basedir}/webapps/solr/conf/jetty-env.xml" name="solr"
-        scanIntervalSeconds="30"
+        scanIntervalSeconds="3600"
         warfile="${basedir}/webapps/solr">
         <jetty:scanTargets dir="${basedir}/webapps/solr">
           <include name="**" />
