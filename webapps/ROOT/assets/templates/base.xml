@@ -26,6 +26,8 @@
                             rel="stylesheet" />
                         <link href="{$kiln:assets-path}/styles/base.css" rel="stylesheet"
                             type="text/css" />
+                        <link href="{$kiln:assets-path}/styles/site.css" rel="stylesheet"
+                            type="text/css" />
                     </kiln:block>
                     <kiln:block name="head-extra">
                     </kiln:block>
