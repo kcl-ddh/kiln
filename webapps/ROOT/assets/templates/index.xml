@@ -1,17 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <kiln:root xmlns:tei="http://www.tei-c.org/ns/1.0"
-           xmlns:xi="http://www.w3.org/2001/XInclude"
-           xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
-           xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-  <kiln:parent>
-    <xi:include href="base.xml" />
-  </kiln:parent>
+    <kiln:parent>
+        <xi:include href="base.xml" />
+    </kiln:parent>
 
-  <kiln:child>
-    <kiln:block name="content">
-      <p>This is a bare homepage for your new Kiln project.</p>
-    </kiln:block>
-  </kiln:child>
+    <kiln:child>
+        <kiln:block name="page-header">
+            <div class="hero">
+                <h1 class="pure-u-1">Kiln</h1>
+                <h2 class="pure-u-3-4">
+                    Kiln is a multi-platform framework for building and deploying complex
+                    websites whose source content is primarily in XML. It brings together
+                    various independent software components into an integrated whole that
+                    provides the infrastructure and base functionality for such sites.
+                </h2>
 
+                <div class="pure-u-3-4">
+                    <p>
+                        <a class="pure-button pure-button-primary" href="http://kiln.readthedocs.org/en/latest/">Read the docs</a>
+                        <xsl:text> </xsl:text>
+                        <a class="pure-button" href="https://github.com/kcl-ddh/kiln/">View on GitHub</a>
+                    </p>
+                </div>
+            </div>
+        </kiln:block>
+        <kiln:block name="content">
+        </kiln:block>
+    </kiln:child>
 </kiln:root>

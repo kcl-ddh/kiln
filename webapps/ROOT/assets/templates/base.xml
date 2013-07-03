@@ -1,130 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 <kiln:root xmlns:tei="http://www.tei-c.org/ns/1.0"
-           xmlns:xi="http://www.w3.org/2001/XInclude"
-           xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
-           xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-  <!-- Imports the default variables. -->
-  <xsl:import href="cocoon://_internal/template/xsl/stylesheets/defaults.xsl" />
+    <!-- Imports the default variables. -->
+    <xsl:import href="cocoon://_internal/template/xsl/stylesheets/defaults.xsl" />
 
-  <!-- Imports the menu stylesheet -->
-  <xsl:import href="cocoon://_internal/template/xsl/stylesheets/menu/menu.xsl" />
+    <!-- Imports the menu stylesheet -->
+    <xsl:import href="cocoon://_internal/template/xsl/stylesheets/menu/menu.xsl" />
 
-  <kiln:block name="html">
-    <!--[if IE 7 ]> <html class="no-js ie7" lang="en"> <![endif]-->
-    <!--[if IE 8 ]> <html class="no-js ie8" lang="en"> <![endif]-->
-    <!--[if (gte IE 9)|!(IE)]><!-->
-    <html class="no-js" lang="en">
-      <!--<![endif]-->
-      <kiln:block name="head">
-        <head>
-          <title><kiln:block name="title">Kiln: </kiln:block></title>
-          <kiln:block name="js">
-            <!-- jQuery from Google CDN. -->
-            <script
-              src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js"
-              >&#160;</script>
-            <!-- jQuery tools from Flowplayer CDN. -->
-            <script
-              src="http://cdn.jquerytools.org/1.2.5/all/jquery.tools.min.js"
-              >&#160;</script>
-          </kiln:block>
-          <kiln:block name="css">
-            <link href="{$kiln:assets-path}/styles/base.css" rel="stylesheet"
-              type="text/css" />
-            <link href="{$kiln:assets-path}/styles/site.css" rel="stylesheet"
-              type="text/css" />
-          </kiln:block>
-          <kiln:block name="head-extra">
-            <!-- Mobile etc. devices: courtesy of 320+Up:
-                 http://stuffandnonsense.co.uk/projects/320andup/ -->
-            <!-- For Nokia. -->
-            <link href="{$kiln:assets-path}/images/apple-touch-icon.png"
-              rel="shortcut icon" />
-            <!-- For everything else. -->
-            <link href="{$kiln:assets-path}/images/favicon.ico"
-              rel="shortcut icon" />
-
-            <!--iOS. Delete if not required. -->
-            <meta content="yes" name="apple-mobile-web-app-capable" />
-            <meta content="black-translucent"
-              name="apple-mobile-web-app-status-bar-style" />
-            <link href="{$kiln:assets-path}/images/i/splash.png"
-              rel="apple-touch-startup-image" />
-
-            <!--Microsoft. Delete if not required. -->
-            <meta content="on" http-equiv="cleartype" />
-            <meta content="IE=edge,chrome=IE6" http-equiv="X-UA-Compatible" />
-            <meta content="width=device-width,initial-scale=1" name="viewport" />
-            <!-- Modernizr: this should be called AFTER CSS to avoid
-                 FOUC. -->
-            <script src="{$kiln:assets-path}/scripts/libs/modernizr-dev.js"
-              >&#160;</script>
-          </kiln:block>
-        </head>
-      </kiln:block>
-      <kiln:block name="body">
-        <body>
-          <kiln:block name="skip-navigation">
-            <div class="hidden">
-              <ul>
-                <li>
-                  <a href="#contentSection">Skip to content</a>
-                </li>
-                <li>
-                  <a href="#localNavigation">Skip to local navigation</a>
-                </li>
-                <li>
-                  <a href="#mainNavigation">Skip to main navigation</a>
-                </li>
-              </ul>
-            </div>
-          </kiln:block>
-          <div class="wrapper">
-            <kiln:block name="page-header">
-              <header class="line headerSection">
-                <div class="unit size1of1 lastUnit">
-                  <h1 class="headerLogo">
-                    <kiln:block name="page-heading">Page heading</kiln:block>
-                  </h1>
-                </div>
-              </header>
+    <kiln:block name="html">
+        <html>
+            <kiln:block name="head">
+                <head>
+                    <meta charset="utf-8" />
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                    <title><kiln:block name="title">Kiln: </kiln:block></title>
+                    <kiln:block name="js">
+                        <script
+                            src="http://code.jquery.com/jquery-latest.min.js">&#160;</script>
+                    </kiln:block>
+                    <kiln:block name="css">
+                        <link href="http://yui.yahooapis.com/pure/0.2.0/pure-min.css"
+                            rel="stylesheet" />
+                        <link href="{$kiln:assets-path}/styles/base.css" rel="stylesheet"
+                            type="text/css" />
+                    </kiln:block>
+                    <kiln:block name="head-extra">
+                    </kiln:block>
+                </head>
             </kiln:block>
-            <kiln:block name="navigation">
-              <div class="line">
-                <kiln:block name="main-navigation">
-                  <nav class="primary" id="mainNavigation">
-                    <xsl:apply-templates
-                        select="/aggregation/div[@type='menu']"
-                        mode="main-menu" />
-                  </nav>
-                </kiln:block>
-              </div>
+            <kiln:block name="body">
+                <body>
+                    <div class="pure-g-r">
+                        <kiln:block name="navigation">
+                            <div class="main-navigation pure-u-1">
+                                <kiln:block name="main-navigation">
+                                    <div class="pure-menu pure-menu-open pure-menu-horizontal">
+                                        <a class="pure-menu-heading" href="">Kiln</a>
+
+                                        <xsl:apply-templates
+                                            select="/aggregation/div[@type='menu']"
+                                            mode="main-menu" />
+                                    </div>
+                                </kiln:block>
+                            </div>
+                        </kiln:block>
+                        <kiln:block name="page-header">
+                            <div class="header pure-u-1">
+                                <h1>
+                                    <kiln:block name="page-heading">
+                                        <xsl:value-of
+                                            select="/aggregation/tei:TEI/tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title" />
+                                    </kiln:block>
+                                </h1>
+                            </div>
+                        </kiln:block>
+                        <kiln:block name="content-section">
+                            <div class="local-navigation pure-u-1-5">
+                                <kiln:block name="local-navigation">
+                                    <xsl:apply-templates
+                                        select="/aggregation/div[@type='menu']"
+                                        mode="local-menu" />
+                                </kiln:block>
+                            </div>
+                            <div class="content pure-u-4-5">
+                                <kiln:block name="content-block">
+                                    <kiln:block name="content" />
+                                </kiln:block>
+                            </div>
+                        </kiln:block>
+                        <kiln:block name="footer">
+                            <div class="footer pure-u-1">
+                                <div class="l-box">
+                                    <p>Powered by <a href="https://github.com/kcl-ddh/kiln/">Kiln</a></p>
+                                    <p>Theme by <a href="http://purecss.io/">Pure</a></p>
+                                </div>
+                            </div>
+                        </kiln:block>
+                    </div>
+                </body>
             </kiln:block>
-            <kiln:block name="content-section">
-              <div class="line contentSection">
-                <kiln:block name="local-navigation">
-                  <div class="unit size1of4" id="localNavigation">
-                    <xsl:apply-templates
-                        select="/aggregation/div[@type='menu']"
-                        mode="local-menu" />
-                  </div>
-                </kiln:block>
-                <kiln:block name="content-block">
-                  <div class="unit size3of4 lastUnit" id="content">
-                    <kiln:block name="content" />
-                  </div>
-                </kiln:block>
-              </div>
-            </kiln:block>
-          </div>
-          <kiln:block name="footer">
-            <footer class="line footerSection">
-              <p>This is the footer.</p>
-            </footer>
-          </kiln:block>
-        </body>
-      </kiln:block>
-    </html>
-  </kiln:block>
+        </html>
+    </kiln:block>
 </kiln:root>
