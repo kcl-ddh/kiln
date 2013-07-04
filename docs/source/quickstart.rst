@@ -10,11 +10,10 @@ the `GitHub repository`_.
    (hereafter KILN_HOME)
 #. Run the command ``build.sh`` (Mac OS X/Linux) or ``build.bat`` (Windows),
    and leave the Terminal window open
-#. Open a browser and got to http://localhost:9999/.
+#. Open a browser and got to http://localhost:9999/. It should display a
+   welcome page together with some very basic :ref:`navigation <navigation>`.
 #. Store project XML content (TEI) in the folder
    ``KILN_HOME/webapps/ROOT/content/xml/tei``.
-#. Reload the browser. It should now display the contents of the index file,
-   together with some very basic :ref:`navigation <navigation>`.
 
 Principles
 ----------
