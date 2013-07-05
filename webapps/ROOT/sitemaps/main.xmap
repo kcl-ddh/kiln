@@ -46,13 +46,13 @@
         </map:aggregate>
         <map:transform src="../kiln/stylesheets/menu/contextualise-menu.xsl">
           <map:parameter name="filedir" value="" />
-          <map:parameter name="filename" value="{1}.xml" />
-          <map:parameter name="fileextension" value="html" />
+          <map:parameter name="filename" value="" />
+          <map:parameter name="fileextension" value="" />
         </map:transform>
         <map:transform src="cocoon://_internal/template/index.xsl">
           <map:parameter name="filedir" value="" />
-          <map:parameter name="filename" value="{1}.xml" />
-          <map:parameter name="fileextension" value="html" />
+          <map:parameter name="filename" value="" />
+          <map:parameter name="fileextension" value="" />
         </map:transform>
         <map:serialize />
       </map:match>

@@ -28,7 +28,7 @@
                 </div>
             </div>
         </kiln:block>
-        <kiln:block name="content">
+        <kiln:block name="content-section">
         </kiln:block>
     </kiln:child>
 </kiln:root>
