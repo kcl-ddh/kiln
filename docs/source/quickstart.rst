@@ -3,17 +3,20 @@
 Quickstart
 ==========
 
-To get started with Kiln, it first needs to be downloaded or cloned from
-the `GitHub repository`_.
-
-#. Open a Terminal window and go to the directory where Kiln is installed
-   (hereafter KILN_HOME)
+#. Download or clone the Kiln code from the `GitHub repository`_.
+#. Open a terminal window and go to the directory where Kiln is installed
+   (hereafter KILN_HOME).
 #. Run the command ``build.sh`` (Mac OS X/Linux) or ``build.bat`` (Windows),
-   and leave the Terminal window open
+   and leave the Terminal window open.
 #. Open a browser and got to http://localhost:9999/. It should display a
    welcome page together with some very basic :ref:`navigation <navigation>`.
 #. Store project XML content (TEI) in the folder
    ``KILN_HOME/webapps/ROOT/content/xml/tei``.
+#. View HTML versions of the TEI XML at http://localhost:9999/<TEI
+   filename>.html
+#. Customise the templates, transformations and site URL
+   structure. The example project in ``KILN_HOME/example`` provides
+   some guidance on how this can be done.
 
 Principles
 ----------
