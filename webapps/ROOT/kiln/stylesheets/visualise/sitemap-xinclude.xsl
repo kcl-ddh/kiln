@@ -19,6 +19,15 @@
   <xsl:param name="file" />
   <xsl:param name="uri_prefix" />
 
+  <xsl:template match="map:generate | map:part | map:read | map:transform">
+    <xsl:copy>
+      <xsl:call-template name="add-expanded-src">
+        <xsl:with-param name="src" select="@src" />
+      </xsl:call-template>
+      <xsl:apply-templates select="@*|node()" />
+    </xsl:copy>
+  </xsl:template>
+
   <xsl:template match="map:match[@type='mount-table']">
     <xsl:copy>
       <xsl:apply-templates select="@*" />
@@ -32,21 +41,27 @@
     </xsl:copy>
   </xsl:template>
 
-  <xsl:template match="map:match/@pattern">
-    <xsl:attribute name="pattern">
-      <xsl:value-of select="$uri_prefix" />
-      <xsl:value-of select="." />
-    </xsl:attribute>
-    <xsl:call-template name="add-regexp-pattern">
-      <xsl:with-param name="pattern" select="concat($uri_prefix, .)" />
-    </xsl:call-template>
-    <xsl:call-template name="add-pattern-groups">
-      <xsl:with-param name="pattern" select="." />
-    </xsl:call-template>
+  <xsl:template match="map:match">
+    <xsl:copy>
+      <xsl:attribute name="kiln:pattern">
+        <xsl:value-of select="$uri_prefix" />
+        <xsl:value-of select="@pattern" />
+      </xsl:attribute>
+      <xsl:call-template name="add-regexp-pattern">
+        <xsl:with-param name="pattern" select="concat($uri_prefix, @pattern)" />
+      </xsl:call-template>
+      <xsl:call-template name="add-pattern-groups">
+        <xsl:with-param name="pattern" select="@pattern" />
+      </xsl:call-template>
+      <xsl:apply-templates select="@*|node()" />
+    </xsl:copy>
   </xsl:template>
 
   <xsl:template match="map:mount">
     <xsl:copy>
+      <xsl:call-template name="add-expanded-src">
+        <xsl:with-param name="src" select="@src" />
+      </xsl:call-template>
       <xsl:apply-templates select="@*|node()" />
       <xi:include>
         <xsl:attribute name="href">
@@ -64,33 +79,39 @@
   <xsl:template match="map:sitemap">
     <xsl:copy>
       <xsl:attribute name="kiln:file">
-        <xsl:value-of select="$dir" />
-        <xsl:value-of select="$file" />
+        <xsl:call-template name="reduce-path">
+          <xsl:with-param name="path" select="concat($dir, $file)" />
+        </xsl:call-template>
       </xsl:attribute>
       <xsl:apply-templates select="@*|node()" />
     </xsl:copy>
   </xsl:template>
 
-  <xsl:template match="@src">
-    <xsl:attribute name="src">
-      <xsl:choose>
-        <xsl:when test="starts-with(., 'cocoon://')">
-          <xsl:value-of select="." />
-        </xsl:when>
-        <xsl:when test="starts-with(., 'cocoon:/')">
-          <xsl:text>cocoon://</xsl:text>
-          <xsl:value-of select="$uri_prefix" />
-          <xsl:value-of select="substring-after(., 'cocoon:/')" />
-        </xsl:when>
-        <xsl:when test=". = 'empty:empty'">
-          <xsl:value-of select="." />
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:value-of select="$dir" />
-          <xsl:value-of select="." />
-        </xsl:otherwise>
-      </xsl:choose>
-    </xsl:attribute>
+  <xsl:template name="add-expanded-src">
+    <xsl:param name="src" />
+    <xsl:if test="normalize-space(@src)">
+      <xsl:attribute name="kiln:src">
+        <xsl:choose>
+          <xsl:when test="starts-with($src, 'cocoon://')">
+            <xsl:value-of select="$src" />
+          </xsl:when>
+          <xsl:when test="starts-with($src, 'cocoon:/')">
+            <xsl:text>cocoon://</xsl:text>
+            <xsl:call-template name="reduce-path">
+              <xsl:with-param name="path" select="concat($uri_prefix, substring-after($src, 'cocoon:/'))" />
+            </xsl:call-template>
+          </xsl:when>
+          <xsl:when test="starts-with($src, 'empty:')">
+            <xsl:value-of select="$src" />
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:call-template name="reduce-path">
+              <xsl:with-param name="path" select="concat($dir, $src)" />
+            </xsl:call-template>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:attribute>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template name="add-pattern-groups">
@@ -126,11 +147,32 @@
          treated as such (anything except *). -->
     <xsl:variable name="escaped" select="replace($pattern,
                                          '[\-\|\^{}()?+.$\\\[\]]', '\\$0')" />
-    <xsl:attribute name="kiln:pattern">
+    <xsl:attribute name="kiln:regexp">
       <xsl:text>^</xsl:text>
       <xsl:value-of select="replace(replace($escaped, '\*\*', '.+'), '\*', '[^/]+')" />
       <xsl:text>$</xsl:text>
     </xsl:attribute>
+  </xsl:template>
+
+  <xsl:template name="reduce-path">
+    <!-- Reduce a root relative path containing "../" into a short
+         form that does not contain such. -->
+    <xsl:param name="path" />
+    <xsl:variable name="elements" select="tokenize($path, '/')" />
+    <xsl:variable name="indices" select="index-of($elements, '..')" />
+    <xsl:choose>
+      <xsl:when test="exists($indices)">
+        <xsl:variable name="reduced-elements"
+                      select="remove(remove($elements, $indices[1]-1), $indices[1]-1)" />
+        <xsl:call-template name="reduce-path">
+          <xsl:with-param name="path"
+                          select="string-join($reduced-elements, '/')" />
+        </xsl:call-template>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="$path" />
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
 
   <xsl:template match="@*|node()">

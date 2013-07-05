@@ -22,12 +22,12 @@
     </xsl:copy>
   </xsl:template>
 
-  <xsl:template match="map:part | map:transform">
+  <xsl:template match="map:generate | map:part | map:transform">
     <xsl:copy>
       <xsl:apply-templates select="@*|node()" />
       <xsl:call-template name="match-pattern">
         <xsl:with-param name="match" select="ancestor::map:match[1]" />
-        <xsl:with-param name="reference" select="@src" />
+        <xsl:with-param name="reference" select="@kiln:src" />
       </xsl:call-template>
     </xsl:copy>
   </xsl:template>
@@ -53,15 +53,33 @@
           </xsl:choose>
         </xsl:for-each>
       </xsl:variable>
-      <xsl:apply-templates select="//map:match[not(map:mount)][matches($input, @kiln:pattern)][1]" />
+      <xsl:apply-templates select="//map:match[not(map:mount)][normalize-space(@kiln:regexp)][matches($input, @kiln:regexp)][1]" />
     </xsl:if>
   </xsl:template>
 
-  <xsl:template match="map:match" mode="foo">
-    <xsl:copy-of select="." />
+  <xsl:template match="@value">
+    <xsl:copy />
+    <xsl:if test="contains(., '{global:')">
+      <xsl:variable name="root" select="/" />
+      <xsl:attribute name="kiln:value">
+        <xsl:for-each select="tokenize(., '\{global:')">
+          <xsl:choose>
+            <xsl:when test="position() = 1">
+              <xsl:value-of select="." />
+            </xsl:when>
+            <xsl:otherwise>
+              <!-- A global variable name, and possibly some extra
+                   content. -->
+              <xsl:variable name="global-variable-name"
+                            select="substring-before(., '}')" />
+              <xsl:value-of select="$root//global-variables/*[name()=$global-variable-name]" />
+              <xsl:value-of select="substring-after(., '}')" />
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:for-each>
+      </xsl:attribute>
+    </xsl:if>
   </xsl:template>
-
-  <xsl:template match="@kiln:*" />
 
   <xsl:template match="@*|node()">
     <xsl:copy>
