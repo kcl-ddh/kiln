@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsl:stylesheet version="2.0"
+                xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
+                xmlns:map="http://apache.org/cocoon/sitemap/1.0"
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+  <!-- Generate a complete view of a particular map:match, with any
+       other referenced map:matches included as children. This
+       inclusion is done recursively. -->
+
+  <xsl:param name="match_id" />
+
+  <xsl:template match="/">
+    <xsl:apply-templates select="//map:match[@id=$match_id]" />
+  </xsl:template>
+
+  <xsl:template match="map:match">
+    <xsl:copy>
+      <xsl:attribute name="kiln:sitemap"
+                     select="ancestor::map:sitemap[1]/@kiln:file" />
+      <xsl:apply-templates select="@*|node()" />
+    </xsl:copy>
+  </xsl:template>
+
+  <xsl:template match="map:part | map:transform">
+    <xsl:copy>
+      <xsl:apply-templates select="@*|node()" />
+      <xsl:call-template name="match-pattern">
+        <xsl:with-param name="match" select="ancestor::map:match[1]" />
+        <xsl:with-param name="reference" select="@src" />
+      </xsl:call-template>
+    </xsl:copy>
+  </xsl:template>
+
+  <xsl:template name="match-pattern">
+    <xsl:param name="match" />
+    <xsl:param name="reference" />
+    <xsl:if test="starts-with($reference, 'cocoon://')">
+      <xsl:variable name="stripped"
+                    select="substring-after($reference, 'cocoon://')" />
+      <xsl:variable name="input">
+        <xsl:for-each select="tokenize($stripped, '(\{)|(\})')">
+          <xsl:choose>
+            <xsl:when test="position() mod 2">
+              <!-- Not a reference to a pattern group. -->
+              <xsl:value-of select="." />
+            </xsl:when>
+            <xsl:otherwise>
+              <!-- A reference to a pattern group. -->
+              <xsl:variable name="name" select="concat('kiln:g', .)" />
+              <xsl:value-of select="$match/@*[name() = $name]" />
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:for-each>
+      </xsl:variable>
+      <xsl:apply-templates select="//map:match[not(map:mount)][matches($input, @kiln:pattern)][1]" />
+    </xsl:if>
+  </xsl:template>
+
+  <xsl:template match="map:match" mode="foo">
+    <xsl:copy-of select="." />
+  </xsl:template>
+
+  <xsl:template match="@kiln:*" />
+
+  <xsl:template match="@*|node()">
+    <xsl:copy>
+      <xsl:apply-templates select="@*|node()" />
+    </xsl:copy>
+  </xsl:template>
+
+</xsl:stylesheet>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<map:sitemap xmlns:map="http://apache.org/cocoon/sitemap/1.0">
+
+  <!-- Sitemap providing functionality to visualise Kiln's
+       sitemaps. -->
+
+  <map:pipelines>
+    <map:pipeline>
+      <map:match pattern="pipelines.xml">
+        <map:generate src="cocoon:/pipeline/sitemap.xmap" />
+        <map:serialize type="xml" />
+      </map:match>
+
+      <!-- Root sitemap. -->
+      <map:match pattern="pipeline/sitemap.xmap">
+        <map:generate src="../../sitemap.xmap" />
+        <map:transform src="../stylesheets/visualise/sitemap-xinclude.xsl">
+          <map:parameter name="dir" value="" />
+          <map:parameter name="file" value="sitemap.xmap" />
+          <map:parameter name="uri_prefix" value="" />
+        </map:transform>
+        <map:transform type="xinclude" />
+        <map:transform src="../stylesheets/visualise/remove-namespaces.xsl" />
+        <map:serialize type="xml" />
+      </map:match>
+
+      <map:match pattern="pipeline/**/*.xmap/**">
+        <map:generate src="../../{1}/{2}.xmap" />
+        <map:transform src="../stylesheets/visualise/sitemap-xinclude.xsl">
+          <map:parameter name="dir" value="{1}/" />
+          <map:parameter name="file" value="{2}.xmap" />
+          <map:parameter name="uri_prefix" value="{3}" />
+        </map:transform>
+        <map:transform type="xinclude" />
+        <map:transform src="../stylesheets/visualise/remove-namespaces.xsl" />
+        <map:serialize type="xml" />
+      </map:match>
+
+      <map:match pattern="mount-table/**">
+        <map:generate src="../../{1}" />
+        <map:transform src="../stylesheets/visualise/mount-table-xinclude.xsl" />
+        <map:transform type="xinclude" />
+        <map:transform src="../stylesheets/visualise/remove-namespaces.xsl" />
+        <map:serialize type="xml" />
+      </map:match>
+
+      <!-- Provide the IDed map:match with references to other
+           map:matches recursively expanded. -->
+      <map:match pattern="match/*.xml">
+        <map:generate src="cocoon:/pipelines.xml" />
+        <map:transform src="../stylesheets/visualise/compose-match.xsl">
+          <map:parameter name="match_id" value="{1}" />
+        </map:transform>
+        <map:serialize type="xml" />
+      </map:match>
+    </map:pipeline>
+  </map:pipelines>
+
+</map:sitemap>

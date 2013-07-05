@@ -3,13 +3,13 @@
 <map:sitemap xmlns:map="http://apache.org/cocoon/sitemap/1.0">
 
   <!--
-    
+
     kiln configuration sitemap.
-    
+
     This sitemap defines defaults that are sensible across all
     projects, and provides pipelines for common functionality. The
     defaults can be overridden in the project-specific sitemap(s).
-    
+
     The top-level project-specific sitemap, main.xmap, is mounted
     from here.
 
@@ -127,6 +127,11 @@
       <!-- Solr handling (not project specific). -->
       <map:match pattern="_internal/solr/**">
         <map:mount check-reload="yes" src="solr.xmap" uri-prefix="_internal/solr/" />
+      </map:match>
+
+      <map:match pattern="_internal/visualise/**">
+        <map:mount check-reload="yes" src="visualise.xmap"
+                   uri-prefix="_internal/visualise/" />
       </map:match>
 
       <!-- Main project sitemap, matching on the remaining URL
