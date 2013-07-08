@@ -9,14 +9,20 @@
 
   <xsl:template match="map:match" mode="kiln-visualise" priority="10">
     <xsl:variable name="id" select="generate-id(.)" />
+    <xsl:variable name="is_expanded" select="ancestor::map:match" />
     <div class="visualise-indent visualise-match" title="Sitemap file: {@kiln:sitemap}">
       <span class="visualise-dedent">
         <span class="switch" id="{$id}-switch"
-              onclick="toggle('{$id}', '+', '−')">+</span>
+              onclick="toggle('{$id}', '+', '−')">
+          <xsl:choose>
+            <xsl:when test="$is_expanded">+</xsl:when>
+            <xsl:otherwise>−</xsl:otherwise>
+          </xsl:choose>
+        </span>
         <xsl:call-template name="start-tag" />
       </span>
       <div id="{$id}">
-        <xsl:if test="ancestor::map:match">
+        <xsl:if test="$is_expanded">
           <xsl:attribute name="style" select="'display: none;'" />
         </xsl:if>
         <xsl:apply-templates mode="kiln-visualise" />
