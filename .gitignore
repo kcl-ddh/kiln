@@ -4,6 +4,7 @@
 sw/jetty/logs
 sw/jetty/temp
 webapps/openrdf-sesame/app_dir
-webapps/solr/data
+webapps/ROOT/content
 webapps/ROOT/WEB-INF/logs
+webapps/solr/data
 docs/build
