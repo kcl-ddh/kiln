@@ -23,15 +23,15 @@
     </map:pipeline>
 
     <map:pipeline id="local-images">
-      <map:match pattern="images/**.gif">
+      <map:match id="local-images-gif" pattern="images/**.gif">
         <map:read mime-type="image/gif" src="../content/images/{1}.gif" />
       </map:match>
 
-      <map:match pattern="images/**.jpg">
+      <map:match id="local-images-jpeg" pattern="images/**.jpg">
         <map:read mime-type="image/jpeg" src="../content/images/{1}.jpg" />
       </map:match>
 
-      <map:match pattern="images/**.png">
+      <map:match id="local-images-png" pattern="images/**.png">
         <map:read mime-type="image/png" src="../content/images/{1}.png" />
       </map:match>
     </map:pipeline>
@@ -39,7 +39,7 @@
     <!-- Main display pipeline. -->
     <map:pipeline type="noncaching">
       <!-- Home page (at /). -->
-      <map:match pattern="">
+      <map:match id="local-home-page" pattern="">
         <map:aggregate element="aggregation" label="content">
           <map:part src="cocoon://_internal/menu/main.xml" />
           <map:part src="cocoon://internal/metadata/files.xml" />
@@ -58,7 +58,7 @@
       </map:match>
 
       <!-- Example of providing content in a single language. -->
-      <map:match pattern="**.html">
+      <map:match id="local-generic-html" pattern="**.html">
         <map:aggregate element="aggregation" label="content">
           <map:part src="cocoon://_internal/menu/main.xml" />
           <map:part src="cocoon://internal/metadata/files.xml" />
@@ -78,7 +78,7 @@
       </map:match>
 
       <!-- Example of providing content in more than one language. -->
-      <map:match pattern="*/**.html">
+      <map:match id="local-generic-multilingual-html" pattern="*/**.html">
         <!-- {1} is a language code. -->
         <map:aggregate element="aggregation" label="content">
           <map:part src="cocoon://_internal/menu/{1}/main.xml" />
@@ -102,7 +102,7 @@
       </map:match>
 
       <!-- Example of providing content as PDF. -->
-      <map:match pattern="**.pdf">
+      <map:match id="local-pdf" pattern="**.pdf">
         <map:generate src="cocoon://internal/tei/preprocess/{1}/{2}.xml"
                       label="tei" />
         <map:transform src="cocoon://_internal/template/pdf.xsl" />
@@ -110,7 +110,7 @@
       </map:match>
 
       <!-- Example of providing content as ePub. -->
-      <map:match pattern="**.epub">
+      <map:match id="local-epub" pattern="**.epub">
         <map:generate src="cocon://internal/tei/preprocess/{1}/{2}.xml"
                       label="tei" />
         <map:transform src="cocoon://_internal/template/epub.xsl" />
@@ -121,7 +121,7 @@
     <!-- Kiln as backend pipeline. -->
     <map:pipeline>
       <!-- TEI content provided as HTML with internal metadata. -->
-      <map:match pattern="*.xml">
+      <map:match id="local-xml" pattern="*.xml">
         <map:generate src="cocoon://internal/tei/preprocess/{1}.xml"
                       label="tei" />
         <map:transform src="cocoon://_internal/template/backend_tei.xsl" />
@@ -132,7 +132,7 @@
     <map:pipeline internal-only="true">
       <!-- Process a TEI document prior to its use in another
            pipeline, normalising and annotating it as required. -->
-      <map:match pattern="internal/tei/preprocess/**.xml">
+      <map:match id="local-preprocess-tei" pattern="internal/tei/preprocess/**.xml">
         <map:generate src="../content/xml/tei/{1}.xml" />
         <map:transform src="../kiln/stylesheets/tei/join-elements.xsl" />
         <map:transform src="../kiln/stylesheets/tei/annotate.xsl" />
@@ -142,7 +142,7 @@
 
     <!-- Metadata pipeline. -->
     <map:pipeline id="metadata" internal-only="true">
-      <map:match pattern="internal/allxmlcontent.xml">
+      <map:match id="local-xml-metadata" pattern="internal/allxmlcontent.xml">
         <map:generate src="../content/xml" type="directory">
           <map:parameter name="depth" value="99" />
           <map:parameter name="exclude" value="^\..*" />
@@ -150,7 +150,7 @@
         <map:serialize type="xml" />
       </map:match>
 
-      <map:match pattern="internal/metadata/*/**.xml">
+      <map:match id="local-typed-metadata" pattern="internal/metadata/*/**.xml">
         <map:generate src="../content/xml/{2}.xml" />
         <map:transform src="../stylesheets/metadata/{1}-metadata-generator.xsl">
           <map:parameter name="path" value="{2}.xml" />
@@ -158,7 +158,7 @@
         <map:serialize type="xml" />
       </map:match>
 
-      <map:match pattern="internal/metadata/*.xml">
+      <map:match id="local-metadata" pattern="internal/metadata/*.xml">
         <map:generate src="cocoon://internal/allxmlcontent.xml" />
         <map:transform src="../stylesheets/metadata/xinclude.xsl">
           <map:parameter name="type" value="{1}" />

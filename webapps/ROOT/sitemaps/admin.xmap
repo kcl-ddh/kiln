@@ -19,13 +19,13 @@
     </map:pipeline>
 
     <map:pipeline>
-      <map:match pattern="">
+      <map:match id="local-admin-home-page" pattern="">
         <map:generate src="empty:aggregation" />
         <map:transform src="cocoon://_internal/template/admin/index.xsl" />
         <map:serialize />
       </map:match>
 
-      <map:match pattern="system-status.html">
+      <map:match id="local-admin-system-status" pattern="system-status.html">
         <map:generate type="status" />
         <map:transform src="cocoon://_internal/template/admin/system-status.xsl" />
         <map:serialize />
@@ -33,7 +33,7 @@
 
       <!-- Present a table of XML documents and the processes that
            might be applied to them. -->
-      <map:match pattern="xml/">
+      <map:match id="local-admin-document-list" pattern="xml/">
         <map:generate src="../content/xml" type="directory">
           <map:parameter name="depth" value="99" />
           <map:parameter name="exclude" value="^\..*" />
@@ -41,7 +41,24 @@
         <map:transform src="cocoon://_internal/template/admin/document-list.xsl" />
         <map:serialize />
       </map:match>
-    </map:pipeline>
+
+      <map:match id="local-admin-visualisation-index" pattern="visualise/">
+        <map:aggregate element="aggregation">
+          <map:part src="cocoon://_internal/visualise/pipelines.xml" />
+        </map:aggregate>
+        <map:transform src="cocoon://_internal/template/admin/visualise.xsl" />
+        <map:serialize />
+      </map:match>
+
+      <map:match id="local-admin-visualise-match"
+                 pattern="visualise/match/*.html">
+        <map:aggregate element="aggregation">
+          <map:part src="cocoon://_internal/visualise/match/{1}.xml" />
+        </map:aggregate>
+        <map:transform src="cocoon://_internal/template/admin/visualise-match.xsl" />
+        <map:serialize />
+      </map:match>
+   </map:pipeline>
 
     <map:pipeline id="local-schematron">
       <!-- Schematron validation. This is the project-specific
@@ -53,7 +70,8 @@
 
            Other matches with fully parameterised patterns can equally
            map to Kiln's internal pipelines for greater control. -->
-      <map:match pattern="xml/schematron/**.html">
+      <map:match id="local-admin-schematron-validation"
+                 pattern="xml/schematron/**.html">
         <map:aggregate element="aggregation">
           <!-- #tei_all_doc means that the schema used is extracted
                from the ODD file at
@@ -71,7 +89,8 @@
     <!-- Pipeline for displaying reports of checking that linked local
          resource exist. -->
     <map:pipeline id="local-resource-check">
-      <map:match pattern="xml/resource-check/images/**.html">
+      <map:match id="local-admin-resource-check"
+                 pattern="xml/resource-check/images/**.html">
         <map:aggregate element="aggregation">
           <map:part src="cocoon:/xml/resource-check/images/{1}.xml" />
         </map:aggregate>
@@ -85,7 +104,8 @@
          TEI document are present in the correct place on the
          filesystem. -->
     <map:pipeline id="local-internal-resource-check" internal-only="false">
-      <map:match pattern="xml/resource-check/images/**.xml">
+      <map:match id="local-admin-image-resource-check"
+                 pattern="xml/resource-check/images/**.xml">
         <map:aggregate element="aggregation">
           <map:part src="cocoon:/xml/resource-check/image-refs/{1}.xml" />
           <map:part src="cocoon:/xml/resource-check/image-files.xml" />
@@ -99,14 +119,16 @@
            allows for the strict list of image references to be
            expanded to accommodate multiple derivatives (eg,
            thumbnails) of each image. -->
-      <map:match pattern="xml/resource-check/image-refs/**.xml">
+      <map:match id="local-admin-image-reference-check"
+                 pattern="xml/resource-check/image-refs/**.xml">
         <map:generate src="cocoon://internal/metadata/images/{1}.xml" />
         <map:transform src="../stylesheets/admin/expand-image-refs.xsl" />
         <map:serialize type="xml" />
       </map:match>
 
       <!-- Generate a list of image files from the filesystem. -->
-      <map:match pattern="xml/resource-check/image-files.xml">
+      <map:match id="local-admin-image-file-check"
+                 pattern="xml/resource-check/image-files.xml">
         <map:generate src="../content/images" type="imagedirectory">
           <map:parameter name="depth" value="99" />
           <map:parameter name="exclude" value="^\..*" />
@@ -119,7 +141,7 @@
     <!-- Pipeline for testing. -->
     <map:pipeline id="local-testing">
       <!-- Test a template against an empty document. -->
-      <map:match pattern="test/template/**.html">
+      <map:match id="local-admin-template-test" pattern="test/template/**.html">
         <map:aggregate element="aggregation">
           <map:part src="empty:index" />
           <map:part src="cocoon://_internal/menu/main.xml" />
@@ -129,7 +151,8 @@
       </map:match>
 
       <!-- Generate a template XSLT. -->
-      <map:match pattern="test/template/**.xsl">
+      <map:match id="local-admin-template-generate-test"
+                 pattern="test/template/**.xsl">
         <map:generate src="cocoon://_internal/template/{1}.xsl" />
         <map:serialize type="xml" />
       </map:match>

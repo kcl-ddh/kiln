@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<kiln:root exclude-result-prefixes="#all"
+           xmlns:dir="http://apache.org/cocoon/directory/2.0"
+           xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
+           xmlns:map="http://apache.org/cocoon/sitemap/1.0"
+           xmlns:xi="http://www.w3.org/2001/XInclude"
+           xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+  <!-- Template to display a list of links to Kiln visualisations. -->
+
+  <xsl:import href="cocoon://_internal/template/xsl/stylesheets/kiln-visualise/list-html.xsl" />
+
+  <kiln:parent>
+    <xi:include href="base.xml" />
+  </kiln:parent>
+
+  <kiln:child>
+    <kiln:block name="title">
+      <kiln:super />
+      <xsl:text>Kiln visualisations</xsl:text>
+    </kiln:block>
+
+    <kiln:block name="header">
+      <h1>Kiln Admin: Kiln visualisations</h1>
+    </kiln:block>
+
+    <kiln:block name="content">
+      <h2>Matches by ID</h2>
+
+      <ul>
+        <xsl:apply-templates select="/aggregation/map:sitemap"
+                             mode="kiln-visualise" />
+      </ul>
+    </kiln:block>
+  </kiln:child>
+
+</kiln:root>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<kiln:root exclude-result-prefixes="#all"
+           xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
+           xmlns:map="http://apache.org/cocoon/sitemap/1.0"
+           xmlns:xi="http://www.w3.org/2001/XInclude"
+           xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+  <xsl:import href="cocoon://_internal/template/xsl/stylesheets/kiln-visualise/match-to-html.xsl" />
+
+  <kiln:parent>
+    <xi:include href="base.xml" />
+  </kiln:parent>
+
+  <kiln:child>
+    <kiln:block name="title">
+      <xsl:text>Kiln match visualisation for </xsl:text>
+      <xsl:value-of select="/aggregation/map:match/@id" />
+    </kiln:block>
+
+    <kiln:block name="js">
+      <kiln:super />
+      <script src="{$kiln:assets-path}/scripts/admin.js">&#160;</script>
+    </kiln:block>
+
+    <kiln:block name="header">
+      <h1>
+        <xsl:text>Kiln Admin: Kiln match visualisation for </xsl:text>
+        <xsl:value-of select="/aggregation/map:match/@id" />
+      </h1>
+    </kiln:block>
+
+    <kiln:block name="content">
+      <xsl:apply-templates select="/aggregation/map:match"
+                           mode="kiln-visualise" />
+    </kiln:block>
+  </kiln:child>
+
+</kiln:root>

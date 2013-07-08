@@ -5,7 +5,7 @@
        sitemaps. -->
 
   <map:pipelines>
-    <map:pipeline>
+    <map:pipeline internal-only="true">
       <map:match pattern="pipelines.xml">
         <map:generate src="cocoon:/pipeline/sitemap.xmap" />
         <map:serialize type="xml" />

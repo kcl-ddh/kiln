@@ -29,6 +29,7 @@
                 <li><a href="{$kiln:context-path}/">Site Home</a></li>
                 <li><a href="{$kiln:context-path}/admin/">Admin Home</a></li>
                 <li><a href="{$kiln:context-path}/admin/xml/">Documents</a></li>
+                <li><a href="{$kiln:context-path}/admin/visualise/">Visualisations</a></li>
               </ul>
             </kiln:block>
           </nav>

@@ -52,10 +52,11 @@
 
   <xsl:template match="response" mode="solr-table">
     <xsl:apply-templates mode="solr-table" />
+    <xsl:variable name="id" select="generate-id(.)" />
     <td>
-      <span class="switch" id="{generate-id(.)}-switch"
-            onclick="toggle('{generate-id(.)}')">[show]</span>
-      <pre id="{generate-id(.)}" style="display: none">
+      <span class="switch" id="{$id}-switch"
+            onclick="toggle('{$id}', '[show]', '[hide]')">[show]</span>
+      <pre id="{$id}" style="display: none">
         <xsl:apply-templates mode="escape-xml" select="." />
       </pre>
     </td>

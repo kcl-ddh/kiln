@@ -1,4 +1,4 @@
-function toggle(id) {
+function toggle(id, showText, hideText) {
     var element = document.getElementById(id);
     with (element.style) {
         if ( display == "none" ){
@@ -8,9 +8,9 @@ function toggle(id) {
         }
     }
     var text = document.getElementById(id + "-switch").firstChild;
-    if (text.nodeValue == "[show]") {
-        text.nodeValue = "[hide]";
+    if (text.nodeValue == showText) {
+        text.nodeValue = hideText;
     } else {
-        text.nodeValue = "[show]";
+        text.nodeValue = showText;
     }
 }
