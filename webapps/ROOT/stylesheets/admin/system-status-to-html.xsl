@@ -84,9 +84,10 @@
           <xsl:value-of select="status:line" />
         </xsl:when>
         <xsl:otherwise>
-          <span class="switch" id="{generate-id(.)}-switch"
-                onclick="toggle('{generate-id(.)}')">[show]</span>
-          <ul id="{generate-id(.)}" style="display: none">
+          <xsl:variable name="id" select="generate-id(.)" />
+          <span class="switch" id="{$id}-switch"
+                onclick="toggle('{$id}', '[show]', '[hide]')">[show]</span>
+          <ul id="{$id}" style="display: none">
             <xsl:apply-templates />
           </ul>
         </xsl:otherwise>

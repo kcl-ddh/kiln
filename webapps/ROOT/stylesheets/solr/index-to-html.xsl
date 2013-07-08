@@ -37,14 +37,13 @@
 
   <xsl:template match="response" mode="solr">
     <xsl:apply-templates mode="solr" />
-
+    <xsl:variable name="id" select="generate-id(.)" />
     <p>
       <xsl:text>Full XML response: </xsl:text>
-      <span class="switch" id="{generate-id(.)}-switch"
-            onclick="toggle('{generate-id(.)}')">[show]</span>
+      <span class="switch" id="{$id}-switch"
+            onclick="toggle('{$id}', '[show]', '[hide]')">[show]</span>
     </p>
-
-    <pre id="{generate-id(.)}" style="display: none">
+    <pre id="{$id}" style="display: none">
       <xsl:apply-templates mode="escape-xml" select="." />
     </pre>
   </xsl:template>
