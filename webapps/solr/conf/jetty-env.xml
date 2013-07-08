@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE Configure PUBLIC "-//Mort Bay Consulting//DTD Configure//EN" "http://jetty.mortbay.org/configure.dtd">
+<!DOCTYPE Configure PUBLIC "-//Mort Bay Consulting//DTD Configure//EN" "http://jetty.eclipse.org/configure.dtd">
 
-<Configure class="org.mortbay.jetty.webapp.WebAppContext">
-  <New id="wiggle"  class="org.mortbay.jetty.plus.naming.EnvEntry">
+<Configure class="org.eclipse.jetty.webapp.WebAppContext">
+  <New id="wiggle"  class="org.eclipse.jetty.plus.jndi.EnvEntry">
     <Arg>solr/home</Arg>
     <Arg type="java.lang.String">webapps/solr</Arg>
     <Arg type="boolean">true</Arg>

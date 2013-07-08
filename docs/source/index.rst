@@ -34,7 +34,9 @@ components.
 Requirements
 ------------
 
-Java 1.5+ (untested with 1.7).
+Java 1.5+ is required to run the Kiln webapps. In order to use the
+built-in `Jetty`_ web server (for local, development use only), Java 1.7
+is required.
 
 Support
 -------
@@ -68,4 +70,5 @@ Contents
 .. _Department of Digital Humanities: http://www.kcl.ac.uk/artshums/depts/ddh/
 .. _TEI P5: http://www.tei-c.org/release/doc/tei-p5-doc/en/html/index-toc.html
 .. _documentation: http://cocoon.apache.org/2.1/userdocs/index.html
+.. _Jetty: http://www.eclipse.org/jetty/
 .. _issue tracker: https://github.com/kcl-ddh/kiln/issues

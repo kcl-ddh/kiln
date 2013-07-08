@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project basedir="../" default="runserver" name="jetty:run"
-  xmlns:jetty="jetty.ant">
+<project basedir="../" default="runserver" name="jetty:run">
 
   <description>Loads Jetty Antlibs and runs the Jetty server</description>
 
@@ -15,53 +14,35 @@
 
     <!-- Loads Jetty into Ant -->
     <taskdef classpathref="jetty.path" loaderref="jetty.loader"
-      resource="tasks.properties" uri="jetty.ant" />
+             resource="tasks.properties" />
 
-    <typedef classname="org.mortbay.jetty.nio.SelectChannelConnector"
-      classpathref="jetty.path" loaderref="jetty.loader"
-      name="selectChannelConnector" uri="jetty.ant" />
+    <typedef classname="org.eclipse.jetty.ant.types.Connector"
+             classpathref="jetty.path" loaderref="jetty.loader"
+             name="connector" />
   </target>
 
   <target depends="init, init.jetty" description="Runs the Jetty webserver"
     name="runserver">
     <mkdir dir="${jetty.home}/logs"/>
+    <jetty.run jettyXml="${jetty.home}/etc/jetty.xml"
+               tempDirectory="${jetty.home}/temp">
+      <systemProperties>
+        <systemProperty name="jetty.home" value="${jetty.home}" />
+        <systemProperty name="jetty.logs" value="${jetty.home}/logs" />
+      </systemProperties>
 
-    <jetty:jetty jettyXml="${jetty.home}/etc/jetty-ant.xml"
-      tempDirectory="${jetty.home}/temp">
-      <jetty:systemProperties>
-        <jetty:systemProperty name="jetty.home" value="${jetty.home}" />
-      </jetty:systemProperties>
+      <connectors>
+        <connector port="${jetty.port}" />
+      </connectors>
 
-      <jetty:connectors>
-        <jetty:selectChannelConnector port="${jetty.port}" />
-      </jetty:connectors>
-
-      <jetty:webApp contextpath="" name="kiln" scanIntervalSeconds="3600"
-        warfile="${basedir}/webapps/ROOT">
-        <jetty:scanTargets dir="${basedir}/webapps/ROOT">
-          <include name="**" />
-        </jetty:scanTargets>
-      </jetty:webApp>
-      <jetty:webApp contextpath="openrdf-sesame" name="openrdf-sesame"
-        warfile="${basedir}/webapps/openrdf-sesame">
-        <jetty:scanTargets dir="${basedir}/webapps/openrdf-sesame">
-          <include name="**" />
-        </jetty:scanTargets>
-      </jetty:webApp>
-      <jetty:webApp contextpath="openrdf-workbench" name="openrdf-workbench"
-        warfile="${basedir}/webapps/openrdf-workbench">
-        <jetty:scanTargets dir="${basedir}/webapps/openrdf-workbench">
-          <include name="**" />
-        </jetty:scanTargets>
-      </jetty:webApp>
-      <jetty:webApp contextpath="solr"
-        jettyEnvXml="${basedir}/webapps/solr/conf/jetty-env.xml" name="solr"
-        scanIntervalSeconds="3600"
-        warfile="${basedir}/webapps/solr">
-        <jetty:scanTargets dir="${basedir}/webapps/solr">
-          <include name="**" />
-        </jetty:scanTargets>
-      </jetty:webApp>
-    </jetty:jetty>
+      <webApp contextPath="/" war="${basedir}/webapps/ROOT" />
+      <webApp contextPath="/openrdf-sesame"
+              war="${basedir}/webapps/openrdf-sesame" />
+      <webApp contextPath="/openrdf-workbench"
+              war="${basedir}/webapps/openrdf-workbench" />
+      <webApp contextPath="/solr"
+              jettyEnvXml="${basedir}/webapps/solr/conf/jetty-env.xml"
+              war="${basedir}/webapps/solr" />
+    </jetty.run>
   </target>
 </project>
