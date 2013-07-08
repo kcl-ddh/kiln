@@ -12,7 +12,7 @@
            sent to the server. -->
 
       <!-- Bulk harvest of RDF/XML into the server. -->
-      <map:match pattern="harvest/all.html">
+      <map:match id="local-rdf-harvest-all-display" pattern="harvest/all.html">
         <map:aggregate element="aggregation">
           <map:part src="cocoon:/harvest/all.xml" />
         </map:aggregate>
@@ -20,7 +20,7 @@
         <map:serialize />
       </map:match>
 
-      <map:match pattern="harvest/all.xml">
+      <map:match id="local-rdf-harvest-all" pattern="harvest/all.xml">
         <map:generate src="../content/xml" type="directory">
           <map:parameter name="depth" value="99" />
           <map:parameter name="exclude" value="^\..*" />
@@ -33,7 +33,7 @@
       </map:match>
 
       <!-- Harvest RDF/XML into the server. -->
-      <map:match pattern="harvest/**.html">
+      <map:match id="local-rdf-harvest-display" pattern="harvest/**.html">
         <map:aggregate element="aggregation">
           <map:part src="cocoon:/harvest/{1}.xml" />
         </map:aggregate>
@@ -43,14 +43,14 @@
         <map:serialize />
       </map:match>
 
-      <map:match pattern="harvest/**.xml">
+      <map:match id="local-rdf-harvest" pattern="harvest/**.xml">
         <!-- This will call rdf/generate/{1}.xml below. -->
         <map:generate src="cocoon://_internal/sesame/harvest/{1}.xml" />
         <map:serialize type="xml" />
       </map:match>
 
       <!-- Query the server, returning RDF/XML. -->
-      <map:match pattern="query/graph/**.xml">
+      <map:match id="local-rdf-query" pattern="query/graph/**.xml">
         <!-- This will call rdf/construct/graph/{1}.xml below. -->
         <map:generate src="cocoon://_internal/sesame/query/graph/{1}.xml" />
         <map:serialize type="rdf-xml" />
@@ -61,7 +61,7 @@
     <!-- Pipeline for constructing an RDF/XML document. -->
     <map:pipeline id="local-rdf-generate">
       <!-- Static RDF/XML file. -->
-      <map:match pattern="generate/rdf/**.xml">
+      <map:match id="local-rdf-generate" pattern="generate/rdf/**.xml">
         <map:generate src="../content/xml/rdf/{1}.xml" />
         <map:serialize type="rdf-xml" />
       </map:match>
@@ -74,7 +74,7 @@
 
       <!-- Construct a graph query document from a SPARQL query in a
            file. This is an example only. -->
-      <map:match pattern="construct/graph/**.xml">
+      <map:match id="local-rdf-query-from-file" pattern="construct/graph/**.xml">
         <map:generate src="../content/xml/sparql/{1}.xml" />
         <map:serialize type="xml" />
       </map:match>
