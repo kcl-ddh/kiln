@@ -15,7 +15,10 @@
               onclick="toggle('{$id}', '+', '−')">+</span>
         <xsl:call-template name="start-tag" />
       </span>
-      <div id="{$id}" style="display: none;">
+      <div id="{$id}">
+        <xsl:if test="ancestor::map:match">
+          <xsl:attribute name="style" select="'display: none;'" />
+        </xsl:if>
         <xsl:apply-templates mode="kiln-visualise" />
       </div>
       <xsl:call-template name="end-tag" />
