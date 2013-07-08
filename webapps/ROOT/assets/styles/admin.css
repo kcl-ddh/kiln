@@ -27,5 +27,12 @@ pre {
 .switch {
           cursor: pointer;
           margin-left: 0.5em;
-          text-decoration: underline;
+          text-decoration: none;
 }
+
+.visualise-attribute-name { font-weight: bold; }
+.visualise-attribute-value { color: blue; }
+.visualise-element-name { color: purple; font-weight: bold; }
+.visualise-indent { margin-left: 1em; }
+.visualise-indent.visualise-match { margin-left: 2em; }
+.visualise-dedent { position: relative; left: -1em; }
