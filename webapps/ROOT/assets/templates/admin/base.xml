@@ -12,7 +12,7 @@
           <title><kiln:block name="title">Kiln admin: </kiln:block></title>
           <kiln:block name="js"></kiln:block>
           <kiln:block name="css">
-            <link href="http://yui.yahooapis.com/pure/0.2.0/pure-min.css"
+            <link href="{$kiln:assets-path}/styles/pure-min.css"
                   rel="stylesheet" />
             <link href="{$kiln:assets-path}/styles/admin.css"
                   rel="stylesheet" />
