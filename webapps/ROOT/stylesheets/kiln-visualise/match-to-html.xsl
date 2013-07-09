@@ -49,6 +49,7 @@
 
   <xsl:template name="attribute" mode="kiln-visualise">
     <xsl:param name="check-kiln-value" select="0" />
+    <xsl:param name="link" select="''" />
     <xsl:text> </xsl:text>
     <span class="visualise-attribute-name">
       <xsl:value-of select="name(.)" />
@@ -56,11 +57,20 @@
     <xsl:text>="</xsl:text>
     <span class="visualise-attribute-value">
       <xsl:variable name="kiln-attr"
-                  select="../@kiln:*[local-name()=local-name(.)]" />
+                    select="../@kiln:*[local-name()=local-name(.)]" />
       <xsl:if test="$check-kiln-value and $kiln-attr and not(. = $kiln-attr)">
         <xsl:attribute name="title" select="$kiln-attr" />
       </xsl:if>
-      <xsl:value-of select="." />
+      <xsl:choose>
+        <xsl:when test="normalize-space($link)">
+          <a href="{$link}">
+            <xsl:value-of select="." />
+          </a>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="." />
+        </xsl:otherwise>
+      </xsl:choose>
     </span>
     <xsl:text>"</xsl:text>
   </xsl:template>
@@ -84,6 +94,24 @@
       <xsl:text> /</xsl:text>
     </xsl:if>
     <xsl:text>&gt;</xsl:text>
+  </xsl:template>
+
+  <xsl:template match="map:transform/@src" mode="kiln-visualise">
+    <xsl:variable name="link">
+      <xsl:choose>
+        <xsl:when test="not(starts-with(../@kiln:src, 'cocoon://'))">
+          <xsl:text>../xslt/</xsl:text>
+          <xsl:value-of select="../@kiln:src" />
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="''" />
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <xsl:call-template name="attribute">
+      <xsl:with-param name="check-kiln-value" select="1" />
+      <xsl:with-param name="link" select="$link" />
+    </xsl:call-template>
   </xsl:template>
 
   <xsl:template match="@src | @value" mode="kiln-visualise">
