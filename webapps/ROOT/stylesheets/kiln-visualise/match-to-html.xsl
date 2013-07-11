@@ -57,7 +57,7 @@
     <xsl:text>="</xsl:text>
     <span class="visualise-attribute-value">
       <xsl:variable name="kiln-attr"
-                    select="../@kiln:*[local-name()=local-name(.)]" />
+                    select="../@kiln:*[local-name(current())=local-name(.)]" />
       <xsl:if test="$check-kiln-value and $kiln-attr and not(. = $kiln-attr)">
         <xsl:attribute name="title" select="$kiln-attr" />
       </xsl:if>
@@ -114,7 +114,7 @@
     </xsl:call-template>
   </xsl:template>
 
-  <xsl:template match="@src | @value" mode="kiln-visualise">
+  <xsl:template match="@pattern | @src | @value" mode="kiln-visualise">
     <xsl:call-template name="attribute">
       <xsl:with-param name="check-kiln-value" select="1" />
     </xsl:call-template>
