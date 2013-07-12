@@ -71,6 +71,15 @@
         <map:generate src="cocoon://_internal/visualise/xslt/{1}.xml" />
         <map:serialize type="xml" />
       </map:match>
+
+      <map:match id="local-admin-visualise-match-url"
+                 pattern="visualise/url/">
+        <map:generate type="request" />
+        <map:transform src="../stylesheets/kiln-visualise/url-request-to-xinclude.xsl" />
+        <map:transform type="xinclude" />
+        <map:transform src="cocoon://_internal/template/admin/visualise-url-match.xsl" />
+        <map:serialize />
+      </map:match>
    </map:pipeline>
 
     <map:pipeline id="local-schematron">

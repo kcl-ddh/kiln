@@ -62,6 +62,16 @@
         <map:transform type="xinclude" />
         <map:serialize type="xml" />
       </map:match>
+
+      <!-- Provide the map:match that handled the supplied URL, with
+           references to other map:matches recursively expanded. -->
+      <map:match pattern="url/**">
+        <map:generate src="cocoon:/pipelines.xml" />
+        <map:transform src="../stylesheets/visualise/compose-url-match.xsl">
+          <map:parameter name="url" value="{1}" />
+        </map:transform>
+        <map:serialize type="xml" />
+      </map:match>
     </map:pipeline>
   </map:pipelines>
 

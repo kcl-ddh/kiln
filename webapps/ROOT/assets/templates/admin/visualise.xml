@@ -25,6 +25,16 @@
     </kiln:block>
 
     <kiln:block name="content">
+      <h2>Match for URL</h2>
+
+      <p>Enter a root relative URL to find the Kiln match that
+      processes that URL.</p>
+
+      <form action="url/">
+        <input type="text" name="url" />
+        <input type="submit" value="Find match" />
+      </form>
+
       <h2>Matches by ID</h2>
 
       <ul>

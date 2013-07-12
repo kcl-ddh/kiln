@@ -149,7 +149,7 @@
                                          '[\-\|\^{}()?+.$\\\[\]]', '\\$0')" />
     <xsl:attribute name="kiln:regexp">
       <xsl:text>^</xsl:text>
-      <xsl:value-of select="replace(replace($escaped, '\*\*', '.+'), '\*', '[^/]+')" />
+      <xsl:value-of select="replace(replace($escaped, '\*\*', '(.+)'), '\*', '([^/]+)')" />
       <xsl:text>$</xsl:text>
     </xsl:attribute>
   </xsl:template>

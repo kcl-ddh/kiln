@@ -15,11 +15,13 @@
   </xsl:template>
 
   <xsl:template match="map:match">
-    <xsl:copy>
-      <xsl:attribute name="kiln:sitemap"
-                     select="ancestor::map:sitemap[1]/@kiln:file" />
-      <xsl:apply-templates select="@*|node()" />
-    </xsl:copy>
+    <xsl:if test="position() = 1">
+      <xsl:copy>
+        <xsl:attribute name="kiln:sitemap"
+                       select="ancestor::map:sitemap[1]/@kiln:file" />
+        <xsl:apply-templates select="@*|node()" />
+      </xsl:copy>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template match="map:generate | map:part | map:transform">
