@@ -77,7 +77,7 @@
            Other matches with fully parameterised patterns can equally
            map to Kiln's internal pipelines for greater control. -->
       <map:match id="local-admin-schematron-validation"
-                 pattern="xml/schematron/**.html">
+                 pattern="schematron/**.html">
         <map:aggregate element="aggregation">
           <!-- #tei_all_doc means that the schema used is extracted
                from the ODD file at
@@ -96,9 +96,9 @@
          resource exist. -->
     <map:pipeline id="local-resource-check">
       <map:match id="local-admin-resource-check"
-                 pattern="xml/resource-check/images/**.html">
+                 pattern="resource-check/images/**.html">
         <map:aggregate element="aggregation">
-          <map:part src="cocoon:/xml/resource-check/images/{1}.xml" />
+          <map:part src="cocoon:/resource-check/images/{1}.xml" />
         </map:aggregate>
         <map:transform src="cocoon://_internal/template/resource_check.xsl" />
         <map:serialize />
@@ -111,10 +111,10 @@
          filesystem. -->
     <map:pipeline id="local-internal-resource-check" internal-only="false">
       <map:match id="local-admin-image-resource-check"
-                 pattern="xml/resource-check/images/**.xml">
+                 pattern="resource-check/images/**.xml">
         <map:aggregate element="aggregation">
-          <map:part src="cocoon:/xml/resource-check/image-refs/{1}.xml" />
-          <map:part src="cocoon:/xml/resource-check/image-files.xml" />
+          <map:part src="cocoon:/resource-check/image-refs/{1}.xml" />
+          <map:part src="cocoon:/resource-check/image-files.xml" />
         </map:aggregate>
         <map:transform src="../kiln/stylesheets/resource-check/check-missing-resources.xsl" />
         <map:serialize type="xml" />
@@ -126,7 +126,7 @@
            expanded to accommodate multiple derivatives (eg,
            thumbnails) of each image. -->
       <map:match id="local-admin-image-reference-check"
-                 pattern="xml/resource-check/image-refs/**.xml">
+                 pattern="resource-check/image-refs/**.xml">
         <map:generate src="cocoon://internal/metadata/images/{1}.xml" />
         <map:transform src="../stylesheets/admin/expand-image-refs.xsl" />
         <map:serialize type="xml" />
@@ -134,7 +134,7 @@
 
       <!-- Generate a list of image files from the filesystem. -->
       <map:match id="local-admin-image-file-check"
-                 pattern="xml/resource-check/image-files.xml">
+                 pattern="resource-check/image-files.xml">
         <map:generate src="../content/images" type="imagedirectory">
           <map:parameter name="depth" value="99" />
           <map:parameter name="exclude" value="^\..*" />

@@ -69,12 +69,12 @@
       </td>
       <!-- Search indexing. -->
       <td>
-        <a href="../solr/index/{$path}{$initial_path}{$filepath}.html"
+        <a href="solr/index/{$path}{$initial_path}{$filepath}.html"
             title="Index document in search server">Index</a>
       </td>
       <!-- RDF harvesting. -->
       <td>
-        <a href="../rdf/harvest/{$initial_path}{$filepath}.html"
+        <a href="rdf/harvest/{$initial_path}{$filepath}.html"
            title="Harvest RDF from document">Harvest</a>
       </td>
       <!-- View on site. -->
