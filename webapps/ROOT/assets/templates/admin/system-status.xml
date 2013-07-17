@@ -12,13 +12,11 @@
 
   <kiln:child>
     <kiln:block name="title"><kiln:super />System Status</kiln:block>
-    <kiln:block name="js">
-      <kiln:super />
-      <script src="{$kiln:assets-path}/scripts/admin.js">&#160;</script>
-    </kiln:block>
-    <kiln:block name="header"><h1>Kiln Admin: System Status</h1></kiln:block>
+    <kiln:block name="header"><h1>Cocoon System Status</h1></kiln:block>
     <kiln:block name="content">
-      <xsl:apply-templates select="/status:statusinfo" />
+      <div class="row">
+        <xsl:apply-templates select="/status:statusinfo" />
+      </div>
     </kiln:block>
   </kiln:child>
 

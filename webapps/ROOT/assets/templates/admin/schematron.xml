@@ -21,11 +21,13 @@
     </kiln:block>
 
     <kiln:block name="header">
-      <h1>Kiln Admin: Schematron validaton results for <xsl:value-of select="$file" /></h1>
+      <h1>Schematron validaton results for <xsl:value-of select="$file" /></h1>
     </kiln:block>
 
     <kiln:block name="content">
-      <xsl:apply-templates select="/aggregation/svrl:schematron-output" />
+      <div class="row">
+        <xsl:apply-templates select="/aggregation/svrl:schematron-output" />
+      </div>
     </kiln:block>
   </kiln:child>
 

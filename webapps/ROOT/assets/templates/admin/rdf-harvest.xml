@@ -14,17 +14,14 @@
   <kiln:child>
     <kiln:block name="title"><kiln:super />RDF harvest result for <xsl:value-of select="$file" /></kiln:block>
 
-    <kiln:block name="js">
-      <kiln:super />
-      <script src="{$kiln:assets-path}/scripts/admin.js">&#160;</script>
-    </kiln:block>
-
     <kiln:block name="header">
-      <h1>Kiln Admin: RDF harvest result for <xsl:value-of select="$file" /></h1>
+      <h1>RDF harvest result for <xsl:value-of select="$file" /></h1>
     </kiln:block>
 
     <kiln:block name="content">
-      <xsl:apply-templates select="/aggregation/response" mode="rdf" />
+      <div class="row">
+        <xsl:apply-templates select="/aggregation/response" mode="rdf" />
+      </div>
     </kiln:block>
   </kiln:child>
 

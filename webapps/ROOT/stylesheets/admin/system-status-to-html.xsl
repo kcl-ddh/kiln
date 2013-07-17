@@ -26,16 +26,16 @@
        Adapted from Cocoon's status2html.xslt. -->
 
   <xsl:template match="status:statusinfo">
-    <h1>
+    <h2>
       <xsl:value-of select="@status:host" />
       <xsl:text> - </xsl:text>
       <xsl:value-of select="@status:date" />
-    </h1>
-    <h2>Apache Cocoon <xsl:value-of select="@status:cocoon-version"/></h2>
+    </h2>
+    <h3>Apache Cocoon <xsl:value-of select="@status:cocoon-version"/></h3>
 
     <xsl:apply-templates />
 
-    <h2>XSLT Processor</h2>
+    <h3>XSLT Processor</h3>
 
     <ul>
       <li>
@@ -63,7 +63,7 @@
   </xsl:template>
 
   <xsl:template match="status:group">
-    <h2><xsl:value-of select="@status:name" /></h2>
+    <h3><xsl:value-of select="@status:name" /></h3>
     <ul><xsl:apply-templates select="status:value" /></ul>
     <xsl:apply-templates select="status:group" />
   </xsl:template>
@@ -122,10 +122,10 @@
 
   <!-- Process Xalan extension output -->
   <xsl:template match="checkEnvironmentExtension">
-    <h2>Xerces, Xalan</h2>
+    <h3>Xerces, Xalan</h3>
     <ul>
       <xsl:apply-templates select="EnvironmentCheck/environment/item[starts-with(@key, 'version.')]" />
-</ul>
+    </ul>
   </xsl:template>
 
   <xsl:template match="item">

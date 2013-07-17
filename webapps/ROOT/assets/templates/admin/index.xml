@@ -8,14 +8,10 @@
 
   <kiln:child>
     <kiln:block name="title"><kiln:super/>Index</kiln:block>
-    <kiln:block name="header"><h1>Kiln Admin: Index</h1></kiln:block>
     <kiln:block name="content">
-      <ul>
-        <li><a href="system-status.html">System status</a></li>
-        <li><a href="xml/">XML documents</a></li>
-        <li><a href="/solr/">Solr (search system) admin</a></li>
-        <li><a href="/openrdf-workbench/">Sesame (RDF system) admin</a></li>
-      </ul>
+      <div class="row">
+        <p>The Kiln admin area provides various functionality for </p>
+      </div>
     </kiln:block>
   </kiln:child>
 

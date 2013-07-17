@@ -17,17 +17,15 @@
       <xsl:text>RDF harvest results for all documents</xsl:text>
     </kiln:block>
 
-    <kiln:block name="js">
-      <kiln:super />
-      <script src="{$kiln:assets-path}/scripts/admin.js">&#160;</script>
-    </kiln:block>
-
     <kiln:block name="header">
-      <h1>Kiln Admin: RDF harvest results for all documents</h1>
+      <h1>RDF harvest results for all documents</h1>
     </kiln:block>
 
     <kiln:block name="content">
-      <xsl:apply-templates select="/aggregation/xincludes" mode="rdf" />
+      <div class="row">
+        <xsl:apply-templates select="/aggregation/xincludes"
+                             mode="rdf" />
+      </div>
     </kiln:block>
   </kiln:child>
 

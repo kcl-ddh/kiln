@@ -17,21 +17,18 @@
       <xsl:value-of select="/aggregation/map:match/@id" />
     </kiln:block>
 
-    <kiln:block name="js">
-      <kiln:super />
-      <script src="{$kiln:assets-path}/scripts/admin.js">&#160;</script>
-    </kiln:block>
-
     <kiln:block name="header">
       <h1>
-        <xsl:text>Kiln Admin: Kiln match visualisation for </xsl:text>
+        <xsl:text>Kiln match visualisation for </xsl:text>
         <xsl:value-of select="/aggregation/map:match/@id" />
       </h1>
     </kiln:block>
 
     <kiln:block name="content">
-      <xsl:apply-templates select="/aggregation/map:match"
-                           mode="kiln-visualise" />
+      <div class="row">
+        <xsl:apply-templates select="/aggregation/map:match"
+                             mode="kiln-visualise" />
+      </div>
     </kiln:block>
   </kiln:child>
 

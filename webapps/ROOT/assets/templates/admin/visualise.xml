@@ -17,30 +17,36 @@
   <kiln:child>
     <kiln:block name="title">
       <kiln:super />
-      <xsl:text>Kiln visualisations</xsl:text>
+      <xsl:text>Visualisations</xsl:text>
     </kiln:block>
 
     <kiln:block name="header">
-      <h1>Kiln Admin: Kiln visualisations</h1>
+      <h1>Kiln visualisations</h1>
     </kiln:block>
 
     <kiln:block name="content">
-      <h2>Match for URL</h2>
+      <div class="row">
+        <h2>Match for URL</h2>
 
-      <p>Enter a root relative URL to find the Kiln match that
-      processes that URL.</p>
+        <p>Enter a root relative URL to find the Kiln match that
+        processes that URL.</p>
 
-      <form action="url/">
-        <input type="text" name="url" />
-        <input type="submit" value="Find match" />
-      </form>
+        <form action="url/">
+          <div class="row">
+            <div class="large-6 columns">
+              <input type="text" name="url" />
+              <input type="submit" value="Find match" />
+            </div>
+          </div>
+        </form>
 
-      <h2>Matches by ID</h2>
+        <h2>Matches by ID</h2>
 
-      <ul>
-        <xsl:apply-templates select="/aggregation/map:sitemap"
-                             mode="kiln-visualise" />
-      </ul>
+        <ul>
+          <xsl:apply-templates select="/aggregation/map:sitemap"
+                               mode="kiln-visualise" />
+        </ul>
+      </div>
     </kiln:block>
   </kiln:child>
 

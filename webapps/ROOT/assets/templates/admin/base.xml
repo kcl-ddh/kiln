@@ -9,10 +9,16 @@
     <html>
       <kiln:block name="head">
         <head>
+          <meta name="viewport" content="width=device-width" />
           <title><kiln:block name="title">Kiln admin: </kiln:block></title>
-          <kiln:block name="js"></kiln:block>
+          <kiln:block name="js">
+            <script src="{$kiln:assets-path}/foundation/js/vendor/custom.modernizr.js">&#160;</script>
+            <script src="{$kiln:assets-path}/scripts/admin.js">&#160;</script>
+          </kiln:block>
           <kiln:block name="css">
-            <link href="{$kiln:assets-path}/styles/pure-min.css"
+            <link href="{$kiln:assets-path}/foundation/css/normalize.css"
+                  rel="stylesheet" />
+            <link href="{$kiln:assets-path}/foundation/css/foundation.min.css"
                   rel="stylesheet" />
             <link href="{$kiln:assets-path}/styles/admin.css"
                   rel="stylesheet" />
@@ -22,19 +28,67 @@
       </kiln:block>
       <kiln:block name="body">
         <body>
-          <header><kiln:block name="header"></kiln:block></header>
-          <nav class="pure-menu pure-menu-open pure-menu-horizontal">
-            <kiln:block name="nav">
-              <ul>
-                <li><a href="{$kiln:context-path}/">Site Home</a></li>
-                <li><a href="{$kiln:context-path}/admin/">Admin Home</a></li>
-                <li><a href="{$kiln:context-path}/admin/xml/">Documents</a></li>
-                <li><a href="{$kiln:context-path}/admin/visualise/">Visualisations</a></li>
+          <kiln:block name="top-bar">
+            <nav class="top-bar">
+              <ul class="title-area">
+                <li class="name">
+                  <h1><a href="{$kiln:mount-path}/admin/">Kiln Admin</a></h1>
+                </li>
+                <li class="toggle-topbar"><a href="#"></a></li>
               </ul>
+              <section class="top-bar-section">
+                <ul class="left">
+                  <li><a href="{$kiln:mount-path}/">Site Home</a></li>
+                  <li><a href="{$kiln:mount-path}/admin/xml/">Documents</a></li>
+                  <li><a href="{$kiln:mount-path}/admin/visualise/">Visualisations</a></li>
+                  <li class="has-dropdown">
+                    <a href="#">Components</a>
+                    <ul class="dropdown">
+                      <li><a href="system-status.html">Cocoon system status</a></li>
+                      <li class="has-dropdown">
+                        <a href="#">Solr</a>
+                        <ul class="dropdown">
+                          <li><a href="/solr/">Admin</a></li>
+                          <li><a href="{$kiln:mount-path}/admin/solr/index/all.html">Index all documents</a></li>
+                        </ul>
+                      </li>
+                      <li class="has-dropdown">
+                        <a href="#">Sesame</a>
+                        <ul class="dropdown">
+                          <li><a href="/openrdf-workbench/">Admin</a></li>
+                          <li><a href="{$kiln:mount-path}/admin/rdf/harvest/all.html">Harvest all documents</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </section>
+            </nav>
+          </kiln:block>
+          <header class="row">
+            <kiln:block name="header"></kiln:block>
+          </header>
+          <main>
+            <kiln:block name="content"></kiln:block>
+          </main>
+          <footer>
+            <kiln:block name="footer">
+              <p>Powered by <a href="http://kcl-ddh.github.io/kiln/">Kiln</a></p>
+              <p>Theme by <a href="http://foundation.zurb.com/">Foundation</a></p>
             </kiln:block>
-          </nav>
-          <main><kiln:block name="content"></kiln:block></main>
-          <footer><kiln:block name="footer"></kiln:block></footer>
+          </footer>
+          <kiln:block name="end-js">
+            <script>
+              <xsl:text>document.write('&lt;script src="</xsl:text>
+              <xsl:value-of select="$kiln:assets-path" />
+              <xsl:text>/foundation/js/vendor/' + ('__proto__' in {} </xsl:text>
+              <xsl:text>? 'zepto' : 'jquery') + '.js">&lt;\/script>');</xsl:text>
+            </script>
+            <script src="{$kiln:assets-path}/foundation/js/foundation.min.js">
+              <xsl:text> </xsl:text>
+            </script>
+            <script>$(document).foundation();</script>
+          </kiln:block>
         </body>
       </kiln:block>
     </html>

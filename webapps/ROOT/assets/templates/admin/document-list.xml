@@ -15,33 +15,37 @@
 
   <kiln:child>
     <kiln:block name="title"><kiln:super />Documents</kiln:block>
-    <kiln:block name="header"><h1>Kiln Admin: Documents</h1></kiln:block>
+    <kiln:block name="header"><h1>Documents</h1></kiln:block>
     <kiln:block name="content">
-      <h2>Global processes</h2>
+      <div class="row">
+        <h2>Global processes</h2>
 
-      <ul>
-        <li><a href="../solr/index/all.html">Index all documents into
-        Solr</a></li>
-        <li><a href="../rdf/harvest/all.html">Harvest all documents
-        into Sesame (RDF)</a></li>
-      </ul>
+        <ul>
+          <li><a href="../solr/index/all.html">Index all documents
+          into Solr</a></li>
+          <li><a href="../rdf/harvest/all.html">Harvest all documents
+          into Sesame (RDF)</a></li>
+        </ul>
 
-      <h2>Individual processes</h2>
+        <h2>Individual processes</h2>
 
-      <table class="pure-table pure-table-horizontal">
-        <thead>
-          <tr>
-            <th scope="col">File</th>
-            <th colspan="2" scope="col">Validation</th>
-            <th scope="col">Search</th>
-            <th scope="col">RDF</th>
-            <th scope="col">View</th>
-          </tr>
-        </thead>
-        <tbody>
-          <xsl:apply-templates select="/dir:directory/*" />
-        </tbody>
-      </table>
+        <h3>TEI</h3>
+
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">File</th>
+              <th colspan="2" scope="col">Validation</th>
+              <th scope="col">Search</th>
+              <th scope="col">RDF</th>
+              <th scope="col">View</th>
+            </tr>
+          </thead>
+          <tbody>
+            <xsl:apply-templates select="/aggregation/dir:directory/*" />
+          </tbody>
+        </table>
+      </div>
     </kiln:block>
   </kiln:child>
 
