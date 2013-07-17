@@ -20,7 +20,9 @@
 
     <map:pipeline>
       <map:match id="local-admin-home-page" pattern="">
-        <map:generate src="empty:aggregation" />
+        <map:aggregate element="aggregation">
+          <map:part src="cocoon://internal/allxmlcontent.xml" />
+        </map:aggregate>
         <map:transform src="cocoon://_internal/template/admin/index.xsl" />
         <map:serialize />
       </map:match>
@@ -28,16 +30,6 @@
       <map:match id="local-admin-system-status" pattern="system-status.html">
         <map:generate type="status" />
         <map:transform src="cocoon://_internal/template/admin/system-status.xsl" />
-        <map:serialize />
-      </map:match>
-
-      <!-- Present a table of XML documents and the processes that
-           might be applied to them. -->
-      <map:match id="local-admin-document-list" pattern="xml/">
-        <map:aggregate element="aggregation">
-          <map:part src="cocoon://internal/allxmlcontent.xml" />
-        </map:aggregate>
-        <map:transform src="cocoon://_internal/template/admin/document-list.xsl" />
         <map:serialize />
       </map:match>
 

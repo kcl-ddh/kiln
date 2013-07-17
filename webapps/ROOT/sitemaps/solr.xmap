@@ -19,11 +19,11 @@
 
       <!-- Indexing. -->
 
-      <!-- Index all XML content in a single (user) request.
+      <!-- Index all TEI content in a single (user) request.
 
            For efficiency reasons, delete the whole index first
            (obviously a bad idea if the index also contains material
-           harvested from non-XML sources!), then add each document
+           harvested from non-TEI sources!), then add each document
            via an XInclude. -->
       <map:match id="local-solr-index-all" pattern="index/all.html">
         <map:aggregate element="aggregation">
@@ -48,18 +48,14 @@
         <map:serialize />
       </map:match>
 
-      <!-- Adding all documents as XIncludes. It's almost certain that
-           this match needs to be modified in one way or another,
-           since it uses the same XSLT to process all XML files, that
-           either shouldn't be indexed or should be indexed
-           differently. -->
+      <!-- Adding all TEI documents as XIncludes. -->
       <map:match id="local-solr-add-all" pattern="add/">
-        <map:generate src="../content/xml" type="directory">
+        <map:generate src="../content/xml/tei" type="directory">
           <map:parameter name="depth" value="99" />
           <map:parameter name="exclude" value="^\..*" />
         </map:generate>
         <map:transform src="../stylesheets/admin/dir-to-xinclude.xsl">
-          <map:parameter name="prefix" value="cocoon://admin/solr/add/tei/" />
+          <map:parameter name="prefix" value="cocoon://admin/solr/add/tei/tei/" />
         </map:transform>
         <map:transform type="xinclude" />
         <map:serialize type="xml" />

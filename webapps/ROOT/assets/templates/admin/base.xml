@@ -39,7 +39,6 @@
               <section class="top-bar-section">
                 <ul class="left">
                   <li><a href="{$kiln:mount-path}/">Site Home</a></li>
-                  <li><a href="{$kiln:mount-path}/admin/xml/">Documents</a></li>
                   <li><a href="{$kiln:mount-path}/admin/visualise/">Visualisations</a></li>
                   <li class="has-dropdown">
                     <a href="#">Components</a>
@@ -61,6 +60,7 @@
                       </li>
                     </ul>
                   </li>
+                  <li><a href="http://kiln.readthedocs.org/en/latest/">Documentation</a></li>
                 </ul>
               </section>
             </nav>

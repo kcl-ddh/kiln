@@ -60,8 +60,18 @@
 
     <!-- Pipeline for constructing an RDF/XML document. -->
     <map:pipeline id="local-rdf-generate">
+      <!-- TEI file. -->
+      <map:match id="local-rdf-generate-tei"
+                 pattern="generate/tei/**.xml">
+        <map:generate src="../content/xml/tei/{1}.xml" />
+        <map:transform src="../stylesheets/rdf/tei-to-rdf.xsl">
+          <map:parameter name="base_uri" value="{global:rdf-base-uri}" />
+        </map:transform>
+        <map:serialize type="rdf-xml" />
+      </map:match>
+
       <!-- Static RDF/XML file. -->
-      <map:match id="local-rdf-generate" pattern="generate/rdf/**.xml">
+      <map:match id="local-rdf-generate-static" pattern="generate/rdf/**.xml">
         <map:generate src="../content/xml/rdf/{1}.xml" />
         <map:serialize type="rdf-xml" />
       </map:match>

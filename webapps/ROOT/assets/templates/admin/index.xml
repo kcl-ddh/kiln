@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<kiln:root xmlns:xi="http://www.w3.org/2001/XInclude"
-           xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0">
+<kiln:root xmlns:dir="http://apache.org/cocoon/directory/2.0"
+           xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
+           xmlns:xi="http://www.w3.org/2001/XInclude"
+           xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+  <!-- Template to display a list of documents and links to various
+       editorial processes that may be applied to them. -->
+
+  <xsl:import href="cocoon://_internal/template/xsl/stylesheets/admin/xml-dirs-to-process-list-html.xsl" />
 
   <kiln:parent>
     <xi:include href="base.xml" />
@@ -8,9 +15,10 @@
 
   <kiln:child>
     <kiln:block name="title"><kiln:super/>Index</kiln:block>
+    <kiln:block name="header"><h1>Documents</h1></kiln:block>
     <kiln:block name="content">
       <div class="row">
-        <p>The Kiln admin area provides various functionality for </p>
+        <xsl:apply-templates mode="tei" select="/aggregation/dir:directory" />
       </div>
     </kiln:block>
   </kiln:child>

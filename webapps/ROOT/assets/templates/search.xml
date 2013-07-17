@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<kiln:root xmlns:tei="http://www.tei-c.org/ns/1.0"
+           xmlns:xi="http://www.w3.org/2001/XInclude"
+           xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
+           xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+  <!-- Imports stylesheet to convert Solr results into HTML. -->
+  <xsl:import href="cocoon://_internal/template/xsl/stylesheets/quickstart/solr-to-html.xsl" />
+
+  <kiln:parent>
+    <xi:include href="base.xml" />
+  </kiln:parent>
+
+  <kiln:child>
+    <kiln:block name="title">
+      <kiln:super />
+      <xsl:text>Search results</xsl:text>
+    </kiln:block>
+
+    <kiln:block name="page-heading">
+      <kiln:super />
+      <xsl:text>Search results</xsl:text>
+    </kiln:block>
+
+    <kiln:block name="content">
+      <xsl:apply-templates select="/aggregation/response" />
+    </kiln:block>
+  </kiln:child>
+
+</kiln:root>
