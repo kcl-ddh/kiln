@@ -23,8 +23,10 @@
 
     <kiln:block name="content">
       <div class="row">
-        <xsl:apply-templates select="/aggregation/xincludes"
-                             mode="rdf" />
+        <div class="large-12 columns">
+          <xsl:apply-templates select="/aggregation/xincludes"
+                               mode="rdf" />
+        </div>
       </div>
     </kiln:block>
   </kiln:child>

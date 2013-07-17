@@ -100,7 +100,7 @@
         <map:aggregate element="aggregation">
           <map:part src="cocoon:/resource-check/images/{1}.xml" />
         </map:aggregate>
-        <map:transform src="cocoon://_internal/template/resource_check.xsl" />
+        <map:transform src="cocoon://_internal/template/admin/resource_check.xsl" />
         <map:serialize />
       </map:match>
     </map:pipeline>
@@ -109,7 +109,7 @@
          exist - for example, that all of the images referenced in a
          TEI document are present in the correct place on the
          filesystem. -->
-    <map:pipeline id="local-internal-resource-check" internal-only="false">
+    <map:pipeline id="local-internal-resource-check" internal-only="true">
       <map:match id="local-admin-image-resource-check"
                  pattern="resource-check/images/**.xml">
         <map:aggregate element="aggregation">

@@ -18,7 +18,9 @@
     <kiln:block name="header"><h1>Documents</h1></kiln:block>
     <kiln:block name="content">
       <div class="row">
-        <xsl:apply-templates mode="tei" select="/aggregation/dir:directory" />
+        <div class="large-12 columns">
+          <xsl:apply-templates mode="tei" select="/aggregation/dir:directory" />
+        </div>
       </div>
     </kiln:block>
   </kiln:child>

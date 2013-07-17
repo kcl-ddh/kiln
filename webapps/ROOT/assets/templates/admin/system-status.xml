@@ -15,7 +15,9 @@
     <kiln:block name="header"><h1>Cocoon System Status</h1></kiln:block>
     <kiln:block name="content">
       <div class="row">
-        <xsl:apply-templates select="/status:statusinfo" />
+        <div class="large-12 columns">
+          <xsl:apply-templates select="/status:statusinfo" />
+        </div>
       </div>
     </kiln:block>
   </kiln:child>

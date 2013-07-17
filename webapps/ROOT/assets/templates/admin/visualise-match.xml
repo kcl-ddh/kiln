@@ -26,8 +26,10 @@
 
     <kiln:block name="content">
       <div class="row">
-        <xsl:apply-templates select="/aggregation/map:match"
-                             mode="kiln-visualise" />
+        <div class="large-12 columns">
+          <xsl:apply-templates select="/aggregation/map:match"
+                               mode="kiln-visualise" />
+        </div>
       </div>
     </kiln:block>
   </kiln:child>

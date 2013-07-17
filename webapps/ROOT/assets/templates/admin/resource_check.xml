@@ -12,10 +12,16 @@
   <kiln:child>
     <kiln:block name="title">Resource check results</kiln:block>
 
-    <kiln:block name="page-heading">Resource check results</kiln:block>
+    <kiln:block name="header">
+      <h1>Resource check results</h1>
+    </kiln:block>
 
     <kiln:block name="content">
-      <xsl:apply-templates select="/aggregation/report" />
+      <div class="row">
+        <div class="large-12 columns">
+          <xsl:apply-templates select="/aggregation/report" />
+        </div>
+      </div>
     </kiln:block>
   </kiln:child>
 

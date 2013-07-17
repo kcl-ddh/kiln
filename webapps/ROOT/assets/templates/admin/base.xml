@@ -34,7 +34,9 @@
                 <li class="name">
                   <h1><a href="{$kiln:mount-path}/admin/">Kiln Admin</a></h1>
                 </li>
-                <li class="toggle-topbar"><a href="#"></a></li>
+                <li class="toggle-topbar menu-icon">
+                  <a href="#"><span>Menu</span></a>
+                </li>
               </ul>
               <section class="top-bar-section">
                 <ul class="left">
@@ -68,7 +70,9 @@
             </nav>
           </kiln:block>
           <header class="row">
-            <kiln:block name="header"></kiln:block>
+            <div class="large-12 columns">
+              <kiln:block name="header"></kiln:block>
+            </div>
           </header>
           <main>
             <kiln:block name="content"></kiln:block>

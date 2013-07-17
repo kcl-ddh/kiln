@@ -26,7 +26,9 @@
 
     <kiln:block name="content">
       <div class="row">
-        <xsl:apply-templates select="/aggregation/svrl:schematron-output" />
+        <div class="large-12 columns">
+          <xsl:apply-templates select="/aggregation/svrl:schematron-output" />
+        </div>
       </div>
     </kiln:block>
   </kiln:child>
