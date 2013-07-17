@@ -43,7 +43,7 @@
                   <li class="has-dropdown">
                     <a href="#">Components</a>
                     <ul class="dropdown">
-                      <li><a href="system-status.html">Cocoon system status</a></li>
+                      <li><a href="{$kiln:mount-path}/admin/system-status.html">Cocoon system status</a></li>
                       <li class="has-dropdown">
                         <a href="#">Solr</a>
                         <ul class="dropdown">
