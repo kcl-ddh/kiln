@@ -41,7 +41,7 @@
                                 <ul class="title-area">
                                     <li class="name">
                                         <h1>
-                                            <a href="/">Kiln</a>
+                                            <a href="{$kiln:context-path}/">Kiln</a>
                                         </h1>
                                     </li>
                                     <li class="toggle-topbar menu-icon">
