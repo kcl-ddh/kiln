@@ -60,6 +60,7 @@
           <map:parameter name="base_url" value="{1}" />
         </map:transform>
         <map:transform type="xinclude" />
+        <map:transform src="../stylesheets/visualise/unmangle-xinclude.xsl" />
         <map:serialize type="xml" />
       </map:match>
 
