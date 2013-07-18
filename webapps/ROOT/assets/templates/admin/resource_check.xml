@@ -5,15 +5,23 @@
 
   <xsl:import href="cocoon://_internal/template/xsl/kiln/stylesheets/resource-check/report-to-html.xsl" />
 
+  <xsl:param name="file" />
+
   <kiln:parent>
     <xi:include href="base.xml" />
   </kiln:parent>
 
   <kiln:child>
-    <kiln:block name="title">Resource check results</kiln:block>
+    <kiln:block name="title">
+      <xsl:text>Resource check results for </xsl:text>
+      <xsl:value-of select="$file" />
+    </kiln:block>
 
     <kiln:block name="header">
-      <h1>Resource check results</h1>
+      <h1>
+        <xsl:text>Resource check results for </xsl:text>
+        <xsl:value-of select="$file" />
+      </h1>
     </kiln:block>
 
     <kiln:block name="content">

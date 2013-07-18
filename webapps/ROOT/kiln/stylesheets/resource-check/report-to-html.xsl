@@ -45,10 +45,10 @@
   <xsl:template match="referring_file[file]">
     <xsl:variable name="number_missing" select="count(file)"/>
     <tr>
-      <td rowspan="{$number_missing}">
+      <td rowspan="{$number_missing}" style="vertical-align: top;">
         <xsl:value-of select="@xml:id"/>
       </td>
-      <td rowspan="{$number_missing}">
+      <td rowspan="{$number_missing}" style="vertical-align: top;">
         <xsl:value-of select="@path"/>
       </td>
       <xsl:apply-templates select="*[position()=1]"/>

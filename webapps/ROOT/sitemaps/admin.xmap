@@ -100,7 +100,9 @@
         <map:aggregate element="aggregation">
           <map:part src="cocoon:/resource-check/images/{1}.xml" />
         </map:aggregate>
-        <map:transform src="cocoon://_internal/template/admin/resource_check.xsl" />
+        <map:transform src="cocoon://_internal/template/admin/resource_check.xsl">
+          <map:parameter name="file" value="{1}.xml" />
+        </map:transform>
         <map:serialize />
       </map:match>
     </map:pipeline>
