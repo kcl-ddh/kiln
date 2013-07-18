@@ -1,24 +1,4 @@
-.hero {
-    margin: 5em 0 3em;
-    text-align: center;
-}
-
-.hero h1 {
-    color: #0078e7;
-    font-size: 5em;
-    font-weight: 100;
-    margin: 0;
-    padding: 0;
-}
-
-.hero h2 {
-    color: #666666;
-    font-size: 1.5em;
-    font-weight: 100;
-    margin: 0.02em 0 0.8em;
-}
-
-.footer {
+footer {
     background: none repeat scroll 0 0 #fafafa;
     border-top: 1px solid #eeeeee;
     color: #777777;
