@@ -79,7 +79,7 @@
             <xsl:apply-templates select="@icon"/>
           </xsl:when>
           <xsl:otherwise>
-            <img alt="" src="{$schematron-images-path}/error.png" />
+            <img alt="Error!" src="{$schematron-images-path}/error.png" />
           </xsl:otherwise>
         </xsl:choose>
       </td>
