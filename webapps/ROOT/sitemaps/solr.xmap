@@ -43,7 +43,7 @@
           <map:part src="cocoon://_internal/solr/index/{1}/{2}.xml" />
         </map:aggregate>
         <map:transform src="cocoon://_internal/template/admin/solr-index.xsl">
-          <map:parameter name="file" value="{2}" />
+          <map:parameter name="file" value="{2}.xml" />
         </map:transform>
         <map:serialize />
       </map:match>
