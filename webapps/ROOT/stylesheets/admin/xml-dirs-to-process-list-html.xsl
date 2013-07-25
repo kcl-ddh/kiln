@@ -6,8 +6,6 @@
 
   <xsl:import href="../defaults.xsl"/>
 
-  <xsl:param name="initial_path" select="''"/>
-
   <xsl:template match="/aggregation/dir:directory" mode="tei">
     <h3>TEI</h3>
 
@@ -56,25 +54,25 @@
     <tr>
       <!-- File path. -->
       <td>
-        <xsl:value-of select="$filepath"/>
+        <xsl:value-of select="substring-after($filepath, 'tei/')"/>
         <xsl:text>.xml</xsl:text>
       </td>
       <!-- Default Schematron link. -->
       <td>
-        <a href="schematron/{$initial_path}{$filepath}.html">Validate</a>
+        <a href="schematron/{$filepath}.html">Validate</a>
       </td>
       <!-- Image checking. -->
       <td>
-        <a href="resource-check/images/{$initial_path}{$filepath}.html">Check images</a>
+        <a href="resource-check/images/{$filepath}.html">Check images</a>
       </td>
       <!-- Search indexing. -->
       <td>
-        <a href="solr/index/{$path}{$initial_path}{$filepath}.html"
+        <a href="solr/index/tei/{$filepath}.html"
             title="Index document in search server">Index</a>
       </td>
       <!-- RDF harvesting. -->
       <td>
-        <a href="rdf/harvest/{$initial_path}{$filepath}.html"
+        <a href="rdf/harvest/{$filepath}.html"
            title="Harvest RDF from document">Harvest</a>
       </td>
       <!-- View on site. -->
