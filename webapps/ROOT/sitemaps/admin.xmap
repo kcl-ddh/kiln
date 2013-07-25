@@ -21,7 +21,7 @@
     <map:pipeline>
       <map:match id="local-admin-home-page" pattern="">
         <map:aggregate element="aggregation">
-          <map:part src="cocoon://internal/allxmlcontent.xml" />
+          <map:part src="cocoon://internal/files/xml.xml" />
         </map:aggregate>
         <map:transform src="cocoon://_internal/template/admin/index.xsl" />
         <map:serialize />

@@ -20,6 +20,12 @@
       <map:match pattern="admin/**">
         <map:mount check-reload="yes" src="admin.xmap" uri-prefix="admin/" />
       </map:match>
+      <!-- Mount a sitemap for (potentially) project-specific internal
+           pipelines. -->
+      <map:match pattern="internal/**">
+        <map:mount check-reload="yes" src="internal.xmap"
+                   uri-prefix="internal/" />
+      </map:match>
     </map:pipeline>
 
     <map:pipeline id="local-images">
@@ -145,56 +151,6 @@
                       label="tei" />
         <map:transform src="cocoon://_internal/template/backend_tei.xsl" />
         <map:serialize type="xml_nodecl" />
-      </map:match>
-    </map:pipeline>
-
-    <map:pipeline internal-only="true">
-      <!-- Process a TEI document prior to its use in another
-           pipeline, normalising and annotating it as required. -->
-      <map:match id="local-preprocess-tei" pattern="internal/tei/preprocess/**.xml">
-        <map:generate src="../content/xml/tei/{1}.xml" />
-        <map:transform src="../kiln/stylesheets/tei/join-elements.xsl" />
-        <map:transform src="../kiln/stylesheets/tei/annotate.xsl" />
-        <map:serialize type="xml" />
-      </map:match>
-
-      <!-- Get search results. -->
-      <map:match pattern="internal/search/*.xml">
-        <map:generate src="../content/xml/solr/{1}.xml" />
-        <map:transform src="../kiln/stylesheets/solr/merge-parameters.xsl">
-          <map:parameter name="query-string" value="{request:queryString}" />
-        </map:transform>
-        <map:transform src="../kiln/stylesheets/solr/generate-query.xsl" />
-        <map:transform type="xinclude" />
-        <map:serialize type="xml" />
-      </map:match>
-    </map:pipeline>
-
-    <!-- Metadata pipeline. -->
-    <map:pipeline id="metadata" internal-only="true">
-      <map:match id="local-xml-metadata" pattern="internal/allxmlcontent.xml">
-        <map:generate src="../content/xml" type="directory">
-          <map:parameter name="depth" value="99" />
-          <map:parameter name="exclude" value="^\..*" />
-        </map:generate>
-        <map:serialize type="xml" />
-      </map:match>
-
-      <map:match id="local-typed-metadata" pattern="internal/metadata/*/**.xml">
-        <map:generate src="../content/xml/{2}.xml" />
-        <map:transform src="../stylesheets/metadata/{1}-metadata-generator.xsl">
-          <map:parameter name="path" value="{2}.xml" />
-        </map:transform>
-        <map:serialize type="xml" />
-      </map:match>
-
-      <map:match id="local-metadata" pattern="internal/metadata/*.xml">
-        <map:generate src="cocoon://internal/allxmlcontent.xml" />
-        <map:transform src="../stylesheets/metadata/xinclude.xsl">
-          <map:parameter name="type" value="{1}" />
-        </map:transform>
-        <map:transform type="xinclude" />
-        <map:serialize type="xml" />
       </map:match>
     </map:pipeline>
   </map:pipelines>

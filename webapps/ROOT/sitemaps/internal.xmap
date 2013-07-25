@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<map:sitemap xmlns:map="http://apache.org/cocoon/sitemap/1.0">
+
+  <map:pipelines>
+    <map:pipeline internal-only="true">
+      <!-- Process a TEI document prior to its use in another
+           pipeline, normalising and annotating it as required. -->
+      <map:match id="local-preprocess-tei"
+                 pattern="tei/preprocess/**.xml">
+        <map:generate src="../content/xml/tei/{1}.xml" />
+        <map:transform src="../kiln/stylesheets/tei/join-elements.xsl" />
+        <map:transform src="../kiln/stylesheets/tei/annotate.xsl" />
+        <map:serialize type="xml" />
+      </map:match>
+
+      <!-- Get search results. -->
+      <map:match pattern="search/*.xml">
+        <map:generate src="../content/xml/solr/{1}.xml" />
+        <map:transform src="../kiln/stylesheets/solr/merge-parameters.xsl">
+          <map:parameter name="query-string" value="{request:queryString}" />
+        </map:transform>
+        <map:transform src="../kiln/stylesheets/solr/generate-query.xsl" />
+        <map:transform type="xinclude" />
+        <map:serialize type="xml" />
+      </map:match>
+    </map:pipeline>
+
+    <!-- Metadata pipeline. -->
+    <map:pipeline id="metadata" internal-only="true">
+      <!-- Directory listing for a content subdirectory. -->
+      <map:match id="local-content-files" pattern="files/**.xml">
+        <map:generate src="../content/{1}" type="directory">
+          <map:parameter name="depth" value="99" />
+          <map:parameter name="exclude" value="^\..*" />
+        </map:generate>
+        <map:serialize type="xml" />
+      </map:match>
+
+      <map:match id="local-typed-metadata" pattern="metadata/*/**.xml">
+        <map:generate src="../content/xml/{2}.xml" />
+        <map:transform src="../stylesheets/metadata/{1}-metadata-generator.xsl">
+          <map:parameter name="path" value="{2}.xml" />
+        </map:transform>
+        <map:serialize type="xml" />
+      </map:match>
+
+      <map:match id="local-metadata" pattern="metadata/*.xml">
+        <map:generate src="cocoon://internal/files/xml.xml" />
+        <map:transform src="../stylesheets/metadata/xinclude.xsl">
+          <map:parameter name="type" value="{1}" />
+        </map:transform>
+        <map:transform type="xinclude" />
+        <map:serialize type="xml" />
+      </map:match>
+    </map:pipeline>
+  </map:pipelines>
+
+</map:sitemap>
