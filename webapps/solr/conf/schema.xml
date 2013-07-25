@@ -111,9 +111,14 @@
    <field indexed="true" multiValued="true" name="document_title"
           required="false" stored="true" type="text_general" />
    <field indexed="true" multiValued="true" name="author"
-          required="false" stored="true" type="text_general" />
+          required="false" stored="true" type="string" />
    <field indexed="true" multiValued="true" name="editor"
           required="false" stored="true" type="text_general" />
+   <!-- publication_date is treated as a string, because Solr's date
+        field type requires a UTC time, and we may wish to store only
+        a year. -->
+   <field indexed="true" multiValued="false" name="publication_date"
+          required="false" stored="true" type="string" />
    <field indexed="true" multiValued="false" name="file_path"
           required="false" stored="true" type="string" />
    <field indexed="false" multiValued="false" name="document_id"

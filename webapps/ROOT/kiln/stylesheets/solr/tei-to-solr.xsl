@@ -44,20 +44,29 @@
 
   <xsl:template match="tei:fileDesc/tei:titleStmt/tei:title" mode="document-metadata">
     <field name="document_title">
-      <xsl:value-of select="." />
+      <xsl:value-of select="normalize-space(.)" />
     </field>
   </xsl:template>
 
   <xsl:template match="tei:fileDesc/tei:titleStmt/tei:author" mode="document-metadata">
     <field name="author">
-      <xsl:value-of select="." />
+      <xsl:value-of select="normalize-space(.)" />
     </field>
   </xsl:template>
 
   <xsl:template match="tei:fileDesc/tei:titleStmt/tei:editor" mode="document-metadata">
     <field name="editor">
-      <xsl:value-of select="." />
+      <xsl:value-of select="normalize-space(.)" />
     </field>
+  </xsl:template>
+
+  <xsl:template match="tei:sourceDesc//tei:publicationStmt/tei:date[1]"
+                mode="document-metadata">
+    <xsl:if test="@when">
+      <field name="publication_date">
+        <xsl:value-of select="@when" />
+      </field>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template match="text()" mode="document-metadata" />
