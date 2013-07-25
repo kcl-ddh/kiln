@@ -42,7 +42,6 @@
       <map:match id="local-home-page" pattern="">
         <map:aggregate element="aggregation" label="content">
           <map:part src="cocoon://_internal/menu/main.xml" />
-          <map:part src="cocoon://internal/metadata/files.xml" />
         </map:aggregate>
         <map:transform src="../kiln/stylesheets/menu/contextualise-menu.xsl">
           <map:parameter name="filedir" value="" />
@@ -53,6 +52,26 @@
           <map:parameter name="filedir" value="" />
           <map:parameter name="filename" value="" />
           <map:parameter name="fileextension" value="" />
+        </map:transform>
+        <map:serialize />
+      </map:match>
+
+      <!-- Search. -->
+      <map:match id="local-search" pattern="search/">
+        <map:aggregate element="aggregation">
+          <map:part src="cocoon://_internal/menu/main.xml" />
+          <map:part src="cocoon://internal/search/facet_query.xml" />
+        </map:aggregate>
+        <map:transform src="../kiln/stylesheets/menu/contextualise-menu.xsl">
+          <map:parameter name="filedir" value="search" />
+          <map:parameter name="filename" value="" />
+          <map:parameter name="fileextension" value="" />
+        </map:transform>
+        <map:transform src="cocoon://_internal/template/search.xsl">
+          <map:parameter name="filedir" value="search" />
+          <map:parameter name="filename" value="" />
+          <map:parameter name="fileextension" value="" />
+          <map:parameter name="query-string" value="{request:queryString}" />
         </map:transform>
         <map:serialize />
       </map:match>
@@ -136,6 +155,17 @@
         <map:generate src="../content/xml/tei/{1}.xml" />
         <map:transform src="../kiln/stylesheets/tei/join-elements.xsl" />
         <map:transform src="../kiln/stylesheets/tei/annotate.xsl" />
+        <map:serialize type="xml" />
+      </map:match>
+
+      <!-- Get search results. -->
+      <map:match pattern="internal/search/*.xml">
+        <map:generate src="../content/xml/solr/{1}.xml" />
+        <map:transform src="../kiln/stylesheets/solr/merge-parameters.xsl">
+          <map:parameter name="query-string" value="{request:queryString}" />
+        </map:transform>
+        <map:transform src="../kiln/stylesheets/solr/generate-query.xsl" />
+        <map:transform type="xinclude" />
         <map:serialize type="xml" />
       </map:match>
     </map:pipeline>

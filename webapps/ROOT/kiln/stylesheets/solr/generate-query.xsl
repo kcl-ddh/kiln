@@ -94,14 +94,14 @@
         <xsl:value-of select="." />
         <xsl:apply-templates select="@*" />
       </xsl:variable>
-      <xsl:value-of select="encode-for-uri($value)" />
+      <xsl:value-of select="$value" />
       <xsl:for-each select="following-sibling::*[local-name() = $field]">
         <xsl:text>,</xsl:text>
         <xsl:variable name="next-value">
           <xsl:value-of select="." />
           <xsl:apply-templates select="@*" />
         </xsl:variable>
-        <xsl:value-of select="encode-for-uri($next-value)" />
+        <xsl:value-of select="$next-value" />
       </xsl:for-each>
     </xsl:if>
   </xsl:template>
@@ -109,7 +109,7 @@
   <xsl:template name="simple-parameter">
     <xsl:value-of select="local-name(.)" />
     <xsl:text>=</xsl:text>
-    <xsl:value-of select="encode-for-uri(.)" />
+    <xsl:value-of select="." />
   </xsl:template>
 
 </xsl:stylesheet>
