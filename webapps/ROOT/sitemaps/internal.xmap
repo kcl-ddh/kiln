@@ -14,7 +14,7 @@
       </map:match>
 
       <!-- Get search results. -->
-      <map:match pattern="search/*.xml">
+      <map:match id="local-search-query" pattern="search/*.xml">
         <map:generate src="../content/xml/solr/{1}.xml" />
         <map:transform src="../kiln/stylesheets/solr/merge-parameters.xsl">
           <map:parameter name="query-string" value="{request:queryString}" />
@@ -37,7 +37,7 @@
       </map:match>
 
       <map:match id="local-typed-metadata" pattern="metadata/*/**.xml">
-        <map:generate src="../content/xml/{2}.xml" />
+        <map:generate src="../content/xml/tei/{2}.xml" />
         <map:transform src="../stylesheets/metadata/{1}-metadata-generator.xsl">
           <map:parameter name="path" value="{2}.xml" />
         </map:transform>
@@ -45,7 +45,7 @@
       </map:match>
 
       <map:match id="local-metadata" pattern="metadata/*.xml">
-        <map:generate src="cocoon://internal/files/xml.xml" />
+        <map:generate src="cocoon://internal/files/xml/tei.xml" />
         <map:transform src="../stylesheets/metadata/xinclude.xsl">
           <map:parameter name="type" value="{1}" />
         </map:transform>

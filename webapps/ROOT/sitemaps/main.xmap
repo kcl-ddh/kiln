@@ -82,6 +82,47 @@
         <map:serialize />
       </map:match>
 
+      <!-- TEI texts. -->
+      <map:match id="local-tei-index-display" pattern="text/">
+        <map:aggregate element="aggregation">
+          <!-- Use TEI metadata extracted directly from the
+               files. This would be better done with a Solr query
+               after indexing, but for demonstration and quick start
+               purposes, use this method. -->
+          <map:part src="cocoon://internal/metadata/files.xml" />
+          <map:part src="cocoon://_internal/menu/main.xml" />
+        </map:aggregate>
+        <map:transform src="../kiln/stylesheets/menu/contextualise-menu.xsl">
+          <map:parameter name="filedir" value="text" />
+          <map:parameter name="filename" value="" />
+          <map:parameter name="fileextension" value="" />
+        </map:transform>
+        <map:transform src="cocoon://_internal/template/text-index.xsl">
+          <map:parameter name="filedir" value="text" />
+          <map:parameter name="filename" value="" />
+          <map:parameter name="fileextension" value="" />
+        </map:transform>
+        <map:serialize />
+      </map:match>
+
+      <map:match id="local-tei-display" pattern="text/**.html">
+        <map:aggregate element="aggregation" label="content">
+          <map:part label="tei" src="cocoon://internal/tei/preprocess/{1}.xml" />
+          <map:part src="cocoon://_internal/menu/main.xml" />
+        </map:aggregate>
+        <map:transform src="../kiln/stylesheets/menu/contextualise-menu.xsl">
+          <map:parameter name="filedir" value="text" />
+          <map:parameter name="filename" value="{1}.xml" />
+          <map:parameter name="fileextension" value="html" />
+        </map:transform>
+        <map:transform src="cocoon://_internal/template/tei.xsl">
+          <map:parameter name="filedir" value="text" />
+          <map:parameter name="filename" value="{1}.xml" />
+          <map:parameter name="fileextension" value="html" />
+        </map:transform>
+        <map:serialize />
+      </map:match>
+
       <!-- Example of providing content in a single language. -->
       <map:match id="local-generic-html" pattern="**.html">
         <map:aggregate element="aggregation" label="content">
