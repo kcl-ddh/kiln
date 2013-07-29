@@ -76,20 +76,9 @@
             </div>
           </kiln:block>
           <kiln:block name="content-section">
-            <div class="row">
-              <kiln:block name="local-navigation">
-                <div class="local-navigation">
-                  <xsl:apply-templates mode="local-menu"
-                                       select="/aggregation/div[@type='menu']" />
-                </div>
-              </kiln:block>
-              <main>
-                <kiln:block name="main-class" attribute="class">
-                  <xsl:text>large-12 columns</xsl:text>
-                </kiln:block>
-                <kiln:block name="content" />
-              </main>
-            </div>
+            <main>
+              <kiln:block name="content" />
+            </main>
           </kiln:block>
           <kiln:block name="footer">
             <footer>
