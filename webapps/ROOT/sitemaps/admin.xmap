@@ -21,26 +21,30 @@
     <map:pipeline>
       <map:match id="local-admin-home-page" pattern="">
         <map:aggregate element="aggregation">
-          <map:part src="cocoon://internal/files/xml.xml" />
+          <map:part src="cocoon://_internal/dirlist/content/xml.xml" />
         </map:aggregate>
         <map:transform src="cocoon://_internal/template/admin/index.xsl" />
         <map:serialize />
       </map:match>
 
+      <!-- Show Cocoon's system status. -->
       <map:match id="local-admin-system-status" pattern="system-status.html">
         <map:generate type="status" />
         <map:transform src="cocoon://_internal/template/admin/system-status.xsl" />
         <map:serialize />
       </map:match>
 
+      <!-- Index of visualisations. -->
       <map:match id="local-admin-visualisation-index" pattern="visualise/">
         <map:aggregate element="aggregation">
           <map:part src="cocoon://_internal/visualise/pipelines.xml" />
+          <map:part src="cocoon://_internal/dirlist/assets/templates.xml" />
         </map:aggregate>
         <map:transform src="cocoon://_internal/template/admin/visualise.xsl" />
         <map:serialize />
       </map:match>
 
+      <!-- Show an expanded view of a map:match. -->
       <map:match id="local-admin-visualise-match"
                  pattern="visualise/match/*.html">
         <map:aggregate element="aggregation">
@@ -50,12 +54,38 @@
         <map:serialize />
       </map:match>
 
+      <!-- Show a template as rendered against an empty document. -->
+      <map:match id="local-admin-visualise-template-empty"
+                 pattern="visualise/template/**.html">
+        <map:aggregate element="aggregation">
+          <map:part src="empty:index" />
+          <map:part src="cocoon://_internal/menu/main.xml" />
+        </map:aggregate>
+        <map:transform src="../kiln/stylesheets/menu/contextualise-menu.xsl">
+          <map:parameter name="filedir" value="" />
+          <map:parameter name="filename" value="{1}.xml" />
+          <map:parameter name="fileextension" value="html" />
+        </map:transform>
+        <map:transform src="cocoon://_internal/template/{1}.xsl" />
+        <map:serialize />
+      </map:match>
+
+      <!-- Show an expanded form of the specified template XSLT. -->
+      <map:match id="local-admin-visualise-template-xslt"
+                 pattern="visualise/template/**.xsl">
+        <map:generate src="cocoon://_internal/visualise/template-xslt/{1}.xml" />
+        <map:serialize type="xml" />
+      </map:match>
+
+      <!-- Show an expanded form of the specified XSLT. -->
       <map:match id="local-admin-visualise-xslt"
                  pattern="visualise/xslt/**.xsl">
         <map:generate src="cocoon://_internal/visualise/xslt/{1}.xml" />
         <map:serialize type="xml" />
       </map:match>
 
+      <!-- Show the expanded map:match that matches the supplied
+           URL. -->
       <map:match id="local-admin-visualise-match-url"
                  pattern="visualise/url/">
         <map:generate type="request" />
@@ -142,26 +172,6 @@
           <map:parameter name="exclude" value="^\..*" />
         </map:generate>
         <map:transform src="../kiln/stylesheets/resource-check/flatten-dir-list.xsl" />
-        <map:serialize type="xml" />
-      </map:match>
-    </map:pipeline>
-
-    <!-- Pipeline for testing. -->
-    <map:pipeline id="local-testing">
-      <!-- Test a template against an empty document. -->
-      <map:match id="local-admin-template-test" pattern="test/template/**.html">
-        <map:aggregate element="aggregation">
-          <map:part src="empty:index" />
-          <map:part src="cocoon://_internal/menu/main.xml" />
-        </map:aggregate>
-        <map:transform src="cocoon://_internal/template/{1}.xsl" />
-        <map:serialize />
-      </map:match>
-
-      <!-- Generate a template XSLT. -->
-      <map:match id="local-admin-template-generate-test"
-                 pattern="test/template/**.xsl">
-        <map:generate src="cocoon://_internal/template/{1}.xsl" />
         <map:serialize type="xml" />
       </map:match>
     </map:pipeline>

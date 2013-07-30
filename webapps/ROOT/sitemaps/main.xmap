@@ -105,7 +105,7 @@
         <map:serialize />
       </map:match>
 
-      <map:match id="local-tei-display" pattern="text/**.html">
+      <map:match id="local-tei-display-html" pattern="text/**.html">
         <map:aggregate element="aggregation" label="content">
           <map:part label="tei" src="cocoon://internal/tei/preprocess/{1}.xml" />
           <map:part src="cocoon://_internal/menu/main.xml" />
@@ -121,6 +121,25 @@
           <map:parameter name="fileextension" value="html" />
         </map:transform>
         <map:serialize />
+      </map:match>
+
+      <map:match id="local-tei-display-xml" pattern="text/**.xml">
+        <map:read mime-type="application/tei+xml"
+                  src="../content/xml/tei/{1}.xml" />
+      </map:match>
+
+      <map:match id="local-tei-display-pdf" pattern="text/**.pdf">
+        <map:generate src="cocoon://internal/tei/preprocess/{1}/{2}.xml"
+                      label="tei" />
+        <map:transform src="cocoon://_internal/template/pdf.xsl" />
+        <map:serialize type="fo2pdf" />
+      </map:match>
+
+      <map:match id="local-tei-display-epub" pattern="text/**.epub">
+        <map:generate src="cocon://internal/tei/preprocess/{1}/{2}.xml"
+                      label="tei" />
+        <map:transform src="cocoon://_internal/template/epub.xsl" />
+        <map:serialize type="xhtml" />
       </map:match>
 
       <!-- Example of providing content in a single language. -->
@@ -166,28 +185,12 @@
         </map:transform>
         <map:serialize />
       </map:match>
-
-      <!-- Example of providing content as PDF. -->
-      <map:match id="local-pdf" pattern="**.pdf">
-        <map:generate src="cocoon://internal/tei/preprocess/{1}/{2}.xml"
-                      label="tei" />
-        <map:transform src="cocoon://_internal/template/pdf.xsl" />
-        <map:serialize type="fo2pdf" />
-      </map:match>
-
-      <!-- Example of providing content as ePub. -->
-      <map:match id="local-epub" pattern="**.epub">
-        <map:generate src="cocon://internal/tei/preprocess/{1}/{2}.xml"
-                      label="tei" />
-        <map:transform src="cocoon://_internal/template/epub.xsl" />
-        <map:serialize type="xhtml" />
-      </map:match>
     </map:pipeline>
 
     <!-- Kiln as backend pipeline. -->
     <map:pipeline>
       <!-- TEI content provided as HTML with internal metadata. -->
-      <map:match id="local-xml" pattern="*.xml">
+      <map:match id="local-tei-backend-xml" pattern="text/*.xml">
         <map:generate src="cocoon://internal/tei/preprocess/{1}.xml"
                       label="tei" />
         <map:transform src="cocoon://_internal/template/backend_tei.xsl" />

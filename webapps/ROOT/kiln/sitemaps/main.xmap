@@ -102,6 +102,16 @@
       </map:match>
     </map:pipeline>
 
+    <map:pipeline internal-only="true">
+      <!-- Directory listing. -->
+      <map:match pattern="_internal/dirlist/**.xml">
+        <map:generate src="../../{1}" type="directory">
+          <map:parameter name="depth" value="99" />
+        </map:generate>
+        <map:serialize type="xml" />
+      </map:match>
+    </map:pipeline>
+
     <!-- Mount sub-sitemaps. -->
     <map:pipeline>
       <!-- Assets handling (not project specific). -->

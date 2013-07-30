@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xsl:stylesheet version="2.0"
+<xsl:stylesheet exclude-result-prefixes="#all" version="2.0"
                 xmlns:dummy="http://www.example.org/dummy-ns"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
@@ -9,7 +9,25 @@
   <xsl:template match="xsl:import | xsl:include">
     <xsl:copy>
       <xsl:apply-templates select="@*|node()" />
-      <xi:include href="cocoon://_internal/visualise/xslt/{$base_url}/{substring-before(@href, '.xsl')}.xml" />
+      <xi:include>
+        <xsl:attribute name="href">
+          <xsl:text>cocoon://_internal/visualise/xslt/</xsl:text>
+          <xsl:choose>
+            <xsl:when test="starts-with(@href,
+                            'cocoon://_internal/template/xsl/')">
+              <xsl:text>cocoon/</xsl:text>
+              <xsl:value-of select="substring-after(@href,
+                                    'cocoon://_internal/template/xsl/')" />
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:value-of select="$base_url" />
+              <xsl:text>/</xsl:text>
+              <xsl:value-of select="substring-before(@href, '.xsl')" />
+              <xsl:text>.xml</xsl:text>
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:attribute>
+      </xi:include>
     </xsl:copy>
   </xsl:template>
 

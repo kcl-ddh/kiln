@@ -27,15 +27,6 @@
 
     <!-- Metadata pipeline. -->
     <map:pipeline id="metadata" internal-only="true">
-      <!-- Directory listing for a content subdirectory. -->
-      <map:match id="local-content-files" pattern="files/**.xml">
-        <map:generate src="../content/{1}" type="directory">
-          <map:parameter name="depth" value="99" />
-          <map:parameter name="exclude" value="^\..*" />
-        </map:generate>
-        <map:serialize type="xml" />
-      </map:match>
-
       <map:match id="local-typed-metadata" pattern="metadata/*/**.xml">
         <map:generate src="../content/xml/tei/{2}.xml" />
         <map:transform src="../stylesheets/metadata/{1}-metadata-generator.xsl">
@@ -45,7 +36,7 @@
       </map:match>
 
       <map:match id="local-metadata" pattern="metadata/*.xml">
-        <map:generate src="cocoon://internal/files/xml/tei.xml" />
+        <map:generate src="cocoon://_internal/dirlist/content/xml/tei.xml" />
         <map:transform src="../stylesheets/metadata/xinclude.xsl">
           <map:parameter name="type" value="{1}" />
         </map:transform>

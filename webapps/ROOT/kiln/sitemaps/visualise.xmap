@@ -54,6 +54,24 @@
         <map:serialize type="xml" />
       </map:match>
 
+      <map:match pattern="template-xslt/**.xml">
+        <map:generate src="cocoon://_internal/template/{1}.xsl" />
+        <map:transform src="../stylesheets/visualise/compose-xslt.xsl" />
+        <map:transform type="xinclude" />
+        <map:transform src="../stylesheets/visualise/unmangle-xinclude.xsl" />
+        <map:serialize type="xml" />
+      </map:match>
+
+      <map:match pattern="xslt/cocoon/**/*">
+        <map:generate src="cocoon://_internal/template/xsl/{1}/{2}" />
+        <map:transform src="../stylesheets/visualise/compose-xslt.xsl">
+          <map:parameter name="base_url" value="{1}" />
+        </map:transform>
+        <map:transform type="xinclude" />
+        <map:transform src="../stylesheets/visualise/unmangle-xinclude.xsl" />
+        <map:serialize type="xml" />
+      </map:match>
+
       <map:match pattern="xslt/**/*.xml">
         <map:generate src="../../{1}/{2}.xsl" />
         <map:transform src="../stylesheets/visualise/compose-xslt.xsl">
