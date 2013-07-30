@@ -143,7 +143,7 @@
          filesystem. -->
     <map:pipeline id="local-internal-resource-check" internal-only="true">
       <map:match id="local-admin-image-resource-check"
-                 pattern="resource-check/images/**.xml">
+                 pattern="resource-check/images/tei/**.xml">
         <map:aggregate element="aggregation">
           <map:part src="cocoon:/resource-check/image-refs/{1}.xml" />
           <map:part src="cocoon:/resource-check/image-files.xml" />
