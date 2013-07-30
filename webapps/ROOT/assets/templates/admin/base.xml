@@ -6,7 +6,7 @@
   <xsl:import href="cocoon://_internal/template/xsl/stylesheets/defaults.xsl" />
 
   <kiln:block name="html">
-    <html>
+    <html class="no-js">
       <kiln:block name="head">
         <head>
           <meta name="viewport" content="width=device-width" />

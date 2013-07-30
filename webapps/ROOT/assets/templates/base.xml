@@ -11,7 +11,7 @@
   <xsl:import href="cocoon://_internal/template/xsl/stylesheets/menu/menu.xsl" />
 
   <kiln:block name="html">
-    <html>
+    <html class="no-js">
       <kiln:block name="head">
         <head>
           <meta charset="utf-8" />
