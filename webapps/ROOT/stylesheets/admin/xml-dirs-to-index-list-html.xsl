@@ -44,12 +44,13 @@
 
     <xsl:variable name="filepath">
       <xsl:value-of select="$path" />
-      <xsl:value-of select="@name" />
+      <xsl:value-of select="substring-before(@name, '.xml')" />
     </xsl:variable>
     <li>
       <!-- Link to the indexing pipeline for the specific file. -->
-      <a href="tei/{$filepath}">
+      <a href="tei/{$filepath}.html">
         <xsl:value-of select="$filepath" />
+        <xsl:text>.xml</xsl:text>
       </a>
     </li>
   </xsl:template>

@@ -5,7 +5,7 @@
 
   <target name="solr"
           depends="init"
-          description="Creates a Solr index by crawling the website">
+          description="Creates a Solr index by crawling the content site's content XML files">
     <exec executable="wget">
       <!-- no clobber -->
       <!--<arg value="-nc"/>-->
