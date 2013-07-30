@@ -107,6 +107,7 @@
       <map:match pattern="_internal/dirlist/**.xml">
         <map:generate src="../../{1}" type="directory">
           <map:parameter name="depth" value="99" />
+          <map:parameter name="exclude" value="^\." />
         </map:generate>
         <map:serialize type="xml" />
       </map:match>
