@@ -21,10 +21,7 @@
       </map:match>
 
       <map:match id="local-rdf-harvest-all" pattern="harvest/all.xml">
-        <map:generate src="../content/xml" type="directory">
-          <map:parameter name="depth" value="99" />
-          <map:parameter name="exclude" value="^\..*" />
-        </map:generate>
+        <map:generate src="cocoon://_internal/dirlist/content/xml.xml" />
         <map:transform src="../stylesheets/admin/dir-to-xinclude.xsl">
           <map:parameter name="prefix" value="cocoon://admin/rdf/harvest/" />
         </map:transform>
