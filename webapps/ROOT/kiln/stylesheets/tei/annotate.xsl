@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="2.0"
-                xmlns:nzetc="http://www.nzetc.org/structure"
-                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:tei="http://www.tei-c.org/ns/1.0">
+                xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
+                xmlns:tei="http://www.tei-c.org/ns/1.0"
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
   <!-- Page breaks within a table but not within a cell are associated
        with their first preceding cell. This does not check that a pb
@@ -132,7 +132,7 @@
       </xsl:if>
     </xsl:variable>
     <xsl:if test="normalize-space($classes)">
-      <xsl:attribute name="nzetc:class">
+      <xsl:attribute name="kiln:class">
         <xsl:value-of select="normalize-space($classes)"/>
       </xsl:attribute>
     </xsl:if>

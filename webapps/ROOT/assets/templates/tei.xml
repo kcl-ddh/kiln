@@ -12,14 +12,25 @@
   </kiln:parent>
 
   <kiln:child>
-    <kiln:block name="title"><kiln:super /><xsl:value-of
-    select="/aggregation/tei:TEI/tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title[not(@type)]" /></kiln:block>
+    <kiln:block name="title">
+      <kiln:super />
+      <xsl:value-of select="/aggregation/tei:TEI/tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title[1]" />
+    </kiln:block>
 
-    <kiln:block name="page-heading"><kiln:super /><xsl:value-of
-    select="/aggregation/tei:TEI/tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title[not(@type)]" /></kiln:block>
+    <kiln:block name="page-heading">
+      <kiln:super />
+      <xsl:value-of select="/aggregation/tei:TEI/tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title[1]" />
+    </kiln:block>
 
     <kiln:block name="content">
-      <xsl:apply-templates select="/aggregation/tei:TEI" />
+      <div class="row">
+        <div class="large-4 columns">
+          <xsl:apply-templates select="/aggregation/tei:TEI/tei:teiHeader" />
+        </div>
+        <div class="large-8 columns">
+          <xsl:apply-templates select="/aggregation/tei:TEI/tei:text" />
+        </div>
+      </div>
     </kiln:block>
   </kiln:child>
 
