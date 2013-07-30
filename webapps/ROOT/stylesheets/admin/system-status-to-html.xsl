@@ -63,10 +63,20 @@
           </ul>
         </xsl:if>
         <xsl:if test="status:group">
-          <div class="section-container vertical-tabs"
-               data-section="vertical-tabs">
-            <xsl:apply-templates select="status:group" />
-          </div>
+          <xsl:choose>
+            <xsl:when test="parent::status:group">
+              <div class="section-container accordion"
+                   data-section="accordion">
+                <xsl:apply-templates select="status:group" />
+              </div>
+            </xsl:when>
+            <xsl:otherwise>
+              <div class="section-container vertical-tabs"
+                   data-section="vertical-tabs">
+                <xsl:apply-templates select="status:group" />
+              </div>
+            </xsl:otherwise>
+          </xsl:choose>
         </xsl:if>
       </div>
     </section>
@@ -76,8 +86,9 @@
     <li>
       <span class="system-status-name">
         <xsl:value-of select="@status:name" />
-        <xsl:text>: </xsl:text>
+        <xsl:text>:</xsl:text>
       </span>
+      <xsl:text> </xsl:text>
       <xsl:choose>
         <xsl:when test="contains(@status:name,'free') or contains(@status:name,'used') or contains(@status:name,'total')">
           <xsl:call-template name="suffix">
