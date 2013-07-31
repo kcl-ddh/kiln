@@ -8,6 +8,10 @@
   </kiln:parent>
 
   <kiln:child>
+    <kiln:block name="title">
+      <xsl:text>Welcome to Kiln!</xsl:text>
+    </kiln:block>
+
     <kiln:block name="page-header">
       <div class="row">
         <div class="large-12 columns text-center">
@@ -60,7 +64,5 @@
         </div>
       </main>
     </kiln:block>
-
-
   </kiln:child>
 </kiln:root>

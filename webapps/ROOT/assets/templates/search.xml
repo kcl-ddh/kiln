@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<kiln:root xmlns:tei="http://www.tei-c.org/ns/1.0"
-           xmlns:xi="http://www.w3.org/2001/XInclude"
+<kiln:root xmlns:xi="http://www.w3.org/2001/XInclude"
            xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
            xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
@@ -21,8 +20,6 @@
       <kiln:super />
       <xsl:text>Search</xsl:text>
     </kiln:block>
-
-    <kiln:block name="local-navigation" />
 
     <kiln:block name="content">
       <div class="row">

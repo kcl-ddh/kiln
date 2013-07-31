@@ -27,8 +27,6 @@
       <xsl:text>Texts</xsl:text>
     </kiln:block>
 
-    <kiln:block name="local-navigation" />
-
     <kiln:block name="content">
       <div class="row">
         <div class="large-12 columns">
