@@ -15,7 +15,7 @@
 
       <!-- Get search results. -->
       <map:match id="local-search-query" pattern="search/*.xml">
-        <map:generate src="../content/xml/solr/{1}.xml" />
+        <map:generate src="../assets/queries/solr/{1}.xml" />
         <map:transform src="../kiln/stylesheets/solr/merge-parameters.xsl">
           <map:parameter name="query-string" value="{request:queryString}" />
         </map:transform>

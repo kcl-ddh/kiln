@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<query>
+  <df>text</df>
+  <facet>true</facet>
+  <facet.field>author</facet.field>
+  <facet.field>publication_date</facet.field>
+  <facet.mincount>1</facet.mincount>
+  <facet.sort>index</facet.sort>
+  <rows>20</rows>
+</query>
