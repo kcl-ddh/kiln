@@ -18,8 +18,11 @@ the project-specific files, keeping each in their own directories.
 * webapps
     * ROOT — Project webapp.
         * assets
+            * foundation - Foundation CSS/JS framework
             * images - Non-content images.
             * menu — Navigation menu.
+            * queries - XML containing base queries
+                * solr - Solr query fragments
             * schema
                 * menu — Kiln schema, do not change.
                 * tei — Schema for TEI files.
@@ -37,22 +40,27 @@ the project-specific files, keeping each in their own directories.
         * resources — Cocoon resources (do not modify).
         * sitemap.xmap — Cocoon default sitemap (do not modify).
         * sitemaps — Project's sitemaps.
-            * admin.xmap — Project's admin (and editorial) pipelines.
-            * config.xmap — Project's Cocoon configuration sitemap.
-            * main.xmap — Project's Cocoon sitemap.
-            * rdf.xmap - Project's RDF pipelines.
-            * solr.xmap - Project's search pipelines.
+            * admin.xmap — Admin and editorial pipelines.
+            * config.xmap — Configuration (global variables, etc).
+            * internal.xmap - Internal (not exposed by URL) pipelines.
+            * main.xmap — Main pipelines.
+            * rdf.xmap - RDF pipelines.
+            * solr.xmap - Search pipelines.
         * stylesheets — Project's XSLT stylesheets.
-            * defaults.xsl — Defaults stylesheet, defines default globals and
+            * defaults.xsl — Defines default globals and
               reads parameters from the sitemaps.
-            * admin — Stylesheets related to admin pipelines.
-            * menu - Stylesheets related to menu handling.
-            * metadata - Stylesheets related to metadata generation.
-            * rdf - Stylesheets related to RDF harvesting and querying.
-            * schematron — Stylesheets related to Schematron output.
-            * solr — Stylesheets related to searching and indexing.
+            * escape-xml.xsl - Formats XML for literal display within
+              HTML.
+            * admin - Admin and editorial transformations.
+            * error - Error handling.
+            * introspection - Introspection of sitemaps and XSLT.
+            * menu - Menu manipulation.
+            * metadata - Extraction of metadata from files.
+            * rdf - RDF harvesting and querying.
+            * schematron — Schematron output.
+            * solr — Searching and indexing.
             * system — Cocoon stylesheets (do not modify).
-            * tei — Stylesheets related to TEI display.
+            * tei — TEI display.
         * WEB—INF — Webapp configuration.
     * openrdf-sesame and openrdf-workbench — RDF / Linked Open Data framework.
     * solr — Searching framework.
