@@ -12,6 +12,21 @@
   -->
 
   <map:components>
+    <map:selectors>
+      <map:selector logger="sitemap.selector.exception" name="exception"
+                    src="org.apache.cocoon.selection.ExceptionSelector">
+        <exception class="org.apache.cocoon.ResourceNotFoundException"
+                   name="not-found" />
+        <exception class="org.apache.cocoon.components.flow.InvalidContinuationException"
+                   name="invalid-continuation" />
+        <exception class="java.lang.IllegalArgumentException"
+                   name="illegal-argument" />
+        <!-- The statement below tells the selector to unroll as much
+             exceptions as possible -->
+        <exception class="java.lang.Throwable" unroll="true" />
+      </map:selector>
+    </map:selectors>
+
     <map:serializers>
       <map:serializer logger="sitemap.serializer.xml"
                       mime-type="text/xml" name="xml_nodecl"

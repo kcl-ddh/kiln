@@ -78,15 +78,31 @@
          query for the RDF server. This document must consist of a
          "query" root element containing only text. -->
     <map:pipeline id="local-rdf-query">
-
       <!-- Construct a graph query document from a SPARQL query in a
            file. This is an example only. -->
       <map:match id="local-rdf-query-from-file" pattern="construct/graph/**.xml">
         <map:generate src="../content/xml/sparql/{1}.xml" />
         <map:serialize type="xml" />
       </map:match>
-
     </map:pipeline>
+
+    <!-- Handle known errors for which we can provide more helpful
+         error messages. -->
+    <map:handle-errors>
+      <map:generate type="exception" />
+      <map:select type="exception">
+        <map:when test="illegal-argument">
+          <map:transform src="../stylesheets/error/add-rdf-messages.xsl">
+            <map:parameter name="base-uri" value="{global:rdf-base-uri}" />
+            <map:parameter name="repository"
+                           value="{global:sesame-server-repository}" />
+            <map:parameter name="server" value="{global:sesame-server}" />
+          </map:transform>
+          <map:transform src="cocoon://_internal/template/error.xsl" />
+          <map:serialize />
+        </map:when>
+      </map:select>
+    </map:handle-errors>
 
   </map:pipelines>
 </map:sitemap>
