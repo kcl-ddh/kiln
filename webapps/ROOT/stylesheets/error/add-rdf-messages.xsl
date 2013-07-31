@@ -3,7 +3,8 @@
                 xmlns:ex="http://apache.org/cocoon/exception/1.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-  <!-- Add specific error messages for known problems. -->
+  <!-- Add specific error messages for known problems occurring during
+       RDF processing. -->
 
   <xsl:param name="base-uri" />
   <xsl:param name="repository" />
