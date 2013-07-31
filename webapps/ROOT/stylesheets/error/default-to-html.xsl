@@ -103,6 +103,19 @@ function toggle(id, showText, hideText) {
     </p>
   </xsl:template>
 
+  <xsl:template match="ex:exception-report/ex:location">
+    <p>
+      <xsl:text>On line </xsl:text>
+      <xsl:value-of select="@line" />
+      <xsl:text>, column </xsl:text>
+      <xsl:value-of select="@column" />
+      <xsl:text> of </xsl:text>
+      <xsl:value-of select="@uri" />
+      <xsl:text>: </xsl:text>
+      <xsl:apply-templates />
+    </p>
+  </xsl:template>
+
   <xsl:template match="ex:exception-report/ex:message">
     <p class="message">
       <xsl:apply-templates />

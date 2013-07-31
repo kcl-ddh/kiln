@@ -43,6 +43,27 @@
 
   <xsl:template match="ex:exception-report/ex:message" mode="details" />
 
+  <xsl:template match="ex:exception-report/ex:location"
+                mode="details">
+    <section>
+      <p class="title" data-section-title="">
+        <a href="#">Location</a>
+      </p>
+      <div class="content" data-section-content="">
+        <p>
+          <xsl:text>On line </xsl:text>
+          <xsl:value-of select="@line" />
+          <xsl:text>, column </xsl:text>
+          <xsl:value-of select="@column" />
+          <xsl:text> of </xsl:text>
+          <xsl:value-of select="@uri" />
+          <xsl:text>: </xsl:text>
+          <xsl:apply-templates />
+        </p>
+      </div>
+    </section>
+  </xsl:template>
+
   <xsl:template match="ex:cocoon-stacktrace" mode="details">
     <section>
       <p class="title" data-section-title="">
