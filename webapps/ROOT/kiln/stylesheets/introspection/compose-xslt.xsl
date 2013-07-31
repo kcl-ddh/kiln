@@ -11,7 +11,7 @@
       <xsl:apply-templates select="@*|node()" />
       <xi:include>
         <xsl:attribute name="href">
-          <xsl:text>cocoon://_internal/visualise/xslt/</xsl:text>
+          <xsl:text>cocoon://_internal/introspection/xslt/</xsl:text>
           <xsl:choose>
             <xsl:when test="starts-with(@href,
                             'cocoon://_internal/template/xsl/')">

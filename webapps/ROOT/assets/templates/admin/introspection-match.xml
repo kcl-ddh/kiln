@@ -5,7 +5,7 @@
            xmlns:xi="http://www.w3.org/2001/XInclude"
            xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-  <xsl:import href="cocoon://_internal/template/xsl/stylesheets/kiln-visualise/match-to-html.xsl" />
+  <xsl:import href="cocoon://_internal/template/xsl/stylesheets/introspection/match-to-html.xsl" />
 
   <kiln:parent>
     <xi:include href="base.xml" />
@@ -13,13 +13,13 @@
 
   <kiln:child>
     <kiln:block name="title">
-      <xsl:text>Kiln match visualisation for </xsl:text>
+      <xsl:text>Kiln match introspection for </xsl:text>
       <xsl:value-of select="/aggregation/map:match/@id" />
     </kiln:block>
 
     <kiln:block name="header">
       <h1>
-        <xsl:text>Kiln match visualisation for </xsl:text>
+        <xsl:text>Kiln match introspection for </xsl:text>
         <xsl:value-of select="/aggregation/map:match/@id" />
       </h1>
     </kiln:block>
@@ -28,7 +28,7 @@
       <div class="row">
         <div class="large-12 columns">
           <xsl:apply-templates select="/aggregation/map:match"
-                               mode="kiln-visualise" />
+                               mode="introspection" />
         </div>
       </div>
     </kiln:block>

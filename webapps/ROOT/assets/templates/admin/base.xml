@@ -60,7 +60,7 @@
                       </li>
                     </ul>
                   </li>
-                  <li><a href="{$kiln:mount-path}/admin/visualise/">Visualisations</a></li>
+                  <li><a href="{$kiln:mount-path}/admin/introspection/">Introspection</a></li>
                   <li><a href="http://kiln.readthedocs.org/en/latest/">Documentation</a></li>
                 </ul>
                 <ul class="right">

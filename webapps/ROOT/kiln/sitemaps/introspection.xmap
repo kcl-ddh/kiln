@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <map:sitemap xmlns:map="http://apache.org/cocoon/sitemap/1.0">
 
-  <!-- Sitemap providing functionality to visualise Kiln's
+  <!-- Sitemap providing functionality to introspect Kiln's
        sitemaps. -->
 
   <map:pipelines>
@@ -14,33 +14,33 @@
       <!-- Root sitemap. -->
       <map:match pattern="pipeline/sitemap.xmap">
         <map:generate src="../../sitemap.xmap" />
-        <map:transform src="../stylesheets/visualise/sitemap-xinclude.xsl">
+        <map:transform src="../stylesheets/introspection/sitemap-xinclude.xsl">
           <map:parameter name="dir" value="" />
           <map:parameter name="file" value="sitemap.xmap" />
           <map:parameter name="uri_prefix" value="" />
         </map:transform>
         <map:transform type="xinclude" />
-        <map:transform src="../stylesheets/visualise/remove-namespaces.xsl" />
+        <map:transform src="../stylesheets/introspection/remove-namespaces.xsl" />
         <map:serialize type="xml" />
       </map:match>
 
       <map:match pattern="pipeline/**/*.xmap/**">
         <map:generate src="../../{1}/{2}.xmap" />
-        <map:transform src="../stylesheets/visualise/sitemap-xinclude.xsl">
+        <map:transform src="../stylesheets/introspection/sitemap-xinclude.xsl">
           <map:parameter name="dir" value="{1}/" />
           <map:parameter name="file" value="{2}.xmap" />
           <map:parameter name="uri_prefix" value="{3}" />
         </map:transform>
         <map:transform type="xinclude" />
-        <map:transform src="../stylesheets/visualise/remove-namespaces.xsl" />
+        <map:transform src="../stylesheets/introspection/remove-namespaces.xsl" />
         <map:serialize type="xml" />
       </map:match>
 
       <map:match pattern="mount-table/**">
         <map:generate src="../../{1}" />
-        <map:transform src="../stylesheets/visualise/mount-table-xinclude.xsl" />
+        <map:transform src="../stylesheets/introspection/mount-table-xinclude.xsl" />
         <map:transform type="xinclude" />
-        <map:transform src="../stylesheets/visualise/remove-namespaces.xsl" />
+        <map:transform src="../stylesheets/introspection/remove-namespaces.xsl" />
         <map:serialize type="xml" />
       </map:match>
 
@@ -48,7 +48,7 @@
            map:matches recursively expanded. -->
       <map:match pattern="match/*.xml">
         <map:generate src="cocoon:/pipelines.xml" />
-        <map:transform src="../stylesheets/visualise/compose-match.xsl">
+        <map:transform src="../stylesheets/introspection/compose-match.xsl">
           <map:parameter name="match_id" value="{1}" />
         </map:transform>
         <map:serialize type="xml" />
@@ -56,29 +56,29 @@
 
       <map:match pattern="template-xslt/**.xml">
         <map:generate src="cocoon://_internal/template/{1}.xsl" />
-        <map:transform src="../stylesheets/visualise/compose-xslt.xsl" />
+        <map:transform src="../stylesheets/introspection/compose-xslt.xsl" />
         <map:transform type="xinclude" />
-        <map:transform src="../stylesheets/visualise/unmangle-xinclude.xsl" />
+        <map:transform src="../stylesheets/introspection/unmangle-xinclude.xsl" />
         <map:serialize type="xml" />
       </map:match>
 
       <map:match pattern="xslt/cocoon/**/*">
         <map:generate src="cocoon://_internal/template/xsl/{1}/{2}" />
-        <map:transform src="../stylesheets/visualise/compose-xslt.xsl">
+        <map:transform src="../stylesheets/introspection/compose-xslt.xsl">
           <map:parameter name="base_url" value="{1}" />
         </map:transform>
         <map:transform type="xinclude" />
-        <map:transform src="../stylesheets/visualise/unmangle-xinclude.xsl" />
+        <map:transform src="../stylesheets/introspection/unmangle-xinclude.xsl" />
         <map:serialize type="xml" />
       </map:match>
 
       <map:match pattern="xslt/**/*.xml">
         <map:generate src="../../{1}/{2}.xsl" />
-        <map:transform src="../stylesheets/visualise/compose-xslt.xsl">
+        <map:transform src="../stylesheets/introspection/compose-xslt.xsl">
           <map:parameter name="base_url" value="{1}" />
         </map:transform>
         <map:transform type="xinclude" />
-        <map:transform src="../stylesheets/visualise/unmangle-xinclude.xsl" />
+        <map:transform src="../stylesheets/introspection/unmangle-xinclude.xsl" />
         <map:serialize type="xml" />
       </map:match>
 
@@ -86,7 +86,7 @@
            references to other map:matches recursively expanded. -->
       <map:match pattern="url/**">
         <map:generate src="cocoon:/pipelines.xml" />
-        <map:transform src="../stylesheets/visualise/compose-url-match.xsl">
+        <map:transform src="../stylesheets/introspection/compose-url-match.xsl">
           <map:parameter name="url" value="{1}" />
         </map:transform>
         <map:serialize type="xml" />

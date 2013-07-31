@@ -7,7 +7,7 @@
 
   <!-- Transform a complete map:match into HTML. -->
 
-  <xsl:template match="map:match" mode="kiln-visualise" priority="10">
+  <xsl:template match="map:match" mode="introspection" priority="10">
     <xsl:variable name="id" select="generate-id(.)" />
     <xsl:variable name="is_expanded" select="ancestor::map:match" />
     <div class="visualise-indent visualise-match" title="Sitemap file: {@kiln:sitemap}">
@@ -25,13 +25,13 @@
         <xsl:if test="$is_expanded">
           <xsl:attribute name="style" select="'display: none;'" />
         </xsl:if>
-        <xsl:apply-templates mode="kiln-visualise" />
+        <xsl:apply-templates mode="introspection" />
       </div>
       <xsl:call-template name="end-tag" />
     </div>
   </xsl:template>
 
-  <xsl:template match="*" mode="kiln-visualise">
+  <xsl:template match="*" mode="introspection">
     <div class="visualise-indent">
       <xsl:call-template name="start-tag">
         <xsl:with-param name="empty" select="1" />
@@ -39,15 +39,15 @@
     </div>
   </xsl:template>
 
-  <xsl:template match="*[*]" mode="kiln-visualise">
+  <xsl:template match="*[*]" mode="introspection">
     <div class="visualise-indent">
       <xsl:call-template name="start-tag" />
-      <xsl:apply-templates mode="kiln-visualise" />
+      <xsl:apply-templates mode="introspection" />
       <xsl:call-template name="end-tag" />
     </div>
   </xsl:template>
 
-  <xsl:template name="attribute" mode="kiln-visualise">
+  <xsl:template name="attribute" mode="introspection">
     <xsl:param name="check-kiln-value" select="0" />
     <xsl:param name="link" select="''" />
     <xsl:text> </xsl:text>
@@ -89,14 +89,14 @@
     <span class="visualise-element-name">
       <xsl:value-of select="name(.)" />
     </span>
-    <xsl:apply-templates mode="kiln-visualise" select="@*" />
+    <xsl:apply-templates mode="introspection" select="@*" />
     <xsl:if test="$empty">
       <xsl:text> /</xsl:text>
     </xsl:if>
     <xsl:text>&gt;</xsl:text>
   </xsl:template>
 
-  <xsl:template match="map:transform/@src" mode="kiln-visualise">
+  <xsl:template match="map:transform/@src" mode="introspection">
     <xsl:variable name="link">
       <xsl:choose>
         <xsl:when test="not(starts-with(../@kiln:src, 'cocoon://'))">
@@ -114,15 +114,15 @@
     </xsl:call-template>
   </xsl:template>
 
-  <xsl:template match="@pattern | @src | @value" mode="kiln-visualise">
+  <xsl:template match="@pattern | @src | @value" mode="introspection">
     <xsl:call-template name="attribute">
       <xsl:with-param name="check-kiln-value" select="1" />
     </xsl:call-template>
   </xsl:template>
 
-  <xsl:template match="@kiln:*" mode="kiln-visualise" />
+  <xsl:template match="@kiln:*" mode="introspection" />
 
-  <xsl:template match="@*" mode="kiln-visualise">
+  <xsl:template match="@*" mode="introspection">
     <xsl:call-template name="attribute" />
   </xsl:template>
 

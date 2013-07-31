@@ -29,7 +29,7 @@
     </xsl:variable>
     <xi:include>
       <xsl:attribute name="href">
-        <xsl:text>cocoon://_internal/visualise/url</xsl:text>
+        <xsl:text>cocoon://_internal/introspection/url</xsl:text>
         <xsl:value-of select="$value" />
       </xsl:attribute>
     </xi:include>

@@ -140,9 +140,9 @@
         <map:mount check-reload="yes" src="solr.xmap" uri-prefix="_internal/solr/" />
       </map:match>
 
-      <map:match pattern="_internal/visualise/**">
-        <map:mount check-reload="yes" src="visualise.xmap"
-                   uri-prefix="_internal/visualise/" />
+      <map:match pattern="_internal/introspection/**">
+        <map:mount check-reload="yes" src="introspection.xmap"
+                   uri-prefix="_internal/introspection/" />
       </map:match>
 
       <!-- Main project sitemap, matching on the remaining URL

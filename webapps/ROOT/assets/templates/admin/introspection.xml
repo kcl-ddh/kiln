@@ -6,9 +6,9 @@
            xmlns:xi="http://www.w3.org/2001/XInclude"
            xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-  <!-- Template to display a list of links to Kiln visualisations. -->
+  <!-- Template to display a list of links to Kiln introspections. -->
 
-  <xsl:import href="cocoon://_internal/template/xsl/stylesheets/kiln-visualise/list-html.xsl" />
+  <xsl:import href="cocoon://_internal/template/xsl/stylesheets/introspection/list-html.xsl" />
 
   <kiln:parent>
     <xi:include href="base.xml" />
@@ -17,24 +17,27 @@
   <kiln:child>
     <kiln:block name="title">
       <kiln:super />
-      <xsl:text>Visualisations</xsl:text>
+      <xsl:text>Introspection</xsl:text>
     </kiln:block>
 
     <kiln:block name="header">
-      <h1>Kiln visualisations</h1>
+      <h1>Kiln introspection</h1>
     </kiln:block>
 
     <kiln:block name="content">
       <div class="row">
         <div class="large-12 columns">
+          <p>In order to aid development, certain introspections of
+          the workings of Kiln are provided here.</p>
+
           <div data-magellan-expedition="fixed">
             <dl class="sub-nav">
-              <dt>Visualisations:</dt>
+              <dt>Introspections:</dt>
               <dd data-magellan-arrival="match-url">
                 <a href="#match-url">Match for URL</a>
               </dd>
               <dd data-magellan-arrival="match-id">
-                <a href="#match-id">Matches by ID</a>
+                <a href="#match-id">Match by ID</a>
               </dd>
               <dd data-magellan-arrival="template-name">
                 <a href="#template-name">Templates by filename</a>
@@ -63,11 +66,11 @@
           </section>
 
           <section data-magellan-destination="match-id" id="match-id">
-            <h2>Matches by ID</h2>
+            <h2>Match by ID</h2>
 
             <ul class="no-bullet">
               <xsl:apply-templates select="/aggregation/map:sitemap"
-                                   mode="kiln-visualise" />
+                                   mode="introspection" />
             </ul>
           </section>
 
@@ -76,7 +79,7 @@
             <h2>Templates by filename</h2>
 
             <ul>
-              <xsl:apply-templates mode="kiln-visualise"
+              <xsl:apply-templates mode="introspection"
                                    select="/aggregation/dir:directory[@name='templates']/*" />
             </ul>
           </section>

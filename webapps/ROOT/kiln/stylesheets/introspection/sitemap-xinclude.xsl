@@ -33,7 +33,7 @@
       <xsl:apply-templates select="@*" />
       <xi:include>
         <xsl:attribute name="href">
-          <xsl:text>cocoon://_internal/visualise/mount-table/</xsl:text>
+          <xsl:text>cocoon://_internal/introspection/mount-table/</xsl:text>
           <xsl:value-of select="$dir" />
           <xsl:value-of select="@pattern" />
         </xsl:attribute>
@@ -65,7 +65,7 @@
       <xsl:apply-templates select="@*|node()" />
       <xi:include>
         <xsl:attribute name="href">
-          <xsl:text>cocoon://_internal/visualise/pipeline/</xsl:text>
+          <xsl:text>cocoon://_internal/introspection/pipeline/</xsl:text>
           <xsl:value-of select="$dir" />
           <xsl:value-of select="@src" />
           <xsl:text>/</xsl:text>

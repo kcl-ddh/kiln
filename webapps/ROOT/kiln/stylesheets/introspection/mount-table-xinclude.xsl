@@ -6,7 +6,7 @@
   <xsl:template match="mount">
     <xi:include>
       <xsl:attribute name="href">
-        <xsl:text>cocoon://_internal/visualise/pipeline/</xsl:text>
+        <xsl:text>cocoon://_internal/introspection/pipeline/</xsl:text>
         <xsl:value-of select="@src" />
         <xsl:text>/</xsl:text>
         <xsl:value-of select="@uri-prefix" />

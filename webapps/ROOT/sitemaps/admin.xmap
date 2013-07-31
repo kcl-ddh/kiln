@@ -34,29 +34,29 @@
         <map:serialize />
       </map:match>
 
-      <!-- Index of visualisations. -->
-      <map:match id="local-admin-visualisation-index" pattern="visualise/">
+      <!-- Index of introspections. -->
+      <map:match id="local-admin-introspection-index" pattern="introspection/">
         <map:aggregate element="aggregation">
-          <map:part src="cocoon://_internal/visualise/pipelines.xml" />
+          <map:part src="cocoon://_internal/introspection/pipelines.xml" />
           <map:part src="cocoon://_internal/dirlist/assets/templates.xml" />
         </map:aggregate>
-        <map:transform src="cocoon://_internal/template/admin/visualise.xsl" />
+        <map:transform src="cocoon://_internal/template/admin/introspection.xsl" />
         <map:serialize />
       </map:match>
 
       <!-- Show an expanded view of a map:match. -->
-      <map:match id="local-admin-visualise-match"
-                 pattern="visualise/match/*.html">
+      <map:match id="local-admin-introspection-match"
+                 pattern="introspection/match/*.html">
         <map:aggregate element="aggregation">
-          <map:part src="cocoon://_internal/visualise/match/{1}.xml" />
+          <map:part src="cocoon://_internal/introspection/match/{1}.xml" />
         </map:aggregate>
-        <map:transform src="cocoon://_internal/template/admin/visualise-match.xsl" />
+        <map:transform src="cocoon://_internal/template/admin/introspection-match.xsl" />
         <map:serialize />
       </map:match>
 
       <!-- Show a template as rendered against an empty document. -->
-      <map:match id="local-admin-visualise-template-empty"
-                 pattern="visualise/template/**.html">
+      <map:match id="local-admin-introspection-template-empty"
+                 pattern="introspection/template/**.html">
         <map:aggregate element="aggregation">
           <map:part src="empty:index" />
           <map:part src="cocoon://_internal/menu/main.xml" />
@@ -71,27 +71,27 @@
       </map:match>
 
       <!-- Show an expanded form of the specified template XSLT. -->
-      <map:match id="local-admin-visualise-template-xslt"
-                 pattern="visualise/template/**.xsl">
-        <map:generate src="cocoon://_internal/visualise/template-xslt/{1}.xml" />
+      <map:match id="local-admin-introspection-template-xslt"
+                 pattern="introspection/template/**.xsl">
+        <map:generate src="cocoon://_internal/introspection/template-xslt/{1}.xml" />
         <map:serialize type="xml" />
       </map:match>
 
       <!-- Show an expanded form of the specified XSLT. -->
-      <map:match id="local-admin-visualise-xslt"
-                 pattern="visualise/xslt/**.xsl">
-        <map:generate src="cocoon://_internal/visualise/xslt/{1}.xml" />
+      <map:match id="local-admin-introspection-xslt"
+                 pattern="introspection/xslt/**.xsl">
+        <map:generate src="cocoon://_internal/introspection/xslt/{1}.xml" />
         <map:serialize type="xml" />
       </map:match>
 
       <!-- Show the expanded map:match that matches the supplied
            URL. -->
-      <map:match id="local-admin-visualise-match-url"
-                 pattern="visualise/url/">
+      <map:match id="local-admin-introspection-match-url"
+                 pattern="introspection/url/">
         <map:generate type="request" />
-        <map:transform src="../stylesheets/kiln-visualise/url-request-to-xinclude.xsl" />
+        <map:transform src="../stylesheets/introspection/url-request-to-xinclude.xsl" />
         <map:transform type="xinclude" />
-        <map:transform src="cocoon://_internal/template/admin/visualise-url-match.xsl" />
+        <map:transform src="cocoon://_internal/template/admin/introspection-url-match.xsl" />
         <map:serialize />
       </map:match>
    </map:pipeline>
