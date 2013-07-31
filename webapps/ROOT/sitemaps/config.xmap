@@ -41,5 +41,16 @@
                    uri-prefix="" />
       </map:match>
     </map:pipeline>
+
+    <!-- Default error handling. This must not rely on any Kiln or
+         project-specific resources, to avoid infinite
+         recursion. Therefore, just create a plain HTML error
+         page. -->
+    <map:handle-errors>
+      <map:generate type="exception" />
+      <map:transform src="../stylesheets/error/default-to-html.xsl" />
+      <map:serialize />
+    </map:handle-errors>
+
   </map:pipelines>
 </map:sitemap>
