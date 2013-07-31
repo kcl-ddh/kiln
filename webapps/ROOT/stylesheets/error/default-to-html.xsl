@@ -96,10 +96,18 @@ function toggle(id, showText, hideText) {
     </html>
   </xsl:template>
 
+  <xsl:template match="ex:exception-report/@class">
+    <p>
+      <xsl:text>Exception class: </xsl:text>
+      <xsl:value-of select="." />
+    </p>
+  </xsl:template>
+
   <xsl:template match="ex:exception-report/ex:message">
     <p class="message">
       <xsl:apply-templates />
     </p>
+    <xsl:apply-templates select="../@class" />
   </xsl:template>
 
   <xsl:template match="ex:cocoon-stacktrace">
@@ -112,7 +120,7 @@ function toggle(id, showText, hideText) {
     </div>
   </xsl:template>
 
-  <xsl:template match="ex:cocoon-stacktrace/ex:message">
+  <xsl:template match="ex:exception/ex:message">
     <p><xsl:apply-templates /></p>
   </xsl:template>
 
@@ -134,7 +142,7 @@ function toggle(id, showText, hideText) {
 
   <xsl:template match="ex:location">
     <tr>
-      <xsl:if test="count(preceding-sibling::ex:location) mod 2 = 0">
+      <xsl:if test="count(preceding-sibling::ex:location) mod 2 != 0">
         <xsl:attribute name="class">even</xsl:attribute>
       </xsl:if>
       <td><xsl:value-of select="." /></td>

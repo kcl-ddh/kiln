@@ -197,5 +197,15 @@
         <map:serialize type="xml_nodecl" />
       </map:match>
     </map:pipeline>
+
+    <!-- Error handling, making use of the templating system for
+         errors that fit within the site's design. If this throws any
+         errors, handling will fall back to the default plain error
+         handling in config.xmap. -->
+    <map:handle-errors>
+      <map:generate type="exception" />
+      <map:transform src="cocoon://_internal/template/error.xsl" />
+      <map:serialize />
+    </map:handle-errors>
   </map:pipelines>
 </map:sitemap>
