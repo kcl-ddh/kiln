@@ -39,6 +39,10 @@
   <map:pipelines>
     <map:component-configurations>
       <global-variables>
+        <!-- If debug is "1", show full technical details in error
+             messages. Change to "0" to show only a simple
+             message. -->
+        <debug>1</debug>
         <eats-server>http://localhost:8000/</eats-server>
         <rdf-base-uri></rdf-base-uri>
         <sesame-server>http://localhost:9999/openrdf-sesame/</sesame-server>
@@ -63,7 +67,9 @@
          page. -->
     <map:handle-errors>
       <map:generate type="exception" />
-      <map:transform src="../stylesheets/error/default-to-html.xsl" />
+      <map:transform src="../stylesheets/error/default-to-html.xsl">
+        <map:parameter name="debug" value="{global:debug}" />
+      </map:transform>
       <map:serialize />
     </map:handle-errors>
 

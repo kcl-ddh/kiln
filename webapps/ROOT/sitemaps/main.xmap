@@ -209,7 +209,9 @@
           <map:transform src="../stylesheets/error/add-not-found-messages.xsl" />
         </map:when>
       </map:select>
-      <map:transform src="cocoon://_internal/template/error.xsl" />
+      <map:transform src="cocoon://_internal/template/error.xsl">
+        <map:parameter name="debug" value="{global:debug}" />
+      </map:transform>
       <map:serialize />
     </map:handle-errors>
   </map:pipelines>

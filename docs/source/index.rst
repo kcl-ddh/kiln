@@ -62,6 +62,7 @@ Contents
     backend
     admin
     pdf
+    error
     license
     projects
 

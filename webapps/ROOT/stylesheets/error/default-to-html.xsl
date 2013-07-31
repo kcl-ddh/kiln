@@ -9,6 +9,8 @@
        XML provided by the ExceptionGenerator and to include all
        CSS/JS inline. -->
 
+  <xsl:param name="debug" select="1" />
+
   <xsl:template match="ex:exception-report">
     <html>
       <head>
@@ -51,7 +53,15 @@ function toggle(id, showText, hideText) {
       <body>
         <h1>An error occurred</h1>
 
-        <xsl:apply-templates />
+        <!-- Display full technical details only if debug is true. -->
+        <xsl:choose>
+          <xsl:when test="number($debug)">
+            <xsl:apply-templates />
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:apply-templates select="ex:message" />
+          </xsl:otherwise>
+        </xsl:choose>
 
         <p class="topped">If you need help and this information is not
         enough, you are invited to read the <a

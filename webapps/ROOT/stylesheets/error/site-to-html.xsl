@@ -7,17 +7,19 @@
        template. The display is intended for end users, so make it
        easy to hide all technical details.
 
-       Where a specific error is anticipated, it is anticipated that
-       the ex:exception-report/ex:message element will have been
-       replaced with a more verbose error message, potentially making
-       use of HTML.
+       Where a specific error is anticipated, the
+       ex:exception-report/ex:message element may have been replaced
+       with a more verbose error message, potentially making use of
+       HTML.
   -->
+
+  <xsl:param name="debug" select="1" />
 
   <xsl:template match="ex:exception-report">
     <xsl:apply-templates select="ex:message" />
-    <!-- To show/hide the full technical details, un/comment the
-         following line. -->
-    <xsl:call-template name="show-details" />
+    <xsl:if test="number($debug)">
+      <xsl:call-template name="show-details" />
+    </xsl:if>
   </xsl:template>
 
   <xsl:template match="ex:exception-report/ex:message">
