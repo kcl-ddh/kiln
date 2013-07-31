@@ -204,6 +204,11 @@
          handling in config.xmap. -->
     <map:handle-errors>
       <map:generate type="exception" />
+      <map:select type="exception">
+        <map:when test="not-found">
+          <map:transform src="../stylesheets/error/add-not-found-messages.xsl" />
+        </map:when>
+      </map:select>
       <map:transform src="cocoon://_internal/template/error.xsl" />
       <map:serialize />
     </map:handle-errors>
