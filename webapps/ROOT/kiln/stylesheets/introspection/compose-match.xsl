@@ -15,13 +15,11 @@
   </xsl:template>
 
   <xsl:template match="map:match">
-    <xsl:if test="position() = 1">
-      <xsl:copy>
-        <xsl:attribute name="kiln:sitemap"
-                       select="ancestor::map:sitemap[1]/@kiln:file" />
-        <xsl:apply-templates select="@*|node()" />
-      </xsl:copy>
-    </xsl:if>
+    <xsl:copy>
+      <xsl:attribute name="kiln:sitemap"
+                     select="ancestor::map:sitemap[1]/@kiln:file" />
+      <xsl:apply-templates select="@*|node()" />
+    </xsl:copy>
   </xsl:template>
 
   <xsl:template match="map:generate | map:part | map:transform">
@@ -55,7 +53,7 @@
           </xsl:choose>
         </xsl:for-each>
       </xsl:variable>
-      <xsl:apply-templates select="//map:match[not(map:mount)][normalize-space(@kiln:regexp)][matches($input, @kiln:regexp)][1]" />
+      <xsl:apply-templates select="(//map:match[not(map:mount)][normalize-space(@kiln:regexp) and matches($input, @kiln:regexp)])[1]" />
     </xsl:if>
   </xsl:template>
 

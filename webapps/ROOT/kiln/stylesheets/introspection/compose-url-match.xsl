@@ -17,40 +17,31 @@
   <xsl:variable name="separator" select="' SEPARATOR '" />
 
   <xsl:template match="/">
-    <!-- There is a very odd behaviour with the following expression,
-         which requires the final numeric predicate in order not to
-         die with the error "An empty sequence is not allowed as the
-         second argument of matches()".
+    <!-- There is a very odd behaviour with the use of matches in the
+         following expression. If it is provided in a predicate of its
+         own, it appears to be evaluated before the predicate
+         requiring the existing of @kiln:regexp.
 
-         This appears to be due to the [normalize-space(@kiln:regexp)]
-         predicate not actually removing nodes for which the predicate
-         is not true from the nodes to which the match applies. If the
-         source document does not contain such a node (one with no
-         @kiln:regexp attribute), the problem does not occur.
-
-         That the final numeric predicate changes that behaviour is
-         bizarre. That it also does not limit the nodeset to the first
-         node is infuriating. -->
-    <xsl:apply-templates select="//map:match[normalize-space(@kiln:regexp)][not(map:mount)][matches($url, @kiln:regexp)][1]">
+         Therefore, have a single predicate expressing the requirement
+         for @kiln:regexp and performing the match. -->
+    <xsl:apply-templates select="(//map:match[not(map:mount)][normalize-space(@kiln:regexp) and matches($url, @kiln:regexp)])[1]">
       <xsl:with-param name="url" select="$url" tunnel="yes" />
     </xsl:apply-templates>
   </xsl:template>
 
   <xsl:template match="map:match">
-    <xsl:if test="position() = 1">
-      <xsl:variable name="groups" as="xs:string*">
-        <xsl:call-template name="get-groups">
-          <xsl:with-param name="regexp" select="@kiln:regexp" />
-        </xsl:call-template>
-      </xsl:variable>
-      <xsl:copy>
-        <xsl:attribute name="kiln:sitemap"
-                       select="ancestor::map:sitemap[1]/@kiln:file" />
-        <xsl:apply-templates select="@*|node()">
-          <xsl:with-param name="groups" select="$groups" tunnel="yes" />
-        </xsl:apply-templates>
-      </xsl:copy>
-    </xsl:if>
+    <xsl:variable name="groups" as="xs:string*">
+      <xsl:call-template name="get-groups">
+        <xsl:with-param name="regexp" select="@kiln:regexp" />
+      </xsl:call-template>
+    </xsl:variable>
+    <xsl:copy>
+      <xsl:attribute name="kiln:sitemap"
+                     select="ancestor::map:sitemap[1]/@kiln:file" />
+      <xsl:apply-templates select="@*|node()">
+        <xsl:with-param name="groups" select="$groups" tunnel="yes" />
+      </xsl:apply-templates>
+    </xsl:copy>
   </xsl:template>
 
   <xsl:template match="map:generate | map:part | map:transform">
