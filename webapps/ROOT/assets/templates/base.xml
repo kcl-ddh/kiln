@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <kiln:root xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
-           xmlns:tei="http://www.tei-c.org/ns/1.0"
            xmlns:xi="http://www.w3.org/2001/XInclude"
            xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
@@ -52,7 +51,7 @@
                 <section class="top-bar-section">
                   <ul class="left">
                     <xsl:apply-templates mode="main-menu"
-                                         select="/aggregation/div[@type='menu']" />
+                                         select="/aggregation/kiln:nav" />
                   </ul>
                   <ul class="right">
                     <li class="has-form search">

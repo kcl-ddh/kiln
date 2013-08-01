@@ -55,14 +55,27 @@
       <map:match pattern="_internal/menu/*.xml">
         <map:generate src="../../assets/menu/{1}.xml" />
         <map:transform src="../stylesheets/menu/normalise-menu.xsl" />
+        <map:transform src="../stylesheets/menu/contextualise-menu.xsl">
+          <map:parameter name="filedir" value="{request-param:filedir}" />
+          <map:parameter name="filename" value="{request-param:filename}" />
+          <map:parameter name="fileextension"
+                         value="{request-param:fileextension}" />
+        </map:transform>
         <map:serialize type="xml" />
       </map:match>
 
       <map:match pattern="_internal/menu/*/*.xml">
         <!-- {1} is a language code. -->
-        <map:generate src="../../assets/menu/{1}.xml" />
+        <map:generate src="../../assets/menu/{2}.xml" />
         <map:transform src="../stylesheets/menu/normalise-menu.xsl">
           <map:param name="language" value="{1}" />
+        </map:transform>
+        <map:transform src="../stylesheets/menu/contextualise-menu.xsl">
+          <map:parameter name="filedir" value="{request-param:filedir}" />
+          <map:parameter name="filename" value="{request-param:filename}" />
+          <map:parameter name="fileextension"
+                         value="{request-param:fileextension}" />
+          <map:parameter name="language" value="{1}" />
         </map:transform>
         <map:serialize type="xml" />
       </map:match>

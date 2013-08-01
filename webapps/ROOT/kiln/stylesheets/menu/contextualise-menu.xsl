@@ -7,19 +7,12 @@
 
   <xsl:import href="../../../stylesheets/defaults.xsl" />
 
-  <!-- Make a simple copy of everything except the menu data. -->
-  <xsl:template match="/aggregation/*">
-    <xsl:copy-of select="." />
-  </xsl:template>
-
-  <xsl:template match="/aggregation/kiln:root" priority="100">
-    <div type="menu">
-      <ul>
+  <xsl:template match="kiln:root">
+    <kiln:nav>
+      <ul type="menu">
         <xsl:apply-templates select="kiln:menu" mode="menu" />
       </ul>
-    </div>
-    <div type="breadcrumbs">
-      <ul>
+      <ul type="breadcrumbs">
         <xsl:choose>
           <xsl:when test=".//*[@href=$kiln:path]">
             <xsl:apply-templates mode="breadcrumbs"
@@ -31,14 +24,14 @@
           </xsl:otherwise>
         </xsl:choose>
       </ul>
-    </div>
+    </kiln:nav>
   </xsl:template>
 
   <xsl:template match="kiln:menu | kiln:item" mode="menu">
     <li>
       <!-- Active item. -->
       <xsl:if test="@href = $kiln:path">
-        <xsl:attribute name="class" select="'active-menu-item'" />
+        <xsl:attribute name="class" select="'active'" />
       </xsl:if>
       <a>
         <xsl:if test="@href">

@@ -86,7 +86,7 @@
     <xsl:if test="not(ends-with($kiln:pathroot, '/'))">
       <xsl:text>/</xsl:text>
     </xsl:if>
-    <xsl:value-of select="substring-before($filename, '.')" />
+    <xsl:value-of select="$filename" />
     <xsl:if test="$fileextension">
       <xsl:text>.</xsl:text>
       <xsl:value-of select="$fileextension" />

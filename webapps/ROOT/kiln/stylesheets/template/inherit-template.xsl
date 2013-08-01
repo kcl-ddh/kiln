@@ -1,4 +1,4 @@
-<xsl:stylesheet version="2.0"
+<xsl:stylesheet exclude-result-prefixes="#all" version="2.0"
                 xmlns:axsl="http://www.w3.org/1999/XSL/TransformAlias"
                 xmlns:tei="http://www.tei-c.org/ns/1.0"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
