@@ -2,9 +2,56 @@
 <grammar ns="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
          xmlns="http://relaxng.org/ns/structure/1.0"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <!-- Schema for Kiln menu documents.
+
+       The structure of a menu is that of a list of items, with each
+       item being able to hold another list of items. However, it
+       makes a distinction between a kiln:menu and a kiln:item. The
+       former may or may not reference a resource, while the latter
+       must. A kiln:menu may have children, while a kiln:item may
+       not.
+
+       It is important to understand that there is no necessary
+       connection between the position of a kiln:menu or kiln:item in
+       the hierarchy, and the URL it references. Specifically, the
+       @href of an element, if it is not an absolute or root relative
+       URL, is appended to the 'path' of @root values from its
+       ancestors.
+
+       For example, given the following menu:
+
+       <root xmlns="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0">
+         <menu href="text/" label="Texts">
+           <item href="intro.html" label="Introduction" />
+           <menu label="Reports" root="text/reports">
+             <item href="1.html" label="Report #1" />
+           </menu>
+         </menu>
+       </root>
+
+       The "Texts" item links to text/, "Introduction" links to
+       intro.html (*not* text/intro.html), and "Report #1" links to
+       text/reports/1.html. "Reports" is not a link at all.
+
+       Requiring explicit @root values in order to provide a link
+       hierarchy allows for a hierarchical menu to map on to a less or
+       differently organised underlying URL structure.
+
+       The simpler form of the above example menu, with everything in
+       a nice hierarchy, is:
+
+       <root xmlns="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0">
+         <menu href="" label="Texts" root="text">
+           <item href="intro.html" label="Introduction" />
+           <menu label="Reports" root="reports">
+             <item href="1.html" label="Report #1" />
+           </menu>
+         </menu>
+       </root>
+
+  -->
   <start>
     <element name="root">
-      <attribute name="label"/>
       <oneOrMore>
         <ref name="menu"/>
       </oneOrMore>
