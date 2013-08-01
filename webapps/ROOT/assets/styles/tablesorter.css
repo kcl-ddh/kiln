@@ -1,6 +1,9 @@
 table.tablesorter thead tr th {
     background-color: #E6EEEE;
-    border: 1px solid #FFF;
+}
+
+table.tablesorter thead tr th + th {
+    border-left: 1px solid #FFF;
 }
 
 table.tablesorter thead tr .header {
