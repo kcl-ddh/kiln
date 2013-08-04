@@ -52,7 +52,7 @@
 
     <!-- Menu pipeline. -->
     <map:pipeline id="kiln-menu" internal-only="true">
-      <map:match pattern="_internal/menu/*.xml">
+      <map:match pattern="_internal/menu/**.xml">
         <map:generate src="../../assets/menu/{1}.xml" />
         <map:transform src="../stylesheets/menu/normalise-menu.xsl" />
         <map:transform src="../stylesheets/menu/contextualise-menu.xsl">
@@ -64,7 +64,7 @@
         <map:serialize type="xml" />
       </map:match>
 
-      <map:match pattern="_internal/menu/*/*.xml">
+      <map:match pattern="_internal/menu/*/**.xml">
         <!-- {1} is a language code. -->
         <map:generate src="../../assets/menu/{2}.xml" />
         <map:transform src="../stylesheets/menu/normalise-menu.xsl">
