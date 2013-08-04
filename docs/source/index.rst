@@ -60,6 +60,7 @@ Contents
     rdf
     multilingual
     backend
+    webservice
     admin
     pdf
     error
