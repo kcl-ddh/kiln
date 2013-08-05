@@ -14,7 +14,7 @@
       <!-- ... to a level of ... -->
       <arg value="-l" />
       <!-- ... infinity -->
-      <arg value="inf" />
+      <arg value="2" />
       <!-- get page requisites (isn't this redundant with -r -l inf?) -->
       <arg value="-p" />
       <!-- don't try to create "host" directories (i.e. a folder called "localhost:8080") -->
