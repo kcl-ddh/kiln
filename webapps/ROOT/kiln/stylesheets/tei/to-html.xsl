@@ -12,6 +12,7 @@
   <xsl:include href="to-html-note.xsl" />
   <xsl:include href="to-html-rend.xsl" />
   <xsl:include href="to-html-table.xsl" />
+  <xsl:include href="to-html-list.xsl" />
   <xsl:include href="to-html-teiheader.xsl" />
 
   <xsl:param name="amendments" select="1" />
