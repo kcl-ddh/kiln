@@ -189,8 +189,15 @@
 
   <xsl:template match="tei:change/@who">
     <xsl:text> [</xsl:text>
-    <xsl:variable name="who-id" select="substring(., 2)" />
-    <xsl:apply-templates select="ancestor::tei:teiHeader//*[@xml:id=$who-id]" />
+    <xsl:choose>
+      <xsl:when test="starts-with(., '#')">
+        <xsl:variable name="who-id" select="substring(., 2)" />
+        <xsl:apply-templates select="ancestor::tei:teiHeader//*[@xml:id=$who-id]" />
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="." />
+      </xsl:otherwise>
+    </xsl:choose>
     <xsl:text>] </xsl:text>
   </xsl:template>
 
