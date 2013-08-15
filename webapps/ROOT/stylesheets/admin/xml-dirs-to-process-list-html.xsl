@@ -21,7 +21,7 @@
       <thead>
         <tr>
           <th scope="col">File</th>
-          <th colspan="2" scope="col">Validation</th>
+          <th colspan="2" scope="col">Reports</th>
           <th scope="col">Search</th>
           <th scope="col">RDF</th>
           <th scope="col">View</th>
@@ -59,16 +59,17 @@
       </td>
       <!-- Default Schematron link. -->
       <td>
-        <a href="schematron/{$filepath}.html">Validate</a>
+        <a href="schematron/{$filepath}.html"
+           title="Schematron validation report">Schematron</a>
       </td>
       <!-- Image checking. -->
       <td>
-        <a href="resource-check/images/{$filepath}.html">Check images</a>
+        <a href="resource-check/images/{$filepath}.html">Missing images</a>
       </td>
       <!-- Search indexing. -->
       <td>
         <a href="solr/index/tei/{$filepath}.html"
-            title="Index document in search server">Index</a>
+           title="Index document in search server">Index</a>
       </td>
       <!-- RDF harvesting. -->
       <td>
