@@ -17,10 +17,20 @@
     </xsl:copy>
   </xsl:template>
 
-  <xsl:template match="@href[not(starts-with(., 'http'))]">
-    <xsl:call-template name="make-full-href">
-      <xsl:with-param name="attribute" select="."/>
-    </xsl:call-template>
+  <xsl:template match="@href">
+    <xsl:choose>
+      <xsl:when test="contains(., '://')">
+        <xsl:copy-of select="." />
+      </xsl:when>
+      <xsl:when test="starts-with(., '//')">
+        <xsl:copy-of select="." />
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:call-template name="make-full-href">
+          <xsl:with-param name="attribute" select="."/>
+        </xsl:call-template>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
 
   <xsl:template name="make-full-href">

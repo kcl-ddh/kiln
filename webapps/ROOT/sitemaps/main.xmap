@@ -56,7 +56,7 @@
       <!-- Search. -->
       <map:match id="local-search" pattern="search/">
         <map:aggregate element="aggregation">
-          <map:part src="cocoon://_internal/menu/main.xml?filedir=search" />
+          <map:part src="cocoon://_internal/menu/main.xml?url=search/" />
           <map:part src="cocoon://internal/search/facet_query.xml" />
         </map:aggregate>
         <map:transform src="cocoon://_internal/template/search.xsl">
@@ -73,7 +73,7 @@
                after indexing, but for demonstration and quick start
                purposes, use this method. -->
           <map:part src="cocoon://internal/metadata/files.xml" />
-          <map:part src="cocoon://_internal/menu/main.xml?filedir=text" />
+          <map:part src="cocoon://_internal/menu/main.xml?url=text/" />
         </map:aggregate>
         <map:transform src="cocoon://_internal/template/text-index.xsl" />
         <map:serialize />
@@ -82,7 +82,7 @@
       <map:match id="local-tei-display-html" pattern="text/**.html">
         <map:aggregate element="aggregation" label="content">
           <map:part label="tei" src="cocoon://internal/tei/preprocess/{1}.xml" />
-          <map:part src="cocoon://_internal/menu/main.xml?filedir=text&amp;filename={1}&amp;fileextension=html" />
+          <map:part src="cocoon://_internal/menu/main.xml?url=text/{1}.html" />
         </map:aggregate>
         <map:transform src="cocoon://_internal/template/tei.xsl" />
         <map:serialize />
@@ -111,7 +111,7 @@
       <map:match id="local-generic-multilingual-html" pattern="*/**.html">
         <!-- {1} is a language code. -->
         <map:aggregate element="aggregation" label="content">
-          <map:part src="cocoon://_internal/menu/{1}/{1}-main.xml?filename={2}&amp;fileextension=html" />
+          <map:part src="cocoon://_internal/menu/{1}/{1}-main.xml?url={2}.html" />
           <map:part src="cocoon://internal/metadata/files.xml" />
           <map:part src="cocoon://internal/tei/preprocess/{1}/{2}.xml"
                     label="tei" />

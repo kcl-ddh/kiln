@@ -56,10 +56,7 @@
         <map:generate src="../../assets/menu/{1}.xml" />
         <map:transform src="../stylesheets/menu/normalise-menu.xsl" />
         <map:transform src="../stylesheets/menu/contextualise-menu.xsl">
-          <map:parameter name="filedir" value="{request-param:filedir}" />
-          <map:parameter name="filename" value="{request-param:filename}" />
-          <map:parameter name="fileextension"
-                         value="{request-param:fileextension}" />
+          <map:parameter name="url" value="{request-param:url}" />
         </map:transform>
         <map:serialize type="xml" />
       </map:match>
@@ -71,10 +68,7 @@
           <map:param name="language" value="{1}" />
         </map:transform>
         <map:transform src="../stylesheets/menu/contextualise-menu.xsl">
-          <map:parameter name="filedir" value="{request-param:filedir}" />
-          <map:parameter name="filename" value="{request-param:filename}" />
-          <map:parameter name="fileextension"
-                         value="{request-param:fileextension}" />
+          <map:parameter name="url" value="{request-param:url}" />
           <map:parameter name="language" value="{1}" />
         </map:transform>
         <map:serialize type="xml" />
