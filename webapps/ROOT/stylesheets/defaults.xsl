@@ -7,19 +7,6 @@
       parameters from the sitemap.
   -->
 
-  <!-- $filedir is the directory containing the context file. To
-       specify the 'root' directory, it's value should be null (and
-       not .). Note that directory information can also be included in
-       $filename. -->
-  <xsl:param name="filedir" select="''" />
-  <!-- $filename is the name of the context file. It may include
-       directory path information (but must not duplicate any such
-       information that is in $filedir). -->
-  <xsl:param name="filename" select="''" />
-  <!-- $fileextension is the extension part of the *transformed*
-       context file's name (and therefore may not match the extension
-       as it appears in $filename. -->
-  <xsl:param name="fileextension" select="''" />
   <!-- $language is the language code used to distinguish between
        language contexts in a multilingual site. -->
   <xsl:param name="language" select="''" />
@@ -77,20 +64,6 @@
       <xsl:value-of select="$kiln:mount-path" />
     </xsl:if>
     <xsl:value-of select="$kiln:images-url" />
-  </xsl:variable>
-
-  <xsl:variable name="kiln:pathroot"
-                select="concat($kiln:context-path, '/', $filedir)" />
-  <xsl:variable name="kiln:path">
-    <xsl:value-of select="$kiln:pathroot" />
-    <xsl:if test="not(ends-with($kiln:pathroot, '/'))">
-      <xsl:text>/</xsl:text>
-    </xsl:if>
-    <xsl:value-of select="$filename" />
-    <xsl:if test="$fileextension">
-      <xsl:text>.</xsl:text>
-      <xsl:value-of select="$fileextension" />
-    </xsl:if>
   </xsl:variable>
 
 </xsl:stylesheet>
