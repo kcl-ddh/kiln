@@ -12,7 +12,7 @@ Quickstart
    welcome page together with some very basic :ref:`navigation <navigation>`.
 #. Store project XML content (TEI) in the folder
    ``KILN_HOME/webapps/ROOT/content/xml/tei``.
-#. View HTML versions of the TEI XML at http://localhost:9999/<TEI
+#. View HTML versions of the TEI XML at http://localhost:9999/text/<TEI
    filename>.html
 #. Customise the templates, transformations and site URL
    structure. The example project in ``KILN_HOME/example`` provides
