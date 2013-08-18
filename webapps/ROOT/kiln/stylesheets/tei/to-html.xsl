@@ -135,17 +135,17 @@
   </xsl:template>
 
   <xsl:template match="tei:foreign">
-    <xsl:call-template name="make-span" />
+    <xsl:call-template name="tei-make-span" />
   </xsl:template>
 
   <xsl:template match="tei:name[@key]|tei:rs[@key]">
-    <xsl:call-template name="make-span" />
+    <xsl:call-template name="tei-make-span" />
   </xsl:template>
 
   <!-- References. -->
   <xsl:template match="tei:ref[starts-with(@target, '#')]">
     <xsl:variable name="target" select="id(substring(@target, 2))" />
-    <xsl:call-template name="make-ref-link">
+    <xsl:call-template name="tei-make-ref-link">
       <xsl:with-param name="target" select="@target" />
     </xsl:call-template>
   </xsl:template>
@@ -156,7 +156,7 @@
         <xsl:apply-templates />
       </xsl:when>
       <xsl:otherwise>
-        <xsl:call-template name="make-ref-link">
+        <xsl:call-template name="tei-make-ref-link">
           <xsl:with-param name="target" select="@target" />
           <xsl:with-param name="n" select="@n" />
         </xsl:call-template>
@@ -165,7 +165,7 @@
   </xsl:template>
 
   <xsl:template match="tei:seg">
-    <xsl:call-template name="make-span" />
+    <xsl:call-template name="tei-make-span" />
   </xsl:template>
 
   <!-- Figures. -->
@@ -421,7 +421,7 @@
     </p>
   </xsl:template>
 
-  <xsl:template name="make-ref-link">
+  <xsl:template name="tei-make-ref-link">
     <xsl:param name="target" />
     <xsl:param name="title" select="''" />
     <xsl:param name="n" select="''" />
