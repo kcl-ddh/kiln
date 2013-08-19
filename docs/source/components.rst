@@ -112,7 +112,7 @@ block it is inheriting from.
 .. _Apache Solr: http://lucene.apache.org/solr/
 .. _Sesame 2: http://www.openrdf.org/
 .. _Apache Ant: http://ant.apache.org/
-.. _Jetty: http://www.mortbay.org/
+.. _Jetty: http://www.eclipse.org/jetty/
 .. _Django’s template block system:
     http://docs.djangoproject.com/en/dev/topics/templates/#template-inheritance
 .. _SPIL:

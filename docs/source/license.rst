@@ -35,5 +35,5 @@ Components' licenses
 .. _Apache Ant: http://ant.apache.org/
 .. _Sesame 2: http://www.openrdf.org/
 .. _BSD License: http://opensource.org/licenses/BSD-3-Clause
-.. _Jetty: http://www.mortbay.org/
+.. _Jetty: http://www.eclipse.org/jetty/
 .. _Eclipse Public License: http://www.eclipse.org/legal/epl-v10.html
