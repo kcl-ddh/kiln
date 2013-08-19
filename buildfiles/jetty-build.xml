@@ -25,6 +25,7 @@
     name="runserver">
     <mkdir dir="${jetty.home}/logs"/>
     <echo>Development server is running at http://127.0.0.1:${jetty.port}</echo>
+    <echo>Quit the server with CONTROL-C.</echo>
     <jetty.run jettyXml="${jetty.home}/etc/jetty.xml"
                tempDirectory="${jetty.home}/temp">
       <systemProperties>
