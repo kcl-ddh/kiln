@@ -9,6 +9,15 @@ edition of some historical letters.
 Installation
 ------------
 
+Installation of Kiln itself is simple. You can download a ZIP file of
+all the code and unpack it, or use the Git version control system to
+clone the repository. Either way, the code is available at the `Kiln
+repository`_, and you'll end up with that code somewhere on your
+filesystem.
+
+You'll also need to have Java 1.7 installed. If it isn't on your
+system already, you can download it from https://www.java.com/.
+
 The development server
 ----------------------
 
@@ -96,15 +105,10 @@ remove the import.
 
    Sitemap files are discussed later in the tutorial.
 
-Let's change the rendering so that deleted text is not shown at all,
-rather than being displayed struck out. This is a very simple
-piece of XSLT, a single line::
+Let's change the rendering so that...
 
-   <xsl:template match="tei:del" />
-
-Add this after the ``xsl:import`` elements. Now reload the page
-showing that text, and you'll see the text rerendered with no
-deletions shown.
+Add this after the ``xsl:import`` element. Now reload the page showing
+that text, and you'll see the text rerendered with...
 
 .. warning:: Cocoon automatically caches the results of most requests,
    and invalidates that cache when it detects changes to the files
@@ -118,7 +122,11 @@ deletions shown.
 
    To ensure that the cache is invalidated in such cases, update the
    timestamp of the including file, or the source document. This can
-   be done by saving the file (add a space, remove it, and save).
+   be done by re-saving the file (add a space, remove it, and save).
+
+
+Adding images
+.............
 
 
 Searching and indexing
@@ -204,9 +212,124 @@ search results best suits your needs.
 Building static pages
 ---------------------
 
-* Changing the sitemap - explanation of URL dispatching.
-* Customising the menu.
-* Customising the templates.
+Not all pages in a site need be generated dynamically from TEI
+documents. Let's add an "About the project" page with the following
+steps.
+
+Adding a URL handler
+....................
+
+Each URL or set of URLs available in your web application is defined
+in a Cocoon sitemap that specifies the source document(s), a set of
+transformations to that document, and an output format for the
+result. Sitemaps are XML files, and are best edited in an XML
+editor. Open the file ``webapps/ROOT/sitemaps/main.xmap``.
+
+The bulk of this file is the contents of the ``map:pipelines``
+element, which holds several ``map:pipeline`` elements. In turn, these
+hold the URL definitions that are the ``map:match`` elements. Each
+``map:match`` has a ``pattern`` attribute that specifies the URL(s)
+that it defines. This pattern can include wildcards, ``*`` and ``**``,
+that match on any sequence of characters except ``/`` and any sequence
+of characters, respectively.
+
+The order of the ``map:match`` elements is important --- when a
+request for a URL is handled by Kiln, it is processed using the first
+``map:match`` whose pattern matches that URL. Then the child elements
+of the ``map:match`` are executed (the XML here is all interpreted as
+code) in order.
+
+Go to the part of the document that defines the handler for the
+``search/`` URL. Below that, add in a match for the URL
+``about.html``. Since we'll be putting the content of the page we want
+to return into the template (this is not the only way to do it!), our
+source document is just the menu, and the only transformation is
+applying the template. Your ``map:match`` should look something like the
+following (and very similar to the one for the home page)::
+
+   <map:match id="local-about" pattern="about.html">
+     <map:aggregate element="aggregation">
+       <map:part src="cocoon://_internal/menu/main.xml?url=about.html" />
+     </map:aggregate>
+     <map:transform src="cocoon://_internal/template/about.xsl" />
+     <map:serialize />
+   </map:match>
+
+Even in such a short fragment there is a lot going
+on. ``map:aggregate`` creates an XML document with a root element of
+``aggregation``, containing one part (subelement). This part is the
+product of internally making a request for the URL
+``_internal/menu/main.xml?url=about.html``, which returns the menu
+structure. The use of URLs starting with ``cocoon:/`` is common, and
+allows a modular structure with lots of individual pieces that can be
+put together. If you want to see the ``map:match`` that handles this
+menu URL, open ``webapps/ROOT/kiln/sitemaps/main.xmap`` and look for
+the ``kiln-menu`` pipeline.
+
+The templating transformation, which puts the content of the
+``aggregation`` element into a template, also internally requests a
+URL. That URL returns the XML template file transformed into an XSLT
+document, which is then applied to the source document!
+
+Finally, the document is serialised; in this case no serializer is
+specified, meaning that the default (HTML 5) is used.
+
+Now that the ``about.html`` URL is defined, try requesting it at
+http://localhost:9999/about.html. Not surprisingly, an error occurred,
+because (as the first line of the stacktrace reveals) there is no
+``about.xml`` template file. It's time to make one.
+
+
+Adding a template
+.................
+
+Template files live in ``webapps/ROOT/assets/templates/``. They are
+XML files, and must end in ``.xml``. In the ``map:match`` we just
+created, the template was referenced at the URL
+``cocoon://_internal/template/about.xsl`` --- there the ``xsl``
+extension informally specifies the format of the document returned by
+a request to that URL, but it reads the source file ``about.xml`` in
+the templates directory. You can see how this works in the sitemap
+file ``webapps/ROOT/kiln/sitemaps/main.xmap`` in the
+``kiln-templating`` pipeline.
+
+Create a new file, ``about.xml``, in the template directory. We could
+define everything we want output in this file, but it's much better to
+reuse the structure and style used by other pages on the site. Kiln
+templates use a system of inheritance in which a parent template
+defines arbitrary blocks of output that a child template can override
+or append to. Open the ``base.xml`` file in the templates directory to
+see the root template the default Kiln site uses. Mostly this is just
+a lot of HTML, but wrapped into chunks via ``kiln:block``
+elements. Now look at the ``tei.xml`` template, which shows how a
+template can inherit from another and provide content only for those
+blocks that it needs to.
+
+Go ahead and add to ``about.xml`` (using ``tei.xml`` as a
+basis) whatever content you want the "About the project" page to
+have. Since there is no source document being transformed, there's no
+need to have the ``xsl:import`` that ``tei.xml`` has, and wherever it
+has ``xsl:value-of`` or ``xsl:apply-templates``, you should just put
+in whatever text and HTML 5 markup you want directly.
+
+
+Updating the menu
+.................
+
+In the ``map:match`` you created in ``main.xmap`` above, the
+aggregated source document consisted only of a call to a URL
+(``cocoon://_internal/menu/main.xml?url=about.htm``) to get a menu
+document. In that URL, ``main.xml`` specifies the name of the menu
+file to use, which lives in ``webapps/ROOT/assets/menu/``. Let's edit
+that file to add in an entry for the new About page. This is easy to
+do by just inserting the following::
+
+   <menu href="about.html" label="About the project" />
+
+Reload any of the pages of the site and you should now see the new
+menu item. Obviously this menu is still very simple, with no
+hierarchy. Read the :ref:`full menu documentation <navigation>` for
+details on how to handle more complex setups.
 
 
 Harvesting RDF
@@ -227,7 +350,7 @@ doing when it runs.
 *Match for URL* takes a URL and shows you the full Cocoon
 ``map:match`` that processes that URL. It expands all references, and
 links to all XSLT, so that what can be scattered across multiple
-sitemap files, with many references to * and \*\*, becomes a single
+sitemap files, with many references to ``*`` and ``**``, becomes a single
 annotated piece of XML. Mousing over various parts of the output will
 reveal details such as the sitemap file containing the line or the
 values of wildcards.
@@ -242,6 +365,7 @@ template, and how that template renders an empty document.
 
 .. _admin section: http://127.0.0.1:9999/admin/
 .. _Introspection: http://127.0.0.1:9999/admin/introspection/
+.. _Kiln repository: https://github.com/kcl-ddh/kiln/
 .. _Solr documentation: http://lucene.apache.org/solr/documentation.html
 .. _TEI: http://www.tei-c.org/
 .. _XSLT: http://www.w3.org/standards/xml/transformation
