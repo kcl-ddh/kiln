@@ -26,6 +26,10 @@
     </xsl:if>
   </xsl:template>
 
+  <xsl:template match="tei:bibl">
+    <xsl:value-of select="." />
+  </xsl:template>
+
   <xsl:template match="tei:change">
     <li>
       <xsl:apply-templates select="@when" />
