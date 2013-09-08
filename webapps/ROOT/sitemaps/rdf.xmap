@@ -81,7 +81,7 @@
       <!-- Construct a graph query document from a SPARQL query in a
            file. This is an example only. -->
       <map:match id="local-rdf-query-from-file" pattern="construct/graph/**.xml">
-        <map:generate src="../content/xml/sparql/{1}.xml" />
+        <map:generate src="../assets/queries/sparql/{1}.xml" />
         <map:serialize type="xml" />
       </map:match>
     </map:pipeline>
