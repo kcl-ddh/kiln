@@ -58,9 +58,8 @@ Adding content
 --------------
 
 The main content of many Kiln sites is held in `TEI`_ XML files, so
-let's add some.
-
-QAZ
+let's add some. Unzip :download:`the accompanying set of TEI files
+<tei.zip>` into ``webapps/ROOT/content/xml/tei/``.
 
 Now navigate to the text overview at http://127.0.0.1:9999/text/,
 available as the Texts menu option. This presents a table with various
@@ -105,10 +104,19 @@ remove the import.
 
    Sitemap files are discussed later in the tutorial.
 
-Let's change the rendering so that...
+Let's change the rendering, in an admittedly trivial way, so that the
+names of people and places are italicised. This involves adding a
+template like the following::
+
+   <xsl:template match="persName | placeName">
+     <i>
+       <xsl:apply-templates />
+     </i>
+   </xsl:template>
 
 Add this after the ``xsl:import`` element. Now reload the page showing
-that text, and you'll see the text rerendered with...
+that text, and you'll see the text rerendered with italics sprinkled
+throughout.
 
 .. warning:: Cocoon automatically caches the results of most requests,
    and invalidates that cache when it detects changes to the files
@@ -128,6 +136,8 @@ that text, and you'll see the text rerendered with...
 Adding images
 .............
 
+TBD.
+
 
 Searching and indexing
 ----------------------
@@ -139,6 +149,10 @@ In order to provide any useful results, the search engine must index
 the TEI documents. This functionality is made available in the `admin
 section`_ of the site. You can either index each document
 individually, or index them all at once.
+
+.. note:: If you started Kiln with a different port from the default,
+   you must change the port in ``solr-server`` element in the file
+   ``webapps/ROOT/sitemaps/config.xmap`` to match.
 
 There are two possible parts of customising the indexing: changing the
 XSLT that specifies what information gets stored in which fields, and
@@ -215,6 +229,7 @@ Building static pages
 Not all pages in a site need be generated dynamically from TEI
 documents. Let's add an "About the project" page with the following
 steps.
+
 
 Adding a URL handler
 ....................
@@ -335,8 +350,58 @@ details on how to handle more complex setups.
 Harvesting RDF
 --------------
 
-May look similar to Solr indexing, but add in a
-mapping file for entities to Wikipedia URLs.
+In order to make use of Kiln's RDF capabilities, some setup is
+required. Firstly create a repository in the Sesame server using the
+"New repository" link at http://localhost:9999/openrdf-workbench/,
+using the default options.
+
+Next set two variables in ``webapps/ROOT/sitemaps/config.xmap``:
+``sesame-server-repository`` to the name of the repository you just
+created, and ``rdf-base-uri`` to any absolute URI for your triples;
+we'll use http://www.example.org/.
+
+With that setup done, it is time to create the XSLT that will generate
+RDF XML from the TEI documents. Place the provided
+:download:`harvesting XSLT <tei-to-rdf.xsl>` at
+``webapps/ROOT/stylesheets/rdf/tei-to-rdf.xsl`` (replacing the
+existing placeholder file). Now you can harvest the RDF data using the
+links in the admin. You can use the workbench link given above to
+examine the data in the repository.
+
+
+Querying RDF
+------------
+
+Having put RDF data into the repository, it is of course necessary to
+be able to get it back out. The simplest approach is to create an XML
+file in ``webapps/ROOT/assets/queries/sparql/`` that has a root ``query``
+element containing the plain text of the SPARQL query.
+
+For example, to retrieve just the triples giving the date each letter
+was sent, save the following to
+``webapps/ROOT/assets/queries/sparql/dates.xml``::
+
+   <query>
+   PREFIX ex:&lt;http://www.example.org/>
+   PREFIX rdf:&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+   CONSTRUCT { ?correspondence ex:occurred_on ?date ;
+                               ex:has_document ?letter . }
+   WHERE { ?correspondence ex:occurred_on ?date ;
+                           ex:has_document ?letter . }
+   </query>
+
+.. note:: Within an XML SPARQL query document, XML rules apply,
+   meaning that XML-significant characters (primarily <) need to be
+   escaped (&lt;).
+
+To get the results from this query, use the URL
+``cocoon://_internal/sesame/query/graph/dates.xml`` in a sitemap's
+``map:generate`` or ``map:part`` ``src`` attribute.
+
+While the Sesame RDF server can return results in various formats, due
+to Kiln working best with XML documents it is set up to make Graph
+Queries (using the CONSTRUCT command) with results in RDF XML.
 
 
 Development aids
@@ -361,6 +426,12 @@ ID, in *Match by ID*.
 Finally, *Templates by filename* provides the expanded XSLT (all
 imported and included XSLT are recursively included) for each
 template, and how that template renders an empty document.
+
+The level of detail in the error messages Kiln provides can be reduced
+by setting the ``debug`` element's value to 0 in the file
+``webapps/ROOT/sitemaps/config.xmap``. This should be done in
+production environments to avoid providing useless and/or system
+information revealing information to users.
 
 
 .. _admin section: http://127.0.0.1:9999/admin/
