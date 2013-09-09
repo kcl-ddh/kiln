@@ -43,17 +43,25 @@ Support
 
 See our `issue tracker`_\.
 
+
+Tutorial
+--------
+
+Kiln comes with a :ref:`tutorial <tutorial>` that covers using the main
+components of Kiln, and is recommended for new users.
+
+
 Contents
 --------
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
 
     quickstart
     structure
     components
-    navigation
     running
+    navigation
     templating
     searching
     schematron
