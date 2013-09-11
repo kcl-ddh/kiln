@@ -108,7 +108,7 @@ Let's change the rendering, in an admittedly trivial way, so that the
 names of people and places are italicised. This involves adding a
 template like the following::
 
-   <xsl:template match="persName | placeName">
+   <xsl:template match="tei:persName | tei:placeName">
      <i>
        <xsl:apply-templates />
      </i>
