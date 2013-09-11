@@ -88,7 +88,7 @@ Kiln's defaults and project-specific material. Rather than change the
 XSLT that forms part of Kiln (typically, files that live in
 ``webapps/ROOT/kiln``), you change files that themselves import those
 files. This way, if you upgrade Kiln and those files have changed,
-you're not stuck trying me merge the changes you made back into the
+you're not stuck trying to merge the changes you made back into the
 latest file. And if you don't want to make use of Kiln's XSLT, just
 remove the import.
 
@@ -177,7 +177,7 @@ element in ``schema.xml``, define a recipient field::
 
 After changing the schema, you will need to restart Jetty so that the
 new configuration is loaded. You can check the schema that Solr is
-using via the Solr admin interface at http://localhost:9999/solr/.
+using via the Solr admin interface at http://127.0.0.1:9999/solr/.
 
 Next ``stylesheets/solr/tei-to-solr.xsl`` needs to modified to add in
 the indexing of the recipient into the new schema. Looking at
@@ -290,7 +290,7 @@ Finally, the document is serialised; in this case no serializer is
 specified, meaning that the default (HTML 5) is used.
 
 Now that the ``about.html`` URL is defined, try requesting it at
-http://localhost:9999/about.html. Not surprisingly, an error occurred,
+http://127.0.0.1:9999/about.html. Not surprisingly, an error occurred,
 because (as the first line of the stacktrace reveals) there is no
 ``about.xml`` template file. It's time to make one.
 
@@ -321,7 +321,7 @@ template can inherit from another and provide content only for those
 blocks that it needs to.
 
 Go ahead and add to ``about.xml`` (using ``tei.xml`` as a
-basis) whatever content you want the "About the project" page to
+guide) whatever content you want the "About the project" page to
 have. Since there is no source document being transformed, there's no
 need to have the ``xsl:import`` that ``tei.xml`` has, and wherever it
 has ``xsl:value-of`` or ``xsl:apply-templates``, you should just put
@@ -352,7 +352,7 @@ Harvesting RDF
 
 In order to make use of Kiln's RDF capabilities, some setup is
 required. Firstly create a repository in the Sesame server using the
-"New repository" link at http://localhost:9999/openrdf-workbench/,
+"New repository" link at http://127.0.0.1:9999/openrdf-workbench/,
 using the default options.
 
 Next set two variables in ``webapps/ROOT/sitemaps/config.xmap``:
