@@ -4,7 +4,11 @@ Tutorial
 ========
 
 This tutorial walks you through the creation of a basic web site
-edition of some historical letters.
+edition of some historical letters. It is designed to provide
+familiarity with how some of the pieces of Kiln work and can be used
+together. It is not a tutorial in the individual technologies; it does
+not try to teach XSLT programming, or RDF, or Solr. However, it also
+does not require any great knowledge of same.
 
 Installation
 ------------
@@ -368,6 +372,12 @@ existing placeholder file). Now you can harvest the RDF data using the
 links in the admin. You can use the workbench link given above to
 examine the data in the repository.
 
+.. note:: Both the ontology and the harvesting are primitive, and
+   designed to be simple enough for the tutorial, without being
+   entirely trivial. Harvesting the ontology from each TEI document is
+   not good practice, nor harvesting identifiers multiple times for
+   the same entity.
+
 
 Querying RDF
 ------------
@@ -377,17 +387,17 @@ be able to get it back out. The simplest approach is to create an XML
 file in ``webapps/ROOT/assets/queries/sparql/`` that has a root ``query``
 element containing the plain text of the SPARQL query.
 
-For example, to retrieve just the triples giving the date each letter
-was sent, save the following to
-``webapps/ROOT/assets/queries/sparql/dates.xml``::
+For example, to retrieve just the triples giving the recipient of each
+letter, save the following to
+``webapps/ROOT/assets/queries/sparql/recipients.xml``::
 
    <query>
    PREFIX ex:&lt;http://www.example.org/>
    PREFIX rdf:&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
-   CONSTRUCT { ?correspondence ex:occurred_on ?date ;
+   CONSTRUCT { ?correspondence ex:has_recipient ?recipient ;
                                ex:has_document ?letter . }
-   WHERE { ?correspondence ex:occurred_on ?date ;
+   WHERE { ?correspondence ex:has_recipient ?recipient ;
                            ex:has_document ?letter . }
    </query>
 
@@ -396,12 +406,173 @@ was sent, save the following to
    escaped (&lt;).
 
 To get the results from this query, use the URL
-``cocoon://_internal/sesame/query/graph/dates.xml`` in a sitemap's
+``cocoon://_internal/sesame/query/graph/recipients.xml`` in a sitemap's
 ``map:generate`` or ``map:part`` ``src`` attribute.
 
-While the Sesame RDF server can return results in various formats, due
-to Kiln working best with XML documents it is set up to make Graph
-Queries (using the CONSTRUCT command) with results in RDF XML.
+.. note:: While the Sesame RDF server can return results in various
+   formats, due to Kiln working best with XML documents it is set up
+   to make Graph Queries (using the CONSTRUCT command) with results in
+   RDF XML.
+
+Let's use a similar set of query results to display a list of other
+letters to the same recipient on each letter's page. As it stands the
+query returns the letters for *all* recipients in the collection, not
+just those that match a particular recipient. Therefore we need a way
+to pass in the name of the current letter's recipient to the query and
+get back the filtered results. Remember that the query document is
+just an XML document, so we can modify it with XSLT to supply that
+value.
+
+The :download:`new query <recipients.xml>` should be saved at
+``webapps/ROOT/assets/queries/sparql/recipients.xml`` (you don't need
+the old version). Take a look at how it has changed, through the
+addition of the ``recipient`` element placeholder and using a custom
+output that better matches the information we want.
+
+The URL mentioned above for performing a query of the RDF server
+(``cocoon://_internal/sesame/query/graph/**.xml``) is handled by a
+core part of Kiln, that should not be modified. It calls the non-core
+URL ``cocoon://admin/rdf/construct/graph/{1}.xml`` (where "{1}" is
+whatever is matched by the "**" of the first URL). This URL is handled
+by a ``map:match`` in ``webapps/ROOT/sitemaps/rdf.xmap``, by reading
+the specified file. It is this ``map:match`` that needs to be modified
+or added to in order to customise the query.
+
+Since you may want to handle multiple SPARQL queries in different
+ways, we'll add another ``map:match``, before the one with the id
+"local-rdf-query-from-file". Its pattern needs to match
+``/admin/rdf/construct/graph/**.xml``, but be more specific to
+catch only the recipient query. There also needs to be an element in
+the URL that specifies the particular recipient we want to include in
+the query. A pattern of
+``construct/graph/recipient/*.xml`` is suitable, where \* will be
+the recipient name. The path to the query file can be specified
+explicitly.
+
+.. note:: The "/admin/rdf" part of the URL is common to all patterns
+   specified in the ``rdf.xmap`` file. A sitemap file (``*.xmap``)
+   includes another sitemap by mounting it at a particular URL, and
+   can specify a URI prefix that is common to all URL patterns defined
+   therein. See the ``uri-prefix`` attributes on the ``map:mount``
+   elements in ``main.xmap`` and ``admin.xmap``.
+
+The full ``map:match`` is as follows::
+
+   <map:match pattern="construct/graph/recipient/*.xml">
+     <map:generate src="../assets/queries/sparql/recipients.xml" />
+     <map:transform src="../stylesheets/rdf/add-recipient.xsl">
+       <map:parameter name="recipient" value="{1}" />
+     </map:transform>
+     <map:serialize type="xml" />
+   </map:match>
+
+Note how the name of the recipient (that will be matched by \* in the
+pattern) is passed as a parameter to the XSLT. That XSLT, which is
+very simple, is as follows::
+
+   <xsl:stylesheet version="2.0"
+                   xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+     <xsl:param name="recipient" />
+
+     <xsl:template match="recipient">
+       <xsl:value-of select="$recipient" />
+     </xsl:template>
+
+     <xsl:template match="*">
+       <xsl:copy>
+         <xsl:apply-templates />
+       </xsl:copy>
+     </xsl:template>
+   </xsl:stylesheet>
+
+This should be saved to
+``webapps/ROOT/stylesheets/rdf/add-recipient.xsl``.
+
+Now of course we need to call the query URL, including the specific
+recipient name to search on. This means the request for that URL must
+come at a point in the processing that has access to the TEI document
+being displayed. We'll use an `XInclude`_ to include the query results
+in our TEI document. This works by adding an XInclude element with an
+``href`` attribute specifying the URL of the resource to be included,
+and then using Cocoon's XInclude processor to perform the actual
+inclusion.
+
+To add the XInclude element, we of course use XSLT. In
+``webapps/ROOT/sitemaps/main.xmap``, modify the ``map:match`` for TEI
+display (its id is "local-tei-display-html") to add the line::
+
+   <map:transform src="../stylesheets/tei/add-recipient-query.xsl" />
+
+before the existing ``map:transform``. Then place the provided
+:download:`XSLT <add-recipient-query.xsl>` at
+``webapps/ROOT/stylesheets/tei/add-recipient-query.xsl``. This XSLT
+just copies the existing document and adds the XInclude element.
+
+To actually process the XInclude element so that the resource at the
+URL it specifies is included into the document, add the following line
+to the ``map:match``, immediately after the ``map:transform`` element
+you just added::
+
+   <map:transform type="xinclude" />
+
+Now the document that is manipulated by the template consists of a
+top-level ``aggregation`` element that has three sub-elements: ``tei:TEI``
+(the TEI document), ``kiln:nav`` (the site navigation), and
+``rdf:RDF``, the query results. It's now possible, after all this
+setup, to modify the template to transform the query results into the
+list of other letters to the same recipient. Edit
+``webapps/ROOT/assets/templates/tei.xml`` and add the line::
+
+   <xsl:apply-templates mode="recipients" select="/aggregation/rdf:RDF" />
+
+after the line that applies templates to the ``teiHeader``
+element. You will also need to add a namespace declaration to the
+``kiln:root`` element::
+
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+
+Now edit ``webapps/ROOT/stylesheets/tei/to-html.xsl`` and add in the
+following (along with, again, the RDF namespace declaration and one
+binding the prefix ``ex`` to ``http://www.example.org/``; you'll get
+some odd errors if you don't!)::
+
+   <xsl:template match="rdf:RDF" mode="recipients">
+     <xsl:if test="count(rdf:Description) &gt; 1">
+       <div class="section-container accordion" data-section="accordion">
+         <section>
+           <h2 class="title" data-section-title="">
+             <small><a href="#">Other Letters to this Recipient</a></small>
+           </h2>
+           <div class="content" data-section-content="">
+             <ul class="no-bullet">
+               <xsl:apply-templates mode="recipients" />
+             </ul>
+           </div>
+         </section>
+       </div>
+     </xsl:if>
+   </xsl:template>
+
+   <xsl:template match="rdf:Description" mode="recipients">
+     <xsl:variable name="tei_id" select="ex:has_identifier" />
+     <xsl:if test="$tei_id != /aggregation/tei:TEI/@xml:id">
+       <li>
+         <a href="{$tei_id}.html">
+           <xsl:value-of select="ex:has_date" />
+         </a>
+       </li>
+     </xsl:if>
+   </xsl:template>
+
+And there it is! It's important to note that the above is not the only
+way to achieve this result. The XInclude step might have been
+incorporated into the TEI preprocessing pipeline; or the RDF query
+modified to use the TEI ID as the variable rather than the recipient's
+name; or the letter title harvested and used as the link title rather
+than the date. Much depends, in crafting the components that go into
+generating the resource for a URL, on whether and how those components
+are used by other parts of the system.
 
 
 Development aids
@@ -440,3 +611,4 @@ information revealing information to users.
 .. _Solr documentation: http://lucene.apache.org/solr/documentation.html
 .. _TEI: http://www.tei-c.org/
 .. _XSLT: http://www.w3.org/standards/xml/transformation
+.. _XInclude: http://www.w3.org/TR/xinclude/

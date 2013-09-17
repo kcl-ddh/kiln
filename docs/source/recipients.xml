@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<query>
+PREFIX ex:&lt;http://www.example.org/>
+PREFIX rdf:&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+CONSTRUCT { ?letter ex:has_date ?datename .
+            ?letter ex:has_identifier ?letterid . }
+WHERE {
+    SELECT DISTINCT ?letter ?datename ?letterid
+    WHERE {
+        ?correspondence ex:has_recipient ?recipient ;
+                        ex:occurred_on ?date ;
+                        ex:has_document ?letter .
+        ?recipient ex:has_identifier "<recipient />" .
+        ?date ex:has_identifier ?datename .
+        ?letter ex:has_identifier ?letterid .
+    }
+    ORDER BY ?datename
+}
+</query>
