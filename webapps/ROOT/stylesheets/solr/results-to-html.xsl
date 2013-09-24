@@ -5,27 +5,44 @@
 
   <xsl:import href="../defaults.xsl" />
 
+  <!-- query-string is escaped, but according to different rules than
+       both XPath's encode-for-uri and escape-html-uri
+       functions. encode-for-uri being the standard to compare
+       against, the query string has the following characters not
+       escaped: "," (there may be others) -->
   <xsl:param name="query-string" />
+  <xsl:variable name="escaped-query-string">
+    <xsl:value-of select="replace($query-string, ',', '%2C')" />
+  </xsl:variable>
 
   <xsl:template match="int" mode="search-results">
     <!-- A facet's count. -->
-    <li>
-      <a>
-        <xsl:attribute name="href">
-          <xsl:text>?</xsl:text>
-          <xsl:value-of select="$query-string" />
-          <xsl:text>&amp;fq=</xsl:text>
-          <xsl:value-of select="../@name" />
-          <xsl:text>:"</xsl:text>
+    <xsl:variable name="fq">
+      <xsl:text>&amp;fq=</xsl:text>
+      <xsl:value-of select="../@name" />
+      <xsl:text>:"</xsl:text>
+      <xsl:value-of select="@name" />
+      <xsl:text>"</xsl:text>
+    </xsl:variable>
+    <xsl:variable name="escaped-fq">
+      <xsl:value-of select="substring-before($fq, '&quot;')" />
+      <xsl:value-of select="encode-for-uri(substring-after($fq, ':'))" />
+    </xsl:variable>
+    <xsl:if test="not(contains($escaped-query-string, $escaped-fq))">
+      <li>
+        <a>
+          <xsl:attribute name="href">
+            <xsl:text>?</xsl:text>
+            <xsl:value-of select="$query-string" />
+            <xsl:value-of select="$fq" />
+          </xsl:attribute>
           <xsl:value-of select="@name" />
-          <xsl:text>"</xsl:text>
-        </xsl:attribute>
-        <xsl:value-of select="@name" />
-      </a>
-      <xsl:text> (</xsl:text>
-      <xsl:value-of select="." />
-      <xsl:text>)</xsl:text>
-    </li>
+        </a>
+        <xsl:text> (</xsl:text>
+        <xsl:value-of select="." />
+        <xsl:text>)</xsl:text>
+      </li>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template match="lst[@name='facet_fields']" mode="search-results">
@@ -125,7 +142,7 @@
       <a>
         <xsl:attribute name="href">
           <xsl:text>?</xsl:text>
-          <xsl:value-of select="replace($query-string, $fq, '')" />
+          <xsl:value-of select="replace($escaped-query-string, $fq, '')" />
         </xsl:attribute>
         <xsl:text>x</xsl:text>
       </a>
