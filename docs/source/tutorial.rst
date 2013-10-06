@@ -101,10 +101,10 @@ remove the import.
 
    This is specified in a Cocoon sitemap file, which defines the URLs
    in your site, and what to do, and to what, for each of them. In
-   this case any request for a URL starting texts/ and ending in .html
-   will result in the XML file with the same name being read from the
-   filesystem, preprocessed, and then transformed using the
-   to-html.xsl code.
+   this case any request for a URL starting ``texts/`` and ending in
+   ``.html`` will result in the XML file with the same name being read
+   from the filesystem, preprocessed, and then transformed using the
+   ``to-html.xsl`` code.
 
    Sitemap files are discussed later in the tutorial.
 
@@ -159,13 +159,8 @@ individually, or index them all at once.
    ``webapps/ROOT/sitemaps/config.xmap`` to match.
 
 There are two possible parts of customising the indexing: changing the
-XSLT that specifies what information gets stored in which fields, and
-changing the available fields.
-
-The first is done by modifying the XSLT
-``stylesheets/solr/tei-to-solr.xsl``. Just as with the TEI to HTML
-transformation, this XSLT imports a default Kiln XSLT that can be
-overridden.
+available fields that data can be indexed into, and changing the
+XSLT that specifies what information gets stored in which fields.
 
 To change the fields in the index, modify the Solr schema document at
 ``webapps/solr/conf/schema.xml``. Refer to the `Solr documentation`_
@@ -181,23 +176,37 @@ element in ``schema.xml``, define a recipient field::
 
 After changing the schema, you will need to restart Jetty so that the
 new configuration is loaded. You can check the schema that Solr is
-using via the Solr admin interface at http://127.0.0.1:9999/solr/.
+using via the Solr admin interface at http://127.0.0.1:9999/solr/ (the
+specific URL is http://localhost:9999/solr/#/collection1/schema).
 
-Next ``stylesheets/solr/tei-to-solr.xsl`` needs to modified to add in
-the indexing of the recipient into the new schema. Looking at
+Changing the data that is indexed is done by modifying the XSLT
+``stylesheets/solr/tei-to-solr.xsl``. Just as with the TEI to HTML
+transformation, this XSLT imports a default Kiln XSLT that can be
+overridden. We need to modify this file (not the default Kiln XSLT) to
+add in the indexing of the recipient into the new schema. Looking at
 ``kiln/stylesheets/solr/tei-to-solr.xsl``, the default indexing XSLT
 traverses through the teiHeader's descendant elements in the mode
 ``document-metadata``. It is a simple matter to add in a template to
 match on the appropriate element::
 
-   <xsl:template match="tei:profileDesc/tei:particDesc/tei:person[@role='recipient']"
+   <xsl:template match="tei:profileDesc/tei:particDesc//tei:person[@role='recipient']"
                  mode="document-metadata">
      <field name="recipient">
        <xsl:value-of select="normalize-space()" />
      </field>
    </xsl:template>
 
+You will also need to add a namespace declaration for the ``tei``
+prefix to the root ``xsl:stylesheet`` element:
+``xmlns:tei="http://www.tei-c.org/ns/1.0"``.
+
 Now reindex the letters.
+
+.. warning:: Omitting a namespace prefix that is used in an XPath
+   expression in an XSLT document will cause incomprehensible and
+   difficult to debug errors in the output, rather than a useful error
+   message. If you get results that make no sense, check that all of
+   the namespace prefixes that are used in the code are declared!
 
 
 Facets
@@ -275,15 +284,39 @@ following (and very similar to the one for the home page)::
    </map:match>
 
 Even in such a short fragment there is a lot going
-on. ``map:aggregate`` creates an XML document with a root element of
-``aggregation``, containing one part (subelement). This part is the
-product of internally making a request for the URL
+on. The ``pattern="about.html"`` attribute specifies that when a
+request is made for the URL ``http://localhost:9999/about.html``
+(assuming we are running on the default Kiln development server), the
+response is defined by the contents of this ``map:match`` element. As
+mentioned above, each of these definitions consists of generating a
+source document, transforming it in some fashion, and serialising the
+result in some format (such as XML or HTML or PDF). Only one document
+can be generated, and it is serialised only once, but there can be any
+number of transformations that occur in between.
+
+ ``map:aggregate`` creates an XML document with a root element of
+``aggregation``, containing in this case one part (subelement). This
+part is the product of internally making a request for the URL
 ``_internal/menu/main.xml?url=about.html``, which returns the menu
 structure. The use of URLs starting with ``cocoon:/`` is common, and
 allows a modular structure with lots of individual pieces that can be
 put together. If you want to see the ``map:match`` that handles this
 menu URL, open ``webapps/ROOT/kiln/sitemaps/main.xmap`` and look for
 the ``kiln-menu`` pipeline.
+
+.. note:: A pipeline (a collection of ``map:match`` elements) may be
+   marked as internal only (``map:pipeline internal-only="true"``),
+   meaning that it is only available to requests from within Kiln (via
+   a ``cocoon:/`` or ``cocoon://`` URL). If you request a URL that is
+   matched by such an internal pipeline, such as via your browser, it
+   will not match.
+
+   Kiln's generic pipelines are generally marked as internal only, and
+   are grouped under the URL ``_internal`` (eg,
+   ``http://localhost:9999/_internal/menu/main.xml``). It also uses
+   the convention of putting internal only pipelines that are project
+   specific under the URL ``internal`` (without the initial
+   underscore).
 
 The templating transformation, which puts the content of the
 ``aggregation`` element into a template, also internally requests a
@@ -324,12 +357,14 @@ elements. Now look at the ``tei.xml`` template, which shows how a
 template can inherit from another and provide content only for those
 blocks that it needs to.
 
-Go ahead and add to ``about.xml`` (using ``tei.xml`` as a
-guide) whatever content you want the "About the project" page to
-have. Since there is no source document being transformed, there's no
-need to have the ``xsl:import`` that ``tei.xml`` has, and wherever it
-has ``xsl:value-of`` or ``xsl:apply-templates``, you should just put
-in whatever text and HTML 5 markup you want directly.
+Go ahead and add to ``about.xml`` (using ``tei.xml`` as a guide)
+whatever content you want the "About the project" page to have. This
+should just be HTML markup and content, placed inside the appropriate
+``kiln:block`` elements. Since there is no source document being
+transformed, there's no need to have the ``xsl:import`` that
+``tei.xml`` has, and wherever it has ``xsl:value-of`` or
+``xsl:apply-templates``, you should just put in whatever text and HTML
+5 markup you want directly.
 
 
 Updating the menu
@@ -357,7 +392,8 @@ Harvesting RDF
 In order to make use of Kiln's RDF capabilities, some setup is
 required. Firstly create a repository in the Sesame server using the
 "New repository" link at http://127.0.0.1:9999/openrdf-workbench/,
-using the default options.
+using the default options. The ID you provide should just contain
+letters.
 
 Next set two variables in ``webapps/ROOT/sitemaps/config.xmap``:
 ``sesame-server-repository`` to the name of the repository you just
@@ -375,7 +411,7 @@ examine the data in the repository.
 .. note:: Both the ontology and the harvesting are primitive, and
    designed to be simple enough for the tutorial, without being
    entirely trivial. Harvesting the ontology from each TEI document is
-   not good practice, nor harvesting identifiers multiple times for
+   not good practice, nor is harvesting identifiers multiple times for
    the same entity.
 
 
@@ -407,7 +443,9 @@ letter, save the following to
 
 To get the results from this query, use the URL
 ``cocoon://_internal/sesame/query/graph/recipients.xml`` in a sitemap's
-``map:generate`` or ``map:part`` ``src`` attribute.
+``map:generate`` or ``map:part`` ``src`` attribute. Remember that
+``map:generate`` and ``map:aggregate`` (which contains ``map:part``
+elements) are the way that Cocoon generates a source document.
 
 .. note:: While the Sesame RDF server can return results in various
    formats, due to Kiln working best with XML documents it is set up
