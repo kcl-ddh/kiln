@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<map:sitemap xmlns:map="http://apache.org/cocoon/sitemap/1.0">
+  <map:pipelines>
+    <map:pipeline>
+      <!-- The following matches are samples only. Since Fedora is a
+           flexible system, it is not possible to anticipate or cover
+           all possibilities, so customisation is necessary. -->
+
+      <!-- Getting binary content from a datastream. -->
+      <map:match pattern="images/*/*.jpg">
+        <map:read mime-type="image/jpeg" src="cocoon://_internal/fedora/objects/{1}/datastreams/{2}/content" />
+      </map:match>
+
+      <!-- Getting binary content via a method. -->
+      <map:match pattern="images/*/*/*.png">
+        <map:read mime-type="image/png" src="cocoon://_internal/fedora/objects/{1}/methods/{2}/{3}" />
+      </map:match>
+
+      <!-- Getting XML content from a datastream. -->
+      <map:match pattern="xml/*/*.xml">
+        <map:generate src="cocoon://_internal/fedora/objects/{1}/datastreams/{2}/content.xml" />
+        <map:serialize type="xml" />
+      </map:match>
+
+      <!-- Getting XML content via a method. -->
+      <map:match pattern="xml/*/*/*.xml">
+        <map:generate src="cocoon://_internal/fedora/objects/{1}/methods/{2}/{3}" />
+        <map:serialize type="xml" />
+      </map:match>
+    </map:pipeline>
+  </map:pipelines>
+</map:sitemap>

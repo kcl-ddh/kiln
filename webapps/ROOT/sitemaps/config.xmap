@@ -44,6 +44,10 @@
              message. -->
         <debug>1</debug>
         <eats-server>http://localhost:8000/</eats-server>
+        <!-- If authentication tokens are required, provide them in
+             the URL as per RFC 2396; eg,
+             http://username:password@domain.name/ -->
+        <fedora-url></fedora-url>
         <rdf-base-uri></rdf-base-uri>
         <sesame-server>http://localhost:9999/openrdf-sesame/</sesame-server>
         <sesame-server-repository></sesame-server-repository>

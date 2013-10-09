@@ -7,6 +7,12 @@
   <map:pipelines>
     <!-- Mount sub-sitemaps. -->
     <map:pipeline id="local-admin-mount">
+      <!-- Mount a sitemap for fetching resources from a Fedora
+           repository. -->
+      <map:match pattern="fedora/**">
+        <map:mount check-reload="yes" src="fedora.xmap"
+                   uri-prefix="fedora" />
+      </map:match>
       <!-- Mount a sitemap for generating and querying RDF. -->
       <map:match pattern="rdf/**">
         <map:mount check-reload="yes" src="rdf.xmap" uri-prefix="rdf/" />

@@ -66,6 +66,7 @@ Contents
     searching
     schematron
     rdf
+    fedora
     multilingual
     backend
     webservice
