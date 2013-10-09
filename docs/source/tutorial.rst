@@ -294,7 +294,7 @@ result in some format (such as XML or HTML or PDF). Only one document
 can be generated, and it is serialised only once, but there can be any
 number of transformations that occur in between.
 
- ``map:aggregate`` creates an XML document with a root element of
+``map:aggregate`` creates an XML document with a root element of
 ``aggregation``, containing in this case one part (subelement). This
 part is the product of internally making a request for the URL
 ``_internal/menu/main.xml?url=about.html``, which returns the menu
