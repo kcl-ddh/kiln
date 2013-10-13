@@ -243,6 +243,11 @@ Not all pages in a site need be generated dynamically from TEI
 documents. Let's add an "About the project" page with the following
 steps.
 
+.. note:: This section introduces a lot of concepts that may be
+   entirely new to you. Some of this is about the Cocoon software; if
+   you need more information, try looking at the `Overview of Apache
+   Cocoon`_ and `Cocoon Concepts`_ documentation on the Cocoon site.
+
 
 Adding a URL handler
 ....................
@@ -644,8 +649,10 @@ information revealing information to users.
 
 
 .. _admin section: http://127.0.0.1:9999/admin/
+.. _Cocoon Concepts: http://cocoon.apache.org/2.1/userdocs/concepts/index.html
 .. _Introspection: http://127.0.0.1:9999/admin/introspection/
 .. _Kiln repository: https://github.com/kcl-ddh/kiln/
+.. _Overview of Apache Cocoon: http://cocoon.apache.org/2.1/overview.html
 .. _Solr documentation: http://lucene.apache.org/solr/documentation.html
 .. _TEI: http://www.tei-c.org/
 .. _XSLT: http://www.w3.org/standards/xml/transformation
