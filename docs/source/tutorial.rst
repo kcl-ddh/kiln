@@ -222,10 +222,14 @@ query parameters. You can have multiple elements with the same name,
 and the query processor will construct it into the proper form for
 Solr to interpret.
 
-Add in a facet for the recipient field and perform a search. You can
-see that the new facet is automatically displayed on the search
-results page.
+Add in a facet for the recipient field and perform a search. The new
+facet is automatically displayed on the search results page, and
+should look something like this:
 
+.. image:: /images/search_screenshot.png
+   :align: center
+   :alt: 
+   :width: 90%
 
 Results display
 ...............
