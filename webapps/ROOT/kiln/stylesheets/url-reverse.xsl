@@ -41,42 +41,4 @@
     </axsl:when>
   </xsl:template>
 
-  <xsl:template name="foo">
-      <xsl:choose>
-        <xsl:when test="contains(@kiln:pattern, '*')">
-          <xsl:call-template name="replace-wildcards">
-            <xsl:with-param name="pattern" select="@kiln:pattern" />
-            <xsl:with-param name="index" select="1" />
-          </xsl:call-template>
-        </xsl:when>
-        <xsl:otherwise>
-          <axsl:text><xsl:value-of select="@kiln:pattern" /></axsl:text>
-        </xsl:otherwise>
-      </xsl:choose>
-  </xsl:template>
-
-  <xsl:template name="replace-wildcards">
-    <xsl:param name="pattern" />
-    <xsl:param name="index" />
-    <axsl:text><xsl:value-of select="substring-before($pattern, '*')" /></axsl:text>
-    <xsl:variable name="reduced-string">
-      <xsl:call-template name="reduce-string">
-        <xsl:with-param name="string" select="$pattern" />
-      </xsl:call-template>
-    </xsl:variable>
-    <xsl:choose>
-      <xsl:when test="starts-with($reduced-string, '**')">
-      </xsl:when>
-      <xsl:otherwise>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:template>
-
-  <xsl:template name="reduce-string">
-    <xsl:param name="string" />
-    <xsl:variable name="length"
-                  select="string-length(substring-before($string, '*')" />
-    <xsl:value-of select="substring($string, 1, $length)" />
-  </xsl:template>
-
 </xsl:stylesheet>
