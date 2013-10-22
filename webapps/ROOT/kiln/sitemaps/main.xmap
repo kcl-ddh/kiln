@@ -118,6 +118,16 @@
         </map:generate>
         <map:serialize type="xml" />
       </map:match>
+
+      <!-- Reverse URL matching. -->
+      <map:match pattern="_internal/url/reverse.xsl">
+        <!-- Produces an XSLT that provides a "url-for-match" named
+             template that generates a full URL from a map:match ID
+             and a sequence of parameters. -->
+        <map:generate src="cocoon://_internal/introspection/pipelines.xml" />
+        <map:transform src="../stylesheets/url-reverse.xsl" />
+        <map:serialize type="xml" />
+      </map:match>
     </map:pipeline>
 
     <!-- Mount sub-sitemaps. -->
