@@ -84,7 +84,7 @@
 
       <!-- Provide the map:match that handled the supplied URL, with
            references to other map:matches recursively expanded. -->
-      <map:match pattern="url/**">
+      <map:match id="kiln-introspection-match-url" pattern="url/**">
         <map:generate src="cocoon:/pipelines.xml" />
         <map:transform src="../stylesheets/introspection/compose-url-match.xsl">
           <map:parameter name="url" value="{1}" />

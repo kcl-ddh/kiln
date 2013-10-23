@@ -1,16 +1,19 @@
-<xsl:stylesheet exclude-result-prefixes="#all" version="2.0" xmlns="http://www.w3.org/1999/xhtml"
-  xmlns:dir="http://apache.org/cocoon/directory/2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:stylesheet exclude-result-prefixes="#all" version="2.0"
+                xmlns:dir="http://apache.org/cocoon/directory/2.0"
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
   <!-- XSLT to produce a list of links to the index URLs for each
        document in a recursive directory listing.
-       
+
        Customisations to this code are likely to be to:
-       
+
        * exclude some directories/files from being listed (so that
          they are not indexed); and
        * change the URL used to index specific files.
 
   -->
+
+  <xsl:include href="cocoon://_internal/url/reverse.xsl" />
 
   <xsl:template match="/">
     <html>
@@ -48,7 +51,14 @@
     </xsl:variable>
     <li>
       <!-- Link to the indexing pipeline for the specific file. -->
-      <a href="tei/{$filepath}.html">
+      <a>
+        <xsl:attribute name="href">
+          <xsl:call-template name="url-for-match">
+            <xsl:with-param name="match-id"
+                            select="'local-solr-index'" />
+            <xsl:with-param name="parameters" select="('tei', $filepath)" />
+          </xsl:call-template>
+        </xsl:attribute>
         <xsl:value-of select="$filepath" />
         <xsl:text>.xml</xsl:text>
       </a>

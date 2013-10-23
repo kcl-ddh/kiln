@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet exclude-result-prefixes="#all" version="2.0" xmlns:dir="http://apache.org/cocoon/directory/2.0"
-  xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-  <xsl:output indent="yes" method="xml" />
+<xsl:stylesheet exclude-result-prefixes="#all" version="2.0"
+                xmlns:dir="http://apache.org/cocoon/directory/2.0"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+  <xsl:include href="cocoon://_internal/url/reverse.xsl" />
 
   <xsl:param name="type" />
 
@@ -24,7 +26,15 @@
 
   <xsl:template match="dir:file[matches(@name, '.xml$')]">
     <xsl:param name="root" select="''" />
-
-    <xi:include href="cocoon://internal/metadata/{$type}/{$root}{@name}" />
+    <xsl:variable name="name" select="substring-before(@name, '.xml')" />
+    <xi:include>
+      <xsl:attribute name="href">
+        <xsl:call-template name="url-for-match">
+          <xsl:with-param name="match-id" select="'local-typed-metadata'" />
+          <xsl:with-param name="parameters"
+                          select="($type, concat($root, $name))" />
+        </xsl:call-template>
+      </xsl:attribute>
+    </xi:include>
   </xsl:template>
 </xsl:stylesheet>

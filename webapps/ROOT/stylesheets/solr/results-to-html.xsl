@@ -4,6 +4,7 @@
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
   <xsl:import href="../defaults.xsl" />
+  <xsl:include href="cocoon://_internal/url/reverse.xsl" />
 
   <!-- query-string is escaped, but according to different rules than
        both XPath's encode-for-uri and escape-html-uri
@@ -87,10 +88,11 @@
     <li>
       <a>
         <xsl:attribute name="href">
-          <xsl:value-of select="$kiln:context-path" />
-          <xsl:text>/text/</xsl:text>
-          <xsl:value-of select="str[@name='document_id']" />
-          <xsl:text>.html</xsl:text>
+          <xsl:call-template name="url-for-match">
+            <xsl:with-param name="match-id" select="'local-tei-display-html'" />
+            <xsl:with-param name="parameters"
+                            select="(str[@name='document_id'])" />
+          </xsl:call-template>
         </xsl:attribute>
         <xsl:value-of select="arr[@name='document_title']/str[1]" />
       </a>

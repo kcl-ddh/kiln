@@ -6,6 +6,7 @@
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
   <xsl:import href="../defaults.xsl" />
+  <xsl:include href="cocoon://_internal/url/reverse.xsl" />
 
   <xsl:template match="/">
     <aggregation>
@@ -29,8 +30,12 @@
     </xsl:variable>
     <xi:include>
       <xsl:attribute name="href">
-        <xsl:text>cocoon://_internal/introspection/url</xsl:text>
-        <xsl:value-of select="$value" />
+        <xsl:call-template name="url-for-match">
+          <xsl:with-param name="match-id"
+                          select="'kiln-introspection-match-url'" />
+          <xsl:with-param name="parameters"
+                          select="(substring-after($value, '/'))" />
+        </xsl:call-template>
       </xsl:attribute>
     </xi:include>
   </xsl:template>
