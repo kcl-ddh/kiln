@@ -28,8 +28,14 @@
 
   <xsl:template match="map:match">
     <axsl:when test="$match-id = '{@id}'">
-      <xsl:value-of select="$kiln:context-path" />
-      <axsl:text><xsl:value-of select="$kiln:context-path" />/</axsl:text>
+      <xsl:choose>
+        <xsl:when test="ancestor::map:pipeline[1]/@internal-only='true'">
+          <axsl:text>cocoon://</axsl:text>
+        </xsl:when>
+        <xsl:otherwise>
+          <axsl:text><xsl:value-of select="$kiln:context-path" />/</axsl:text>
+        </xsl:otherwise>
+      </xsl:choose>
       <xsl:for-each select="tokenize(@kiln:pattern, '(\*\*)|(\*)')">
         <xsl:if test="position() &gt; 1">
           <axsl:value-of select="$parameters[{position()}-1]" />

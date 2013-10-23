@@ -22,8 +22,10 @@ example::
      </xsl:attribute>
    </a>
 
-This generates a URL based on the ``@pattern`` value of the
-``map:match`` with the id "local-tei-display-html".
+This generates a root-relative URL based on the ``@pattern`` value of the
+``map:match`` with the id "local-tei-display-html". If the identified
+``map:match`` is part of a pipeline that is marked as
+``internal-only="true"``, the generated URL is a ``cocoon://`` URL.
 
 .. warning:: Neither Kiln nor Cocoon performs any checks that the
    ``id`` values you assign to ``map:match`` elements are unique,
