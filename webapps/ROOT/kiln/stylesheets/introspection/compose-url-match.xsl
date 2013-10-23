@@ -142,7 +142,7 @@
           </xsl:choose>
         </xsl:for-each>
       </xsl:variable>
-      <xsl:apply-templates select="//map:match[not(map:mount)][normalize-space(@kiln:regexp)][matches($input, @kiln:regexp)][1]">
+      <xsl:apply-templates select="(//map:match[not(map:mount)][normalize-space(@kiln:regexp) and matches($input, @kiln:regexp)])[1]">
         <xsl:with-param name="url" select="$input" tunnel="yes" />
       </xsl:apply-templates>
     </xsl:if>
