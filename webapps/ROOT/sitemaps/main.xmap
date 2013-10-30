@@ -53,18 +53,6 @@
         <map:serialize />
       </map:match>
 
-      <map:match pattern="**.jpg">
-        <map:read src="cocoon://_internal/fedora/{1}"
-                  mime-type="image/jpeg" />
-      </map:match>
-
-      <map:match pattern="**.xml">
-        <map:generate
-            src="cocoon://_internal/fedora/objects/{1}/versions.xml?format=xml"
-            />
-        <map:serialize type="xml" />
-      </map:match>
-
       <!-- Search. -->
       <map:match id="local-search" pattern="search/">
         <map:aggregate element="aggregation">
