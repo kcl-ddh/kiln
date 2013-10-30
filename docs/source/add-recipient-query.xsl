@@ -11,7 +11,7 @@
         <xsl:attribute name="href">
           <xsl:text>cocoon://_internal/sesame/query/graph/recipient/</xsl:text>
           <xsl:value-of select="normalize-space(tei:TEI/tei:teiHeader/tei:profileDesc/tei:particDesc//tei:person[@role='recipient'])" />
-          <xsl:text>/recipients.xml</xsl:text>
+          <xsl:text>.xml</xsl:text>
         </xsl:attribute>
       </xi:include>
     </xsl:copy>
