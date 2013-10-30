@@ -573,9 +573,9 @@ list of other letters to the same recipient. Edit
 
    <xsl:apply-templates mode="recipients" select="/aggregation/rdf:RDF" />
 
-after the line that applies templates to the ``teiHeader``
-element. You will also need to add a namespace declaration to the
-``kiln:root`` element::
+after the line that applies templates to the ``teiHeader`` element
+(and before the closing ``div`` tag). You will also need to add a
+namespace declaration to the ``kiln:root`` element::
 
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 
