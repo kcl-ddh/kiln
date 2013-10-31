@@ -14,12 +14,14 @@
   <kiln:child>
     <kiln:block name="title">
       <xsl:text>Kiln match introspection for the URL </xsl:text>
+      <xsl:text>/</xsl:text>
       <xsl:value-of select="/aggregation/map:match/@kiln:pattern" />
     </kiln:block>
 
     <kiln:block name="header">
       <h1>
         <xsl:text>Kiln match introspection for the URL </xsl:text>
+        <xsl:text>/</xsl:text>
         <xsl:value-of select="/aggregation/map:match/@kiln:pattern" />
       </h1>
     </kiln:block>

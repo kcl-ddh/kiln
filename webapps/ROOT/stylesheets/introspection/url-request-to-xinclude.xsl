@@ -16,12 +16,15 @@
 
   <xsl:template match="request:parameter">
     <xsl:variable name="value">
+      <xsl:if test="not(starts-with(request:value, '/'))">
+        <xsl:text>/</xsl:text>
+      </xsl:if>
       <xsl:choose>
         <xsl:when test="$kiln:mount-path and
                         starts-with(request:value, concat('/',
                         $kiln:mount-path))">
           <xsl:value-of select="substring-after(request:value, concat('/',
-                                $kiln:mount-path))" />
+                                $kiln:mount-path, '/'))" />
         </xsl:when>
         <xsl:otherwise>
           <xsl:value-of select="request:value" />
