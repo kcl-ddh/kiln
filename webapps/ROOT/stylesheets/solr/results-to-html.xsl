@@ -5,6 +5,7 @@
 
   <xsl:import href="../defaults.xsl" />
   <xsl:include href="cocoon://_internal/url/reverse.xsl" />
+  <xsl:include href="results-pagination.xsl" />
 
   <!-- query-string is escaped, but according to different rules than
        both XPath's encode-for-uri and escape-html-uri
@@ -108,6 +109,8 @@
         <ul>
           <xsl:apply-templates mode="search-results" select="doc" />
         </ul>
+
+        <xsl:call-template name="add-results-pagination" />
       </xsl:when>
     </xsl:choose>
   </xsl:template>
