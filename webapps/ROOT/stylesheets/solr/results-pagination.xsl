@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="2.0"
                 xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
+                xmlns:xs="http://www.w3.org/2001/XMLSchema"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-  <!-- XSLT to handle pagination of search results. -->
+  <!-- XSLT to handle pagination of search results.
+
+       Assumes that the search results are in
+       /aggregation/response. -->
 
   <xsl:import href="../../kiln/stylesheets/query-string-handler.xsl" />
 
@@ -14,9 +18,10 @@
                 select="number(/aggregation/response/result/@start)" />
   <xsl:variable name="number-results"
                 select="number(/aggregation/response/result/@numFound)" />
-  <xsl:variable name="current-page" select="floor($start div $rows) + 1" />
+  <xsl:variable name="current-page"
+                select="xs:integer(floor($start div $rows)) + 1" />
   <xsl:variable name="total-pages"
-                select="number(ceiling($number-results div $rows))" />
+                select="xs:integer(ceiling($number-results div $rows))" />
 
   <xsl:template name="add-results-pagination">
     <xsl:if test="$total-pages &gt; 1">
@@ -41,14 +46,17 @@
               </xsl:for-each>
             </xsl:when>
             <xsl:otherwise>
-              <xsl:if test="$current-page - 3 &gt; 1">
+              <xsl:variable name="first-page"
+                            select="max(($current-page - 3, 1))" />
+              <xsl:variable name="last-page"
+                            select="min(($current-page + 3, $total-pages))" />
+              <xsl:if test="$first-page &gt; 1">
                 <xsl:call-template name="pagination-ellipsis" />
               </xsl:if>
-              <xsl:for-each select="$current-page - 3 to
-                                    $current-page + 3">
+              <xsl:for-each select="$first-page to $last-page">
                 <xsl:call-template name="make-pagination-list" />
               </xsl:for-each>
-              <xsl:if test="$current-page + 3 &lt; $total-pages">
+              <xsl:if test="$last-page &lt; $total-pages">
                 <xsl:call-template name="pagination-ellipsis" />
               </xsl:if>
             </xsl:otherwise>
