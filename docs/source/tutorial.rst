@@ -57,6 +57,11 @@ web browser. You'll see a "Welcome to Kiln" page.
    To change the default, edit the value of ``jetty.port`` in the file
    ``local.build.properties``.
 
+   The default values of the Solr and Sesame servers, as specified in
+   ``webapps/ROOT/sitemaps/config.xmap``, use port 9999, so if
+   you intend to use those under the dev server, that value will need
+   to be changed.
+
 
 Adding content
 --------------
