@@ -87,14 +87,8 @@
 
   <xsl:template match="result/doc" mode="search-results">
     <li>
-      <a>
-        <xsl:attribute name="href">
-          <xsl:call-template name="url-for-match">
-            <xsl:with-param name="match-id" select="'local-tei-display-html'" />
-            <xsl:with-param name="parameters"
-                            select="(str[@name='document_id'])" />
-          </xsl:call-template>
-        </xsl:attribute>
+      <a href="{kiln:url-for-match('local-tei-display-html',
+               (str[@name='document_id']))}">
         <xsl:value-of select="arr[@name='document_title']/str[1]" />
       </a>
     </li>

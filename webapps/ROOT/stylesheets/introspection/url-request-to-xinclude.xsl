@@ -31,16 +31,8 @@
         </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
-    <xi:include>
-      <xsl:attribute name="href">
-        <xsl:call-template name="url-for-match">
-          <xsl:with-param name="match-id"
-                          select="'kiln-introspection-match-url'" />
-          <xsl:with-param name="parameters"
-                          select="(substring-after($value, '/'))" />
-        </xsl:call-template>
-      </xsl:attribute>
-    </xi:include>
+    <xi:include href="{kiln:url-for-match('kiln-introspection-match-url',
+                      (substring-after($value, '/')))}" />
   </xsl:template>
 
 </xsl:stylesheet>

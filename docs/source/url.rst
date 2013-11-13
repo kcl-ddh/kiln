@@ -4,26 +4,23 @@ URL matching
 Kiln provides a mechanism for generating full URLs to Kiln resources
 based on the ID of a sitemap's ``map:match`` element. Since the actual
 URL is specified only in the ``map:match/@pattern``, it can be changed
-without breaking any generated links.
+without breaking any generated links, provided the number and order of
+wildcards in the ``@pattern`` are not changed. If they are, then at
+least it is easy to find all references to that ``map:match`` by
+searching the XSLT for its ``@id``.
 
 To use this functionality, include the XSLT
-``cocoon://_internal/url/reverse.xsl`` and call the ``url-for-match``
-template, passing the ID of the ``map:match`` to generate a URL for,
-and a sequence containing any wildcard parameters for that URL. For
-example::
+``cocoon://_internal/url/reverse.xsl`` and call the
+``kiln:url-for-match`` function, passing the ID of the ``map:match``
+to generate a URL for, and a sequence containing any wildcard
+parameters for that URL. For example::
 
-   <a>
-     <xsl:attribute name="href">
-       <xsl:call-template name="url-for-match">
-         <xsl:with-param name="match-id"
-                         select="'local-tei-display-html'" />
-         <xsl:with-param name="parameters" select="('Had1.xml')" />
-       </xsl:call-template>
-     </xsl:attribute>
+   <a href="{kiln:url-for-match('local-tei-display-html', ('Had1.xml'))}">
+     <xsl:text>Link title</xsl:text>
    </a>
 
 This generates a root-relative URL based on the ``@pattern`` value of the
-``map:match`` with the id "local-tei-display-html". If the identified
+``map:match`` with the ID "local-tei-display-html". If the identified
 ``map:match`` is part of a pipeline that is marked as
 ``internal-only="true"``, the generated URL is a ``cocoon://`` URL.
 

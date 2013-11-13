@@ -1,5 +1,6 @@
 <xsl:stylesheet exclude-result-prefixes="#all" version="2.0"
                 xmlns:dir="http://apache.org/cocoon/directory/2.0"
+                xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
   <!-- XSLT to produce a list of links to the index URLs for each
@@ -51,14 +52,7 @@
     </xsl:variable>
     <li>
       <!-- Link to the indexing pipeline for the specific file. -->
-      <a>
-        <xsl:attribute name="href">
-          <xsl:call-template name="url-for-match">
-            <xsl:with-param name="match-id"
-                            select="'local-solr-index'" />
-            <xsl:with-param name="parameters" select="('tei', $filepath)" />
-          </xsl:call-template>
-        </xsl:attribute>
+      <a href="{kiln:url-for-match('local-solr-index', ('tei', $filepath))}">
         <xsl:value-of select="$filepath" />
         <xsl:text>.xml</xsl:text>
       </a>

@@ -3,6 +3,7 @@
                 xmlns:axsl="http://www.w3.org/1999/XSL/TransformAlias"
                 xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
                 xmlns:map="http://apache.org/cocoon/sitemap/1.0"
+                xmlns:xs="http://www.w3.org/2001/XMLSchema"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
   <!-- Generates an XSLT that provides a named template,
@@ -16,13 +17,16 @@
   <xsl:template match="/">
     <axsl:stylesheet exclude-result-prefixes="#all" version="2.0"
                      xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-      <axsl:template name="url-for-match">
-        <axsl:param name="match-id" />
+      <axsl:function name="kiln:url-for-match" as="xs:string">
+        <axsl:param name="match-id" as="xs:string" />
         <axsl:param name="parameters" />
-        <axsl:choose>
-          <xsl:apply-templates select="//map:match[@id][not(map:mount)]" />
-        </axsl:choose>
-      </axsl:template>
+        <axsl:variable name="url-parts">
+          <axsl:choose>
+            <xsl:apply-templates select="//map:match[@id][not(map:mount)]" />
+          </axsl:choose>
+        </axsl:variable>
+        <axsl:sequence select="string-join($url-parts, '')" />
+      </axsl:function>
     </axsl:stylesheet>
   </xsl:template>
 

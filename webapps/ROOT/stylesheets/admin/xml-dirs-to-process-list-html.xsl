@@ -11,23 +11,13 @@
     <h3>TEI</h3>
 
     <p>
-      <a class="button round">
-        <xsl:attribute name="href">
-          <xsl:call-template name="url-for-match">
-            <xsl:with-param name="match-id"
-                            select="'local-solr-index-all'" />
-          </xsl:call-template>
-        </xsl:attribute>
+      <a class="button round"
+         href="{kiln:url-for-match('local-solr-index-all', ())}">
         <xsl:text>Index all (search)</xsl:text>
       </a>
       <xsl:text> </xsl:text>
-      <a class="button round">
-        <xsl:attribute name="href">
-          <xsl:call-template name="url-for-match">
-            <xsl:with-param name="match-id"
-                            select="'local-rdf-harvest-all-display'" />
-          </xsl:call-template>
-        </xsl:attribute>
+      <a class="button round"
+         href="{kiln:url-for-match('local-rdf-harvest-all-display', ())}">
         <xsl:text>Harvest all (RDF)</xsl:text>
       </a>
     </p>
@@ -74,68 +64,38 @@
       </td>
       <!-- Default Schematron link. -->
       <td>
-        <a title="Schematron validation report">
-          <xsl:attribute name="href">
-            <xsl:call-template name="url-for-match">
-              <xsl:with-param name="match-id"
-                              select="'local-admin-schematron-validation'" />
-              <xsl:with-param name="parameters" select="($filepath)" />
-            </xsl:call-template>
-          </xsl:attribute>
+        <a title="Schematron validation report"
+           href="{kiln:url-for-match('local-admin-schematron-validation',
+                 ($filepath))}">
           <xsl:text>Schematron</xsl:text>
         </a>
       </td>
       <!-- Image checking. -->
       <td>
-        <a>
-          <xsl:attribute name="href">
-            <xsl:call-template name="url-for-match">
-              <xsl:with-param name="match-id"
-                              select="'local-admin-resource-check'" />
-              <xsl:with-param name="parameters" select="($filepath)" />
-            </xsl:call-template>
-          </xsl:attribute>
+        <a href="{kiln:url-for-match('local-admin-resource-check',
+                 ($filepath))}">
           <xsl:text>Missing images</xsl:text>
         </a>
       </td>
       <!-- Search indexing. -->
       <td>
-        <a title="Index document in search server">
-          <xsl:attribute name="href">
-            <xsl:call-template name="url-for-match">
-              <xsl:with-param name="match-id"
-                              select="'local-solr-index'" />
-              <xsl:with-param name="parameters"
-                              select="('tei', $filepath)" />
-            </xsl:call-template>
-          </xsl:attribute>
+        <a title="Index document in search server"
+           href="{kiln:url-for-match('local-solr-index', ('tei', $filepath))}">
           <xsl:text>Index</xsl:text>
         </a>
       </td>
       <!-- RDF harvesting. -->
       <td>
-        <a title="Harvest RDF from document">
-          <xsl:attribute name="href">
-            <xsl:call-template name="url-for-match">
-              <xsl:with-param name="match-id"
-                              select="'local-rdf-harvest-display'" />
-              <xsl:with-param name="parameters" select="($filepath)" />
-            </xsl:call-template>
-          </xsl:attribute>
+        <a title="Harvest RDF from document"
+           href="{kiln:url-for-match('local-rdf-harvest-display',
+                                     ($filepath))}">
           <xsl:text>Harvest</xsl:text>
         </a>
       </td>
       <!-- View on site. -->
       <td>
-        <a>
-          <xsl:attribute name="href">
-            <xsl:call-template name="url-for-match">
-              <xsl:with-param name="match-id"
-                              select="'local-tei-display-html'" />
-              <xsl:with-param name="parameters"
-                              select="(substring-after($filepath, 'tei/'))" />
-            </xsl:call-template>
-          </xsl:attribute>
+        <a href="{kiln:url-for-match('local-tei-display-html',
+                 (substring-after($filepath, 'tei/')))}">
           <xsl:text>View</xsl:text>
         </a>
       </td>

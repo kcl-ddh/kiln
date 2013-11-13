@@ -2,6 +2,7 @@
 <xsl:stylesheet exclude-result-prefixes="#all"
                 version="2.0"
                 xmlns:dir="http://apache.org/cocoon/directory/2.0"
+                xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
                 xmlns:map="http://apache.org/cocoon/sitemap/1.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
@@ -15,14 +16,7 @@
 
   <xsl:template match="map:match[@id]" mode="introspection">
     <li>
-      <a>
-        <xsl:attribute name="href">
-          <xsl:call-template name="url-for-match">
-            <xsl:with-param name="match-id"
-                            select="'local-admin-introspection-match'" />
-            <xsl:with-param name="parameters" select="(@id)" />
-          </xsl:call-template>
-        </xsl:attribute>
+      <a href="{kiln:url-for-match('local-admin-introspection-match', (@id))}">
         <xsl:value-of select="@id" />
       </a>
     </li>
@@ -46,25 +40,13 @@
       <xsl:value-of select="$path" />
       <xsl:value-of select="@name" />
       <xsl:text>: </xsl:text>
-      <a>
-        <xsl:attribute name="href">
-          <xsl:call-template name="url-for-match">
-            <xsl:with-param name="match-id"
-                            select="'local-admin-introspection-template-xslt'" />
-            <xsl:with-param name="parameters" select="($base-name)" />
-          </xsl:call-template>
-        </xsl:attribute>
+      <a href="{kiln:url-for-match('local-admin-introspection-template-xslt',
+               ($base-name))}">
         <xsl:text>full XSLT</xsl:text>
       </a>
       <xsl:text> | </xsl:text>
-      <a>
-        <xsl:attribute name="href">
-          <xsl:call-template name="url-for-match">
-            <xsl:with-param name="match-id"
-                            select="'local-admin-introspection-template-empty'" />
-            <xsl:with-param name="parameters" select="($base-name)" />
-          </xsl:call-template>
-        </xsl:attribute>
+      <a href="{kiln:url-for-match('local-admin-introspection-template-empty',
+               ($base-name))}">
         <xsl:text>empty document</xsl:text>
       </a>
     </li>
