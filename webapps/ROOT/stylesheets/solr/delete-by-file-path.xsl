@@ -11,13 +11,13 @@
       which is the path of the file being deleted.</xd:p>
     </xd:desc>
   </xd:doc>
-  
+
   <!-- Path to the TEI file being deleted from Solr. -->
   <xsl:param name="file-path" />
-  
+
   <xsl:template match="/">
     <xsl:call-template name="delete-by-query">
-      <xsl:with-param name="query">file_path:<xsl:value-of select="$file-path" /></xsl:with-param>
+      <xsl:with-param name="query">file_path:"<xsl:value-of select="$file-path" />"</xsl:with-param>
     </xsl:call-template>
   </xsl:template>
 </xsl:stylesheet>
