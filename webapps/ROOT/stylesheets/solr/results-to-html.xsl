@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet exclude-result-prefixes="#all" version="2.0"
+                xmlns:h="http://apache.org/cocoon/request/2.0"
                 xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
@@ -7,35 +8,38 @@
   <xsl:include href="cocoon://_internal/url/reverse.xsl" />
   <xsl:include href="results-pagination.xsl" />
 
-  <!-- query-string is escaped, but according to different rules than
-       both XPath's encode-for-uri and escape-html-uri
-       functions. encode-for-uri being the standard to compare
-       against, the query string has the following characters not
-       escaped: "," (there may be others) -->
-  <xsl:param name="query-string" />
-  <xsl:variable name="escaped-query-string">
-    <xsl:value-of select="replace($query-string, ',', '%2C')" />
+  <!-- Using the XML from a request generator is much simpler than
+       using the value of {request:queryString}, because the former
+       provides unescaped values.
+
+       However, it is still useful at several junctions to have an
+       assembled string (including to disassemble it). -->
+  <xsl:variable name="query-string">
+    <xsl:for-each select="/aggregation/h:request/h:requestParameters/h:parameter/h:value">
+      <xsl:value-of select="../@name" />
+      <xsl:text>=</xsl:text>
+      <xsl:value-of select="." />
+      <xsl:if test="not(position() = last())">
+        <xsl:text>&amp;</xsl:text>
+      </xsl:if>
+    </xsl:for-each>
   </xsl:variable>
 
   <xsl:template match="int" mode="search-results">
     <!-- A facet's count. -->
     <xsl:variable name="fq">
-      <xsl:text>&amp;fq=</xsl:text>
       <xsl:value-of select="../@name" />
       <xsl:text>:"</xsl:text>
       <xsl:value-of select="@name" />
       <xsl:text>"</xsl:text>
     </xsl:variable>
-    <xsl:variable name="escaped-fq">
-      <xsl:value-of select="substring-before($fq, '&quot;')" />
-      <xsl:value-of select="encode-for-uri(substring-after($fq, ':'))" />
-    </xsl:variable>
-    <xsl:if test="not(contains($escaped-query-string, $escaped-fq))">
+    <xsl:if test="not(/aggregation/h:request/h:requestParameters/h:parameter[@name='fq']/h:value = $fq)">
       <li>
         <a>
           <xsl:attribute name="href">
             <xsl:text>?</xsl:text>
             <xsl:value-of select="$query-string" />
+            <xsl:text>&amp;fq=</xsl:text>
             <xsl:value-of select="$fq" />
           </xsl:attribute>
           <xsl:value-of select="@name" />
@@ -131,8 +135,7 @@
       <!-- Match the fq parameter as it appears in the query
            string. -->
       <xsl:text>&amp;fq=</xsl:text>
-      <xsl:value-of select="substring-before(., '&quot;')" />
-      <xsl:value-of select="encode-for-uri(substring-after(., ':'))" />
+      <xsl:value-of select="." />
     </xsl:variable>
     <li>
       <xsl:value-of select="replace(., '[^:]+:&quot;(.*)&quot;$', '$1')" />
@@ -141,7 +144,7 @@
       <a>
         <xsl:attribute name="href">
           <xsl:text>?</xsl:text>
-          <xsl:value-of select="replace($escaped-query-string, $fq, '')" />
+          <xsl:value-of select="replace($query-string, $fq, '')" />
         </xsl:attribute>
         <xsl:text>x</xsl:text>
       </a>

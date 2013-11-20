@@ -58,10 +58,9 @@
         <map:aggregate element="aggregation">
           <map:part src="cocoon://_internal/menu/main.xml?url=search/" />
           <map:part src="cocoon://internal/search/facet_query.xml" />
+          <map:part src="cocoon://_internal/request.xml" />
         </map:aggregate>
-        <map:transform src="cocoon://_internal/template/search.xsl">
-          <map:parameter name="query-string" value="{request:queryString}" />
-        </map:transform>
+        <map:transform src="cocoon://_internal/template/search.xsl" />
         <map:serialize />
       </map:match>
 
