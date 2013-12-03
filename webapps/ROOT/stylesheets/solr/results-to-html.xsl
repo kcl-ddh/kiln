@@ -290,9 +290,8 @@
     <xsl:param name="input" as="xs:string" />
     <xsl:param name="replaced" as="xs:string" />
     <xsl:param name="replacement" as="xs:string" />
-    <xsl:value-of select="substring-before($input, $replaced)" />
-    <xsl:value-of select="$replacement" />
-    <xsl:value-of select="substring-after($input, $replaced)" />
+    <xsl:sequence select="concat(substring-before($input, $replaced),
+                          $replacement, substring-after($input, $replaced))" />
   </xsl:function>
 
 </xsl:stylesheet>
