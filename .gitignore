@@ -1,5 +1,4 @@
 *.xpr
-.*
 *~
 sw/jetty/logs
 sw/jetty/temp
