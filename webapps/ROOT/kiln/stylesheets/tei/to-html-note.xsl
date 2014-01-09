@@ -10,7 +10,7 @@
   <xsl:template match="tei:note">
     <div>
       <xsl:apply-templates select="@*" />
-      <xsl:call-template name="assign-classes" />
+      <xsl:call-template name="tei-assign-classes" />
       <xsl:apply-templates />
     </div>
   </xsl:template>
@@ -20,7 +20,7 @@
       <xsl:when test="contains(concat(' ', @kiln:class, ' '), ' block ')">
         <div>
           <xsl:apply-templates select="@*" />
-          <xsl:call-template name="assign-classes" />
+          <xsl:call-template name="tei-assign-classes" />
           <xsl:if test="@resp">
             <p class="tei resp">
               <xsl:text>[Note added by </xsl:text>
@@ -41,7 +41,7 @@
             </span>
           </xsl:if>
           <xsl:apply-templates select="@*" />
-          <xsl:call-template name="assign-classes" />
+          <xsl:call-template name="tei-assign-classes" />
           <xsl:apply-templates select="node()" />
         </span>
       </xsl:otherwise>
@@ -57,7 +57,7 @@
     </xsl:variable>
     <div>
       <xsl:apply-templates select="@*" />
-      <xsl:call-template name="assign-classes">
+      <xsl:call-template name="tei-assign-classes">
         <xsl:with-param name="html-element" select="'note'" />
         <xsl:with-param name="extra-classes" select="$extra-classes" />
       </xsl:call-template>
@@ -90,7 +90,7 @@
          paragraph is the first element in the footnote. -->
     <p>
       <xsl:apply-templates select="@*" />
-      <xsl:call-template name="assign-classes" />
+      <xsl:call-template name="tei-assign-classes" />
       <xsl:if test="not(normalize-space(preceding-sibling::*))">
         <a href="#reference-to-{../@xml:id}" title="back">
           <sup>
@@ -110,7 +110,7 @@
         <xsl:value-of select="substring(@target, 2)" />
       </xsl:attribute>
       <xsl:apply-templates select="@*" />
-      <xsl:call-template name="assign-classes" />
+      <xsl:call-template name="tei-assign-classes" />
       <xsl:apply-templates />
     </a>
   </xsl:template>

@@ -115,7 +115,7 @@
   <xsl:template match="tei:index">
     <span>
       <xsl:apply-templates select="@*" />
-      <xsl:call-template name="assign-classes">
+      <xsl:call-template name="tei-assign-classes">
         <xsl:with-param name="html-element" select="'index'" />
         <xsl:with-param name="extra-classes" select="'index-item'" />
       </xsl:call-template>

@@ -26,7 +26,7 @@
                 <xsl:value-of select="$hand-title" />
               </xsl:attribute>
               <xsl:apply-templates select="@*" />
-              <xsl:call-template name="assign-classes">
+              <xsl:call-template name="tei-assign-classes">
                 <xsl:with-param name="html-element" select="'add'" />
                 <xsl:with-param name="extra-classes"
                   select="concat('place-', @place)" />
@@ -41,7 +41,7 @@
                 <xsl:value-of select="$hand-title" />
               </xsl:attribute>
               <xsl:apply-templates select="@*" />
-              <xsl:apply-templates select="assign-classes">
+              <xsl:apply-templates select="tei-assign-classes">
                 <xsl:with-param name="html-element" select="'add'" />
               </xsl:apply-templates>
               <xsl:apply-templates select="node()" />
@@ -61,7 +61,7 @@
       <xsl:when test="number($amendments)">
         <ins title="supralinear addition">
           <xsl:apply-templates select="@*" />
-          <xsl:call-template name="assign-classes">
+          <xsl:call-template name="tei-assign-classes">
             <xsl:with-param name="html-element" select="'add'" />
           </xsl:call-template>
           <sup>
@@ -79,7 +79,7 @@
   <xsl:template match="tei:add[@place='infralinear']">
     <ins title="infralinear addition">
       <xsl:apply-templates select="@*" />
-      <xsl:call-template name="assign-classes">
+      <xsl:call-template name="tei-assign-classes">
         <xsl:with-param name="html-element" select="'add'" />
       </xsl:call-template>
       <sub>
@@ -93,7 +93,7 @@
     <xsl:if test="number($amendments)">
       <del title="deletion">
         <xsl:apply-templates select="@*" />
-        <xsl:call-template name="assign-classes" />
+        <xsl:call-template name="tei-assign-classes" />
         <xsl:apply-templates />
       </del>
     </xsl:if>
@@ -110,7 +110,7 @@
     <xsl:if test="number($corrections)">
       <span>
         <xsl:apply-templates select="@*" />
-        <xsl:call-template name="assign-classes" />
+        <xsl:call-template name="tei-assign-classes" />
         <xsl:apply-templates select="node()" />
         <xsl:text> </xsl:text>
         <span class="tei sic-mark">
@@ -139,7 +139,7 @@
   <xsl:template match="tei:corr">
     <xsl:if test="not(number($corrections))">
       <xsl:apply-templates select="@*" />
-      <xsl:call-template name="assign-classes" />
+      <xsl:call-template name="tei-assign-classes" />
       <xsl:apply-templates select="node()" />
     </xsl:if>
   </xsl:template>
@@ -156,7 +156,7 @@
       <xsl:when test="number($unclear)">
         <span>
           <xsl:apply-templates select="@*" />
-          <xsl:call-template name="assign-classes" />
+          <xsl:call-template name="tei-assign-classes" />
           <xsl:text>[</xsl:text>
           <span class="tei reason" lang="en">
             <xsl:text>unclear</xsl:text>
@@ -188,7 +188,7 @@
           <xsl:apply-templates mode="regularised" select="../tei:reg" />
         </xsl:attribute>
         <xsl:apply-templates select="@*" />
-        <xsl:call-template name="assign-classes" />
+        <xsl:call-template name="tei-assign-classes" />
         <xsl:apply-templates select="node()" />
       </span>
     </xsl:if>
@@ -219,7 +219,7 @@
         <xsl:attribute name="title">
           <xsl:value-of select="../tei:expan" />
         </xsl:attribute>
-        <xsl:call-template name="assign-classes" />
+        <xsl:call-template name="tei-assign-classes" />
         <xsl:apply-templates select="node()" />
       </abbr>
     </xsl:if>
@@ -236,7 +236,7 @@
       <xsl:attribute name="title">
         <xsl:value-of select="../tei:expan" />
       </xsl:attribute>
-      <xsl:call-template name="assign-classes">
+      <xsl:call-template name="tei-assign-classes">
         <xsl:with-param name="html-element" select="'abbr'" />
       </xsl:call-template>
       <xsl:apply-templates select="node()" />
@@ -254,7 +254,7 @@
   <xsl:template match="tei:gap">
     <span lang="en">
       <xsl:apply-templates select="@*[not(local-name() = 'desc') and not(local-name() = 'reason')]" />
-      <xsl:call-template name="assign-classes" />
+      <xsl:call-template name="tei-assign-classes" />
       <xsl:text>[</xsl:text>
       <span class="tei head"
             title="Material has been omitted from the transcription at this point.">
