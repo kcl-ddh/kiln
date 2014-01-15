@@ -216,9 +216,9 @@
 
   <!-- Glyphs. -->
   <xsl:template match="tei:g">
-    <xsl:variable name="root" select="/tei:TEI | /tei:teiCorpus" />
+    <xsl:variable name="root" select="ancestor::tei:TEI | ancestor::tei:teiCorpus" />
     <xsl:variable name="image-id" select="substring(@ref, 2)" />
-    <xsl:variable name="glyph" select="/tei:TEI/tei:teiHeader/tei:encodingDesc/tei:charDecl/tei:glyph[@xml:id=$image-id]" />
+    <xsl:variable name="glyph" select="ancestor::tei:TEI/tei:teiHeader/tei:encodingDesc/tei:charDecl/tei:glyph[@xml:id=$image-id]" />
     <xsl:variable name="url" select="$glyph/tei:graphic/@url" />
     <xsl:variable name="title" select="normalize-space($glyph/tei:glyphName)" />
     <xsl:variable name="alt" select="normalize-space(.)" />
@@ -274,13 +274,6 @@
             </xsl:otherwise>
           </xsl:choose>
         </span>
-        <xsl:if test="@corresp">
-          <xsl:variable name="figure-id" select="substring(@corresp, 2)" />
-          <xsl:apply-templates select="/tei:TEI/tei:teiHeader/tei:fileDesc/tei:notesStmt/tei:note[@xml:id='page-images']//tei:figure[@xml:id=$figure-id]">
-            <xsl:with-param name="nested-link"
-                            select="contains(concat(' ', @kiln:class, ' '), ' nested-link ')" />
-          </xsl:apply-templates>
-        </xsl:if>
       </xsl:when>
       <xsl:when test="@xml:id">
         <span class="tei pb" id="{@xml:id}" />
