@@ -145,7 +145,31 @@ throughout.
 Adding images
 .............
 
-TBD.
+Images referenced within TEI files (using ``tei:figure/tei:graphic``)
+are converted by the ``kiln/stylesheets/tei/to-html.xsl`` XSLT into
+HTML ``img`` elements. The ``src`` URL is typically to
+``/images/{/tei:TEI/@xml:id}/{@url}`` and these URLs are resolved to
+look in ``content/images/`` for the file. So if you add the following
+to ``content/xml/tei/Had1.xml``::
+
+   <figure>
+     <graphic url="image-filename.jpg" />
+     <figDesc>This becomes HTML alt text.</figDesc>
+   </figure>
+
+and place ``image-filename.jpg`` (using whatever JPEG image file you
+wish) in ``content/images/Had1/``, the image should appear in the HTML
+display.
+
+Images that are part of the site design, rather than content, should
+be put in ``assets/images/``, and the pipelines in
+``kiln/sitemaps/assets.xmap`` used.
+
+Kiln can support any image file type, since no processing is done to
+the files. The pipelines simply transmit the files with an appropriate
+MIME type. Pipelines exist for GIF, JPEG, and PNG images; others are
+easily added, to ``sitemaps/main.xmap`` and/or
+``kiln/sitemaps/assets.xmap``.
 
 
 Searching and indexing
