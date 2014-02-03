@@ -11,7 +11,7 @@
   <xsl:param name="path" />
 
   <xsl:template match="/">
-    <file path="{replace($path, '.xml', '.html')}" xml:id="{tei:TEI/@xml:id}">
+    <file path="{$path}" xml:id="{tei:TEI/@xml:id}">
       <xsl:apply-templates select="//tei:graphic"/>
     </file>
   </xsl:template>
