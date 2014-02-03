@@ -18,7 +18,9 @@
     <file>
       <xsl:apply-templates select="@*"/>
       <xsl:attribute name="path">
-        <xsl:text>/content/images/full/</xsl:text>
+        <xsl:text>content/images/</xsl:text>
+        <xsl:value-of select="../@xml:id" />
+        <xsl:text>/</xsl:text>
         <xsl:value-of select="@url"/>
       </xsl:attribute>
     </file>
@@ -29,7 +31,7 @@
       <file>
         <xsl:apply-templates select="$current/@*" mode="thumbnail"/>
         <xsl:attribute name="path">
-          <xsl:text>/content/images/</xsl:text>
+          <xsl:text>content/images/</xsl:text>
           <xsl:value-of select="."/>
           <xsl:text>/</xsl:text>
           <xsl:value-of select="$current/@url"/>
