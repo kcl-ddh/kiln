@@ -12,17 +12,17 @@
 
   <xsl:variable name="document-metadata">
     <xsl:apply-templates mode="document-metadata"
-                         select="/source/tei/*/tei:teiHeader" />
+                         select="/*/tei/*/tei:teiHeader" />
   </xsl:variable>
 
   <xsl:variable name="free-text">
-    <xsl:apply-templates mode="free-text" select="/source/tei/*/tei:text" />
+    <xsl:apply-templates mode="free-text" select="/*/tei/*/tei:text" />
   </xsl:variable>
 
   <xsl:template match="/">
     <!-- Entity mentions are restricted to the text of the document;
          entities keyed in the TEI header are document metadata. -->
-    <xsl:apply-templates mode="entity-mention" select="/source/tei/*/tei:text//tei:*[@key]" />
+    <xsl:apply-templates mode="entity-mention" select="/*/tei/*/tei:text//tei:*[@key]" />
 
     <!-- Text content -->
     <xsl:if test="normalize-space($free-text)">
@@ -33,7 +33,7 @@
           <xsl:value-of select="$file-path" />
         </field>
         <field name="document_id">
-          <xsl:value-of select="/tei:*/@xml:id" />
+          <xsl:value-of select="/*/tei/tei:*/@xml:id" />
         </field>
 
         <field name="text">
@@ -46,22 +46,31 @@
   <xsl:template match="tei:fileDesc/tei:titleStmt/tei:title"
                 mode="document-metadata">
     <field name="document_title">
-      <xsl:value-of select="." />
+      <xsl:value-of select="normalize-space(.)" />
     </field>
   </xsl:template>
 
   <xsl:template match="tei:fileDesc/tei:titleStmt/tei:author"
                 mode="document-metadata">
     <field name="author">
-      <xsl:value-of select="." />
+      <xsl:value-of select="normalize-space(.)" />
     </field>
   </xsl:template>
 
   <xsl:template match="tei:fileDesc/tei:titleStmt/tei:editor"
                 mode="document-metadata">
     <field name="editor">
-      <xsl:value-of select="." />
+      <xsl:value-of select="normalize-space(.)" />
     </field>
+  </xsl:template>
+
+  <xsl:template match="tei:sourceDesc//tei:publicationStmt/tei:date[1]"
+                mode="document-metadata">
+    <xsl:if test="@when">
+      <field name="publication_date">
+        <xsl:value-of select="@when" />
+      </field>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template match="text()" mode="document-metadata" />
@@ -80,7 +89,7 @@
         <xsl:value-of select="$file-path" />
       </field>
       <field name="document_id">
-        <xsl:value-of select="/source/tei/tei:*/@xml:id" />
+        <xsl:value-of select="/*/tei/tei:*/@xml:id" />
       </field>
       <field name="section_id">
         <xsl:value-of
@@ -94,7 +103,7 @@
         <xsl:value-of select="normalize-space(.)" />
       </field>
 
-      <xsl:for-each select="/source/eats/entities/entity[keys/key = $entity-key]/names/name">
+      <xsl:for-each select="/*/eats/entities/entity[keys/key = $entity-key]/names/name">
         <field name="eats_entity_name">
           <xsl:value-of select="normalize-space(.)" />
         </field>
