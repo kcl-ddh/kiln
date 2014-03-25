@@ -29,3 +29,9 @@ This generates a root-relative URL based on the ``@pattern`` value of the
    either within a single sitemap file or across multiple sitemaps. If
    the same ID is used more than once, the first one (in sitemap
    order) will be used by the ``url-for-match`` template.
+
+.. warning:: When developing in Kiln, be aware that all of the sitemap
+             files must be well-formed XML, or this XSLT will not
+             produce any results. This may lead to odd problems
+             throughout the site that have no connection with the
+             invalid sitemap.
