@@ -22,7 +22,7 @@ as follows: ::
     <map:transform src="cocoon://_internal/template/path/to/template.xsl"/>
 
 The matching template looks for the file
-``xml/template/path/to/template.xml``.  Note that the extension of the
+``assets/templates/path/to/template.xml``.  Note that the extension of the
 template file is **xml**.
 
 Writing a template
@@ -106,5 +106,30 @@ this template, or imported/included XSLT.
 ``xsl:import`` and ``xsl:include`` elements may be used (and the compiler will
 move them to the beginning of the XSLT), as may ``xsl:apply-templates`` and
 ``xsl:call-template``.
+
+Referencing assets
+------------------
+
+To reference assets (such as images, CSS and JavaScript files), ensure
+that the default variables XSLT is imported, and append the path to
+the file (relative to the assets directory) after the variable
+reference {$kiln:assets-path}.
+
+::
+
+    <xsl:import href="cocoon://_internal/template/xsl/stylesheets/defaults.xsl" />
+
+    <kiln:block name="css">
+      <link href="{$kiln:assets-path}/foundation/css/normalize.css"
+                  rel="stylesheet" type="text/css" />
+    </kiln:block>
+
+This ensures that nothing that might change between installations
+(such as development serving the files files through Kiln, and
+production serving them off another dedicated server) is hard-coded
+into your templates.
+
+See the settings in ``stylesheets/defaults.xsl`` for possible
+configurations.
 
 .. _Django: http://www.djangoproject.com/
