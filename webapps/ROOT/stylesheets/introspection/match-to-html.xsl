@@ -7,6 +7,8 @@
 
   <!-- Transform a complete map:match into HTML. -->
 
+  <xsl:include href="cocoon://_internal/url/reverse.xsl" />
+
   <xsl:template match="map:match" mode="introspection" priority="10">
     <xsl:variable name="id" select="generate-id(.)" />
     <xsl:variable name="is_expanded" select="ancestor::map:match" />
@@ -94,6 +96,26 @@
       <xsl:text> /</xsl:text>
     </xsl:if>
     <xsl:text>&gt;</xsl:text>
+  </xsl:template>
+
+  <xsl:template match="map:generate/@src" mode="introspection">
+    <xsl:variable name="link">
+      <xsl:choose>
+        <xsl:when test="starts-with(../@kiln:src, 'assets/templates')">
+          <xsl:value-of select="kiln:url-for-match(
+            'local-admin-introspection-template-xslt',
+            (substring-after(substring-before(../@kiln:src, '.xml'),
+             'assets/templates/')))" />
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="''" />
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <xsl:call-template name="attribute">
+      <xsl:with-param name="check-kiln-value" select="1" />
+      <xsl:with-param name="link" select="$link" />
+    </xsl:call-template>
   </xsl:template>
 
   <xsl:template match="map:transform/@src" mode="introspection">
