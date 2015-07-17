@@ -138,9 +138,11 @@
   <!-- Corr -->
   <xsl:template match="tei:corr">
     <xsl:if test="not(number($corrections))">
-      <xsl:apply-templates select="@*" />
-      <xsl:call-template name="tei-assign-classes" />
-      <xsl:apply-templates select="node()" />
+      <span>
+        <xsl:apply-templates select="@*" />
+        <xsl:call-template name="tei-assign-classes" />
+        <xsl:apply-templates select="node()" />
+      </span>
     </xsl:if>
   </xsl:template>
 

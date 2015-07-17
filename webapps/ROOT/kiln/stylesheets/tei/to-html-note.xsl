@@ -33,6 +33,8 @@
       </xsl:when>
       <xsl:otherwise>
         <span>
+          <xsl:apply-templates select="@*" />
+          <xsl:call-template name="tei-assign-classes" />
           <xsl:if test="@resp">
             <span class="tei resp">
               <xsl:text>[Note added by </xsl:text>
@@ -40,8 +42,6 @@
               <xsl:text>:] </xsl:text>
             </span>
           </xsl:if>
-          <xsl:apply-templates select="@*" />
-          <xsl:call-template name="tei-assign-classes" />
           <xsl:apply-templates select="node()" />
         </span>
       </xsl:otherwise>
