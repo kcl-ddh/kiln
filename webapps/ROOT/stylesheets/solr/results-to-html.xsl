@@ -90,7 +90,7 @@
   <xsl:template match="result/doc" mode="search-results">
     <li>
       <a href="{kiln:url-for-match('local-tei-display-html',
-               (str[@name='document_id']))}">
+               (str[@name='file_path']))}">
         <xsl:value-of select="arr[@name='document_title']/str[1]" />
       </a>
     </li>
