@@ -56,10 +56,13 @@
       <xsl:value-of select="$path"/>
       <xsl:value-of select="substring-before(@name, '.xml')"/>
     </xsl:variable>
+    <xsl:variable name="short-filepath">
+      <xsl:value-of select="substring-after($filepath, 'tei/')" />
+    </xsl:variable>
     <tr>
       <!-- File path. -->
       <td>
-        <xsl:value-of select="substring-after($filepath, 'tei/')"/>
+        <xsl:value-of select="$short-filepath"/>
         <xsl:text>.xml</xsl:text>
       </td>
       <!-- Default Schematron link. -->
@@ -95,7 +98,7 @@
       <!-- View on site. -->
       <td>
         <a href="{kiln:url-for-match('local-tei-display-html',
-                 (substring-after($filepath, 'tei/')))}">
+                 ($short-filepath))}">
           <xsl:text>View</xsl:text>
         </a>
       </td>
