@@ -88,9 +88,21 @@
   </xsl:template>
 
   <xsl:template match="result/doc" mode="search-results">
+    <xsl:variable name="filepath-prefix"
+                  select="substring-before(str[@name='file_path'], '/')" />
+    <xsl:variable name="short-filepath"
+                  select="substring-after(str[@name='file_path'], 'tei/')" />
+    <xsl:variable name="result-url">
+      <!-- Use the filepath-prefix to determine what URL to use to
+           display the document from which this result came. -->
+      <xsl:choose>
+        <xsl:when test="$filepath-prefix = 'tei'">
+          <xsl:value-of select="kiln:url-for-match('local-tei-display-html', ($short-filepath))" />
+        </xsl:when>
+      </xsl:choose>
+    </xsl:variable>
     <li>
-      <a href="{kiln:url-for-match('local-tei-display-html',
-               (str[@name='file_path']))}">
+      <a href="{$result-url}">
         <xsl:value-of select="arr[@name='document_title']/str[1]" />
       </a>
     </li>

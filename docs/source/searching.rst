@@ -11,7 +11,7 @@ functionality. Kiln comes with:
 
 * a Cocoon transformer to communicate with a Solr server as part of a pipeline
   match;
-* customisable XSLT for generating Solr index documents from TEI files, and
+* customisable XSLT for generating Solr index documents from TEI files; and
 * an Ant build task to index the entire site, by recursively crawl a
   Cocoon-generated page linking to the index documents to be added to
   the server.
@@ -55,7 +55,7 @@ Additionally, the XSLT ``kiln/stylesheets/solr/merge-parameters.xsl``
 adds appropriate elements to the end of a query XML document, as
 above, from data supplied in a parameter. This data must be in the
 form of a query string (without a leading "?"; eg:
-``fq=widget&facet=off``). ``sitemaps\internal.xmap`` provides a
+``fq=widget&facet=off``). ``sitemaps/internal.xmap`` provides a
 generic way to generate a search results document using this method.
 
 This approach is not as redundant as it might seem, with a Solr query
@@ -67,6 +67,22 @@ can be repeated that ``generate-query.xsl`` will join together in the
 correct fashion. This frees whatever process generates the XSLT
 parameter value from knowing anything about Solr's details (eg, it can
 be a simple form with no processing).
+
+Indexing non-TEI documents
+--------------------------
+
+Kiln currently only has code for indexing TEI documents, and its
+display of search results assumes that those results come from TEI
+documents (in the ``content/xml/tei`` directory). To support the
+indexing and results display of documents in other directories, two
+things must be done:
+
+* Add an XSLT in ``stylesheets/solr`` to perform the indexing. The
+  filename should be ``<dir>-to-solr.xsl``, where <dir> is the name of
+  the directory under ``content/xml`` containing the documents.
+* Add an appropriate condition path added to the ``xsl:choose`` in
+``stylesheets/solr/results-to-html.xsl`` in the template for
+``result/doc`` in the ``search-results`` mode.
 
 Upgrading Solr
 --------------
