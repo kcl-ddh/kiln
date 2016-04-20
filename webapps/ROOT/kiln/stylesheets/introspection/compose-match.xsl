@@ -8,6 +8,8 @@
        other referenced map:matches included as children. This
        inclusion is done recursively. -->
 
+  <xsl:import href="utils.xsl" />
+
   <xsl:param name="match_id" />
 
   <xsl:template match="/">
@@ -36,8 +38,11 @@
     <xsl:param name="match" />
     <xsl:param name="reference" />
     <xsl:if test="starts-with($reference, 'cocoon://')">
-      <xsl:variable name="stripped"
-                    select="substring-after($reference, 'cocoon://')" />
+      <xsl:variable name="stripped">
+        <xsl:call-template name="strip-url">
+          <xsl:with-param name="url" select="$reference" />
+        </xsl:call-template>
+      </xsl:variable>
       <xsl:variable name="input">
         <xsl:for-each select="tokenize($stripped, '(\{)|(\})')">
           <xsl:choose>

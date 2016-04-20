@@ -12,6 +12,8 @@
        different in small details so that there is no value to
        overriding it. -->
 
+  <xsl:import href="utils.xsl" />
+
   <xsl:param name="url" />
 
   <xsl:variable name="separator" select="' SEPARATOR '" />
