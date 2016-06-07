@@ -24,6 +24,14 @@ This generates a root-relative URL based on the ``@pattern`` value of the
 ``map:match`` is part of a pipeline that is marked as
 ``internal-only="true"``, the generated URL is a ``cocoon://`` URL.
 
+If no wildcard parameters are required, pass an empty sequence::
+
+  <a href="{kiln:url-for-match('local-search', ())}">Search</a>
+
+Be sure to declare the kiln namespace
+(``http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0``), or else the
+call will be treated as a plain string.
+
 .. warning:: Neither Kiln nor Cocoon performs any checks that the
    ``id`` values you assign to ``map:match`` elements are unique,
    either within a single sitemap file or across multiple sitemaps. If
@@ -31,7 +39,6 @@ This generates a root-relative URL based on the ``@pattern`` value of the
    order) will be used by the ``url-for-match`` template.
 
 .. warning:: When developing in Kiln, be aware that all of the sitemap
-             files must be well-formed XML, or this XSLT will not
-             produce any results. This may lead to odd problems
-             throughout the site that have no connection with the
-             invalid sitemap.
+   files must be well-formed XML, or this XSLT will not produce any
+   results. This may lead to odd problems throughout the site that
+   have no connection with the invalid sitemap.
