@@ -84,15 +84,11 @@
             </kiln:block>
           </footer>
           <kiln:block name="end-js">
-            <script>
-              <xsl:text>document.write('&lt;script src="</xsl:text>
-              <xsl:value-of select="$kiln:assets-path" />
-              <xsl:text>/foundation/js/vendor/' + ('__proto__' in {} </xsl:text>
-              <xsl:text>? 'zepto' : 'jquery') + '.js">&lt;\/script>');</xsl:text>
-            </script>
-            <script src="{$kiln:assets-path}/foundation/js/foundation.min.js">
-              <xsl:text> </xsl:text>
-            </script>
+            <!-- Since we make use of jQuery for other purposes, there
+                 is no reason to use Foundation's check whether to use
+                 jQuery or Zepto. -->
+            <script src="{$kiln:assets-path}/foundation/js/vendor/jquery.js" />
+            <script src="{$kiln:assets-path}/foundation/js/foundation.min.js" />
             <script>$(document).foundation();</script>
           </kiln:block>
         </body>
