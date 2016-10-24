@@ -28,6 +28,7 @@ vocabularies, and has been used to publish data held in relational databases.
 * `Jane Austen's Fiction Manuscripts <http://www.janeausten.ac.uk/>`_
 * `Jonathan Swift Archive <http://jonathanswiftarchive.org.uk/>`_
 * `Language of Landscape <http://www.langscape.org.uk>`_
+* `Digital Edition of Hermann Burger's Lokalbericht <http://purl.org/lokalbericht>`_
 * `Mapping Medieval Chester <http://www.medievalchester.ac.uk/>`_
 * `Nineteenth-Century Serials Edition <http://ncse.kcl.ac.uk>`_
 * `Schenker Documents Online <http://www.schenkerdocumentsonline.org/>`_
