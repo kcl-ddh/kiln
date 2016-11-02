@@ -100,7 +100,7 @@
       </map:match>
 
       <map:match id="local-tei-display-epub" pattern="text/**.epub">
-        <map:generate src="cocon://internal/tei/preprocess/{1}/{2}.xml"
+        <map:generate src="cocoon://internal/tei/preprocess/{1}/{2}.xml"
                       label="tei" />
         <map:transform src="cocoon://_internal/template/epub.xsl" />
         <map:serialize type="xhtml" />
