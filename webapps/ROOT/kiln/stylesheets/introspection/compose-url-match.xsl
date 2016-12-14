@@ -119,7 +119,14 @@
         </xsl:if>
       </xsl:for-each>
     </xsl:variable>
-    <xsl:sequence select="tokenize(replace($url, $regexp, $replacement), $separator)" />
+    <xsl:choose>
+      <xsl:when test="$regexp = '^$'">
+        <xsl:sequence select="()" />
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:sequence select="tokenize(replace($url, $regexp, $replacement), $separator)" />
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
 
   <xsl:template name="match-pattern">
