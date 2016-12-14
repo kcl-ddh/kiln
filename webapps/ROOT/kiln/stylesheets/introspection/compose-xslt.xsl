@@ -13,11 +13,9 @@
         <xsl:attribute name="href">
           <xsl:text>cocoon://_internal/introspection/xslt/</xsl:text>
           <xsl:choose>
-            <xsl:when test="starts-with(@href,
-                            'cocoon://_internal/template/xsl/')">
+            <xsl:when test="starts-with(@href, 'cocoon://')">
               <xsl:text>cocoon/</xsl:text>
-              <xsl:value-of select="substring-after(@href,
-                                    'cocoon://_internal/template/xsl/')" />
+              <xsl:value-of select="substring-after(@href, 'cocoon://')" />
             </xsl:when>
             <xsl:otherwise>
               <xsl:value-of select="$base_url" />
