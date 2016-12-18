@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?oxygen RNGSchema="../schema/menu/menu.rng" type="xml"?>
 <root xmlns="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0">
-  <menu href="text/" label="Texts" />
-  <menu href="search/" label="Search" />
-  <menu href="admin/" label="Admin" />
+  <menu label="Texts" match="local-tei-index-display" />
+  <menu label="Search" match="local-search" />
+  <menu label="Admin" match="local-admin-home-page" />
 </root>

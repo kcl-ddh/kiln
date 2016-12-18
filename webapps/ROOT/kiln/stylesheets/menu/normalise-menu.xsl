@@ -7,7 +7,9 @@
 
   <xsl:import href="cocoon://_internal/template/xsl/stylesheets/defaults.xsl" />
 
-  <xsl:template match="kiln:menu[not(@href)][not(kiln:external)]">
+  <xsl:import href="cocoon://_internal/url/reverse.xsl" />
+
+  <xsl:template match="kiln:menu[not(@href)][not(@match)][not(kiln:external)]">
     <xsl:copy>
       <xsl:apply-templates select="@*"/>
       <xsl:call-template name="make-full-href">
@@ -31,6 +33,12 @@
         </xsl:call-template>
       </xsl:otherwise>
     </xsl:choose>
+  </xsl:template>
+
+  <xsl:template match="@match">
+    <xsl:attribute name="href">
+      <xsl:value-of select="kiln:url-for-match(., tokenize(../@params, '\s+'))" />
+    </xsl:attribute>
   </xsl:template>
 
   <xsl:template name="make-full-href">

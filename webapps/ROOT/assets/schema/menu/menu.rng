@@ -13,9 +13,17 @@
   <define name="menu">
     <element name="menu">
       <optional>
-        <attribute name="href">
-          <data type="anyURI"/>
-        </attribute>
+        <choice>
+          <attribute name="href">
+            <data type="anyURI"/>
+          </attribute>
+          <group>
+            <attribute name="match" />
+            <optional>
+              <attribute name="params" />
+            </optional>
+          </group>
+        </choice>
       </optional>
       <attribute name="label"/>
       <optional>
@@ -38,9 +46,17 @@
           <choice>
             <ref name="menu"/>
             <element name="item">
-              <attribute name="href">
-                <data type="NCName"/>
-              </attribute>
+              <choice>
+                <attribute name="href">
+                  <data type="anyURI"/>
+                </attribute>
+                <group>
+                  <attribute name="match" />
+                  <optional>
+                    <attribute name="params" />
+                  </optional>
+                </group>
+              </choice>
               <attribute name="label"/>
             </element>
           </choice>

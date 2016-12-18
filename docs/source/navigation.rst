@@ -68,6 +68,26 @@ path outside of Kiln's context, start the ``@href`` or ``@root`` with
 "//".
 
 
+Using kiln:url-for-match
+------------------------
+
+Rather than explicitly specifying URLs via the ``@root`` and ``@href``
+attributes, the ``kiln:url-for-match`` function can be indirectly used
+in a menu. Specify the id of the ``map:match`` used to process the URL
+in a ``kiln:menu`` or ``kiln:item``\'s ``@match`` attribute, and if
+any parameters are required they can be specified (whitespace
+delimited) in the ``@params`` attribute. For example::
+
+  <root xmlns="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0">
+    <menu label="Texts" match="texts-home">
+      <item match="texts-intro" label="Introduction" />
+      <menu label="Reports">
+        <item label="Report #1" match="texts-report" params="1" />
+      </menu>
+    </menu>
+  </root>
+
+
 Marking the active item
 -----------------------
 
@@ -87,9 +107,8 @@ parameter containing the URL to mark as active::
       ...
     </map:match>
 
-The appropriate ``li``
-element will be annotated with a class attribute with the value
-"active".
+The appropriate ``li`` element will be annotated with a class
+attribute with the value "active".
 
 The supplied URL should be root relative, but *without* the initial
 "/", as in the example above.
