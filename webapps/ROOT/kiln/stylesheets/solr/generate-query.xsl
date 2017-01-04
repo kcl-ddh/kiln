@@ -20,6 +20,11 @@
        parameter. The exception is "sort", which takes an
        "ordering" attribute specifying either "asc" or "desc".
 
+       A second exception is parameters that are field names with a
+       type attribute value of "range_start" or "range_end". These are
+       appended to the value of the "q" parameter to make an inclusive
+       range query ANDed to the existing value.
+
        Multiple elements of the same name can be used where
        appropriate. In such cases, the order of the elements in the
        source document is retained. To produce a query that sorts of
@@ -68,10 +73,26 @@
 
   <!-- Catch-all for simple query parameters. -->
   <xsl:template match="*">
-    <xsl:if test="preceding-sibling::*">
+    <xsl:if test="preceding-sibling::* and
+                  not(@type = ('range_start', 'range_end'))">
       <xsl:text>&amp;</xsl:text>
     </xsl:if>
-    <xsl:call-template name="simple-parameter" />
+    <xsl:choose>
+      <xsl:when test="@type = ('range_start', 'range_end')"></xsl:when>
+      <xsl:otherwise>
+        <xsl:call-template name="simple-parameter" />
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+
+   <xsl:template match="*" mode="range-parameter">
+    <xsl:variable name="field" select="local-name(.)" />
+    <xsl:value-of select="$field" />
+    <xsl:text>%3A[</xsl:text>
+    <xsl:value-of select="." />
+    <xsl:text>+TO+</xsl:text>
+    <xsl:value-of select="../*[local-name()=$field][@type='range_end']" />
+    <xsl:text>]</xsl:text>
   </xsl:template>
 
   <xsl:template match="@ordering">
@@ -110,6 +131,20 @@
     <xsl:value-of select="local-name(.)" />
     <xsl:text>=</xsl:text>
     <xsl:value-of select="." />
+    <xsl:if test="local-name(.) = 'q'">
+      <!-- Look for range parameters to add in. -->
+      <xsl:variable name="range_parameters"
+                    select="../*[@type='range_start'][normalize-space() != '']" />
+      <xsl:if test="$range_parameters and normalize-space(.)">
+        <xsl:text>+AND+</xsl:text>
+      </xsl:if>
+      <xsl:for-each select="$range_parameters">
+        <xsl:apply-templates mode="range-parameter" select="." />
+        <xsl:if test="not(position() = last())">
+          <xsl:text>+AND+</xsl:text>
+        </xsl:if>
+      </xsl:for-each>
+    </xsl:if>
   </xsl:template>
 
 </xsl:stylesheet>

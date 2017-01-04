@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="2.0"
+                xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
   <!-- This XSLT adds the Solr query parameters passed in the
        query-string parameter to an XML query document (root element
        "query"). The document is only added to, with the new elements
        added after the existing ones. -->
+
+  <xsl:import href="utils.xsl" />
 
   <xsl:param name="query-string" />
 
@@ -18,7 +21,10 @@
              string starting with an &amp; -->
         <xsl:if test="contains(., '=')">
           <xsl:element name="{substring-before(., '=')}">
-            <xsl:value-of select="substring-after(., '=')" />
+            <xsl:call-template name="handle-querystring-parameter">
+              <xsl:with-param name="key" select="substring-before(., '=')" />
+              <xsl:with-param name="value" select="substring-after(., '=')" />
+            </xsl:call-template>
           </xsl:element>
         </xsl:if>
       </xsl:for-each>
@@ -29,6 +35,17 @@
     <xsl:copy>
       <xsl:apply-templates select="@*|node()" />
     </xsl:copy>
+  </xsl:template>
+
+  <xsl:template name="handle-querystring-parameter">
+    <xsl:param name="key" />
+    <xsl:param name="value" />
+    <xsl:element name="{$key}">
+      <xsl:call-template name="kiln:escape-value">
+        <xsl:with-param name="value" select="$value" />
+        <xsl:with-param name="url-escaped" select="1" />
+      </xsl:call-template>
+    </xsl:element>
   </xsl:template>
 
 </xsl:stylesheet>
