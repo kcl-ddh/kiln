@@ -12,10 +12,11 @@ searching the XSLT for its ``@id``.
 To use this functionality, include the XSLT
 ``cocoon://_internal/url/reverse.xsl`` and call the
 ``kiln:url-for-match`` function, passing the ID of the ``map:match``
-to generate a URL for, and a sequence containing any wildcard
-parameters for that URL. For example::
+to generate a URL for, a sequence containing any wildcard parameters
+for that URL, and a Boolean indicating whether to force the URL to be
+a ``cocoon://`` URL. For example::
 
-   <a href="{kiln:url-for-match('local-tei-display-html', ('Had1.xml'))}">
+   <a href="{kiln:url-for-match('local-tei-display-html', ('Had1.xml'), 0)}">
      <xsl:text>Link title</xsl:text>
    </a>
 
@@ -26,7 +27,13 @@ This generates a root-relative URL based on the ``@pattern`` value of the
 
 If no wildcard parameters are required, pass an empty sequence::
 
-  <a href="{kiln:url-for-match('local-search', ())}">Search</a>
+  <a href="{kiln:url-for-match('local-search', (), 0)}">Search</a>
+
+If the third argument is true (eg, 1), then regardless of whether the
+pipeline the match belongs to is internal or not, the generated URL
+will be a ``cocoon://`` URL. This should be used when the generated
+URL will be used for situations in which the URL is evaluated without
+a webserver context, such as XIncludes.
 
 Be sure to declare the kiln namespace
 (``http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0``), or else the

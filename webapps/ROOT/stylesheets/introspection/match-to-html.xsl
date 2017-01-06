@@ -105,7 +105,7 @@
           <xsl:value-of select="kiln:url-for-match(
             'local-admin-introspection-template-xslt',
             (substring-after(substring-before(../@kiln:src, '.xml'),
-             'assets/templates/')))" />
+             'assets/templates/')), 0)" />
         </xsl:when>
         <xsl:otherwise>
           <xsl:value-of select="''" />

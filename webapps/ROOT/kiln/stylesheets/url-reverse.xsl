@@ -7,8 +7,9 @@
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
   <!-- Generates an XSLT that provides a named template,
-       url-for-match, that generates a full URL from a map:match ID
-       and a sequence of parameters. -->
+       url-for-match, that generates a full URL from a map:match ID,
+       a sequence of parameters, and a Boolean indicating whether to
+       always generate a cocoon:// URL or not. -->
 
   <xsl:namespace-alias result-prefix="xsl" stylesheet-prefix="axsl" />
 
@@ -20,12 +21,19 @@
       <axsl:function name="kiln:url-for-match" as="xs:string">
         <axsl:param name="match-id" as="xs:string" />
         <axsl:param name="parameters" />
-        <axsl:variable name="url-parts">
+        <axsl:param name="cocoon-context" />
+        <axsl:variable name="url">
           <axsl:choose>
             <xsl:apply-templates select="//map:match[@id][not(map:mount)]" />
           </axsl:choose>
         </axsl:variable>
-        <axsl:sequence select="string-join($url-parts, '')" />
+        <axsl:variable name="full-url">
+          <axsl:if test="$cocoon-context and not(starts-with($url, 'cocoon://'))">
+            <xsl:text>cocoon:/</xsl:text>
+          </axsl:if>
+          <axsl:value-of select="$url" />
+        </axsl:variable>
+        <axsl:value-of select="$full-url" />
       </axsl:function>
     </axsl:stylesheet>
   </xsl:template>

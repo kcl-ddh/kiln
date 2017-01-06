@@ -97,7 +97,7 @@
            display the document from which this result came. -->
       <xsl:choose>
         <xsl:when test="$filepath-prefix = 'tei'">
-          <xsl:value-of select="kiln:url-for-match('local-tei-display-html', ($short-filepath))" />
+          <xsl:value-of select="kiln:url-for-match('local-tei-display-html', ($short-filepath), 0)" />
         </xsl:when>
       </xsl:choose>
     </xsl:variable>

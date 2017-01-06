@@ -52,7 +52,7 @@
     </xsl:variable>
     <li>
       <!-- Link to the indexing pipeline for the specific file. -->
-      <a href="{kiln:url-for-match('local-solr-index', ('tei', $filepath))}">
+      <a href="{kiln:url-for-match('local-solr-index', ('tei', $filepath), 0)}">
         <xsl:value-of select="$filepath" />
         <xsl:text>.xml</xsl:text>
       </a>

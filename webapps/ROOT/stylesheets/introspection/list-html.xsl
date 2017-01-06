@@ -16,7 +16,7 @@
 
   <xsl:template match="map:match[@id]" mode="introspection">
     <li>
-      <a href="{kiln:url-for-match('local-admin-introspection-match', (@id))}">
+      <a href="{kiln:url-for-match('local-admin-introspection-match', (@id), 0)}">
         <xsl:value-of select="@id" />
       </a>
     </li>
@@ -41,12 +41,12 @@
       <xsl:value-of select="@name" />
       <xsl:text>: </xsl:text>
       <a href="{kiln:url-for-match('local-admin-introspection-template-xslt',
-               ($base-name))}">
+               ($base-name), 0)}">
         <xsl:text>full XSLT</xsl:text>
       </a>
       <xsl:text> | </xsl:text>
       <a href="{kiln:url-for-match('local-admin-introspection-template-empty',
-               ($base-name))}">
+               ($base-name), 0)}">
         <xsl:text>empty document</xsl:text>
       </a>
     </li>

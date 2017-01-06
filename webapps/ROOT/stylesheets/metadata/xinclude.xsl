@@ -29,6 +29,6 @@
     <xsl:param name="root" select="''" />
     <xsl:variable name="name" select="substring-before(@name, '.xml')" />
     <xi:include href="{kiln:url-for-match('local-typed-metadata',
-                      ($type, concat($root, $name)))}" />
+                      ($type, concat($root, $name)), 1)}" />
   </xsl:template>
 </xsl:stylesheet>

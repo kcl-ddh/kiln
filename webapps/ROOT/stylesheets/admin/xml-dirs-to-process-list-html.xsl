@@ -12,12 +12,12 @@
 
     <p>
       <a class="button round"
-         href="{kiln:url-for-match('local-solr-index-all', ())}">
+         href="{kiln:url-for-match('local-solr-index-all', (), 0)}">
         <xsl:text>Index all (search)</xsl:text>
       </a>
       <xsl:text> </xsl:text>
       <a class="button round"
-         href="{kiln:url-for-match('local-rdf-harvest-all-display', ())}">
+         href="{kiln:url-for-match('local-rdf-harvest-all-display', (), 0)}">
         <xsl:text>Harvest all (RDF)</xsl:text>
       </a>
     </p>
@@ -69,21 +69,21 @@
       <td>
         <a title="Schematron validation report"
            href="{kiln:url-for-match('local-admin-schematron-validation',
-                 ($filepath))}">
+                 ($filepath), 0)}">
           <xsl:text>Schematron</xsl:text>
         </a>
       </td>
       <!-- Image checking. -->
       <td>
         <a href="{kiln:url-for-match('local-admin-resource-check',
-                 ($filepath))}">
+                 ($filepath), 0)}">
           <xsl:text>Missing images</xsl:text>
         </a>
       </td>
       <!-- Search indexing. -->
       <td>
         <a title="Index document in search server"
-           href="{kiln:url-for-match('local-solr-index', ('tei', $filepath))}">
+           href="{kiln:url-for-match('local-solr-index', ('tei', $filepath), 0)}">
           <xsl:text>Index</xsl:text>
         </a>
       </td>
@@ -91,14 +91,14 @@
       <td>
         <a title="Harvest RDF from document"
            href="{kiln:url-for-match('local-rdf-harvest-display',
-                                     ($filepath))}">
+                                     ($filepath), 0)}">
           <xsl:text>Harvest</xsl:text>
         </a>
       </td>
       <!-- View on site. -->
       <td>
         <a href="{kiln:url-for-match('local-tei-display-html',
-                 ($short-filepath))}">
+                 ($short-filepath), 0)}">
           <xsl:text>View</xsl:text>
         </a>
       </td>
