@@ -25,14 +25,9 @@
        appended to the value of the "q" parameter to make an inclusive
        range query ANDed to the existing value.
 
-       A third exception is a q element, which may have a default
-       attribute. If it does (regardless of the attribute value), then
-       the element will only be added to the query if there is no
-       other non-default q element present.
-
        Multiple elements of the same name can be used where
        appropriate. In such cases, the order of the elements in the
-       source document is retained. To produce a query that sorts of
+       source document is retained. To produce a query that sorts on
        the fields "score" (descending) and "price" (ascending), use:
 
           <sort @ordering="desc">score</sort>
@@ -76,47 +71,46 @@
     </xsl:call-template>
   </xsl:template>
 
-  <xsl:template match="q[@default]">
-    <xsl:if test="not(../q[not(@default)])">
-      <xsl:next-match />
-    </xsl:if>
-  </xsl:template>
-
   <xsl:template match="q">
-    <xsl:if test="not(preceding-sibling::q[not(@default)])">
-      <xsl:if test="preceding-sibling::*">
+    <!-- q parameters are bundled together and handled by the first q
+         element, so do not process this at all if if it is preceded
+         by a q. -->
+    <xsl:if test="not(preceding-sibling::q)">
+      <!-- Only add a parameter separator if there is a preceding
+           parameter that is not one that will be dealt with in the
+           processing of another element. -->
+      <xsl:if test="preceding-sibling::*[not(@type = ('range_start', 'range_end'))]">
         <xsl:text>&amp;</xsl:text>
       </xsl:if>
       <xsl:call-template name="q-parameter" />
     </xsl:if>
   </xsl:template>
 
+  <!-- Range fields are handled by the first q field. -->
+  <xsl:template match="*[@type=('range_start', 'range_end')]" />
+
   <!-- Catch-all for simple query parameters. -->
   <xsl:template match="*">
-    <xsl:if test="preceding-sibling::* and
-                  not(@type = ('range_start', 'range_end'))">
+    <!-- Add a parameter separator if we've already processed a
+         parameter. -->
+    <xsl:if test="preceding-sibling::*[not(@type = ('range_start', 'range_end'))]">
       <xsl:text>&amp;</xsl:text>
     </xsl:if>
-    <xsl:choose>
-      <xsl:when test="@type = ('range_start', 'range_end')"></xsl:when>
-      <xsl:otherwise>
-        <xsl:call-template name="simple-parameter" />
-      </xsl:otherwise>
-    </xsl:choose>
+    <xsl:call-template name="simple-parameter" />
   </xsl:template>
 
   <xsl:template match="*" mode="range-parameter">
     <xsl:variable name="field" select="local-name(.)" />
     <xsl:value-of select="$field" />
-    <xsl:text>%3A[</xsl:text>
+    <xsl:text>:[</xsl:text>
     <xsl:value-of select="." />
-    <xsl:text>+TO+</xsl:text>
+    <xsl:text>%20TO%20</xsl:text>
     <xsl:value-of select="../*[local-name()=$field][@type='range_end']" />
     <xsl:text>]</xsl:text>
   </xsl:template>
 
   <xsl:template match="@ordering">
-    <xsl:text> </xsl:text>
+    <xsl:text>%20</xsl:text>
     <xsl:value-of select="." />
   </xsl:template>
 
@@ -148,24 +142,39 @@
   </xsl:template>
 
   <xsl:template name="q-parameter">
-    <xsl:call-template name="simple-parameter" />
-    <!-- Look for extra q parameters to add in. -->
-    <xsl:for-each select="following-sibling::q">
-      <xsl:text>+AND+</xsl:text>
-      <xsl:value-of select="." />
-    </xsl:for-each>
+    <xsl:value-of select="local-name(.)" />
+    <xsl:text>=</xsl:text>
+    <xsl:variable name="non-range-query">
+      <xsl:if test="normalize-space()">
+        <xsl:text>(</xsl:text>
+        <xsl:value-of select="." />
+        <xsl:text>)</xsl:text>
+      </xsl:if>
+      <!-- Look for extra q parameters to add in. -->
+      <xsl:for-each select="following-sibling::q">
+        <xsl:if test="normalize-space()">
+          <xsl:text>%20AND%20</xsl:text>
+        </xsl:if>
+        <xsl:text>(</xsl:text>
+        <xsl:value-of select="." />
+        <xsl:text>)</xsl:text>
+      </xsl:for-each>
+    </xsl:variable>
+    <xsl:value-of select="normalize-space($non-range-query)" />
     <!-- Look for range parameters to add in. -->
     <xsl:variable name="range_parameters"
-                  select="../*[@type='range_start'][normalize-space() != '']" />
-    <xsl:if test="$range_parameters and normalize-space(.)">
-      <xsl:text>+AND+</xsl:text>
-    </xsl:if>
-    <xsl:for-each select="$range_parameters">
-      <xsl:apply-templates mode="range-parameter" select="." />
-      <xsl:if test="not(position() = last())">
-        <xsl:text>+AND+</xsl:text>
+                  select="../*[@type='range_start'][normalize-space()]" />
+    <xsl:if test="$range_parameters">
+      <xsl:if test="normalize-space($non-range-query)">
+        <xsl:text>%20AND%20</xsl:text>
       </xsl:if>
-    </xsl:for-each>
+      <xsl:for-each select="$range_parameters">
+        <xsl:apply-templates mode="range-parameter" select="." />
+        <xsl:if test="not(position() = last())">
+          <xsl:text>%20AND%20</xsl:text>
+        </xsl:if>
+      </xsl:for-each>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template name="simple-parameter">
