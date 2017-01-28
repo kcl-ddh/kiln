@@ -29,3 +29,23 @@ such a file is provided at ``webapps/solr/conf/solr.xml``.
 
 .. _Jetty: http://www.eclipse.org/jetty/
 .. _Apache Tomcat: http://tomcat.apache.org/
+
+
+Static Build
+----------
+
+Kiln includes a task that allows to create a static version of the website. To execute it:
+
+* Run the build script as described above to start the web application.
+* Set the ``default`` attribute of the ``project`` in ``local.build.xml`` to ``static`` (instead of ``runserver``).
+* Re-run the build script.
+
+
+WAR Build (Web Application Archive)
+----------
+
+Kiln includes a task that allows to create a Web Application Archive (for use with `Apache Tomcat`_, e.g.). To execute it:
+
+* Run the build script as described above to start the web application.
+* Set the ``default`` attribute of the ``project`` in ``local.build.xml`` to ``war`` (instead of ``runserver``).
+* Re-run the build script.
