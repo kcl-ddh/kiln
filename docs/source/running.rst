@@ -37,8 +37,7 @@ Static Build
 Kiln includes a task that allows to create a static version of the website. To execute it:
 
 * Run the build script as described above to start the web application.
-* Set the ``default`` attribute of the ``project`` in ``local.build.xml`` to ``static`` (instead of ``runserver``).
-* Re-run the build script.
+* Re-run the build script supplying ``static`` as argument.
 
 
 WAR Build (Web Application Archive)
@@ -46,6 +45,4 @@ WAR Build (Web Application Archive)
 
 Kiln includes a task that allows to create a Web Application Archive (for use with `Apache Tomcat`_, e.g.). To execute it:
 
-* Run the build script as described above to start the web application.
-* Set the ``default`` attribute of the ``project`` in ``local.build.xml`` to ``war`` (instead of ``runserver``).
-* Re-run the build script.
+* Run the build script supplying ``war`` as argument.
