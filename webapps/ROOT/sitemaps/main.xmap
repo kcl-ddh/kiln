@@ -140,12 +140,18 @@
       <map:select type="exception">
         <map:when test="not-found">
           <map:transform src="../stylesheets/error/add-not-found-messages.xsl" />
+          <map:transform src="cocoon://_internal/template/error.xsl">
+            <map:parameter name="debug" value="{global:debug}" />
+          </map:transform>
+          <map:serialize status-code="404" />
         </map:when>
+        <map:otherwise>
+          <map:transform src="cocoon://_internal/template/error.xsl">
+            <map:parameter name="debug" value="{global:debug}" />
+          </map:transform>
+          <map:serialize status-code="500" />
+        </map:otherwise>
       </map:select>
-      <map:transform src="cocoon://_internal/template/error.xsl">
-        <map:parameter name="debug" value="{global:debug}" />
-      </map:transform>
-      <map:serialize />
     </map:handle-errors>
   </map:pipelines>
 </map:sitemap>
