@@ -48,9 +48,9 @@
              the URL as per RFC 2396; eg,
              http://username:password@domain.name/ -->
         <fedora-url></fedora-url>
-        <rdf-base-uri></rdf-base-uri>
+        <rdf-base-uri>http://localhost/rdf/</rdf-base-uri>
         <sesame-server>http://localhost:9999/openrdf-sesame/</sesame-server>
-        <sesame-server-repository></sesame-server-repository>
+        <sesame-server-repository>foo</sesame-server-repository>
         <solr-server>http://localhost:9999/solr/</solr-server>
       </global-variables>
     </map:component-configurations>

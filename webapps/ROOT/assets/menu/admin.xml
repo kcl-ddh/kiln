@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?oxygen RNGSchema="../schema/menu/menu.rng" type="xml"?>
+<root xmlns="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0">
+  <menu label="Components">
+    <menu label="Cocoon system status" match="local-admin-system-status" />
+    <menu label="Solr">
+      <item href="/solr/" label="Admin" />
+      <item label="Index all documents" match="local-solr-index-all" />
+    </menu>
+    <menu label="Sesame">
+      <item href="/openrdf-workbench" label="Admin" />
+      <item label="Harvest all documents" match="local-rdf-havest-all-display" />
+    </menu>
+  </menu>
+  <menu label="Introspection" match="local-admin-introspection-index" />
+  <menu href="http://kiln.readthedocs.org/en/latest/" label="Documentation" />
+</root>

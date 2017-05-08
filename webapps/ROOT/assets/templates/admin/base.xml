@@ -5,6 +5,11 @@
   <!-- Imports the default variables. -->
   <xsl:import href="cocoon://_internal/template/xsl/stylesheets/defaults.xsl" />
 
+  <!-- Imports the menu stylesheet -->
+  <xsl:import href="cocoon://_internal/template/xsl/stylesheets/menu/menu.xsl" />
+
+  <xsl:import href="cocoon://_internal/url/reverse.xsl" />
+
   <kiln:block name="html">
     <html class="no-js">
       <kiln:block name="head">
@@ -32,7 +37,7 @@
             <nav class="top-bar">
               <ul class="title-area">
                 <li class="name">
-                  <h1><a href="{$kiln:mount-path}/admin/">Kiln Admin</a></h1>
+                  <h1><a href="{kiln:url-for-match('local-admin-home-page', (), 0)}">Kiln Admin</a></h1>
                 </li>
                 <li class="toggle-topbar menu-icon">
                   <a href="#"><span>Menu</span></a>
@@ -40,31 +45,11 @@
               </ul>
               <section class="top-bar-section">
                 <ul class="left">
-                  <li class="has-dropdown">
-                    <a href="#">Components</a>
-                    <ul class="dropdown">
-                      <li><a href="{$kiln:mount-path}/admin/system-status.html">Cocoon system status</a></li>
-                      <li class="has-dropdown">
-                        <a href="#">Solr</a>
-                        <ul class="dropdown">
-                          <li><a href="/solr/">Admin</a></li>
-                          <li><a href="{$kiln:mount-path}/admin/solr/index/all.html">Index all documents</a></li>
-                        </ul>
-                      </li>
-                      <li class="has-dropdown">
-                        <a href="#">Sesame</a>
-                        <ul class="dropdown">
-                          <li><a href="/openrdf-workbench/">Admin</a></li>
-                          <li><a href="{$kiln:mount-path}/admin/rdf/harvest/all.html">Harvest all documents</a></li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </li>
-                  <li><a href="{$kiln:mount-path}/admin/introspection/">Introspection</a></li>
-                  <li><a href="http://kiln.readthedocs.org/en/latest/">Documentation</a></li>
+                  <xsl:apply-templates mode="main-menu"
+                                       select="/aggregation/kiln:nav" />
                 </ul>
                 <ul class="right">
-                  <li><a href="{$kiln:mount-path}/">Site Home</a></li>
+                  <li><a href="{kiln:url-for-match('local-home-page', (), 0)}">Site Home</a></li>
                 </ul>
               </section>
             </nav>

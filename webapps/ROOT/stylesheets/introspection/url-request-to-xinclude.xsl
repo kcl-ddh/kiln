@@ -8,10 +8,8 @@
   <xsl:import href="../defaults.xsl" />
   <xsl:include href="cocoon://_internal/url/reverse.xsl" />
 
-  <xsl:template match="/">
-    <aggregation>
-      <xsl:apply-templates select="//request:parameter[@name='url']" />
-    </aggregation>
+  <xsl:template match="request:request">
+    <xsl:apply-templates select="request:requestParameters/request:parameter[@name='url']" />
   </xsl:template>
 
   <xsl:template match="request:parameter">
@@ -33,6 +31,12 @@
     </xsl:variable>
     <xi:include href="{kiln:url-for-match('kiln-introspection-match-url',
                       (substring-after($value, '/')), 1)}" />
+  </xsl:template>
+
+  <xsl:template match="@*|node()">
+    <xsl:copy>
+      <xsl:apply-templates select="@*|node()" />
+    </xsl:copy>
   </xsl:template>
 
 </xsl:stylesheet>

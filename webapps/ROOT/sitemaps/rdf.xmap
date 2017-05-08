@@ -15,6 +15,7 @@
       <map:match id="local-rdf-harvest-all-display" pattern="harvest/all.html">
         <map:aggregate element="aggregation">
           <map:part src="cocoon:/harvest/all.xml" />
+          <map:part src="cocoon://_internal/menu/admin.xml?url=admin/rdf/" />
         </map:aggregate>
         <map:transform src="cocoon://_internal/template/admin/rdf-harvest-all.xsl" />
         <map:serialize />
@@ -33,6 +34,7 @@
       <map:match id="local-rdf-harvest-display" pattern="harvest/**.html">
         <map:aggregate element="aggregation">
           <map:part src="cocoon:/harvest/{1}.xml" />
+          <map:part src="cocoon://_internal/menu/admin.xml?url=admin/rdf/" />
         </map:aggregate>
         <map:transform src="cocoon://_internal/template/admin/rdf-harvest.xsl">
           <map:parameter name="file" value="{1}.xml" />

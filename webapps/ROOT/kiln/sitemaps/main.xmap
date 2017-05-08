@@ -134,6 +134,12 @@
         <map:generate type="request" />
         <map:serialize type="xml" />
       </map:match>
+
+      <!-- System status. -->
+      <map:match pattern="_internal/system-status.xml">
+        <map:generate type="status" />
+        <map:serialize type="xml" />
+      </map:match>
     </map:pipeline>
 
     <!-- Mount sub-sitemaps. -->

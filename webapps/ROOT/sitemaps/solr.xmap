@@ -30,6 +30,7 @@
           <map:part element="insert" src="cocoon:/add/" />
           <map:part element="optimize"
                     src="cocoon://_internal/solr/optimize" />
+          <map:part src="cocoon://_internal/menu/admin.xml?url=admin/solr/" />
         </map:aggregate>
         <map:transform src="cocoon://_internal/template/admin/solr-index-all.xsl" />
         <map:serialize />
@@ -39,6 +40,7 @@
       <map:match id="local-solr-index" pattern="index/*/**.html">
         <map:aggregate element="aggregation">
           <map:part src="cocoon://_internal/solr/index/{1}/{2}.xml" />
+          <map:part src="cocoon://_internal/menu/admin.xml?url=admin/solr/" />
         </map:aggregate>
         <map:transform src="cocoon://_internal/template/admin/solr-index.xsl">
           <map:parameter name="file" value="{2}.xml" />
