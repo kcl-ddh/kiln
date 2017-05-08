@@ -31,5 +31,6 @@ vocabularies, and has been used to publish data held in relational databases.
 * `Digital Edition of Hermann Burger's Lokalbericht <http://purl.org/lokalbericht>`_
 * `Mapping Medieval Chester <http://www.medievalchester.ac.uk/>`_
 * `Nineteenth-Century Serials Edition <http://ncse.kcl.ac.uk>`_
+* `Records of Early English Drama (REED) <https://ereed.library.utoronto.ca>`_
 * `Schenker Documents Online <http://www.schenkerdocumentsonline.org/>`_
 * `Sharing Ancient Wisdoms <http://saws.cch.kcl.ac.uk/>`_
