@@ -2,6 +2,7 @@
 <xsl:stylesheet exclude-result-prefixes="#all" version="2.0"
                 xmlns:h="http://apache.org/cocoon/request/2.0"
                 xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
+                xmlns:xs="http://www.w3.org/2001/XMLSchema"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
   <!-- XSLT for displaying Solr results.
@@ -60,7 +61,7 @@
     </xsl:if>
   </xsl:template>
 
-  <xsl:template match="lst[@name='facet_fields]/lst"
+  <xsl:template match="lst[@name='facet_fields']/lst"
                 mode="search-results">
     <section>
       <p class="title" data-section-title="">
