@@ -38,7 +38,7 @@
       | For development environment, set the check-reload to yes.
       | For production environment, it is advisable to set check-reload to no.
       +-->
-  <sitemap check-reload="yes" file="context://sitemap.xmap" logger="sitemap"/>
+  <sitemap check-reload="yes" file="sitemap.xmap" logger="sitemap"/>
 
 <!-- ========================= Sitemap Flowscript ========================== -->
 
