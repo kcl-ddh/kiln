@@ -16,7 +16,7 @@ to generate a URL for, a sequence containing any wildcard parameters
 for that URL, and a Boolean indicating whether to force the URL to be
 a ``cocoon://`` URL. For example::
 
-   <a href="{kiln:url-for-match('local-tei-display-html', ('Had1.xml'), 0)}">
+   <a href="{kiln:url-for-match('local-tei-display-html', ($language, 'Had1.xml'), 0)}">
      <xsl:text>Link title</xsl:text>
    </a>
 

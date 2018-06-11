@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<kiln:root xmlns:tei="http://www.tei-c.org/ns/1.0"
+           xmlns:xi="http://www.w3.org/2001/XInclude"
+           xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
+           xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+  <xsl:param name="index_type" />
+
+  <kiln:parent>
+    <xi:include href="base.xml" />
+  </kiln:parent>
+
+  <kiln:child>
+    <kiln:block name="title">
+      <kiln:super />
+      <xsl:value-of select="/aggregation/tei:TEI/tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title" />
+    </kiln:block>
+
+    <kiln:block name="page-heading">
+      <kiln:super />
+      <xsl:value-of select="/aggregation/tei:TEI/tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title" />
+    </kiln:block>
+
+    <kiln:block name="content">
+      <div class="row">
+        <div class="large-12 columns">
+          <xsl:apply-templates select="/aggregation/tei:TEI/tei:text/tei:front" />
+          <!-- Display the list of indices. -->
+          <ul>
+            <xsl:for-each select="/aggregation/tei:TEI/tei:text/tei:body/tei:div">
+              <li>
+                <a href="{kiln:url-for-match('local-index-display-html', ($language, $index_type, @xml:id), 0)}">
+                  <xsl:value-of select="tei:head" />
+                </a>
+              </li>
+            </xsl:for-each>
+          </ul>
+        </div>
+      </div>
+    </kiln:block>
+  </kiln:child>
+
+</kiln:root>

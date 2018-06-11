@@ -23,9 +23,23 @@
     </tr>
   </xsl:template>
 
+  <xsl:template match="index" mode="solr-table">
+    <tr>
+      <td>
+        <xsl:value-of select="@name" />
+        <xsl:text> (</xsl:text>
+        <xsl:value-of select="../@path" />
+        <xsl:text>#</xsl:text>
+        <xsl:value-of select="@xml:id" />
+        <xsl:text>)</xsl:text>
+      </td>
+      <xsl:apply-templates mode="solr-table" />
+    </tr>
+  </xsl:template>
+
   <xsl:template match="insert" mode="solr">
     <section>
-      <h1>Add new data</h1>
+      <h1>Add new data from "<xsl:value-of select="xincludes/@root" />"</h1>
 
       <table class="pure-table pure-table-horizontal">
         <thead>
@@ -50,6 +64,8 @@
     </section>
   </xsl:template>
 
+  <xsl:template match="aggregation/*" mode="solr" priority="-10" />
+
   <xsl:template match="response" mode="solr-table">
     <xsl:apply-templates mode="solr-table" />
     <xsl:variable name="id" select="generate-id(.)" />
@@ -73,6 +89,10 @@
         </xsl:otherwise>
       </xsl:choose>
     </td>
+  </xsl:template>
+
+  <xsl:template match="xincludes[@root='indices']" mode="solr-table">
+    <xsl:apply-templates mode="solr-table" select="file/index" />
   </xsl:template>
 
 </xsl:stylesheet>

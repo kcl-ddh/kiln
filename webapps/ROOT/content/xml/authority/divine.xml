@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>Authority list of divine names and epithets in IOSPE</title>
+            </titleStmt>
+            <publicationStmt><ab/></publicationStmt>
+            <sourceDesc><ab/></sourceDesc>
+        </fileDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <div type="commentary">
+                <listPerson type="divinities">
+                    <head xml:lang="en">Divine and mythological figures</head>
+                    <head xml:lang="ru">RU: Divine and mythological figures</head>
+                    <person xml:id="adam">
+                        <persName xml:lang="en">Adam</persName>
+                        <persName xml:lang="ru">Адам</persName>
+                        <persName xml:lang="grc">Ἀδάμ</persName>
+                    </person>
+                    <person xml:id="theos">
+                        <persName xml:lang="en">God</persName>
+                        <persName xml:lang="ru">Бог</persName>
+                        <persName xml:lang="grc">Θεός</persName>
+                        <persName xml:lang="grc">Κύριος</persName>
+                        <persName xml:lang="grc">Σαβαώθ</persName>
+                    </person>
+                    <person xml:id="maria">
+                        <persName xml:lang="en">Virgin Mary</persName>
+                        <persName xml:lang="ru">Богородица</persName>
+                        <persName xml:lang="grc">Θεοτόκος</persName>
+                   </person>
+                    <person xml:id="iesous">
+                        <persName xml:lang="en">Jesus Christ</persName>
+                        <persName xml:lang="ru">Иисус Христос</persName>
+                        <persName xml:lang="grc">Ἰησοῦς Χριστός</persName>
+                    </person>
+                    <person sameAs="#theos">
+                        <persName xml:lang="en">Kyrios</persName>
+                        <persName xml:lang="ru">Господь</persName>
+                        <persName xml:lang="grc">Κύριος</persName>
+                    </person>
+                    <person sameAs="#theos">
+                        <persName xml:lang="en">Sabaoth</persName>
+                        <persName xml:lang="ru">Саваоф</persName>
+                        <persName xml:lang="grc">Σαβαώθ</persName>
+                    </person>
+                    <person sameAs="#iesous">
+                        <persName xml:lang="en">Christ</persName>
+                        <persName xml:lang="ru">Христос</persName>
+                        <persName xml:lang="grc">Χριστός</persName>
+                    </person>
+                    <person xml:id="sarapis">
+                        <persName xml:lang="grc">Σάραπις</persName>
+                        <persName xml:lang="ru">Сарапис</persName>
+                        <persName xml:lang="en">Sarapis</persName>
+                    </person>
+                    <person xml:id="isis">
+                        <persName xml:lang="grc">Ἴσις</persName>
+                        <persName xml:lang="ru">Исида</persName>
+                        <persName xml:lang="en">Isis</persName>
+                    </person>
+                    <person xml:id="anubis">
+                        <persName xml:lang="grc">Ἄνουβις</persName>
+                        <persName xml:lang="ru">Анубис</persName>
+                        <persName xml:lang="en">Anubis</persName>
+                    </person>
+                    <person xml:id="parthenos">
+                        <persName xml:lang="grc">Παρθένος</persName>
+                        <persName xml:lang="ru">Дева</persName>
+                        <persName xml:lang="en">Parthenos</persName>
+                    </person>
+                    <person xml:id="olympians">
+                        <persName xml:lang="grc">θεοί Ὀλύμπιοι</persName>
+                        <persName xml:lang="ru">Олимпийцы</persName>
+                        <persName xml:lang="en">Olympian gods</persName>
+                    </person>
+                    <person xml:id="zeus">
+                        <persName xml:lang="grc">Ζεύς</persName>
+                        <persName xml:lang="ru">Зевс</persName>
+                        <persName xml:lang="en">Zeus</persName>
+                    </person>
+                    <person xml:id="demeter">
+                        <persName xml:lang="grc">Δημήτηρ</persName>
+                        <persName xml:lang="ru">Деметра</persName>
+                        <persName xml:lang="en">Demeter</persName>
+                    </person>
+                    <person xml:id="apollo">
+                        <persName xml:lang="grc">Απόλλων</persName>
+                        <persName xml:lang="ru">Аполлон</persName>
+                        <persName xml:lang="en">Apollo</persName>
+                    </person>
+                    <person sameAs="#apollo">
+                        <persName xml:lang="grc">Φοῖβος</persName>
+                        <persName xml:lang="ru">Феб</persName>
+                        <persName xml:lang="en">Phoebos</persName>
+                    </person>
+                    <person xml:id="artemis">
+                        <persName xml:lang="grc">Ἄρτεμις</persName>
+                        <persName xml:lang="ru">Артемида</persName>
+                        <persName xml:lang="en">Artemis</persName>
+                    </person>
+                    <person xml:id="dionysus">
+                        <persName xml:lang="grc">Διόνυσος</persName>
+                        <persName xml:lang="ru">Дионис</persName>
+                        <persName xml:lang="en">Dionysus</persName>
+                    </person>
+                    <person xml:id="hermes">
+                        <persName xml:lang="grc">Ἑρμῆς</persName>
+                        <persName xml:lang="ru">Гермес</persName>
+                        <persName xml:lang="en">Hermes</persName>
+                    </person>
+                    <person xml:id="aphrodite">
+                        <persName xml:lang="grc">Ἀφροδίτη</persName>
+                        <persName xml:lang="ru">Афродита</persName>
+                        <persName xml:lang="en">Aphrodite</persName>
+                    </person>
+                    <person xml:id="ares">
+                        <persName xml:lang="grc">Ἄρης</persName>
+                        <persName xml:lang="ru">Арес</persName>
+                        <persName xml:lang="en">Ares</persName>
+                    </person>
+                    <person xml:id="athena">
+                        <persName xml:lang="grc">Ἀθηνᾶ</persName>
+                        <persName xml:lang="ru">Афина</persName>
+                        <persName xml:lang="en">Athena</persName>
+                    </person>
+                    <person xml:id="ge">
+                        <persName xml:lang="grc">Γαῖα</persName>
+                        <persName xml:lang="ru">Гея</persName>
+                        <persName xml:lang="en">Ge</persName>
+                    </person>
+                    <person xml:id="helios">
+                        <persName xml:lang="grc">Ἥλιος</persName>
+                        <persName xml:lang="ru">Гелиос</persName>
+                        <persName xml:lang="en">Helios</persName>
+                    </person>
+                    <person xml:id="metertheon">
+                        <persName xml:lang="grc">Μήτηρ θεῶν</persName>
+                        <persName xml:lang="ru">Матер богов</persName>
+                        <persName xml:lang="en">Mother of gods</persName>
+                    </person>
+                    <person xml:id="nemesis">
+                        <persName xml:lang="grc">Νέμεσις</persName>
+                        <persName xml:lang="ru">Немесида</persName>
+                        <persName xml:lang="en">Nemesis</persName>
+                    </person>
+                    <person xml:id="pythia">
+                        <persName xml:lang="grc">Πυθία</persName>
+                        <persName xml:lang="ru">Пифия</persName>
+                        <persName xml:lang="en">Pythia</persName>
+                    </person>
+                    <person sameAs="pythia">
+                        <persName xml:lang="grc">Πυθώ</persName>
+                        <persName xml:lang="ru">Пито</persName>
+                        <persName xml:lang="en">Pytho</persName>
+                    </person>
+                    <person xml:id="hades">
+                        <persName xml:lang="grc">ᾍδης</persName>
+                        <persName xml:lang="ru">Аид</persName>
+                        <persName xml:lang="en">Hades</persName>
+                    </person>
+                    <person sameAs="#hades">
+                        <persName xml:lang="grc">Πλούτων</persName>
+                        <persName xml:lang="ru">Плутон</persName>
+                        <persName xml:lang="en">Pluto</persName>
+                    </person>
+                    <person xml:id="hekate">
+                        <persName xml:lang="grc">Ἑκάτη</persName>
+                        <persName xml:lang="ru">Геката</persName>
+                        <persName xml:lang="en">Hekate</persName>
+                    </person>
+                    <person xml:id="eileithyia">
+                        <persName xml:lang="grc">Εἰλείθυια</persName>
+                        <persName xml:lang="ru">Илифия</persName>
+                        <persName xml:lang="en">Eileithyia</persName>
+                    </person>
+                    <person xml:id="asklepios">
+                        <persName xml:lang="grc">Ἀσκληπιός</persName>
+                        <persName xml:lang="ru">Асклепий</persName>
+                        <persName xml:lang="en">Asklepios</persName>
+                    </person>
+                    <person xml:id="muses">
+                        <persName xml:lang="grc">Μοῦσαι</persName>
+                        <persName xml:lang="ru">Музы</persName>
+                        <persName xml:lang="en">Muses</persName>
+                    </person>
+                    <person xml:id="moirai">
+                        <persName xml:lang="grc">Μοῖραι</persName>
+                        <persName xml:lang="ru">Мойры</persName>
+                        <persName xml:lang="en">Moirai</persName>
+                    </person>
+                    <person xml:id="rhodos">
+                        <persName xml:lang="grc">Ῥόδος</persName>
+                        <persName xml:lang="ru">Родос</persName>
+                        <persName xml:lang="en">Rhodos</persName>
+                    </person>
+                    <person xml:id="heros">
+                        <persName xml:lang="grc">ἥρως</persName>
+                        <persName xml:lang="ru">герой</persName>
+                        <persName xml:lang="en">heros</persName>
+                    </person>
+                    <person xml:id="achilles">
+                        <persName xml:lang="grc">Ἀχιλλεύς</persName>
+                        <persName xml:lang="ru">Ахилл</persName>
+                        <persName xml:lang="en">Achilles</persName>
+                    </person>
+                </listPerson>
+                
+                <listPerson type="saints">
+                    <head xml:lang="en">Saints</head>
+                    <head xml:lang="ru">RU: Saints</head>
+                    <person xml:id="stgeorge">
+                        <persName xml:lang="en">St George</persName>
+                        <persName xml:lang="ru">Св. Георгий</persName>
+                        <persName xml:lang="grc">Ἅγιος Γεώργιος</persName>
+                    </person>
+                    <person xml:id="stDemetrius">
+                        <persName xml:lang="en">St Demetrius</persName>
+                        <persName xml:lang="ru">Св. Димитрий</persName>
+                        <persName xml:lang="grc">Ἅγιος Δημήτριος</persName>
+                    </person>
+                    <person xml:id="sthelen">
+                        <persName xml:lang="en">St Helen</persName>
+                        <persName xml:lang="ru">Св. Елена</persName>
+                        <persName xml:lang="grc">ἁγία ἔνδοξος θεόστεπτος μεγάλη βασιλίσσα καὶ εἰσαπόστολος Ἑλένη</persName>
+                    </person>
+                    <person xml:id="sttheodore">
+                        <persName xml:lang="en">St Theodore</persName>
+                        <persName xml:lang="ru">Св. Феодор</persName>
+                        <persName xml:lang="grc">Ἅγιος Θεόδωρος</persName>
+                    </person>
+                    <person xml:id="stjohn">
+                        <persName xml:lang="en">St John</persName>
+                        <persName xml:lang="ru">Св. Иоанн</persName>
+                        <persName xml:lang="grc">Ἅγιος Ἰωάννης</persName>
+                    </person>
+                    <person xml:id="stjohnbaptist">
+                        <persName xml:lang="en">St John the Baptist</persName>
+                        <persName xml:lang="ru">Св. Иоанн Предтеча</persName>
+                        <persName xml:lang="grc">Ἅγιος Ἰωάννης ὁ Πρόδρομος</persName>
+                    </person>
+                    <person xml:id="stjohnarchbishop">
+                        <persName xml:lang="en">St John of Gothia</persName>
+                        <persName xml:lang="ru">Св. Иоанн Готский</persName>
+                        <persName xml:lang="grc">ὁ ἐν ἁγ̣ίοι̣ς πατήρ ἡμῶν καὶ ἀρχιεπίσκοπος πόλεως Θεοδώρους καὶ πάσης Γοτθίας Ἰωάννης 
+                            ὁ ὁμολογητής</persName>
+                    </person>
+                    <person xml:id="stjohntheologos">
+                        <persName xml:lang="en">St John Theologos</persName>
+                        <persName xml:lang="ru">Св. Иоанн Богослов</persName>
+                        <persName xml:lang="grc">Ἰωάννης Θεολὀγος</persName>
+                    </person>
+                    <person xml:id="stcapiton">
+                        <persName xml:lang="en">St Capiton</persName>
+                        <persName xml:lang="ru">Св. Капитон</persName>
+                        <persName xml:lang="grc">Ἅγιος Καπίτων</persName>
+                    </person>
+                    <person xml:id="stconstantine">
+                        <persName xml:lang="en">St Constantine</persName>
+                        <persName xml:lang="ru">Св. Константин</persName>
+                        <persName xml:lang="grc">ἅγιος ἔνδοξος θεόστεπτος μέγας βασιλεύς καὶ εἰσαπόστολος Κωνσταντῖνος</persName>
+                    </person>
+                    <person xml:id="stnicolas">
+                        <persName xml:lang="en">St Nicholas</persName>
+                        <persName xml:lang="ru">Св. Николай</persName>
+                        <persName xml:lang="grc">Νικόλαος μιτροπολίτης Μ̣υρῶν</persName>
+                    </person>
+                    <person xml:id="stpanteleimon">
+                        <persName xml:lang="en">St Panteleimon</persName>
+                        <persName xml:lang="ru">Св. Пантелеимон</persName>
+                        <persName xml:lang="grc">ὁ ἅγιος μεγαλομάρτυς καὶ ἀνάργυρος Παντελεήμων</persName>
+                    </person>
+                    <person xml:id="stpaul">
+                        <persName xml:lang="en">St Paul</persName>
+                        <persName xml:lang="ru">Св. Павел</persName>
+                        <persName xml:lang="grc">ὁ ἅγιος ἔνδοξος, πανεύφημος καὶ πρωτοκορυφαῖος ἀπόστολος Παῦλος</persName>
+                    </person>
+                    <person xml:id="stpeter">
+                        <persName xml:lang="en">St Peter</persName>
+                        <persName xml:lang="ru">Св. Петр</persName>
+                        <persName xml:lang="grc">ὁ ἅγιος ἔνδοξος, πανεύφημος καὶ πρωτοκορυφαῖος ἀπόστολος Πέτρος</persName> 
+                    </person>
+                    <person xml:id="ststephen">
+                        <persName xml:lang="en">St Stephen</persName>
+                        <persName xml:lang="ru">Св. Стефан</persName>
+                        <persName xml:lang="grc">Ἅγιος Στέφανος</persName>
+                    </person>
+                </listPerson>
+            </div>
+        </body>
+    </text>
+</TEI>

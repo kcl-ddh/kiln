@@ -4,10 +4,15 @@
            xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
            xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-  <xsl:import href="cocoon://_internal/template/xsl/stylesheets/text-file-list-to-html.xsl" />
+  <!-- Type of document (name of subdirectory containing the source
+       file). -->
+  <xsl:variable name="document_type" select="'tei'" />
+  <!-- ID of sitemap map:match to use for display of individual
+       texts. -->
+  <xsl:variable name="match_id" select="'local-tei-display-html'" />
 
   <kiln:parent>
-    <xi:include href="base.xml" />
+    <xi:include href="works.xml" />
   </kiln:parent>
 
   <kiln:child>
@@ -16,32 +21,9 @@
       <xsl:text>Texts</xsl:text>
     </kiln:block>
 
-    <kiln:block name="css">
-      <kiln:super />
-      <link href="{$kiln:assets-path}/styles/tablesorter.css"
-            rel="stylesheet" />
-    </kiln:block>
-
     <kiln:block name="page-heading">
       <kiln:super />
       <xsl:text>Texts</xsl:text>
-    </kiln:block>
-
-    <kiln:block name="content">
-      <div class="row">
-        <div class="large-12 columns">
-          <xsl:apply-templates mode="text-index"
-                               select="/aggregation/files" />
-        </div>
-      </div>
-    </kiln:block>
-
-    <kiln:block name="end-js">
-      <kiln:super />
-      <script src="{$kiln:assets-path}/scripts/jquery.tablesorter.js" />
-      <script>
-        <xsl:text>$(document).ready(function() {$(".tablesorter").tablesorter();});</xsl:text>
-      </script>
     </kiln:block>
   </kiln:child>
 </kiln:root>

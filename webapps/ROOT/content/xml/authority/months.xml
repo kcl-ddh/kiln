@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alist>
+    <list>
+        <head xml:lang="en">Roman items</head>
+        <head xml:lang="ru">Римские</head>
+        <item xml:id="sep">
+            <term xml:lang="la">September</term>
+            <term xml:lang="grc">Σεπτέμβριος</term>
+        </item>
+        <item xml:id="oct">
+            <term xml:lang="la">October</term>
+            <term xml:lang="grc">Ὀκτώβριος</term>
+        </item>
+        <item xml:id="nou">
+            <term xml:lang="la">Nouember</term>
+            <term xml:lang="grc">Νοέμβριος</term>
+        </item>
+        <item xml:id="dec">
+            <term xml:lang="la">December</term>
+            <term xml:lang="grc">Δεκέμβριος</term>
+        </item>
+        <item xml:id="ian">
+            <term xml:lang="la">Ianuarius</term>
+            <term xml:lang="grc">Ἰανουάριος</term>
+        </item>
+        <item xml:id="feb">
+            <term xml:lang="la">Februarius</term>
+            <term xml:lang="grc">Φεβρουάριος</term>
+        </item>
+        <item xml:id="mar">
+            <term xml:lang="la">Martius</term>
+            <term xml:lang="grc">Μάρτιος</term>
+        </item>
+        <item xml:id="apr">
+            <term xml:lang="la">Aprilis</term>
+            <term xml:lang="grc">Ἀπρίλιος</term>
+        </item>
+        <item xml:id="mai">
+            <term xml:lang="la">Maius</term>
+            <term xml:lang="grc">Μάϊος</term>
+        </item>
+        <item xml:id="iun">
+            <term xml:lang="la">Iunius</term>
+            <term xml:lang="grc">Ἰούνιος</term>
+        </item>
+        <item xml:id="iul">
+            <term xml:lang="la">Iulius</term>
+            <term xml:lang="grc">Ἰούλιος</term>
+        </item>
+        <item xml:id="aug">
+            <term xml:lang="la">Augustus</term>
+            <term xml:lang="grc">Αὔγουστος</term>
+        </item>
+    </list>
+    
+    <list xml:lang="grc">
+        <head xml:lang="en">Macedonian items</head>
+        <head xml:lang="ru">Македонские</head>
+        <item xml:id="xanthikos">
+            <term xml:lang="grc">Ξανθικός</term>
+        </item>
+    </list>
+    
+    <list xml:lang="grc">
+        <head xml:lang="en">Greek items</head>
+        <head xml:lang="ru">Греческие</head>
+        <item xml:id="anthesterion">
+            <term xml:lang="grc">Ἀνθεστηριών</term>
+        </item>
+        <item xml:id="artemision">
+            <term xml:lang="grc">Ἀρτεμισιών</term>
+        </item>
+        <item xml:id="dionysios">
+            <term xml:lang="grc">Διονύσιος</term>
+        </item>
+        <item xml:id="eukleios">
+            <term xml:lang="grc">Εύκλειος</term>
+        </item>
+        <item xml:id="herakleios">
+            <term xml:lang="grc">Ἡράκλειος</term>
+        </item>
+        <item xml:id="kalamaion">
+            <term xml:lang="grc">Καλαμαιών</term>
+        </item>
+        <item xml:id="latoios">
+            <term xml:lang="grc">Λάτοιος</term>
+        </item>
+        <item xml:id="lykeios">
+            <term xml:lang="grc">Λύκειος</term>
+        </item>        
+        <item xml:id="loios">
+            <term xml:lang="grc">Λώιος</term>
+        </item> 
+    </list>
+
+    <!--<list xml:lang="grc"><head>Egyptian items</head>
+        <term xml:lang="grc">Θώθ</term>
+        <term xml:lang="grc">Φαωφί</term>
+        <term xml:lang="grc">Ἀθύρ</term>
+        <term xml:lang="grc">Χοιάκ</term>
+        <term xml:lang="grc">Τυβί</term>
+        <term xml:lang="grc">Μεχίρ</term>
+        <term xml:lang="grc">Φαμενώθ</term>
+        <term xml:lang="grc">Φαρμουθί</term>
+        <term xml:lang="grc">Παχών</term>
+        <term xml:lang="grc">Παϋνί</term>
+        <term xml:lang="grc">Ἐπιφί</term>
+        <term xml:lang="grc">Μεσορή</term>
+    </list>-->
+
+    <!--<list>
+        <head>Week days</head>
+        <day/>
+        <day/>
+        <day/>
+        <day/>
+        <day/>
+        <day/>
+        <day/>
+    </list>-->
+
+</alist>

@@ -9,7 +9,9 @@
   <xsl:param name="base_uri" />
 
   <xsl:template match="tei:TEI">
-    <rdf:RDF xml:base="{$base_uri}" />
+    <rdf:RDF>
+      <xsl:attribute name="xml:base" select="$base_uri" />
+    </rdf:RDF>
   </xsl:template>
 
 </xsl:stylesheet>

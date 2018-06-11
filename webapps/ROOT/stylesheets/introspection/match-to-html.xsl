@@ -7,8 +7,6 @@
 
   <!-- Transform a complete map:match into HTML. -->
 
-  <xsl:include href="cocoon://_internal/url/reverse.xsl" />
-
   <xsl:template match="map:match" mode="introspection" priority="10">
     <xsl:variable name="id" select="generate-id(.)" />
     <xsl:variable name="is_expanded" select="ancestor::map:match" />
@@ -49,7 +47,7 @@
     </div>
   </xsl:template>
 
-  <xsl:template name="attribute" mode="introspection">
+  <xsl:template name="attribute">
     <xsl:param name="check-kiln-value" select="0" />
     <xsl:param name="link" select="''" />
     <xsl:text> </xsl:text>

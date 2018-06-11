@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<kiln:root xmlns:xi="http://www.w3.org/2001/XInclude"
+<kiln:root xmlns:h="http://apache.org/cocoon/request/2.0"
+           xmlns:xi="http://www.w3.org/2001/XInclude"
            xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
            xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
+  <xsl:param name="base-uri" />
+  <xsl:param name="query-string" />
+  <xsl:param name="rdf-facet-lookup-fields" />
+  <xsl:param name="search-lemma" />
+
   <!-- Imports stylesheet to convert Solr results into HTML. -->
   <xsl:import href="cocoon://_internal/template/xsl/stylesheets/solr/results-to-html.xsl" />
+
+  <!-- Variables defining search parameter values. -->
+  <xsl:variable name="q_value" select="normalize-space(/aggregation/h:request/h:requestParameters/h:parameter[@name='q']/h:value)" />
+  <xsl:variable name="df_value" select="normalize-space(/aggregation/h:request/h:requestParameters/h:parameter[@name='df']/h:value)" />
 
   <kiln:parent>
     <xi:include href="base.xml" />
@@ -16,6 +26,12 @@
       <xsl:text>Search</xsl:text>
     </kiln:block>
 
+    <kiln:block name="css">
+      <kiln:super />
+      <link href="{$kiln:assets-path}/styles/jquery-ui/all.css"
+            rel="stylesheet" type="text/css" />
+    </kiln:block>
+
     <kiln:block name="page-heading">
       <kiln:super />
       <xsl:text>Search</xsl:text>
@@ -24,12 +40,24 @@
     <kiln:block name="content">
       <div class="row">
         <div class="large-4 columns">
-          <form action="." method="get">
+          <form action="." id="search-form" method="get">
             <input name="q" placeholder="Search terms" type="search">
               <xsl:attribute name="value">
-                <xsl:value-of select="/aggregation/response/lst[@name='responseHeader']/lst[@name='params']/str[@name='q']" />
+                <xsl:value-of select="$q_value" />
               </xsl:attribute>
             </input>
+            <xsl:if test="$search-lemma">
+              <label>
+                <input name="df" type="checkbox" value="lemmatised_text">
+                  <xsl:if test="$df_value = 'lemmatised_text'">
+                    <xsl:attribute name="checked">checked</xsl:attribute>
+                  </xsl:if>
+                </input>
+                <xsl:text>Search lemmatised text</xsl:text>
+              </label>
+            </xsl:if>
+            <h4>Date <span id="date-slider-label"></span></h4>
+            <div id="date-slider-widget" data-range-min="-500" data-range-max="1600" data-value-min="-200" data-value-max="1400" data-step="25" data-label-prefix="" data-label-suffix="A.D." data-field-name="origin_date" />
           </form>
           <!-- List of currently applied facets. -->
           <xsl:apply-templates mode="search-results" select="/aggregation/response/lst[@name='responseHeader']/lst[@name='params']/*[@name='fq']" />
@@ -42,6 +70,24 @@
                                mode="search-results" />
         </div>
       </div>
+    </kiln:block>
+
+    <kiln:block name="end-js">
+      <kiln:super />
+      <script src="{$kiln:assets-path}/scripts/jquery-ui.min.js" />
+      <script src="{$kiln:assets-path}/scripts/URI.js" />
+      <script src="{$kiln:assets-path}/scripts/slider.js" />
+      <script>
+      $(document).ready(function() {
+        var form = $("#search-form"),
+            widget = $("#date-slider-widget"),
+            label = $("#date-slider-label"),
+            inputs = ["q"],
+            checked_inputs = ["df"];
+        prepare_form(form, widget, inputs, checked_inputs);
+        setup_slider(widget, label);
+      });
+      </script>
     </kiln:block>
   </kiln:child>
 

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Query to retrieve all metadata for TEI files, suitable for
+creating an index of documents. -->
+<query>
+  <q default="true"></q>
+  <df>document_type</df>
+  <rows>20000</rows>
+  <sort ordering="asc">file_path</sort>
+</query>

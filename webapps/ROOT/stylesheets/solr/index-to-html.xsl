@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="2.0"
+                xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
   <!-- Transform the XML returned from indexing a document in
@@ -58,5 +59,7 @@
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
+
+  <xsl:template match="kiln:nav" mode="solr" />
 
 </xsl:stylesheet>

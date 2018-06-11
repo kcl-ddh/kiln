@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <grammar ns="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
          xmlns="http://relaxng.org/ns/structure/1.0"
+         xmlns:i18n="http://apache.org/cocoon/i18n/2.1"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
   <!-- Schema for Kiln menu documents. -->
   <start>
@@ -24,6 +25,12 @@
             </optional>
           </group>
         </choice>
+      </optional>
+      <optional>
+        <attribute name="i18n:key" />
+      </optional>
+      <optional>
+        <attribute name="language" />
       </optional>
       <attribute name="label"/>
       <optional>
@@ -58,6 +65,12 @@
                 </group>
               </choice>
               <attribute name="label"/>
+              <optional>
+                <attribute name="i18n:key" />
+              </optional>
+              <optional>
+                <attribute name="language" />
+              </optional>
             </element>
           </choice>
         </zeroOrMore>

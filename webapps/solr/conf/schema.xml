@@ -108,6 +108,8 @@
         trailing underscores (e.g. _version_) are reserved.
    -->
 
+   <field indexed="true" multiValued="false" name="document_type"
+          required="false" stored="true" type="string" />
    <field indexed="true" multiValued="true" name="document_title"
           required="false" stored="true" type="text_general" />
    <field indexed="true" multiValued="true" name="author"
@@ -119,10 +121,12 @@
         a year. -->
    <field indexed="true" multiValued="false" name="publication_date"
           required="false" stored="true" type="string" />
+   <field indexed="true" multiValued="true" name="origin_date"
+          required="false" stored="false" type="int" />
    <field indexed="true" multiValued="false" name="file_path"
           required="false" stored="true" type="string" />
    <field indexed="false" multiValued="false" name="document_id"
-          required="true" stored="true" type="string" />
+          required="false" stored="true" type="string" />
    <field indexed="false" multiValued="false" name="section_id"
           required="false" stored="true" type="string" />
    <field indexed="true" multiValued="false" name="entity_key"
@@ -131,6 +135,42 @@
           required="false" stored="true" type="text_general" />
    <field indexed="true" multiValued="false" name="eats_entity_name"
           required="false" stored="true" type="text_general" />
+   <field name="lemmatised_text" type="text_general" indexed="true"
+          stored="false" multiValued="true" />
+   <field name="origin_place" type="string" indexed="true"
+          multiValued="true" stored="true" required="false" />
+   <field name="support_object_type" type="string" indexed="true"
+          multiValued="true" stored="true" required="false" />
+   <field name="support_material" type="string" indexed="true"
+          multiValued="true" stored="true" required="false" />
+   <field name="found_provenance" type="string" indexed="true"
+          multiValued="true" stored="true" required="false" />
+   <field name="mentioned_places" type="string" indexed="true"
+          multiValued="true" stored="true" required="false" />
+   <field name="mentioned_people" type="string" indexed="true"
+          multiValued="true" stored="true" required="false" />
+   <field name="source_repository" type="string" required="false"
+          multiValued="true" stored="true" indexed="true" />
+   <!-- User index fields. -->
+   <field name="index_item_name" stored="true" indexed="true"
+          multiValued="false" required="false" type="string" />
+   <field name="index_instance_location" stored="true" indexed="false"
+          multiValued="true" required="false" type="string" />
+   <field name="index_abbreviation_expansion" stored="true"
+          indexed="false" multiValued="false" required="false" type="string" />
+   <field name="language_code" stored="true" indexed="true"
+          multiValued="true" required="false" type="string" />
+   <field name="index_numeral_value" stored="true" indexed="false"
+          multiValued="false" required="false" type="string" />
+   <field name="origin_date_evidence" required="false" indexed="true"
+          multiValued="true" stored="true" type="string" />
+   <!-- Concordance fields. -->
+   <field name="concordance_bibliography_ref" stored="true" indexed="true"
+          multiValued="false" required="false" type="string" />
+   <field name="concordance_bibliography_cited_range" stored="true"
+          indexed="true" multiValued="false" required="false" type="string" />
+   <field name="concordance_bibliography_item" stored="true" indexed="false"
+          multiValued="true" required="false" type="string" />
 
    <!-- catchall field, containing all other searchable text fields
         (implemented via copyField further on in this schema -->

@@ -3,7 +3,8 @@
 sw/jetty/logs
 sw/jetty/temp
 webapps/openrdf-sesame/app_dir
-webapps/ROOT/content
+webapps/ROOT/content/xml/tei
+webapps/ROOT/content/xml/epidoc
 webapps/ROOT/WEB-INF/logs
 webapps/solr/data
 docs/build

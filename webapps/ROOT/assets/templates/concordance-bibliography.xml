@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<kiln:root xmlns:h="http://apache.org/cocoon/request/2.0"
+           xmlns:xi="http://www.w3.org/2001/XInclude"
+           xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
+           xmlns:tei="http://www.tei-c.org/ns/1.0"
+           xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+  <!-- Imports stylesheet to convert Solr results and bibliography
+       authority TEI into HTML. -->
+  <xsl:import href="cocoon://_internal/template/xsl/stylesheets/authority/bibliography-to-concordance-html.xsl" />
+
+  <kiln:parent>
+    <xi:include href="base.xml" />
+  </kiln:parent>
+
+  <kiln:child>
+    <kiln:block name="title">
+      <kiln:super />
+      <xsl:text>Bibliographic Concordance</xsl:text>
+    </kiln:block>
+
+    <kiln:block name="page-heading">
+      <kiln:super />
+      <xsl:text>Bibliographic Concordance</xsl:text>
+    </kiln:block>
+
+    <kiln:block name="content">
+      <div class="row">
+        <div class="large-12 columns">
+          <ul>
+            <xsl:apply-templates mode="bibl-list"
+                                 select="/aggregation/response/result/doc" />
+          </ul>
+        </div>
+      </div>
+    </kiln:block>
+  </kiln:child>
+
+</kiln:root>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<query>
+  <q>*</q>
+  <fq default="true"></fq>
+  <df>index_item_name</df>
+  <rows>20000</rows>
+  <sort ordering="asc">index_item_name</sort>
+</query>

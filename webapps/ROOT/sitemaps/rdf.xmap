@@ -54,14 +54,43 @@
         <map:generate src="cocoon://_internal/sesame/query/graph/{1}.xml" />
         <map:serialize type="rdf-xml" />
       </map:match>
-
     </map:pipeline>
 
     <!-- Pipeline for constructing an RDF/XML document. -->
     <map:pipeline id="local-rdf-generate">
+      <!-- QAZ: If I had a good ID for a combined map:match, I'd have
+           these as a single map:match with a parameter for the
+           directory/type. -->
+      <!-- Authority file. -->
+      <map:match id="local-rdf-generate-authority"
+                 pattern="generate/authority/**.xml">
+        <map:generate src="../content/xml/authority/{1}.xml" />
+        <map:transform src="../stylesheets/rdf/authority-to-rdf.xsl">
+          <map:parameter name="base_uri" value="{global:rdf-base-uri}" />
+          <map:parameter name="filename" value="{1}.xml" />
+        </map:transform>
+        <map:serialize type="rdf-xml" />
+      </map:match>
+
+      <!-- EpiDoc file. -->
+      <map:match id="local-rdf-generate-epidoc"
+                 pattern="generate/epidoc/**.xml">
+        <map:generate src="../content/xml/epidoc/{1}.xml" />
+        <map:transform src="../stylesheets/rdf/tei-to-rdf.xsl">
+          <map:parameter name="base_uri" value="{global:rdf-base-uri}" />
+        </map:transform>
+        <map:serialize type="rdf-xml" />
+      </map:match>
+
+      <!-- Index file. -->
+      <map:match id="local-rdf-generate-index"
+                 pattern="generate/indices/**.xml">
+        <map:generate src="empty:empty" />
+        <map:serialize type="rdf-xml" />
+      </map:match>
+
       <!-- TEI file. -->
-      <map:match id="local-rdf-generate-tei"
-                 pattern="generate/tei/**.xml">
+      <map:match id="local-rdf-generate-tei" pattern="generate/tei/**.xml">
         <map:generate src="../content/xml/tei/{1}.xml" />
         <map:transform src="../stylesheets/rdf/tei-to-rdf.xsl">
           <map:parameter name="base_uri" value="{global:rdf-base-uri}" />

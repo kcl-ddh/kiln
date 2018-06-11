@@ -7,6 +7,8 @@
   <!-- Template to display a list of documents and links to various
        editorial processes that may be applied to them. -->
 
+  <xsl:param name="concordance-bibliography-file" />
+
   <xsl:import href="cocoon://_internal/template/xsl/stylesheets/admin/xml-dirs-to-process-list-html.xsl" />
 
   <kiln:parent>
@@ -19,7 +21,38 @@
     <kiln:block name="content">
       <div class="row">
         <div class="large-12 columns">
-          <xsl:apply-templates mode="tei" select="/aggregation/dir:directory" />
+          <p>
+            <a class="button round"
+               href="{kiln:url-for-match('local-solr-index-all', (), 0)}">
+              <xsl:text>Index all (search)</xsl:text>
+            </a>
+            <xsl:text> </xsl:text>
+            <a class="button round"
+               href="{kiln:url-for-match('local-rdf-harvest-all-display', (), 0)}">
+              <xsl:text>Harvest all (RDF)</xsl:text>
+            </a>
+          </p>
+
+          <xsl:apply-templates mode="tei"
+                               select="/aggregation/dir:directory">
+            <xsl:with-param name="directory" select="'tei'" />
+            <xsl:with-param name="header" select="'TEI'" />
+          </xsl:apply-templates>
+          <xsl:apply-templates mode="epidoc"
+                               select="/aggregation/dir:directory">
+            <xsl:with-param name="directory" select="'epidoc'" />
+            <xsl:with-param name="header" select="'Epidoc'" />
+          </xsl:apply-templates>
+          <xsl:apply-templates mode="authority"
+                               select="/aggregation/dir:directory">
+            <xsl:with-param name="directory" select="'authority'" />
+            <xsl:with-param name="header" select="'Authority'" />
+          </xsl:apply-templates>
+          <xsl:apply-templates mode="indices"
+                               select="/aggregation/dir:directory">
+            <xsl:with-param name="directory" select="'indices'" />
+            <xsl:with-param name="header" select="'Indices'" />
+          </xsl:apply-templates>
         </div>
       </div>
     </kiln:block>

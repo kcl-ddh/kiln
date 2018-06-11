@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<kiln:root xmlns:tei="http://www.tei-c.org/ns/1.0"
+           xmlns:xi="http://www.w3.org/2001/XInclude"
+           xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
+           xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+  <kiln:parent>
+    <xi:include href="index-epidoc.xml" />
+  </kiln:parent>
+
+  <kiln:child>
+  </kiln:child>
+
+</kiln:root>

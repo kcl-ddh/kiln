@@ -7,9 +7,7 @@
       parameters from the sitemap.
   -->
 
-  <!-- $language is the language code used to distinguish between
-       language contexts in a multilingual site. -->
-  <xsl:param name="language" select="''" />
+  <xsl:param name="language" />
 
   <!-- Specify a mount path if you are mounting the webapp in a
        subdirectory rather than at the root of the domain. This path
@@ -22,10 +20,6 @@
   <!-- $kiln:context-path defines the URL root for the webapp. -->
   <xsl:variable name="kiln:context-path">
     <xsl:value-of select="$kiln:mount-path" />
-    <xsl:if test="$language">
-      <xsl:text>/</xsl:text>
-      <xsl:value-of select="$language" />
-    </xsl:if>
   </xsl:variable>
 
   <!-- Base URL for non-textual content (images, video, etc). If these

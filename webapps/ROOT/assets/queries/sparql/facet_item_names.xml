@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<query>
+PREFIX rdf:&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs:&lt;http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:&lt;http://www.w3.org/2002/07/owl#>
+PREFIX so:&lt;http://schema.org/>
+
+CONSTRUCT { ?uri ?has_name ?name }
+WHERE {
+  ?uri ?has_name ?name .
+  ?has_name rdfs:subClassOf* so:name .
+}
+</query>

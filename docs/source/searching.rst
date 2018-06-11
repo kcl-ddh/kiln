@@ -53,9 +53,7 @@ step.
 
 Additionally, the XSLT ``kiln/stylesheets/solr/merge-parameters.xsl``
 adds appropriate elements to the end of a query XML document, as
-above, from data supplied in a parameter. This data must be in the
-form of a query string (without a leading "?"; eg:
-``fq=widget&facet=off``). ``sitemaps/internal.xmap`` provides a
+above, from request data. ``sitemaps/internal.xmap`` provides a
 generic way to generate a search results document using this method.
 
 This approach is not as redundant as it might seem, with a Solr query
@@ -67,6 +65,31 @@ can be repeated that ``generate-query.xsl`` will join together in the
 correct fashion. This frees whatever process generates the XSLT
 parameter value from knowing anything about Solr's details (eg, it can
 be a simple form with no processing).
+
+Query files
+-----------
+
+Solr query files in ``assets/queries/solr/`` are a good way to provide
+static elements for a given search. They can specify what fields to
+facet on, default query strings, sorting, and so on.
+
+Attributes on the root ``query`` element may specify which fields
+should be appended to the general query (``@q_fields``) and which
+fields should be appended to the general query as a range
+(``@range_fields``).
+
+Child elements of ``query`` may specify a ``default`` attribute with
+the value ``true``; the value of this element will only be used if no
+querystring parameter has the same name.
+
+Facet fields (``facet.field``) may specify a ``join`` attribute with
+the value ``or``; that facet is treated as a multi-select facet, with
+the selected values being ORed together. The default behaviour is for
+selected values to be ANDed together.
+
+By default, the contents of fields are automatically escaped. When
+this is not desired, add an ``escape`` attribute with the value
+``false`` to the element.
 
 Indexing non-TEI documents
 --------------------------
@@ -81,8 +104,8 @@ things must be done:
   filename should be ``<dir>-to-solr.xsl``, where <dir> is the name of
   the directory under ``content/xml`` containing the documents.
 * Add an appropriate condition path added to the ``xsl:choose`` in
-``stylesheets/solr/results-to-html.xsl`` in the template for
-``result/doc`` in the ``search-results`` mode.
+  ``stylesheets/solr/results-to-html.xsl`` in the template for
+  ``result/doc`` in the ``search-results`` mode.
 
 Upgrading Solr
 --------------

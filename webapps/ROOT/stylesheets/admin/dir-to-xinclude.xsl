@@ -14,7 +14,7 @@
   <xsl:param name="prefix" />
 
   <xsl:template match="dir:directory">
-    <xincludes>
+    <xincludes root="{@name}">
       <!-- Exclude the content directory from the path. -->
       <xsl:apply-templates select="*" />
     </xincludes>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<kiln:root xmlns:tei="http://www.tei-c.org/ns/1.0"
+           xmlns:xi="http://www.w3.org/2001/XInclude"
+           xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
+           xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+  <xsl:import href="cocoon://_internal/template/xsl/stylesheets/text-file-list-to-html.xsl" />
+
+  <kiln:parent>
+    <xi:include href="base.xml" />
+  </kiln:parent>
+
+  <kiln:child>
+    <kiln:block name="css">
+      <kiln:super />
+      <link href="{$kiln:assets-path}/styles/tablesorter.css"
+            rel="stylesheet" />
+    </kiln:block>
+
+    <kiln:block name="content">
+      <div class="row">
+        <div class="large-12 columns">
+          <xsl:apply-templates mode="text-index"
+                               select="/aggregation/response">
+          </xsl:apply-templates>
+        </div>
+      </div>
+    </kiln:block>
+
+    <kiln:block name="end-js">
+      <kiln:super />
+      <script src="{$kiln:assets-path}/scripts/jquery.tablesorter.js" />
+      <script>
+        <xsl:text>$(document).ready(function() {$(".tablesorter").tablesorter();});</xsl:text>
+      </script>
+    </kiln:block>
+  </kiln:child>
+</kiln:root>

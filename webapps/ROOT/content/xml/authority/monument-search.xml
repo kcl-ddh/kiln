@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>Controlled vocabulary for Object types</title>
+            </titleStmt>
+            <publicationStmt><p></p></publicationStmt>
+            <sourceDesc><p></p></sourceDesc>
+        </fileDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <list>
+                <item xml:id="mon1">
+                    <term xml:lang="ru">плита</term>
+                    <term xml:lang="en">panel</term>
+                </item>
+                <item xml:id="mon2">
+                    <term xml:lang="ru">плитка</term>
+                    <term xml:lang="en">small panel</term>
+                </item>
+                <item xml:id="mon3">
+                    <term xml:lang="ru">стела</term>
+                    <term xml:lang="en">stele</term>
+                </item>
+                <item xml:id="mon4">
+                    <term xml:lang="ru">дверной косяк</term>
+                    <term xml:lang="en">door jamb</term>
+                </item>
+                <item xml:id="mon5">
+                    <term xml:lang="ru">карниз</term>
+                    <term xml:lang="en">cornice</term>
+                </item>
+                <item xml:id="mon6">
+                    <term xml:lang="ru">блок</term>
+                    <term xml:lang="en">block</term>
+                </item>
+                <item xml:id="mon7">
+                    <term xml:lang="ru">столешница</term>
+                    <term xml:lang="en">tabletop</term>
+                </item>
+                <item xml:id="mon8">
+                    <term xml:lang="ru">квадр</term>
+                    <term xml:lang="en">wall block</term>
+                </item>
+                <item xml:id="mon9">
+                    <term xml:lang="ru">крест</term>
+                    <term xml:lang="en">cross</term>
+                </item>
+                <item xml:id="mon10">
+                    <term xml:lang="ru">трансенна</term>
+                    <term xml:lang="en">transenna</term>
+                </item>
+                <item xml:id="mon11">
+                    <term xml:lang="ru">замковый камень</term>
+                    <term xml:lang="en">keystone</term>
+                </item>
+                <item xml:id="mon12">
+                    <term xml:lang="ru">постамент/подножье</term>
+                    <term xml:lang="en">base</term>
+                </item>
+                <item xml:id="mon13">
+                    <term xml:lang="ru">статуия</term>
+                    <term xml:lang="en">statue</term>
+                </item>
+                <item xml:id="mon14">
+                    <term xml:lang="ru">аркозолий</term>
+                    <term xml:lang="en">arcosolium</term>
+                </item>
+                 <item xml:id="mon15">
+                     <term xml:lang="ru">колонка</term>
+                     <term xml:lang="en">colonnette</term>
+                 </item>
+                 <item xml:id="mon16">
+                     <term xml:lang="ru">скальная стена</term>
+                     <term xml:lang="en">rock wall</term>
+                 </item>
+                 <item xml:id="mon17">
+                     <term xml:lang="ru">архитектурная деталь</term>
+                     <term xml:lang="en">architectural detail</term>
+                 </item>
+                <item xml:id="mon18">
+                    <term xml:lang="ru">косяк окна</term>
+                    <term xml:lang="en">window jamb</term>
+                </item>
+                <item xml:id="mon19">
+                    <term xml:lang="ru">экран</term>
+                    <term xml:lang="en">screen</term>
+                </item>
+                <item xml:id="mon20">
+                    <term xml:lang="ru">стена</term>
+                    <term xml:lang="en">wall</term>
+                </item>
+                <item xml:id="mon21">
+                    <term xml:lang="ru">арка</term>
+                    <term xml:lang="en">arch</term>
+                </item>
+                <item xml:id="mon22">
+                    <term xml:lang="ru">колонна</term>
+                    <term xml:lang="en">column</term>
+                </item>
+                <item xml:id="mon23">
+                    <term xml:lang="ru">капитель</term>
+                    <term xml:lang="en">capital</term>
+                </item>
+                 <item xml:id="mon24">
+                     <term xml:lang="ru">крышка</term>
+                     <term xml:lang="en">lid</term>
+                 </item>
+                 <item xml:id="mon25">
+                     <term xml:lang="ru">мозаичный пол</term>
+                     <term xml:lang="en">mosaic floor</term>
+                 </item>
+                 <item xml:id="mon26">
+                     <term xml:lang="ru">кружок</term>
+                     <term xml:lang="en">roundlet</term>
+                 </item>
+                 <item xml:id="mon27">
+                     <term xml:lang="ru">гробообразный памятник</term>
+                     <term xml:lang="en">casket-shaped gravestone</term>
+                 </item>
+                 <!--<item xml:id="mon28">
+                     <term xml:lang="ru">надгробие</term>
+                     <term xml:lang="en">gravestone</term>
+                 </item>-->
+                 <item xml:id="mon29">
+                     <term xml:lang="ru">рамка ниши</term>
+                     <term xml:lang="en">frame of a niche</term>
+                 </item>
+                 <item xml:id="mon30">
+                     <term xml:lang="ru">однорогое надгробие</term>
+                     <term xml:lang="en">one-horned gravestone</term>
+                 </item>
+                 <item xml:id="mon31">
+                     <term xml:lang="ru">фреска</term>
+                     <term xml:lang="en">fresco</term>
+                 </item>
+                 <item xml:id="mon32">
+                     <term xml:lang="ru">дверная притолока</term>
+                     <term xml:lang="en">door lintel</term>
+                 </item>
+                 <item xml:id="mon33">
+                     <term xml:lang="ru">фриз</term>
+                     <term xml:lang="en">frieze</term>
+                 </item>
+                <item xml:id="mon34">
+                    <term xml:lang="ru">рельефная икона</term>
+                    <term xml:lang="en">icon in relief</term>
+                </item>
+                <item xml:id="mon35">
+                    <term xml:lang="ru">ниша</term>
+                    <term xml:lang="en">niche</term>
+                </item>
+                <item xml:id="mon36">
+                    <term xml:lang="ru">архитрав</term>
+                    <term xml:lang="en">architrave</term>
+                </item>
+                <item xml:id="mon37">
+                    <term xml:lang="ru">алтарь</term>
+                    <term xml:lang="en">altar</term>
+                </item>
+                <item xml:id="mon38">
+                    <term xml:lang="ru">cтенка саркофага</term>
+                    <term xml:lang="en">sarcophagus</term>
+                </item>
+                <item xml:id="mon39">
+                    <term xml:lang="ru">неизвестен</term>
+                    <term xml:lang="en">unknown</term>
+                </item>
+                <item xml:id="mon40">
+                    <term xml:lang="ru">оссуарий</term>
+                    <term xml:lang="en">ossuary</term>
+                </item>
+                <item xml:id="mon41">
+                    <term xml:lang="ru">весовая гиря</term>
+                    <term xml:lang="en">weight</term>
+                </item>
+                <item xml:id="mon42">
+                    <term xml:lang="ru">чаша</term>
+                    <term xml:lang="en">bowl</term>
+                </item>
+                <item xml:id="mon43">
+                    <term xml:lang="ru">вставка в постамент</term>
+                    <term xml:lang="en">panel insert for statue base</term>
+                </item>
+                <item xml:id="mon44">
+                    <term xml:lang="ru">лутерий</term>
+                    <term xml:lang="en">louterion</term>
+                </item>
+                <item xml:id="mon45">
+                    <term xml:lang="ru">эдикула</term>
+                    <term xml:lang="en">aedicula</term>
+                </item>
+                <item xml:id="mon46">
+                    <term xml:lang="en">entablature</term>
+                </item>
+            </list>
+        </body>
+    </text>
+</TEI>

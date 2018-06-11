@@ -2,7 +2,7 @@
 <xsl:stylesheet version="2.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-  <!-- Output XML escaped to be suitable for includsion as a string
+  <!-- Output XML escaped to be suitable for inclusion as a string
        within other markup.
 
        Uses the mode "escape-xml". -->

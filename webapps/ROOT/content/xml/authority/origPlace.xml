@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>Controlled vocabulary for all original places</title>
+            </titleStmt>
+            <publicationStmt>
+                <p/>
+            </publicationStmt>
+            <sourceDesc>
+                <p/>
+            </sourceDesc>
+        </fileDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <listPlace>
+                <listPlace>
+                    <head xml:lang="en">Dniester Estuary</head>
+                    <head xml:lang="ru">Устье Днестра</head>
+                    <place xml:id="p001">
+                        <placeName xml:lang="ru">Белгород</placeName>
+                        <placeName xml:lang="en">Belgorod</placeName>
+                        <placeName xml:lang="grc">Τύρας</placeName>
+                        <idno type="pleiades">http://pleiades.stoa.org/places/226800</idno>
+                        <!--4 instances-->
+                    </place>
+                    <place xml:id="p002">
+                        <placeName xml:lang="ru">Шабо</placeName>
+                        <placeName xml:lang="en">Shabo</placeName>
+                        <idno type="pleiades">http://pleiades.stoa.org/places/226760/</idno>
+                        <!--1 instance-->
+                    </place>
+                    <place xml:id="p064">
+                        <placeName xml:lang="ru">Никоний</placeName>
+                        <placeName xml:lang="en">Nikonion</placeName>
+                        <idno type="pleiades">https://pleiades.stoa.org/places/226697</idno>
+                    </place>
+                </listPlace>
+                <listPlace>
+                    <head xml:lang="en">Cherson and Herakleian Peninsula</head>
+                    <head xml:lang="ru">Херсон и Гераклейский полуостров</head>
+                    <place xml:id="p003">
+                        <placeName xml:lang="ru">Херсон/Херсонес</placeName>
+                        <placeName xml:lang="en">Cherson/Chersonesos</placeName>
+                        <placeName xml:lang="grc">Χερσόνησος</placeName>
+                        <idno type="pleiades">http://pleiades.stoa.org/places/226778</idno>
+                        <!--144 instances-->
+                    </place>
+                    <listPlace>
+                    <place xml:id="p059">
+                        <placeName xml:lang="ru">Калос Лимен (Черноморское)</placeName>
+                        <placeName xml:lang="en">Kalos Limen (Chernomorskoye)</placeName>
+                        <idno type="pleiades">http://pleiades.stoa.org/places/226646</idno>
+                    </place>
+                        <place xml:id="p058">
+                            <placeName xml:lang="ru">Симферополь/Керменчик/Неаполь Скифский</placeName>
+                        <placeName xml:lang="en">Simferopol/Kermenchik/Neapolis Scythica</placeName>
+                        <idno type="pleiades">http://pleiades.stoa.org/places/226695</idno>
+                    </place>
+                        <place xml:id="p062">
+                            <placeName xml:lang="ru">Керкинитида (Евпатория)</placeName>
+                            <placeName xml:lang="en">Kerkinitis (Yevpatoria)</placeName>
+                            <idno type="pleiades">https://pleiades.stoa.org/places/226658</idno>
+                        </place>
+                </listPlace>
+                    <place xml:id="p004">
+                        <placeName xml:lang="ru">Гераклейский полуостров</placeName>
+                        <placeName xml:lang="en">Herakleian Peninsula</placeName>
+                        <idno type="pleiades"/>
+                        <!--2 instances-->
+                    </place>
+                    <place xml:id="p063">
+                        <placeName xml:lang="ru">Страбонов Херсонес (Маячный полуостров)</placeName>
+                        <placeName xml:lang="en">Strabo’s Chersonesos (Cape Mayachny)</placeName>
+                        <idno type="pleiades"></idno>
+                    </place>
+                </listPlace>
+                <listPlace>
+                    <head xml:lang="en">Mountainous Crimea</head>
+                    <head xml:lang="ru">Горный Крым</head>
+                    <place xml:id="p006">
+                        <placeName xml:lang="ru">Ай-Димитрий</placeName>
+                        <placeName xml:lang="en">Ay Dimitri</placeName>
+                        <idno type="pleiades"/>
+                        <!--1 instance-->
+                    </place>
+                    <place xml:id="p007">
+                        <placeName xml:lang="ru">Бакла</placeName>
+                        <placeName xml:lang="en">Bakla</placeName>
+                        <idno type="pleiades">http://pleiades.stoa.org/places/228867</idno>
+                        <!--12 instances-->
+                    </place>
+                    <place xml:id="p008">
+                        <placeName xml:lang="ru">Басман</placeName>
+                        <placeName xml:lang="en">Basman</placeName>
+                        <idno type="pleiades"/>
+                        <!--1 instance-->
+                    </place>
+                    <place xml:id="p009">
+                        <placeName xml:lang="ru">Керменчик</placeName>
+                        <placeName xml:lang="en">Kermenchik</placeName>
+                        <idno type="pleiades"/>
+                        <!--13 instances-->
+                    </place>
+                    <place xml:id="p010">
+                        <placeName xml:lang="ru">Глубокий Яр</placeName>
+                        <placeName xml:lang="en">Gluboky Yar</placeName>
+                        <idno type="pleiades"/>
+                        <!--10 instances-->
+                    </place>
+                    <place xml:id="p011">
+                        <placeName xml:lang="ru">Фот-Сала</placeName>
+                        <placeName xml:lang="en">Fot-Sala</placeName>
+                        <idno type="pleiades"/>
+                        <!--6 instances-->
+                    </place>
+                    <place xml:id="p012">
+                        <placeName xml:lang="ru">Лаки</placeName>
+                        <placeName xml:lang="en">Laki</placeName>
+                        <idno type="pleiades"/>
+                        <!--10 instances-->
+                    </place>
+                    <place xml:id="p013">
+                        <placeName xml:lang="ru">Каламита</placeName>
+                        <placeName xml:lang="en">Kalamita</placeName>
+                        <idno type="pleiades"/>
+                        <!--11 instances-->
+                    </place>
+                    <place xml:id="p014">
+                        <placeName xml:lang="ru">Хора Херсона</placeName>
+                        <placeName xml:lang="en">Chora of Chersonesos</placeName>
+                        <idno type="pleiades"/>
+                        <!--1 instance-->
+                    </place>
+                    <place xml:id="p015">
+                        <placeName xml:lang="ru">Качи-Кальон</placeName>
+                        <placeName xml:lang="en">Kachi-Kalyon</placeName>
+                        <idno type="pleiades"/>
+                        <!--5 instances-->
+                    </place>
+                    <place xml:id="p017">
+                        <placeName xml:lang="ru">Биюк-Каралез</placeName>
+                        <placeName xml:lang="en">Biyuk-Karalez</placeName>
+                        <idno type="pleiades"/>
+                        <!--1 instance-->
+                    </place>
+                    <place xml:id="p018">
+                        <placeName xml:lang="ru">Шуры</placeName>
+                        <placeName xml:lang="en">Shury</placeName>
+                        <idno type="pleiades"/>
+                        <!--3 instances-->
+                    </place>
+                    <place xml:id="p019">
+                        <placeName xml:lang="ru">Данильча-Коба</placeName>
+                        <placeName xml:lang="en">Danilcha-Koba</placeName>
+                        <idno type="pleiades"/>
+                        <!--1 instance-->
+                    </place>
+                    <place xml:id="p020">
+                        <placeName xml:lang="ru">Феодоро</placeName>
+                        <placeName xml:lang="en">Theodoro</placeName>
+                        <idno type="pleiades"/>
+                        <!--30 instances-->
+                    </place>
+                    <place xml:id="p021">
+                        <placeName xml:lang="ru">Мариамполь</placeName>
+                        <placeName xml:lang="en">Mariampol</placeName>
+                        <idno type="pleiades"/>
+                        <!--2 instances-->
+                    </place>
+                    <place xml:id="p022">
+                        <placeName xml:lang="ru">Сандык-Кая</placeName>
+                        <placeName xml:lang="en">Sandyk-Kaya</placeName>
+                        <idno type="pleiades"/>
+                        <!--1 instance-->
+                    </place>
+                    <place xml:id="p023">
+                        <placeName xml:lang="ru">Сюреньская крепость</placeName>
+                        <placeName xml:lang="en">Syuren fortress</placeName>
+                        <idno type="pleiades"/>
+                        <!--7 instances-->
+                    </place>
+                    <place xml:id="p024">
+                        <placeName xml:lang="ru">Тепе-Кермен</placeName>
+                        <placeName xml:lang="en">Tepe-Kermen</placeName>
+                        <idno type="pleiades"/>
+                        <!--6 instances-->
+                    </place>
+                    <place xml:id="p025">
+                        <placeName xml:lang="ru">Черкес-Кермен</placeName>
+                        <placeName xml:lang="en">Cherkes-Kermen</placeName>
+                        <idno type="pleiades"/>
+                        <!--4 instances-->
+                    </place>
+                    <place xml:id="p026">
+                        <placeName xml:lang="ru">Чилтер-Мармара</placeName>
+                        <placeName xml:lang="en">Chilter-Marmara</placeName>
+                        <idno type="pleiades"/>
+                        <!--7 instances-->
+                    </place>
+                    <place xml:id="p027">
+                        <placeName xml:lang="ru">Чуфут-Кале</placeName>
+                        <placeName xml:lang="en">Chufut-Kale</placeName>
+                        <idno type="pleiades"/>
+                        <!--2 instances-->
+                    </place>
+                    <place xml:id="p028">
+                        <placeName xml:lang="ru">Шулдан</placeName>
+                        <placeName xml:lang="en">Shuldan</placeName>
+                        <idno type="pleiades"/>
+                        <!--2 instances-->
+                    </place>
+                    <place xml:id="p029">
+                        <placeName xml:lang="ru">Эски-Кермен</placeName>
+                        <placeName xml:lang="en">Eski-Kermen</placeName>
+                        <idno type="pleiades"/>
+                        <!--7 instances-->
+                    </place>
+                    <place xml:id="p054">
+                        <placeName xml:lang="ru">Горный Крым</placeName>
+                        <placeName xml:lang="en">Mountainous Crimea</placeName>
+                        <idno type="pleiades"/>
+                        <!--3 instances-->
+                    </place>
+                </listPlace>
+                <listPlace>
+                    <head xml:lang="en">South and Southwest coast of Crimea</head>
+                    <head xml:lang="ru">Южный берег Крыма</head>
+                    <place xml:id="p056">
+                        <placeName xml:lang="ru">Артек</placeName>
+                        <placeName xml:lang="en">Artek</placeName>
+                        <idno type="pleiades"/>
+                        <!--1 instance-->
+                    </place>
+                    <place xml:id="p031">
+                        <placeName xml:lang="ru">Ай-Василь</placeName>
+                        <placeName xml:lang="en">Ay-Basil</placeName>
+                        <idno type="pleiades"/>
+                        <!--1 instance-->
+                    </place>
+                    <place xml:id="p032">
+                        <placeName xml:lang="ru">Алустон</placeName>
+                        <placeName xml:lang="en">Alouston</placeName>
+                        <idno type="pleiades"/>
+                        <!--2 instances-->
+                    </place>
+                    <place xml:id="p033">
+                        <placeName xml:lang="ru">Ласпи</placeName>
+                        <placeName xml:lang="en">Laspi</placeName>
+                        <idno type="pleiades"/>
+                        <!--19 instances-->
+                    </place>
+                    <place xml:id="p038">
+                        <placeName xml:lang="ru">Ливадия</placeName>
+                        <placeName xml:lang="en">Livadia</placeName>
+                        <idno type="pleiades"/>
+                        <!--3 instances-->
+                    </place>
+                    <place xml:id="p034">
+                        <placeName xml:lang="ru">Фуна</placeName>
+                        <placeName xml:lang="en">Phouna</placeName>
+                        <idno type="pleiades"/>
+                        <!--1 instance-->
+                    </place>
+                    <place xml:id="p035">
+                        <placeName xml:lang="ru">Массандра</placeName>
+                        <placeName xml:lang="en">Massandra</placeName>
+                        <idno type="pleiades"/>
+                        <!--1 instance-->
+                    </place>
+                    <place xml:id="p037">
+                        <placeName xml:lang="ru">Панаир</placeName>
+                        <placeName xml:lang="en">Panayir</placeName>
+                        <idno type="pleiades"/>
+                        <!--1 instance-->
+                    </place>
+                    <place xml:id="p036">
+                        <placeName xml:lang="ru">Партенит</placeName>
+                        <placeName xml:lang="en">Partenit</placeName>
+                        <idno type="pleiades"/>
+                        <!--5 instances-->
+                    </place>
+                    <place xml:id="p039">
+                        <placeName xml:lang="ru">Сугдея</placeName>
+                        <placeName xml:lang="en">Sougdaia</placeName>
+                        <idno type="pleiades"/>
+                        <!--17 instances-->
+                    </place>
+                    <place xml:id="p040">
+                        <placeName xml:lang="ru">Каффа</placeName>
+                        <placeName xml:lang="en">Caffa</placeName>
+                        <idno type="pleiades"/>
+                        <!--1 instance-->
+                    </place>
+                    <place xml:id="p041">
+                        <placeName xml:lang="ru">Форос</placeName>
+                        <placeName xml:lang="en">Foros</placeName>
+                        <idno type="pleiades"/>
+                        <!--1 instance-->
+                    </place>
+                    <place xml:id="p042">
+                        <placeName xml:lang="ru">Кордон-Оба</placeName>
+                        <placeName xml:lang="en">Kordon-Oba</placeName>
+                        <idno type="pleiades"/>
+                        <!--1 instance-->
+                    </place>
+                    <place xml:id="p043">
+                        <placeName xml:lang="ru">Ялита</placeName>
+                        <placeName xml:lang="en">Jalita</placeName>
+                        <idno type="pleiades"/>
+                        <!--2 instances-->
+                    </place>
+                </listPlace>
+                <listPlace>
+                    <head xml:lang="en">Kerch</head>
+                    <head xml:lang="ru">Керчь</head>
+                    <place xml:id="p044">
+                        <placeName xml:lang="ru">Пантикапей/Боспор</placeName>
+                        <placeName xml:lang="en">Pantikapaion/Bosporos</placeName>
+                        <idno type="pleiades"/>
+                        <!--71 instances-->
+                    </place>
+                    <place xml:id="p055">
+                        <placeName xml:lang="ru">Китей</placeName>
+                        <placeName xml:lang="en">Kytaion</placeName>
+                        <idno type="pleiades"/>
+                        <!--1 instance-->
+                    </place>
+                </listPlace>
+                <listPlace>
+                    <head xml:lang="en">Taman Peninsula and Kuban</head>
+                    <head xml:lang="ru">Таманский полуостров и Кубань</head>
+                    <place xml:id="p046">
+                        <placeName xml:lang="ru">Мапа</placeName>
+                        <placeName xml:lang="en">Mapa</placeName>
+                        <idno type="pleiades"/>
+                        <!--2 instances-->
+                    </place>
+                    <!--<place xml:id="p047">
+                        <placeName xml:lang="ru">Сенной</placeName>
+                        <placeName xml:lang="en">Sennoy</placeName>
+                        <idno type="pleiades"/>
+                        <!-\-1 instance-\->
+                    </place>-->
+                    <place xml:id="p048">
+                        <placeName xml:lang="ru">Фанагория</placeName>
+                        <placeName xml:lang="en">Phanagoreia</placeName>
+                        <idno type="pleiades"/>
+                        <!--4 instances-->
+                    </place>
+                    <place xml:id="p049">
+                        <placeName xml:lang="ru">Гермонасса/Таматарха</placeName>
+                        <placeName xml:lang="en">Hermonassa/Tamatarcha</placeName>
+                        <idno type="pleiades"/>
+                        <!--5 instances-->
+                    </place>
+                    <place xml:id="p053">
+                        <placeName xml:lang="ru">Уташское городище</placeName>
+                        <placeName xml:lang="en">Utash settlement</placeName>
+                        <idno type="pleiades"/>
+                        <!--2 instances-->
+                    </place>
+                    <place xml:id="p051">
+                        <placeName xml:lang="ru">Таманский полуостров</placeName>
+                        <placeName xml:lang="en">Peninsula of Taman</placeName>
+                        <idno type="pleiades"/>
+                        <!--1 instance-->
+                    </place>
+                </listPlace>
+                <listPlace>
+                    <place xml:id="p052">
+                        <placeName xml:lang="ru">Гераклея Понтийская</placeName>
+                        <placeName xml:lang="en">Heraclea Pontica</placeName>
+                        <idno type="pleiades">http://pleiades.stoa.org/places/844944</idno>
+                    </place>
+                    <place xml:id="p060">
+                        <placeName xml:lang="ru">Тий</placeName>
+                        <placeName xml:lang="en">Tios</placeName>
+                        <idno type="pleiades">http://pleiades.stoa.org/places/845084</idno>
+                    </place>
+                </listPlace>
+                <listPlace>
+                    <head xml:lang="ru">Тира и окрестности</head>
+                    <head xml:lang="en">Tyras and vicinity</head>
+                    <place xml:id="p061">
+                        <placeName xml:lang="ru">Тира</placeName>
+                        <placeName xml:lang="en">Tyras</placeName>
+                        <idno type="pleiades">http://pleiades.stoa.org/places/226800</idno>
+                    </place>
+                </listPlace>
+                <listPlace>
+                    <head xml:lang="ru">Неизвестно</head>
+                    <head xml:lang="en">Unknown</head>
+                    <place xml:id="p057">
+                          <placeName xml:lang="ru">Неизвестно</placeName>
+                          <placeName xml:lang="en">Unknown</placeName>
+                      </place>
+                </listPlace>
+                <listPlace>
+                    <head xml:lang="en">Libya</head>
+                    <place xml:id="p065">
+                        <placeName xml:lang="en">Cyrene</placeName>
+                        <idno type="pleiades">http://pleiades.stoa.org/places/373778</idno>
+                        <idno type="sls">http://www.slsgazetteer.org/909</idno>
+                    </place>
+                </listPlace>
+            </listPlace>
+        </body>
+    </text>
+</TEI>

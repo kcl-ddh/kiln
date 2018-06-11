@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="2.0"
+                xmlns:h="http://apache.org/cocoon/request/2.0"
                 xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
@@ -11,8 +12,19 @@
 
   <xsl:import href="../../kiln/stylesheets/query-string-handler.xsl" />
 
-  <xsl:variable name="query-string-parameters"
-                select="tokenize($query-string, '\?|&amp;')" />
+  <!-- Request parameters element. -->
+  <xsl:variable name="request"
+                select="/aggregation/h:request/h:requestParameters" />
+
+  <xsl:variable name="query-string-parameters" as="xs:string*">
+    <xsl:for-each select="$request/h:parameter/h:value">
+      <xsl:value-of select="concat(../@name, '=', kiln:escape-for-query-string(.))" />
+    </xsl:for-each>
+  </xsl:variable>
+
+  <xsl:variable name="query-string-at-start"
+                select="kiln:query-string-from-sequence(
+                        $query-string-parameters, ('start'), 0)" />
   <xsl:variable name="rows" select="/aggregation/response/lst[@name='responseHeader']/lst[@name='params']/str[@name='rows']" />
   <xsl:variable name="start"
                 select="number(/aggregation/response/result/@start)" />

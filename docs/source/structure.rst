@@ -30,10 +30,14 @@ the project-specific files, keeping each in their own directories.
             * styles — CSS files and libraries.
             * templates — Templates for content display.
                 * admin - Templates for the admin system.
+            * translations - Catalogue files containing translations of site content.
         * content
             * images — Project/content images.
             * xml
+                * authority - Authority files.
+                * indices - Content index files.
                 * tei — TEI content files.
+                * epidoc - EpiDoc content files.
         * kiln — Kiln core files, should not need to be modified.
         * mount-table.xml — Cocoon's sitemap mount table (do not modify).
         * not-found.xml — Default file to display when a resource is not found.
@@ -52,6 +56,7 @@ the project-specific files, keeping each in their own directories.
             * escape-xml.xsl - Formats XML for literal display within
               HTML.
             * admin - Admin and editorial transformations.
+            * epidoc - EpiDoc display.
             * error - Error handling.
             * introspection - Introspection of sitemaps and XSLT.
             * menu - Menu manipulation.

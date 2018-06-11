@@ -163,7 +163,9 @@ display.
 
 Images that are part of the site design, rather than content, should
 be put in ``assets/images/``, and the pipelines in
-``kiln/sitemaps/assets.xmap`` used.
+``kiln/sitemaps/assets.xmap`` used. In a template, for example::
+
+   <img src="{$kiln:assets-path}/images/logo.jpg" alt="My Favourite Sponsor" />
 
 Kiln can support any image file type, since no processing is done to
 the files. The pipelines simply transmit the files with an appropriate
@@ -313,11 +315,13 @@ source document is just the menu, and the only transformation is
 applying the template. Your ``map:match`` should look something like the
 following (and very similar to the one for the home page)::
 
-   <map:match id="local-about" pattern="about.html">
+   <map:match id="local-about" pattern="*/about.html">
      <map:aggregate element="aggregation">
-       <map:part src="cocoon://_internal/menu/main.xml?url=about.html" />
+       <map:part src="cocoon://_internal/menu/main.xml?url={1}/about.html" />
      </map:aggregate>
-     <map:transform src="cocoon://_internal/template/about.xsl" />
+     <map:transform src="cocoon://_internal/template/about.xsl">
+       <map:parameter name="language" value="{1}" />
+     </map:transform>
      <map:serialize />
    </map:match>
 
@@ -410,13 +414,13 @@ Updating the menu
 
 In the ``map:match`` you created in ``main.xmap`` above, the
 aggregated source document consisted only of a call to a URL
-(``cocoon://_internal/menu/main.xml?url=about.htm``) to get a menu
+(``cocoon://_internal/menu/main.xml?url={1}/about.htm``) to get a menu
 document. In that URL, ``main.xml`` specifies the name of the menu
 file to use, which lives in ``webapps/ROOT/assets/menu/``. Let's edit
 that file to add in an entry for the new About page. This is easy to
 do by just inserting the following::
 
-   <menu href="about.html" label="About the project" />
+   <menu match="local-about" label="About the project" />
 
 Reload any of the pages of the site and you should now see the new
 menu item. Obviously this menu is still very simple, with no
@@ -480,7 +484,7 @@ letter, save the following to
    escaped (&lt;).
 
 To get the results from this query, use the URL
-``cocoon://_internal/sesame/query/graph/recipients.xml`` in a sitemap's
+``cocoon://admin/rdf/query/graph/recipients.xml`` in a sitemap's
 ``map:generate`` or ``map:part`` ``src`` attribute. Remember that
 ``map:generate`` and ``map:aggregate`` (which contains ``map:part``
 elements) are the way that Cocoon generates a source document.
@@ -505,10 +509,8 @@ the old version). Take a look at how it has changed, through the
 addition of the ``recipient`` element placeholder and using a custom
 output that better matches the information we want.
 
-The URL mentioned above for performing a query of the RDF server
-(``cocoon://_internal/sesame/query/graph/**.xml``) is handled by a
-core part of Kiln, that should not be modified. It calls the non-core
-URL ``cocoon://admin/rdf/construct/graph/{1}.xml`` (where "{1}" is
+The URL mentioned above for performing a query of the RDF server calls
+the URL ``cocoon://admin/rdf/construct/graph/{1}.xml`` (where "{1}" is
 whatever is matched by the "**" of the first URL). This URL is handled
 by a ``map:match`` in ``webapps/ROOT/sitemaps/rdf.xmap``, by reading
 the specified file. It is this ``map:match`` that needs to be modified

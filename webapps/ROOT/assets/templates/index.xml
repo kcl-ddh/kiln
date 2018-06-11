@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<kiln:root xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
+<kiln:root xmlns:tei="http://www.tei-c.org/ns/1.0"
            xmlns:xi="http://www.w3.org/2001/XInclude"
+           xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
            xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
   <kiln:parent>
@@ -9,60 +10,25 @@
 
   <kiln:child>
     <kiln:block name="title">
-      <xsl:text>Welcome to Kiln!</xsl:text>
+      <kiln:super />
+      <xsl:apply-templates mode="title" select="/aggregation/index_metadata" />
     </kiln:block>
 
-    <kiln:block name="page-header">
+    <kiln:block name="page-heading">
+      <kiln:super />
+      <xsl:apply-templates mode="head" select="/aggregation/index_metadata" />
+    </kiln:block>
+
+    <kiln:block name="content">
       <div class="row">
-        <div class="large-12 columns text-center">
-          <h1><span class="round label">Welcome to Kiln!</span></h1>
+        <div class="large-12 columns">
+          <!-- Display the index's notes. -->
+          <xsl:apply-templates select="/aggregation/index_metadata/tei:div/tei:div[@type='notes']" />
+          <!-- Display the index. -->
+          <xsl:apply-templates select="/aggregation/response/result" />
         </div>
       </div>
     </kiln:block>
-
-    <kiln:block name="content-section">
-      <main>
-        <div class="row">
-          <div class="small-6 large-centered columns">
-            <p>Now that you have Kiln up and running, it's time to
-            start building your project. Start with one of the options
-            listed below and go from there.</p>
-          </div>
-        </div>
-        <div class="row">
-        <div class="large-4 columns">
-          <div class="panel radius">
-            <p><strong>Add your TEI</strong></p>
-
-            <p>Put your TEI files in webapps/ROOT/content/xml/tei and
-            see <a href="text/">how they are displayed</a>. Go to the
-            <a href="admin/">admin</a> and index them for
-            searching.</p>
-          </div>
-        </div>
-        <div class="large-4 columns">
-          <div class="panel radius">
-            <p><strong>Customise the templates</strong></p>
-
-            <p>Change the look of this site by modifying the templates
-            in webapps/ROOT/assets/templates. The template for this
-            page is index.xml, and it builds on the base template
-            base.xml.</p>
-          </div>
-        </div>
-        <div class="large-4 columns">
-          <div class="panel radius">
-            <p><strong>Read the documentation</strong></p>
-
-            <p>Kiln comes with documentation both <a
-            href="http://kiln.readthedocs.org/en/latest/">online</a>
-            and, in source form, in the docs directory of your
-            installation. It explains how you can modify everything
-            about your Kiln project.</p>
-          </div>
-        </div>
-        </div>
-      </main>
-    </kiln:block>
   </kiln:child>
+
 </kiln:root>

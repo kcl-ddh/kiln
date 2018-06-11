@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>Controlled vocabulary for symbols</title>
+            </titleStmt>
+            <publicationStmt><p></p></publicationStmt>
+            <sourceDesc><p></p></sourceDesc>
+        </fileDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <list>
+                <item xml:id="dipunct">
+                    <term xml:lang="ru">двоеточие</term>
+                    <term xml:lang="en">dipunct</term>
+                </item>
+                <item xml:id="leaf">
+                    <term xml:lang="ru">плющевый лист</term>
+                    <term xml:lang="en">leaf</term>
+                </item>
+                <item xml:id="staurogram">
+                    <term xml:lang="ru">ставрограмма</term>
+                    <term xml:lang="en">staurogram</term>
+                </item>
+                <item xml:id="stauros">
+                    <term xml:lang="ru">крест</term>
+                    <term xml:lang="en">stauros</term>
+                </item>
+                <item xml:id="stop">
+                    <term xml:lang="ru"></term>
+                    <term xml:lang="en">stop</term>
+                </item>
+                <item xml:id="denarius">
+                    <term xml:lang="ru">денарий</term>
+                    <term xml:lang="en">denarius</term>
+                </item>
+                <item xml:id="chi-rho">
+                    <term xml:lang="ru">хрисма</term>
+                    <term xml:lang="en">chi-rho</term>
+                </item>
+                <item xml:id="year">
+                    <term xml:lang="en">year</term>
+                </item>
+            </list>
+        </body>
+    </text>
+</TEI>

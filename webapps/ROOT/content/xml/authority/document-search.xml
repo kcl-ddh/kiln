@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>Controlled vocabulary for character of document</title>
+            </titleStmt>
+            <publicationStmt>
+                <p/>
+            </publicationStmt>
+            <sourceDesc>
+                <p/>
+            </sourceDesc>
+        </fileDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <list>
+                <item xml:id="doc1"> 
+                    <term xml:lang="ru">строительная надпись</term>
+                    <term xml:lang="en">building</term>
+                </item>
+                <item xml:id="doc2">
+                    <term xml:lang="ru">надгробная надпись</term>
+                    <term xml:lang="en">epitaph</term>
+                </item>
+                <item xml:id="doc3">
+                    <term xml:lang="ru">инвокативная надпись</term>
+                    <term xml:lang="en">invocative</term>
+                </item>
+                <item xml:id="doc4">
+                    <term xml:lang="ru">демонстративная надпись</term>
+                    <term xml:lang="en">demonstrative</term>
+                </item>
+                <item xml:id="doc5">
+                    <term xml:lang="ru">посвятительная надпись</term>
+                    <term xml:lang="en">dedicatory</term>
+                </item>
+                <item xml:id="doc6">
+                    <term xml:lang="ru">апотропеическая надпись</term>
+                    <term xml:lang="en">apotropaic</term>
+                </item>
+                <item xml:id="doc7">
+                    <term xml:lang="ru">подпись к изображению</term>
+                    <term xml:lang="en">image-related</term>
+                </item>
+                <item xml:id="doc8">
+                    <term xml:lang="ru">памятная надпись</term>
+                    <term xml:lang="en">commemorative</term>
+                </item>
+                <item xml:id="doc9">
+                    <term xml:lang="ru">благопожелательная надпись</term>
+                    <term xml:lang="en">acclamation</term>
+                </item>
+                <item xml:id="doc10">
+                    <term xml:lang="ru">эпиграмма</term>
+                    <term xml:lang="en">epigram</term>
+                </item>
+                <item xml:id="doc11">
+                    <term xml:lang="ru">письмо</term>
+                    <term xml:lang="en">letter</term>
+                </item>
+                <item xml:id="doc12">
+                    <term xml:lang="ru">литургическая надпись</term>
+                    <term xml:lang="en">liturgical</term>
+                </item>
+                <item xml:id="doc13">
+                    <term xml:lang="ru">календарная надпись</term>
+                    <term xml:lang="en">calendar</term>
+                </item>
+                <item xml:id="doc14">
+                    <term xml:lang="ru">владельческая надпись</term>
+                    <term xml:lang="en">ownership</term>
+                </item>
+                <item xml:id="doc15">
+                    <term xml:lang="ru">декрет</term>
+                    <term xml:lang="en">decree</term>
+                </item>
+                <item xml:id="doc16">
+                    <term xml:lang="ru">проксенический декрет</term>
+                    <term xml:lang="en">proxeny decree</term>
+                </item>
+                <item xml:id="doc17">
+                    <term xml:lang="ru">список имен</term>
+                    <term xml:lang="en">list of names</term>
+                </item>
+                <item xml:id="doc18">
+                    <term xml:lang="ru">метрическая надгробная надпись</term>
+                    <term xml:lang="en">metrical epitaph</term>
+                </item>
+                <item xml:id="doc19">
+                    <term xml:lang="ru">метрическая надпись</term>
+                    <term xml:lang="en">metrical inscription</term>
+                </item>
+                <item xml:id="doc20">
+                    <term xml:lang="ru">varia</term>
+                    <term xml:lang="en">varia</term>
+                </item>
+                    <item xml:id="doc21">
+                        <term xml:lang="ru">почетная надпись</term>
+                        <term xml:lang="en">honorary inscription</term>
+                </item>
+                <item xml:id="doc22">
+                    <term xml:lang="ru">incertum</term>
+                    <term xml:lang="en">unknown</term>
+                </item>
+                <item xml:id="doc23">
+                    <term xml:lang="ru">надпись к статуе</term>
+                    <term xml:lang="en">statue description</term>
+                </item>
+                <item xml:id="doc24">
+                    <term xml:lang="ru">клятва</term>
+                    <term xml:lang="en">oath</term>
+                </item>
+                <item xml:id="doc25">
+                    <term xml:lang="ru">договор</term>
+                    <term xml:lang="en">treaty</term>
+                </item>
+                <item xml:id="doc26">
+                    <term xml:lang="ru">агонистическая надпись</term>
+                    <term xml:lang="en">agonistic inscription</term>
+                </item>
+                <item xml:id="doc27">
+                    <term xml:lang="ru">почетный декрет</term>
+                    <term xml:lang="en">honourary decree</term>
+                </item>
+                <item xml:id="doc28">
+                    <term xml:lang="ru">цифровое обозначение</term>
+                    <term xml:lang="en">numerical designation</term>
+                </item>
+                <item xml:id="doc29">
+                    <term xml:lang="ru">гимн</term>
+                    <term xml:lang="en">hymn</term>
+                </item>
+                <item xml:id="doc30">
+                    <term xml:lang="ru">официальная переписка</term>
+                    <term xml:lang="en">correspondence between officials</term>
+                </item>
+                <item xml:id="doc31">
+                    <term xml:lang="ru">официальный документ</term>
+                    <term xml:lang="en">regulation</term>
+                </item>
+                <item xml:id="doc32">
+                    <term xml:lang="en">signature</term>
+                </item>
+            </list>
+        </body>
+    </text>
+</TEI>

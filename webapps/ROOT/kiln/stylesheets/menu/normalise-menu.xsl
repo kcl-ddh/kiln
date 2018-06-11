@@ -9,7 +9,10 @@
 
   <xsl:import href="cocoon://_internal/url/reverse.xsl" />
 
-  <xsl:template match="kiln:menu[not(@href)][not(@match)][not(kiln:external)]">
+  <xsl:param name="url" />
+  <xsl:variable name="full-url" select="concat('/', $url)" />
+
+  <xsl:template match="kiln:menu[not(@href)][not(@match)][not(@language_switch)]">
     <xsl:copy>
       <xsl:apply-templates select="@*"/>
       <xsl:call-template name="make-full-href">
@@ -35,9 +38,50 @@
     </xsl:choose>
   </xsl:template>
 
+  <!-- Link target is the current URL with a different language
+       code. Rather than be always correct but slow (by using
+       introspection to look up the current URL to get the map:match
+       ID and the path variables), just assume that the language code
+       appears once and perform string manipulation on the current
+       URL. -->
+  <xsl:template match="@language_switch">
+    <xsl:variable name="url-start"
+                  select="substring-before($full-url,
+                  concat('/', $language, '/'))"/>
+    <xsl:variable name="url-end"
+                 select="substring-after($full-url,
+                 concat($url-start, '/', $language))"/>
+    <xsl:choose>
+      <xsl:when test=". = $language">
+        <xsl:attribute name="delete" select="'delete'" />
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:attribute name="href">
+          <xsl:text>/</xsl:text>
+          <xsl:value-of select="$url-start" />
+          <xsl:value-of select="." />
+          <xsl:value-of select="if (string($url-end)) then $url-end else '/'" />
+        </xsl:attribute>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+
   <xsl:template match="@match">
+    <!-- Use the language code in @language if present; otherwise, the
+         language supplied to the XSLT. This allows for a menu item to
+         reference a URL in a different language. -->
+    <xsl:variable name="language-code">
+      <xsl:choose>
+        <xsl:when test="../@language">
+          <xsl:value-of select="../@language" />
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="$language" />
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
     <xsl:attribute name="href">
-      <xsl:value-of select="kiln:url-for-match(., tokenize(../@params, '\s+'), 0)" />
+      <xsl:value-of select="kiln:url-for-match(., tokenize(normalize-space(concat($language-code, ' ', ../@params)), '\s+'), 0)" />
     </xsl:attribute>
   </xsl:template>
 

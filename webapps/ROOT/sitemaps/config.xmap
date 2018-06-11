@@ -34,6 +34,17 @@
         <omit-xml-declaration>yes</omit-xml-declaration>
       </map:serializer>
     </map:serializers>
+
+    <map:transformers>
+      <map:transformer logger="sitemap.transformer.i18n" name="i18n"
+                       src="org.apache.cocoon.transformation.I18nTransformer">
+        <catalogues default="messages">
+          <catalogue id="messages" name="messages"
+                     location="../assets/translations" />
+        </catalogues>
+        <untranslated-text>*untranslated*</untranslated-text>
+      </map:transformer>
+    </map:transformers>
   </map:components>
 
   <map:pipelines>
@@ -43,15 +54,45 @@
              messages. Change to "0" to show only a simple
              message. -->
         <debug>1</debug>
+        <!-- Default display language. On a monolingual site, this is
+             the language of the site's templates etc. On a
+             multilingual site, this is the language that is presented
+             by default. Value is a language code. -->
+        <default-display-language>en</default-display-language>
         <eats-server>http://localhost:8000/</eats-server>
         <!-- If authentication tokens are required, provide them in
              the URL as per RFC 2396; eg,
              http://username:password@domain.name/ -->
         <fedora-url></fedora-url>
         <rdf-base-uri>http://localhost/rdf/</rdf-base-uri>
+        <!-- Comma-separated names of Solr facet fields that must get
+             the label for each facet value from the RDF store rather
+             than using the Solr data directly. -->
+        <rdf-facet-lookup-fields>found_provenance,mentioned_people,mentioned_places,origin_place,source_repository,support_material,support_object_type</rdf-facet-lookup-fields>
         <sesame-server>http://localhost:9999/openrdf-sesame/</sesame-server>
-        <sesame-server-repository>foo</sesame-server-repository>
+        <sesame-server-repository>kiln</sesame-server-repository>
         <solr-server>http://localhost:9999/solr/</solr-server>
+        <!-- If 'search-lemma' is 1, present user interface to search
+             over lemmatised text rather than original text. This
+             setting does not influence what gets indexed, only the
+             search UI. -->
+        <search-lemma>1</search-lemma>
+        <!-- Epidoc-related variables. Supported values are documented
+             in webapps/ROOT/kiln/stylesheets/epidoc/README.txt. -->
+        <epidoc-edition-type>interpretive</epidoc-edition-type>
+        <epidoc-edn-structure>default</epidoc-edn-structure>
+        <epidoc-external-app-style>iospe</epidoc-external-app-style>
+        <epidoc-image-loc>/images/</epidoc-image-loc>
+        <epidoc-internal-app-style>none</epidoc-internal-app-style>
+        <epidoc-leiden-style>panciera</epidoc-leiden-style>
+        <epidoc-line-inc>5</epidoc-line-inc>
+        <epidoc-verse-lines>off</epidoc-verse-lines>
+        <!-- 'concordance-bibliography-file' is the name (without
+             ".xml" extension) of the file in content/xml/authority
+             that holds the list of bibliographic items referenced in
+             the EpiDoc files, so that the bibliographic concordance
+             can be generated. -->
+        <concordance-bibliography-file>bibliography</concordance-bibliography-file>
       </global-variables>
     </map:component-configurations>
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet exclude-result-prefixes="#all" version="2.0"
+                xmlns:i18n="http://apache.org/cocoon/i18n/2.1"
                 xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
                 xmlns:tei="http://www.tei-c.org/ns/1.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
@@ -295,6 +296,12 @@
         <xsl:apply-templates />
       </xsl:otherwise>
     </xsl:choose>
+  </xsl:template>
+
+  <xsl:template match="i18n:*|@i18n:*">
+    <xsl:copy>
+      <xsl:apply-templates select="@*|node()" />
+    </xsl:copy>
   </xsl:template>
 
   <xsl:template match="@xml:id">

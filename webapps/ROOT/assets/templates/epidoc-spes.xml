@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<kiln:root xmlns:tei="http://www.tei-c.org/ns/1.0"
+           xmlns:xi="http://www.w3.org/2001/XInclude"
+           xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+  <xsl:variable name="title">
+    <xsl:call-template name="spes-title" />
+  </xsl:variable>
+
+  <kiln:parent>
+    <xi:include href="epidoc.xml" />
+  </kiln:parent>
+
+  <kiln:child>
+    <kiln:block name="content">
+      <div class="row">
+        <div class="large-12 columns">
+          <!-- Set an appropriate context node for xsl:apply-templates
+               within the EpiDoc XSLT. -->
+          <xsl:for-each select="aggregation/tei:*">
+            <xsl:call-template name="spes-body-structure">
+              <xsl:with-param name="parm-edition-type" select="$edition-type" tunnel="yes"/>
+              <xsl:with-param name="parm-edn-structure" select="$edn-structure" tunnel="yes"/>
+              <xsl:with-param name="parm-external-app-style" select="$external-app-style" tunnel="yes"/>
+              <xsl:with-param name="parm-image-loc" select="$image-loc" tunnel="yes" />
+              <xsl:with-param name="parm-internal-app-style" select="$internal-app-style" tunnel="yes"/>
+              <xsl:with-param name="parm-leiden-style" select="$leiden-style" tunnel="yes"/>
+              <xsl:with-param name="parm-line-inc" select="number($line-inc)" tunnel="yes" as="xs:double"/>
+              <xsl:with-param name="parm-verse-lines" select="$verse-lines" tunnel="yes"/>
+            </xsl:call-template>
+          </xsl:for-each>
+        </div>
+      </div>
+      <kiln:super />
+    </kiln:block>
+  </kiln:child>
+</kiln:root>

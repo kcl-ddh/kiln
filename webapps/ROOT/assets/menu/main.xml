@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?oxygen RNGSchema="../schema/menu/menu.rng" type="xml"?>
-<root xmlns="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0">
-  <menu label="Texts" match="local-tei-index-display" />
-  <menu label="Search" match="local-search" />
-  <menu label="Admin" match="local-admin-home-page" />
+<root xmlns="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
+      xmlns:i18n="http://apache.org/cocoon/i18n/2.1">
+  <menu label="Texts" match="local-tei-index-display"
+        i18n:key="menu-texts" />
+  <menu label="Inscriptions" match="local-epidoc-index-display"
+        i18n:key="menu-inscriptions" />
+  <menu label="Indices" match="local-indices-type-display" i18n:key="menu-indices-epidoc" params="epidoc">
+    <item label="Abbreviations" match="local-index-display-html" params="epidoc abbreviation" i18n:key="menu-index-abbreviation"/>
+    <item label="Fragments" match="local-index-display-html" params="epidoc fragment" i18n:key="menu-index-fragment"/>
+    <item label="Lemmata" match="local-index-display-html" params="epidoc lemma" i18n:key="menu-index-lemma"/>
+    <item label="Numerals" match="local-index-display-html" params="epidoc numeral" i18n:key="menu-index-numeral"/>
+    <item label="Personal names" match="local-index-display-html" params="epidoc person_name" i18n:key="menu-index-person_name"/>
+    <item label="Symbols" match="local-index-display-html" params="epidoc symbol" i18n:key="menu-index-symbol"/>
+    <item label="Words" match="local-index-display-html" params="epidoc word" i18n:key="menu-index-word"/>
+  </menu>
+  <menu label="Concordances" i18n:key="menu-concordances">
+    <item label="Bibliographic" match="local-concordance-bibliography"
+          i18n:key="menu-concordance-bibliography" />
+  </menu>
+  <menu label="Search" match="local-search" i18n:key="menu-search" />
+  <menu label="Admin" language="" match="local-admin-home-page" i18n:key="menu-admin" />
 </root>

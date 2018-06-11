@@ -21,4 +21,10 @@
       <xsl:apply-imports />
     </add>
   </xsl:template>
+
+  <!-- This template is called by the Kiln tei-to-solr.xsl as part of
+       the main doc for the indexed file. Put any code to generate
+       additional Solr field data (such as new facets) here. -->
+  <xsl:template name="extra_fields" />
+
 </xsl:stylesheet>

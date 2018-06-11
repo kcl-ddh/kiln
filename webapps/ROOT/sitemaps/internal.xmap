@@ -4,23 +4,116 @@
   <map:pipelines>
     <map:pipeline internal-only="true">
       <!-- Process a TEI document prior to its use in another
-           pipeline, normalising and annotating it as required. -->
-      <map:match id="local-preprocess-tei"
-                 pattern="tei/preprocess/**.xml">
+           pipeline, normalising and annotating it as required.
+
+           This processing is not in a language context (such as
+           indexing). -->
+      <map:match id="local-preprocess-tei-no-language"
+                 pattern="tei/preprocess/no-language/**.xml">
         <map:generate src="../content/xml/tei/{1}.xml" />
         <map:transform src="../kiln/stylesheets/tei/join-elements.xsl" />
         <map:transform src="../kiln/stylesheets/tei/annotate.xsl" />
         <map:serialize type="xml" />
       </map:match>
 
+      <!-- Process an EpiDoc document prior to its use in another
+           pipeline, normalising and annotating it as required.
+
+           This processing is not in a language context (such as
+           indexing). -->
+      <map:match id="local-preprocess-epidoc-no-language"
+                 pattern="epidoc/preprocess/no-language/**.xml">
+        <map:generate src="../content/xml/epidoc/{1}.xml" />
+        <map:serialize type="xml" />
+      </map:match>
+
+      <!-- Process a TEI document prior to its use in another
+           pipeline, normalising and annotating it as required.
+
+           This processing is in a language context (such as front-end
+           display). -->
+      <map:match id="local-preprocess-tei-language"
+                 pattern="tei/preprocess/language/*/**.xml">
+        <map:generate src="../content/xml/tei/{2}.xml" />
+        <map:transform src="../kiln/stylesheets/tei/join-elements.xsl" />
+        <map:transform src="../kiln/stylesheets/tei/annotate.xsl" />
+        <map:serialize type="xml" />
+      </map:match>
+
+      <!-- Process an EpiDoc document prior to its use in another
+           pipeline, normalising and annotating it as required.
+
+           This processing is in a language context (such as front-end
+           display). -->
+      <map:match id="local-preprocess-epidoc-language"
+                 pattern="epidoc/preprocess/language/*/**.xml">
+        <map:generate src="../content/xml/epidoc/{2}.xml" />
+        <map:transform src="../stylesheets/epidoc/prune-to-language.xsl">
+          <map:parameter name="language" value="{1}" />
+        </map:transform>
+        <map:serialize type="xml" />
+      </map:match>
+
+      <!-- Process a (TEI) authority document prior to its use in
+           another pipeline, normalising and annotating it as
+           required.
+
+           This processing is in a language context (such as front-end
+           display). -->
+      <map:match id="local-preprocess-authority-language"
+                 pattern="authority/preprocess/language/*/**.xml">
+        <map:generate src="../content/xml/authority/{2}.xml" />
+        <map:transform src="../stylesheets/prune-to-language.xsl">
+          <map:parameter name="language" value="{1}" />
+        </map:transform>
+        <map:serialize type="xml" />
+      </map:match>
+
+      <!-- Transform an EpiDoc document into an HTML fragment
+           according to parameters supplied in the URL. -->
+      <map:match id="local-epidoc-custom-html"
+                 pattern="epidoc/custom/*/**.html">
+        <map:aggregate element="aggregation">
+          <map:part src="cocoon://internal/epidoc/preprocess/language/{1}/{2}.xml"/>
+          <map:part src="cocoon://_internal/request.xml"/>
+        </map:aggregate>
+        <map:transform src="../stylesheets/epidoc/to-html.xsl">
+          <map:parameter name="default-edition-type"
+                         value="{global:epidoc-edition-type}" />
+          <map:parameter name="default-edn-structure"
+                         value="{global:epidoc-edn-structure}" />
+          <map:parameter name="default-external-app-style"
+                         value="{global:epidoc-external-app-style}" />
+          <map:parameter name="default-internal-app-style"
+                         value="{global:epidoc-internal-app-style}" />
+          <map:parameter name="default-leiden-style"
+                         value="{global:epidoc-leiden-style}" />
+          <map:parameter name="default-line-inc"
+                         value="{global:epidoc-line-inc}" />
+          <map:parameter name="default-verse-lines"
+                         value="{global:epidoc-verse-lines}" />
+        </map:transform>
+        <map:serialize type="xml"/>
+      </map:match>
+
       <!-- Get search results. -->
       <map:match id="local-search-query" pattern="search/*.xml">
-        <map:generate src="../assets/queries/solr/{1}.xml" />
-        <map:transform src="../kiln/stylesheets/solr/merge-parameters.xsl">
-          <map:parameter name="query-string" value="{request:queryString}" />
-        </map:transform>
+        <map:aggregate element="aggregation" label="content">
+          <map:part src="../assets/queries/solr/{1}.xml" />
+          <map:part src="cocoon://_internal/request.xml" />
+        </map:aggregate>
+        <map:transform src="../kiln/stylesheets/solr/merge-parameters.xsl" />
         <map:transform src="../kiln/stylesheets/solr/generate-query.xsl" />
         <map:transform type="xinclude" />
+        <map:serialize type="xml" />
+      </map:match>
+
+      <!-- Extract specific index information from an index metadata file. -->
+      <map:match id="local-index-extract" pattern="index/*/*.xml">
+        <map:generate src="../content/xml/indices/{1}.xml" />
+        <map:transform src="../stylesheets/tei/extract-index.xsl">
+          <map:parameter name="index-name" value="{2}" />
+        </map:transform>
         <map:serialize type="xml" />
       </map:match>
     </map:pipeline>

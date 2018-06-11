@@ -9,6 +9,8 @@
   <!-- Imports the menu stylesheet -->
   <xsl:import href="cocoon://_internal/template/xsl/stylesheets/menu/menu.xsl" />
 
+  <xsl:import href="cocoon://_internal/url/reverse.xsl" />
+
   <kiln:block name="html">
     <html class="no-js">
       <kiln:block name="head">
@@ -42,7 +44,7 @@
               <kiln:block name="main-navigation">
                 <ul class="title-area">
                   <li class="name">
-                    <h1><a href="{$kiln:context-path}/">Kiln</a></h1>
+                    <h1><a href="{kiln:url-for-match('local-language-home-page', ($language), 0)}">Kiln</a></h1>
                   </li>
                   <li class="toggle-topbar menu-icon">
                     <a href="#"><span>Menu</span></a>
@@ -55,7 +57,7 @@
                   </ul>
                   <ul class="right">
                     <li class="has-form search">
-                      <form action="{$kiln:context-path}/search/" method="get">
+                      <form action="{kiln:url-for-match('local-search', ($language), 0)}" method="get">
                         <input name="q" placeholder="Search"
                                required="required" type="search" />
                       </form>

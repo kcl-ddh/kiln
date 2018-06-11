@@ -7,7 +7,43 @@
   <!-- This XSLT defines functions to construct a URL query string
        (including initial "?"). -->
 
+  <xsl:variable name="allowed-chars-pattern">
+    <xsl:text>[A-Za-z0-9\-\./\?=\$\(\)\+\*]</xsl:text>
+  </xsl:variable>
+
+  <xsl:function name="kiln:escape-for-query-string" as="xs:string">
+    <xsl:param name="input" as="xs:string" />
+    <xsl:variable name="chars">
+      <xsl:analyze-string select="$input" regex="{$allowed-chars-pattern}">
+        <xsl:matching-substring>
+          <xsl:value-of select="." />
+        </xsl:matching-substring>
+        <xsl:non-matching-substring>
+          <xsl:choose>
+            <xsl:when test=". = ' '">
+              <xsl:text>+</xsl:text>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:value-of select="encode-for-uri(.)" />
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:non-matching-substring>
+      </xsl:analyze-string>
+    </xsl:variable>
+    <xsl:value-of select="string-join($chars, '')" />
+  </xsl:function>
+
   <xsl:function name="kiln:query-string-from-sequence" as="xs:string">
+    <!-- Output a query string formed by combining each name in
+         $modified-parameters with its corresponding (by order in the
+         sequence) value in $modified-values, and adding in those
+         items in $parameters whose names are not in
+         $modified-parameters.
+
+         E.g: kiln:query-string-from-sequence(
+                ('start=0', 'rows=25'), ('rows', 'q'), (40, 'foo'))
+         will output "?start=0&rows=40&q=foo"
+    -->
     <xsl:param name="parameters" as="xs:string*" />
     <xsl:param name="modified-parameters" as="xs:string*" />
     <xsl:param name="modified-values" />
@@ -25,11 +61,12 @@
         <!-- If the new parameter value is empty, do not include
              it. This allows for parameters to be simply removed from
              the supplied $parameters sequence. -->
-        <xsl:if test="string($modified-values[position()]) != ''">
+        <xsl:variable name="position" select="position()" />
+        <xsl:if test="string($modified-values[$position]) != ''">
           <xsl:text>&amp;</xsl:text>
           <xsl:value-of select="." />
           <xsl:text>=</xsl:text>
-          <xsl:value-of select="$modified-values[position()]" />
+          <xsl:value-of select="$modified-values[$position]" />
         </xsl:if>
       </xsl:for-each>
     </xsl:variable>

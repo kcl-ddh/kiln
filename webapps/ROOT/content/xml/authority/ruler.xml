@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/dev/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>Authority list of rulers in IOSPE</title>
+            </titleStmt>
+            <publicationStmt><ab/></publicationStmt>
+            <sourceDesc><ab/></sourceDesc>
+        </fileDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <div type="commentary">
+                <listPerson type="rome">
+                    <head xml:lang="en">Emperors of Rome/Byzantium</head>
+                    <head xml:lang="ru">Императоры Рима и Византии</head>
+                    <person xml:id="hadrian">
+                        <persName xml:lang="en">Hadrian</persName>
+                        <persName xml:lang="la">Caesar Publius Aelius Traianus Hadrianus Augustus</persName>
+                        <persName xml:lang="grc">Αὐτοκράτωρ Τραιανός Ἁδριανός Καῖσαρ Σεβαστός</persName>
+                        <floruit>117-138</floruit>
+                        <idno type="wp">https://en.wikipedia.org/wiki/Hadrian</idno>
+                    </person>
+                    <person xml:id="vespasianus">
+                        <persName xml:lang="en">Vespasian</persName>
+                        <persName xml:lang="ru">Веспасиан</persName>
+                        <persName xml:lang="la">Titus Flavius Caesar Vespasianus Augustus</persName>
+                        <persName xml:lang="grc">Αὐτοκράτωρ Οὐεσπασιανὸς Καῖσαρ Σεβαστός</persName>
+                        <floruit>69-79</floruit>
+                        <idno type="wp">https://en.wikipedia.org/wiki/Vespasian</idno>
+                        <idno type="wp-ru">https://ru.wikipedia.org/wiki/Веспасиан</idno>
+                    </person>
+                    <person xml:id="domitianus">
+                        <persName xml:lang="en">Domitian</persName>
+                        <persName xml:lang="ru">Домициан</persName>
+                        <persName xml:lang="la">Imperator Caesar Domitianus Augustus Germanicus</persName>
+                        <persName xml:lang="grc">Αὐτοκράτωρ Δομετιανὸς Καῖσαρ θεὸς Σεβαστὸς Γερμανικός</persName>
+                        <floruit>81-96</floruit>
+                        <idno type="wp">https://en.wikipedia.org/wiki/Domitian</idno>
+                        <idno type="wp-ru">https://ru.wikipedia.org/wiki/Домициан</idno>
+                    </person>
+                    <person xml:id="antoninus-pius">
+                        <persName xml:lang="en">Antoninus Pius</persName>
+                        <persName xml:lang="ru">Антонин Пий</persName>
+                        <persName xml:lang="la">Caesar Titus Aelius Hadrianus Antoninus Augustus Pius</persName>
+                        <persName xml:lang="grc">Τῖτος Αἴλιος Ἁδριανὸς Ἀντωνεῖνος</persName>
+                        <floruit>138-161</floruit>
+                        <idno type="wp">https://en.wikipedia.org/wiki/Antoninus_Pius</idno>
+                        <idno type="wp-ru">https://ru.wikipedia.org/wiki/Антонин_Пий</idno>
+                    </person>
+                    <person xml:id="diocletianus">
+                        <persName xml:lang="en">Diocletian</persName>
+                        <persName xml:lang="ru">Диоклетиан</persName>
+                        <persName xml:lang="la">Caesar Gaius Aurelius Valerius Diocletianus Augustus</persName>
+                        <floruit>284-305</floruit>
+                        <idno type="wp">https://en.wikipedia.org/wiki/Diocletian</idno>
+                        <idno type="wp-ru">https://ru.wikipedia.org/wiki/Диоклетиан</idno>
+                        <idno type="snap">http://data.snapdrgn.net/person/8154</idno>
+                    </person>
+                    <person xml:id="maximianus">
+                        <persName xml:lang="en">Maximianus</persName>
+                        <persName xml:lang="ru">Максимиан</persName>
+                        <persName xml:lang="la">Caesar Marcus Aurelius Valerius Maximianus Augustus</persName>
+                        <floruit>286-305</floruit>
+                        <idno type="wp">https://en.wikipedia.org/wiki/Maximian</idno>
+                        <idno type="wp-ru">https://ru.wikipedia.org/wiki/Максимиан</idno>
+                        <idno type="snap">http://data.snapdrgn.net/person/6</idno>
+                    </person>
+                    <person xml:id="helena">
+                        <persName xml:lang="en">Helen</persName>
+                        <persName xml:lang="ru">Елена</persName>
+                        <persName xml:lang="la">Flavia Iulia Helena Augusta</persName>
+                        <floruit>293-306</floruit>
+                    </person>
+                    <person xml:id="constantinus1">
+                        <persName xml:lang="en">Constantine I</persName>
+                        <persName xml:lang="ru">Константин I</persName>
+                        <persName xml:lang="la">Caesar Gaius Flavius Valerius Constantinus Augustus</persName>
+                       <floruit>306-337</floruit>
+                        <idno type="wp">https://en.wikipedia.org/wiki/Constantine_the_Great</idno>
+                        <idno type="wp-ru">https://ru.wikipedia.org/wiki/Константин_I_Великий</idno>
+                    </person>
+                    <person xml:id="severus2">
+                        <persName xml:lang="en">Severus II</persName>
+                        <persName xml:lang="ru">Север II</persName>
+                        <persName xml:lang="la">Flavius Valerius Severus Augustus</persName>
+                        <floruit>306-307</floruit>
+                    </person>
+                    <person xml:id="maximinus">
+                        <persName xml:lang="en">Maximinus II</persName>
+                        <persName xml:lang="ru">Максимин II Даза</persName>
+                        <persName xml:lang="la">Gaius Valerius Galerius Maximinus Daia Augustus</persName>
+                       <floruit>308-313</floruit>
+                    </person>
+                    <person xml:id="constantius2">
+                        <persName xml:lang="en">Constantius II</persName>
+                        <persName xml:lang="ru">Констанций II</persName>
+                        <persName xml:lang="la">Flavius Julius Constantius Augustus</persName>
+                        <floruit>337-361</floruit>
+                    </person>
+                    <person xml:id="theodosius1">
+                        <persName xml:lang="en">Theodosius I</persName>
+                        <persName xml:lang="ru">Феодосий I</persName>
+                        <persName xml:lang="la">Flavius Theodosius Augustus</persName>
+                        <floruit>347-395</floruit>
+                    </person>
+                    <person xml:id="arcadius">
+                        <persName xml:lang="en">Arcadius</persName>
+                        <persName xml:lang="ru">Аркадий</persName>
+                        <persName xml:lang="la">Flavius Arcadius Augustus</persName>
+                        <floruit>377/378-408</floruit>
+                    </person>
+                    <person xml:id="zeno">
+                        <persName xml:lang="en">Zeno</persName>
+                        <persName xml:lang="ru">Зинон</persName>
+                        <persName xml:lang="grc">Αὐτοκράτωρ καῖσαρ Ζήνων</persName>
+                       <floruit>474-475, 476-491</floruit>
+                   </person>
+                    <person xml:id="anastasius" >
+                        <persName xml:lang="en">Anastasius I</persName>
+                        <persName xml:lang="ru">Анастасий I</persName>
+                        <persName xml:lang="la">Flavius Anastasius Augustus</persName>
+                        <floruit>491-518</floruit>
+                    </person>
+                    <person xml:id="justinianus">
+                        <persName xml:lang="en">Justinian I</persName>
+                        <persName xml:lang="ru">Юстиниан I</persName>
+                        <persName xml:lang="la">Flavius Petrus Sabbatius Iustinianus Augustus</persName>
+                        <floruit>527-565</floruit>
+                    </person>
+                    <person xml:id="justinus2">
+                        <persName xml:lang="en">Justin II</persName>
+                        <persName xml:lang="ru">Юстин II</persName>
+                        <persName xml:lang="la">Flavius Iustinus Iunior Augustus</persName>
+                        <floruit>565-568</floruit>
+                    </person>
+                    <person xml:id="aeliaSophia">
+                        <persName xml:lang="en">Aelia Sophia</persName>
+                        <persName xml:lang="ru">Элия София</persName>
+                        <persName xml:lang="la">Aelia Sophia</persName>
+                       <floruit>565-578</floruit>
+                    </person>
+                    <person xml:id="maurikios">
+                        <persName xml:lang="en">Mauricius</persName>
+                        <persName xml:lang="ru">Маврикий</persName>
+                        <persName xml:lang="la">Flavius Mauricius Tiberius Augustus</persName>
+                        <persName xml:lang="grc">Φλάβιος Μαυρίκιος Τιβέριος Αὔγουστος</persName>
+                        <floruit>582-602</floruit>
+                    </person>
+                    <person xml:id="isaak1"> 
+                        <persName xml:lang="en">Isaac Ι Komnenos</persName>
+                        <persName xml:lang="ru">Исаак I Комнин</persName>
+                        <persName xml:lang="grc">Ἰσαάκιος Κομνηνός Βασιλεύς καὶ Αὐτοκράτωρ</persName>
+                        <floruit>1057-1059</floruit>
+                        <idno type="PBW">http://db.pbw.kcl.ac.uk/pbw2011/entity/person/107447</idno>
+                    </person>
+                    <person xml:id="ekaterinaBul">
+                        <persName xml:lang="en">Catherine of Bulgaria</persName>
+                        <persName xml:lang="ru">Екатерина Комнина Болгарска</persName>
+                        <persName xml:lang="grc">Αἰκατερίνη Αὐγούστη</persName>
+                        <floruit>1057-1059</floruit>
+                        <idno type="PBW">http://db.pbw.kcl.ac.uk/pbw2011/entity/person/106226</idno>
+                    </person>
+                    <person xml:id="komnenos">
+                        <persName xml:lang="en">anon.</persName>
+                        <persName xml:lang="ru">неизв.</persName>
+                       <persName xml:lang="grc">anon.</persName>
+                        <floruit>?</floruit>
+                   </person>
+                </listPerson>
+                
+                <!--<listPerson type="bosporan">
+                    <head xml:lang="en">Rulers of the Bosporan Kingdom</head>
+                    <head xml:lang="ru">RU: Rulers of the Bosporan Kingdom</head>
+                </listPerson>-->
+                
+                <listPerson>
+                    <head xml:lang="en">Other rulers</head>
+                    <head xml:lang="ru">Другие правители</head>
+                    <person xml:id="doiptounos">
+                        <persName xml:lang="en">Tiberius Iulius Douptounos</persName>
+                        <persName xml:lang="ru">Тиберий Юлий Дойптун</persName>
+                        <persName xml:lang="grc">Τιβέριος Ἰούλιος Δουπτοῦνος</persName>
+                        <floruit>479–492</floruit>
+                    </person>
+                    <person xml:id="stephen2">
+                        <persName xml:lang="en">Stephen II of Moldavia</persName> 
+                        <persName xml:lang="ru">Стефан II Молдавский</persName> 
+                        <persName xml:lang="grc">Στέφανος βοβώδας</persName>
+                        <floruit>1433-1435, 1436-1447</floruit>
+                    </person>
+                    <person xml:id="alexios1Th">
+                        <persName xml:lang="en">Alexios I of Theodoro</persName>
+                        <persName xml:lang="ru">Алексей I Феодоритский</persName>
+                        <persName xml:lang="grc">Ἀλέξιος αὐθέντης πόλεως Θεοδώρους</persName>
+                        <floruit>1402-1434</floruit>
+                    </person>
+                    <person xml:id="isaak1Th"> 
+                        <persName xml:lang="en">Isaac I of Theodoro</persName>
+                        <persName xml:lang="ru">Исаак I Феодоритский</persName>
+                   <persName xml:lang="grc"> Ἰσαάκιος αὐθέντης πόλεως Θεοδώρους</persName>
+                       <floruit>1471-1475</floruit>
+                   </person>
+                    <person xml:id="temir">
+                        <persName xml:lang="en">Temir</persName>
+                        <persName xml:lang="ru">Темир</persName>
+                        <persName xml:lang="grc">Τεμίρης</persName>
+                        <floruit>?</floruit>
+                    </person>
+                    <person xml:id="tokhtamysh">
+                        <persName xml:lang="en">Tokhtamysh</persName>
+                        <persName xml:lang="ru">Тохтамыш</persName>
+                        <persName xml:lang="grc">Τοχταμής</persName>
+                        <floruit>1380—1395, 1400-1406</floruit>
+                    </person>
+                    <person xml:id="ezos">
+                        <persName xml:lang="en">Toudoun E[r]zos</persName>
+                        <persName xml:lang="ru">Тудун И[р]з</persName>
+                        <persName xml:lang="grc">Ἠ[ρ]ζος τουδούν</persName>
+                        <floruit>?</floruit>
+                    </person>
+                    <person xml:id="outh">
+                        <persName xml:lang="en">Khagan .?.outh..</persName>
+                        <persName xml:lang="ru">хаган .?.ут..</persName>
+                            <persName xml:lang="grc">.?.ουθ..</persName>
+                        <floruit>?</floruit>
+                    </person>
+                    <person xml:id="kottys">
+                        <persName xml:lang="en">Cotys VIII</persName>
+                        <persName xml:lang="ru">Котис VIII</persName>
+                        <persName xml:lang="grc">Κότυς VIII</persName>
+                        <floruit>AD 12–19</floruit>
+                    </person>
+                    <person xml:id="rhoem">
+                        <persName xml:lang="en">Rhoemetalces I</persName>
+                        <persName xml:lang="ru">Реметалк I</persName>
+                        <persName xml:lang="grc">Ῥοιμητάλκης I</persName>
+                        <floruit>12 BC—12 AD</floruit>
+                    </person>
+                    <person xml:id="polemon">
+                        <persName xml:lang="en">Polemon I</persName>
+                        <persName xml:lang="ru">Полемон I</persName>
+                        <persName xml:lang="grc">Πολέμων I</persName>
+                        <floruit>38—8 BC</floruit>
+                    </person>
+                    <person xml:id="skilouros">
+                        <persName xml:lang="en">Skilurus</persName>
+                        <persName xml:lang="ru">Скилур</persName>
+                        <persName xml:lang="grc">Σκίλουρος</persName>
+                        <floruit>2nd century BC</floruit>
+                    </person>
+                    <person xml:id="mithridates">
+                        <persName xml:lang="en">Mithridates VI Eupator</persName>
+                        <persName xml:lang="ru">Митридат VI Евпатор</persName>
+                        <persName xml:lang="grc">Μιθραδάτης VI Εὐπάτωρ</persName>
+                        <floruit>120–63 BC</floruit>
+                    </person>
+                    <person xml:id="dynamis">
+                        <persName xml:lang="en">Dynamis</persName>
+                        <persName xml:lang="ru">Динамия</persName>
+                        <persName xml:lang="grc">Δύναμις</persName>
+                        <floruit>ca. 67 BC – AD 8</floruit>
+                    </person>
+                    <person xml:id="palacus">
+                        <persName xml:lang="en">Palacus</persName>
+                        <persName xml:lang="ru">Палак</persName>
+                        <persName xml:lang="grc">Πάλακος</persName>
+                        <floruit>2nd century BC</floruit>
+                    </person>
+                    <person xml:id="pairisades">
+                        <persName xml:lang="en">Pairisades V</persName>
+                        <persName xml:lang="ru">Перисад V</persName>
+                        <persName xml:lang="grc">Παιρισάδης V</persName>
+                        <floruit>ca. 125 BC–108 BC</floruit>
+                    </person>
+                </listPerson>
+            </div>
+        </body>
+    </text>
+</TEI>

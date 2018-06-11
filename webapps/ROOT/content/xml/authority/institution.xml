@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>Controlled vocabulary for institution</title>
+            </titleStmt>
+            <publicationStmt><p></p></publicationStmt>
+            <sourceDesc><p></p></sourceDesc>
+        </fileDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <listOrg>
+                <org xml:id="НЗХТ">
+                    <orgName xml:lang="ru">Национальный заповедник "Херсонес Таврический"</orgName>
+                    <placeName xml:lang="ru">Севастополь</placeName>
+                    <orgName xml:lang="en">National Preserve of Tauric Chersonesos</orgName>
+                    <placeName xml:lang="en">Sebastopol</placeName>
+                </org>
+                <org xml:id="ГМИИ">
+                    <orgName xml:lang="ru">Государственный музей изобразительных искусств им. Пушкина</orgName>
+                    <placeName xml:lang="ru">Москва</placeName>
+                    <orgName xml:lang="en">The Pushkin Museum of Fine Arts</orgName>
+                    <placeName xml:lang="en">Moscow</placeName>
+                </org>
+                <org xml:id="ГИМ">
+                    <orgName xml:lang="ru">Государственный исторический музей</orgName>
+                    <placeName xml:lang="ru">Москва</placeName>
+                    <orgName xml:lang="en">State Historical Museum</orgName>
+                     <placeName xml:lang="ru">Moscow</placeName>
+                </org>
+                <org xml:id="ГЭ">
+                    <orgName xml:lang="ru">Государственный Эрмитаж</orgName>
+                    <placeName xml:lang="ru">Санкт-Петербург</placeName>
+                    <orgName xml:lang="en">State Hermitage</orgName>
+                    <placeName xml:lang="ru">Saint-Petersburg</placeName>
+                </org>
+                <org xml:id="МИР">
+                    <orgName xml:lang="ru">Музей истории религии</orgName>
+                    <placeName xml:lang="ru">Санкт-Петербург</placeName>
+                    <orgName xml:lang="en">Museum of History of Religion</orgName>
+                    <placeName xml:lang="ru">Saint-Petersburg</placeName>
+                </org>
+                <org>
+                    <orgName xml:lang="en">Musée du Louvre</orgName>
+                    <placeName xml:lang="en">Paris</placeName>
+                    <orgName xml:lang="ru">Париж, Франция</orgName>
+               </org>
+                 <org>
+                     <orgName xml:lang="ru">Центральный музей Тавриды</orgName>
+                      <placeName xml:lang="ru">Симферополь</placeName>
+                     <orgName xml:lang="en">The Central Museum of Tavrida</orgName>
+                     <placeName xml:lang="ru">Simferopol</placeName>
+               </org>
+               <org>
+                   <orgName xml:lang="ru">Алуштинский филиал Центрального музея Тавриды</orgName>
+                        <placeName xml:lang="ru">Алушта</placeName>
+                   <orgName xml:lang="en">Alushta Branch of the Central Museum of Tavrida</orgName>
+                        <placeName xml:lang="ru">Alushta</placeName> 
+               </org>
+                <org xml:id="БМЗ">
+                    <orgName xml:lang="ru">Бахчисарайский историко-культурный заповедник</orgName>
+                    <placeName xml:lang="ru">Бахчисарай</placeName>
+                    <orgName xml:lang="en">Bakhchisaray State Historical and Cultural Preserve</orgName>
+                    <placeName xml:lang="ru">Bakhchisaray</placeName>
+                </org>
+                    <org xml:id="ЯИЛМ">
+                        <orgName xml:lang="ru">Ялтинский историко-литературный музей</orgName>
+                        <placeName xml:lang="ru">Ялта</placeName>
+                        <orgName xml:lang="en">Yalta State Museum of History and Literature</orgName>
+                        <placeName xml:lang="ru">Yalta</placeName>
+               </org>
+               <org xml:id="МСК">
+                    <orgName xml:lang="ru">Музей "Судакская крепость"</orgName>
+                    <placeName xml:lang="ru">Судак</placeName>
+                    <orgName xml:lang="en">Museum "Sudak Fortress"</orgName>
+                    <placeName xml:lang="ru">Sudak</placeName>
+                </org>
+                <org xml:id="ОАМ">
+                    <orgName xml:lang="ru">Одесский археологический музей</orgName>
+                    <placeName xml:lang="ru">Одесса</placeName>
+                    <orgName xml:lang="en">Odessa Archaeological Museum</orgName>
+                    <placeName xml:lang="ru">Odessa</placeName>
+                </org>
+                 <org>
+                     <orgName xml:lang="ru">Анапский археологический музей</orgName>
+                    <placeName xml:lang="ru">Анапа</placeName>
+                   <orgName xml:lang="en">The Anapa Archaeological Museum</orgName>
+                  <placeName xml:lang="ru">Anapa</placeName> 
+                </org>
+                <org>
+                    <orgName xml:lang="ru">Темрюкский историко-археологический музей</orgName>
+                    <placeName xml:lang="ru">Темрюк</placeName>
+                    <orgName xml:lang="en">Temryuk Historical-Archaeological Museum</orgName>
+                    <placeName xml:lang="ru">Temryuk</placeName> 
+                </org>
+                <org xml:id="КМЗ">
+                    <orgName xml:lang="ru">Керченский историко-культурный заповедник</orgName>
+                    <placeName xml:lang="ru">Керчь</placeName>
+                    <orgName xml:lang="en">Kerch Historical and Cultural Reserve</orgName>
+                    <placeName xml:lang="ru">Kerch</placeName>
+                </org>
+                <org xml:id="МаГУ">
+                    <orgName xml:lang="ru">Магнитогорский государственный университет</orgName>
+                    <placeName xml:lang="ru">Магнитогорск</placeName>
+                    <orgName xml:lang="en">Magnitogorsk State University</orgName>
+                    <placeName xml:lang="ru">Magnitogorsk</placeName>
+                </org>
+                <org xml:id="КФНАНУ">
+                    <orgName xml:lang="ru">Алуштинская база КФ ИА НАНУ</orgName>
+                    <placeName xml:lang="ru">Алушта</placeName>
+                    <orgName xml:lang="en"><!--??-->Alushta, Crimean Branch of the Institute of Archaeology, National Academy of Sciences, Ukraine</orgName>
+                    <placeName xml:lang="ru">Alushta</placeName>
+                </org>
+                <org>
+                    <orgName xml:lang="ru">Феодосийский музей древностей</orgName>
+                    <placeName xml:lang="ru">Феодосия</placeName>
+                    <orgName xml:lang="en">Feodosia Museum of Antiquities</orgName>
+                    <placeName xml:lang="ru">Feodosia</placeName>
+                </org>
+                <org>
+                    <orgName xml:lang="ru">Частная коллекция</orgName>
+                    <orgName xml:lang="en">Private collection</orgName>
+                </org>
+                <org>
+                    <orgName xml:lang="ru">Херсонский краеведческий музей</orgName>
+                    <placeName xml:lang="ru">Херсон</placeName>
+                    <orgName xml:lang="en">Kherson Regional Studies Museum</orgName>
+                    <placeName xml:lang="en">Kherson</placeName>
+                </org>
+                <org>
+                    <orgName xml:lang="ru">Историко-археологический заповедник Неаполь Скифский</orgName>
+                    <placeName xml:lang="ru">Симферополь</placeName>
+                    <orgName xml:lang="en">Historical and Archaeological Reserve Neapolis Scyhtian</orgName>
+                    <placeName xml:lang="en">Simferopol</placeName>
+                </org>
+                <org>
+                    <orgName xml:lang="ru">Музей археологии и этнографии Слободской Украины</orgName>
+                    <placeName xml:lang="ru">Харьков</placeName>
+                    <orgName xml:lang="en">Museum of Archaeology and Ethnography of Slobidska Ukraine</orgName>
+                    <placeName xml:lang="en">Kharkiv</placeName>
+                </org>
+                <org>
+                    <orgName xml:lang="ru">Музей древностей Северо-Западного Крыма</orgName>
+                    <placeName xml:lang="ru">Саки</placeName>
+                    <orgName xml:lang="en">Museum of Antiquities of North-Western Crimea</orgName>
+                    <placeName xml:lang="en">Saki</placeName>
+                </org>
+                <org>
+                    <orgName xml:lang="ru">Белгород-Днестровский краеведческий музей</orgName>
+                    <placeName xml:lang="ru">Белгород-Днестровский</placeName>
+                    <orgName xml:lang="en">Belgorod-Dnestrovsky Regional Studies Museum</orgName>
+                    <placeName xml:lang="en">Bilhorod-Dnistrovskyi</placeName>
+                </org>
+                <org>
+                    <orgName xml:lang="ru">Евпаторийский краеведческий музей</orgName>
+                    <placeName xml:lang="ru">Евпатория</placeName>
+                    <orgName xml:lang="en">Yevpatoria Regional Studies Museum</orgName>
+                    <placeName xml:lang="en">Yevpatoria</placeName>
+                </org>
+                <org>
+                    <orgName xml:lang="en">Cyrene Museum</orgName>
+                    <placeName xml:lang="en">Cyrene</placeName>
+                </org>
+            </listOrg>
+        </body>
+    </text>
+</TEI>

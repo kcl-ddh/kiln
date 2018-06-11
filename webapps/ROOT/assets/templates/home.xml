@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<kiln:root xmlns:i18n="http://apache.org/cocoon/i18n/2.1"
+           xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
+           xmlns:xi="http://www.w3.org/2001/XInclude"
+           xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+  <kiln:parent>
+    <xi:include href="base.xml" />
+  </kiln:parent>
+
+  <kiln:child>
+    <kiln:block name="title">
+      <i18n:text>home-title</i18n:text>
+    </kiln:block>
+
+    <kiln:block name="page-header">
+      <div class="row">
+        <div class="large-12 columns text-center">
+          <h1>
+            <span class="round label">
+              <i18n:text i18n:key="home-title">Welcome to Kiln!</i18n:text>
+            </span>
+          </h1>
+        </div>
+      </div>
+    </kiln:block>
+
+    <kiln:block name="content-section">
+      <main>
+        <div class="row">
+          <div class="small-6 large-centered columns">
+            <p>Now that you have Kiln up and running, it's time to
+            start building your project. Start with one of the options
+            listed below and go from there.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="large-4 columns">
+            <div class="panel radius">
+              <p><strong>Add your files</strong></p>
+
+              <p>Put your TEI files in webapps/ROOT/content/xml/tei
+              and/or your EpiDoc files in
+              webapps/ROOT/content/xml/epidoc and go to
+              the <a
+              href="{kiln:url-for-match('local-admin-home-page', (), 0)}">admin</a>
+              and index them for searching. Then see how they are
+              displayed (<a
+              href="{kiln:url-for-match('local-tei-index-display', ($language), 0)}">Texts</a>
+              and/or <a
+              href="{kiln:url-for-match('local-epidoc-index-display', ($language), 0)}">Inscriptions</a>).</p>
+            </div>
+          </div>
+          <div class="large-4 columns">
+            <div class="panel radius">
+              <p><strong>Customise the templates</strong></p>
+
+              <p>Change the look of this site by modifying the templates
+              in webapps/ROOT/assets/templates. The template for this
+              page is home.xml, and it builds on the base template
+              base.xml.</p>
+            </div>
+          </div>
+          <div class="large-4 columns">
+            <div class="panel radius">
+              <p><strong>Read the documentation</strong></p>
+
+              <p>Kiln comes with documentation both <a
+              href="http://kiln.readthedocs.org/en/latest/">online</a>
+              and, in source form, in the docs directory of your
+              installation. It explains how you can modify everything
+              about your Kiln project.</p>
+            </div>
+          </div>
+        </div>
+      </main>
+    </kiln:block>
+  </kiln:child>
+</kiln:root>
