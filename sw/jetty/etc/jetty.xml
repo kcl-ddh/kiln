@@ -79,13 +79,14 @@
     <New id="httpConfig" class="org.eclipse.jetty.server.HttpConfiguration">
       <Set name="secureScheme">https</Set>
       <Set name="securePort"><Property name="jetty.secure.port" default="8443" /></Set>
-      <Set name="outputBufferSize">32768</Set>
-      <Set name="requestHeaderSize">8192</Set>
-      <Set name="responseHeaderSize">8192</Set>
-      <Set name="sendServerVersion">true</Set>
-      <Set name="sendDateHeader">false</Set>
+      <Set name="outputBufferSize"><Property name="jetty.output.buffer.size" default="32768" /></Set>
+      <Set name="outputAggregationSize"><Property name="jetty.output.aggregation.size" default="8192" /></Set>
+      <Set name="requestHeaderSize"><Property name="jetty.request.header.size" default="8192" /></Set>
+      <Set name="responseHeaderSize"><Property name="jetty.response.header.size" default="8192" /></Set>
+      <Set name="sendServerVersion"><Property name="jetty.send.server.version" default="true" /></Set>
+      <Set name="sendDateHeader"><Property name="jetty.send.date.header" default="false" /></Set>
       <Set name="headerCacheSize">512</Set>
-
+      <Set name="delayDispatchUntilContent"><Property name="jetty.delayDispatchUntilContent" default="false"/></Set>
       <!-- Uncomment to enable handling of X-Forwarded- style headers
       <Call name="addCustomizer">
         <Arg><New class="org.eclipse.jetty.server.ForwardedRequestCustomizer"/></Arg>
@@ -115,25 +116,10 @@
            <Item>
              <New id="DefaultHandler" class="org.eclipse.jetty.server.handler.DefaultHandler"/>
            </Item>
-           <Item>
-             <New id="RequestLog" class="org.eclipse.jetty.server.handler.RequestLogHandler"/>
-           </Item>
          </Array>
         </Set>
       </New>
     </Set>
-
-    <Ref refid="RequestLog">
-      <Set name="requestLog">
-        <New id="RequestLogImpl" class="org.eclipse.jetty.server.NCSARequestLog">
-          <Arg><SystemProperty name="jetty.logs" default="./logs"/>/yyyy_mm_dd.request.log</Arg>
-          <Set name="retainDays">90</Set>
-          <Set name="append">true</Set>
-          <Set name="extended">false</Set>
-          <Set name="LogTimeZone">GMT</Set>
-        </New>
-      </Set>
-    </Ref>
 
     <!-- =========================================================== -->
     <!-- extra server options                                        -->
