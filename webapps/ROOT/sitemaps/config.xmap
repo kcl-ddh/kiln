@@ -69,7 +69,7 @@
              the label for each facet value from the RDF store rather
              than using the Solr data directly. -->
         <rdf-facet-lookup-fields>found_provenance,mentioned_people,mentioned_places,origin_place,source_repository,support_material,support_object_type</rdf-facet-lookup-fields>
-        <sesame-server>http://localhost:9999/openrdf-sesame/</sesame-server>
+        <sesame-server>http://localhost:9999/rdf4j-server/</sesame-server>
         <sesame-server-repository>kiln</sesame-server-repository>
         <solr-server>http://localhost:9999/solr/</solr-server>
         <!-- If 'search-lemma' is 1, present user interface to search

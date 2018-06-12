@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: jeen
+Build-Jdk: 1.8.0_121
+Implementation-Build: 496af9c
+Implementation-Title: RDF4J: HTTP server
+Implementation-Vendor: Eclipse Foundation
+Implementation-Vendor-Id: org.eclipse.rdf4j
+Implementation-Version: 2.3.2+496af9c
+
