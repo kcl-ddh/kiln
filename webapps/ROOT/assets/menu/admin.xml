@@ -8,7 +8,7 @@
       <item label="Index all documents" match="local-solr-index-all" />
     </menu>
     <menu label="Sesame">
-      <item href="/openrdf-workbench" label="Admin" />
+      <item href="/rdf4j-workbench" label="Admin" />
       <item label="Harvest all documents" match="local-rdf-havest-all-display" />
     </menu>
   </menu>

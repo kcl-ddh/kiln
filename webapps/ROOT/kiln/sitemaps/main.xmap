@@ -17,8 +17,8 @@
 
   <map:components>
     <map:transformers default="saxon">
-      <map:transformer logger="sitemap.transformer.sesame" name="sesame"
-        src="uk.ac.kcl.cch.xmod.cocoon.transformation.SesameTransformer" />
+      <map:transformer logger="sitemap.transformer.rdf" name="sesame"
+        src="uk.ac.kcl.artshums.depts.ddh.kiln.cocoon.transformation.RDFTransformer" />
 
       <map:transformer logger="sitemap.transformer.solr" name="solr"
         src="uk.ac.kcl.cch.xmod.cocoon.transformation.SolrTransformer" />

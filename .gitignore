@@ -2,7 +2,7 @@
 *~
 sw/jetty/logs
 sw/jetty/temp
-webapps/openrdf-sesame/app_dir
+webapps/rdf4j-server/app_dir
 webapps/ROOT/content/xml/tei
 webapps/ROOT/content/xml/epidoc
 webapps/ROOT/WEB-INF/logs
