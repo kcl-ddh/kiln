@@ -1,6 +1,5 @@
 <xsl:stylesheet exclude-result-prefixes="#all" version="2.0"
                 xmlns:axsl="http://www.w3.org/1999/XSL/TransformAlias"
-                xmlns:tei="http://www.tei-c.org/ns/1.0"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
@@ -13,7 +12,17 @@
 
   <xsl:template match="/">
     <axsl:stylesheet exclude-result-prefixes="#all" version="2.0"
-      xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+                     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+      <!-- Ensure that all of the namespaces declared on the kiln:root
+           are declared in the generated stylesheet. It is possible to
+           have references to namespaced variables or functions,
+           without any elements or attributes in that namespace (and
+           with the same prefix), causing no namespace declaration to
+           be added at an appropriate point. -->
+      <xsl:variable name="root" select="kiln:root" />
+      <xsl:for-each select="in-scope-prefixes($root)[not(. eq 'xml')]">
+        <xsl:namespace name="{.}" select="namespace-uri-for-prefix(., $root)" />
+      </xsl:for-each>
       <xsl:copy-of select="//xsl:import" />
       <xsl:copy-of select="//xsl:include" />
       <xsl:copy-of select="//kiln:root/xsl:param" />
