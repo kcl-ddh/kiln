@@ -28,6 +28,12 @@ pre {
 .system-status-name { font-weight: bold; }
 .system-status-title { font-weight: bold; }
 
+.test-different-output { background: black; color: white; }
+.test-output-diff { font-weight: bolder; }
+.test-result-pass { color: green; }
+.test-result-fail { color: red; }
+.test-same-output { color: grey; font-weight: normal; }
+
 .visualise-attribute-name { font-weight: bold; }
 .visualise-attribute-value { color: blue; }
 .visualise-element-name { color: purple; font-weight: bold; }

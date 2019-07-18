@@ -26,6 +26,7 @@ the project-specific files, keeping each in their own directories.
             * schema
                 * menu — Kiln schema, do not change.
                 * tei — Schema for TEI files.
+                * test — Kiln schema for test-case files, do not change.
             * scripts — JavaScript files and libraries.
             * styles — CSS files and libraries.
             * templates — Templates for content display.
@@ -48,8 +49,9 @@ the project-specific files, keeping each in their own directories.
             * config.xmap — Configuration (global variables, etc).
             * internal.xmap - Internal (not exposed by URL) pipelines.
             * main.xmap — Main pipelines.
-            * rdf.xmap - RDF pipelines.
-            * solr.xmap - Search pipelines.
+            * rdf.xmap — RDF pipelines.
+            * solr.xmap — Search pipelines.
+            * test.xmap — Automated testing pipelines.
         * stylesheets — Project's XSLT stylesheets.
             * defaults.xsl — Defines default globals and
               reads parameters from the sitemaps.
@@ -66,6 +68,10 @@ the project-specific files, keeping each in their own directories.
             * solr — Searching and indexing.
             * system — Cocoon stylesheets (do not modify).
             * tei — TEI display.
+            * test — Display of automated test results.
+        * test-suite — Project's test cases and data.
+            * cases — Test-case files.
+            * data — Expected output data.
         * WEB—INF — Webapp configuration.
     * openrdf-sesame and openrdf-workbench — RDF / Linked Open Data framework.
     * solr — Searching framework.

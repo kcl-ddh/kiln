@@ -13,5 +13,6 @@
     </menu>
   </menu>
   <menu label="Introspection" match="local-admin-introspection-index" />
+  <menu label="Test suite" match="local-admin-test-suite-report" />
   <menu href="http://kiln.readthedocs.org/en/latest/" label="Documentation" />
 </root>

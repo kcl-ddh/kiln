@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar ns="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
+         xmlns="http://relaxng.org/ns/structure/1.0"
+         xmlns:i18n="http://apache.org/cocoon/i18n/2.1"
+         datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <!-- Schema for Kiln test case documents. -->
+  <start>
+    <element name="tests">
+      <ref name="description" />
+      <oneOrMore>
+        <ref name="test" />
+      </oneOrMore>
+    </element>
+  </start>
+  <define name="actual">
+    <element name="actual">
+      <ref name="match_id" />
+      <optional>
+        <ref name="parameters" />
+      </optional>
+    </element>
+  </define>
+  <define name="description">
+    <element name="description">
+      <text />
+    </element>
+  </define>
+  <define name="expected">
+    <element name="expected">
+      <text />
+    </element>
+  </define>
+  <define name="match_id">
+    <element name="match_id">
+      <text />
+    </element>
+  </define>
+  <define name="parameter">
+    <element name="parameter">
+      <text />
+    </element>
+  </define>
+  <define name="parameters">
+    <element name="parameters">
+      <oneOrMore>
+        <ref name="parameter" />
+      </oneOrMore>
+    </element>
+  </define>
+  <define name="test">
+    <element name="test">
+      <attribute name="id">
+        <data type="string"/>
+      </attribute>
+      <ref name="description" />
+      <ref name="actual" />
+      <ref name="expected" />
+    </element>
+  </define>
+</grammar>

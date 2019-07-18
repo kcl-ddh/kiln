@@ -73,6 +73,7 @@ Contents
     webservice
     admin
     pdf
+    testing
     error
     license
     projects

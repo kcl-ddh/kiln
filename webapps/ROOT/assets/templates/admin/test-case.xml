@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<kiln:root exclude-result-prefixes="#all"
+           xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
+           xmlns:xi="http://www.w3.org/2001/XInclude"
+           xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+  <!-- Template to display an HTML report of the results of running a
+       test case. -->
+
+  <xsl:import href="cocoon://_internal/template/xsl/stylesheets/test/test-results-to-html.xsl" />
+
+  <kiln:parent>
+    <xi:include href="base.xml" />
+  </kiln:parent>
+
+  <kiln:child>
+    <kiln:block name="title">
+      <kiln:super />
+      <xsl:text>Test case results for </xsl:text>
+      <xsl:value-of select="kiln:tests/@path" />
+    </kiln:block>
+
+    <kiln:block name="header">
+      <h1>Test case results for <xsl:value-of select="kiln:tests/@path" /></h1>
+    </kiln:block>
+
+    <kiln:block name="content">
+      <div class="row">
+        <div class="large-12 columns">
+          <h2>Summary</h2>
+
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Test case</th>
+                <th scope="col">Test</th>
+                <th scope="col">Result</th>
+              </tr>
+            </thead>
+            <tbody>
+              <xsl:apply-templates mode="summary" select="//kiln:tests" />
+            </tbody>
+          </table>
+
+          <xsl:if test="//kiln:result[@pass='false']">
+            <h2>Output comparison of failed tests</h2>
+
+            <xsl:apply-templates mode="output" select="//kiln:tests[kiln:test/kiln:result/@pass='false']" />
+          </xsl:if>
+        </div>
+      </div>
+    </kiln:block>
+  </kiln:child>
+
+</kiln:root>

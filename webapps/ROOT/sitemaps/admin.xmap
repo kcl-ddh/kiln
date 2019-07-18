@@ -10,8 +10,7 @@
       <!-- Mount a sitemap for fetching resources from a Fedora
            repository. -->
       <map:match pattern="fedora/**">
-        <map:mount check-reload="yes" src="fedora.xmap"
-                   uri-prefix="fedora" />
+        <map:mount check-reload="yes" src="fedora.xmap" uri-prefix="fedora" />
       </map:match>
       <!-- Mount a sitemap for generating and querying RDF. -->
       <map:match pattern="rdf/**">
@@ -19,8 +18,11 @@
       </map:match>
       <!-- Mount a sitemap for Solr indexing. -->
       <map:match pattern="solr/**">
-        <map:mount check-reload="yes" src="solr.xmap"
-                   uri-prefix="solr/" />
+        <map:mount check-reload="yes" src="solr.xmap" uri-prefix="solr/" />
+      </map:match>
+      <!-- Mount a sitemap for automated testing. -->
+      <map:match pattern="test/**">
+        <map:mount check-reload="yes" src="test.xmap" uri-prefix="test/" />
       </map:match>
     </map:pipeline>
 

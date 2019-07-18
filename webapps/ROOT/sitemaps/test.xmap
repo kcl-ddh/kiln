@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<map:sitemap xmlns:map="http://apache.org/cocoon/sitemap/1.0">
+  <map:pipelines>
+    <map:pipeline>
+      <map:match id="local-admin-test-case-data" pattern="case/**.xml">
+        <map:generate src="../test-suite/cases/{1}.xml" />
+        <map:transform src="../kiln/stylesheets/test/add-test-file-xincludes.xsl">
+          <map:parameter name="test-case-path" value="{1}.xml" />
+        </map:transform>
+        <map:transform type="xinclude" />
+        <map:transform src="../kiln/stylesheets/test/tidy-expected-data.xsl" />
+        <map:transform src="../kiln/stylesheets/test/compare-actual-expected.xsl" />
+        <map:serialize type="xml" />
+      </map:match>
+
+      <map:match id="local-admin-test-case-report" pattern="case/**.html">
+        <map:aggregate element="aggregation">
+          <map:part src="cocoon:/case/{1}.xml" />
+          <map:part src="cocoon://_internal/menu/admin.xml?url=admin/test/case/" />
+        </map:aggregate>
+        <map:transform src="cocoon://_internal/template/admin/test-case.xsl" />
+        <map:serialize />
+      </map:match>
+
+      <map:match id="local-admin-test-suite-data" pattern="suite.xml">
+        <map:generate src="cocoon://_internal/dirlist/test-suite/cases.xml" />
+        <map:transform src="../stylesheets/admin/dir-to-xinclude.xsl">
+          <map:parameter name="prefix" value="cocoon:/case/" />
+        </map:transform>
+        <map:transform type="xinclude" />
+        <map:serialize type="xml" />
+      </map:match>
+
+      <map:match id="local-admin-test-suite-report" pattern="suite.html">
+        <map:aggregate element="aggregation">
+          <map:part src="cocoon:/suite.xml" />
+          <map:part src="cocoon://_internal/menu/admin.xml?url=admin/test/suite.html" />
+        </map:aggregate>
+        <map:transform src="cocoon://_internal/template/admin/test-suite.xsl" />
+        <map:serialize />
+      </map:match>
+    </map:pipeline>
+  </map:pipelines>
+</map:sitemap>
