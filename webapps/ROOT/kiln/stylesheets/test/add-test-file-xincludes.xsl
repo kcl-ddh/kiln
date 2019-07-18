@@ -24,7 +24,7 @@
 
   <xsl:template match="kiln:expected">
     <xsl:copy>
-      <xi:include href="../test-suite/data/{text()}" />
+      <xi:include href="{kiln:url-for-match('local-admin-test-expected-data', (text()), 1)}" />
     </xsl:copy>
   </xsl:template>
 

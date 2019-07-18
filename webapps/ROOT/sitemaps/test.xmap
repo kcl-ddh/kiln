@@ -22,6 +22,11 @@
         <map:serialize />
       </map:match>
 
+      <map:match id="local-admin-test-expected-data" pattern="expected/**">
+        <map:generate src="../test-suite/data/{1}" />
+        <map:serialize type="xml" />
+      </map:match>
+
       <map:match id="local-admin-test-suite-data" pattern="suite.xml">
         <map:generate src="cocoon://_internal/dirlist/test-suite/cases.xml" />
         <map:transform src="../stylesheets/admin/dir-to-xinclude.xsl">

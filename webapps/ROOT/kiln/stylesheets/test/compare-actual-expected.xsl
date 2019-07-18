@@ -35,17 +35,17 @@
 
   <xsl:template match="@*" mode="compare">
     <xsl:param name="former-other-node" />
-    <xsl:variable name="current-other-node" select="$former-other-node/@*[node-name()=node-name(current())]" />
+    <xsl:variable name="current-other-node" select="$former-other-node/@*[node-name(.)=node-name(current())]" />
     <xsl:if test="deep-equal(., $current-other-node)">
-      <xsl:sequence select="node-name()" />
+      <xsl:sequence select="node-name(.)" />
     </xsl:if>
   </xsl:template>
 
   <xsl:template match="*" mode="compare">
     <xsl:param name="former-other-node" />
-    <xsl:variable name="current-node-name" select="node-name()" />
-    <xsl:variable name="current-position" select="count(preceding-sibling::*[node-name()=$current-node-name])+1" />
-    <xsl:variable name="current-other-node" select="$former-other-node/*[node-name()=node-name(current())][position()=$current-position]" />
+    <xsl:variable name="current-node-name" select="node-name(.)" />
+    <xsl:variable name="current-position" select="count(preceding-sibling::*[node-name(.)=$current-node-name])+1" />
+    <xsl:variable name="current-other-node" select="$former-other-node/*[node-name(.)=node-name(current())][position()=$current-position]" />
     <xsl:choose>
       <xsl:when test="deep-equal(., $current-other-node)">
         <kiln:same />
@@ -80,9 +80,9 @@
 
   <xsl:template match="text()" mode="compare">
     <xsl:param name="former-other-node" />
-    <xsl:variable name="current-node-name" select="node-name()" />
-    <xsl:variable name="current-position" select="count(preceding-sibling::*[node-name()=$current-node-name])+1" />
-    <xsl:variable name="current-other-node" select="$former-other-node/*[node-name()=node-name(current())][position()=$current-position]" />
+    <xsl:variable name="current-node-name" select="node-name(.)" />
+    <xsl:variable name="current-position" select="count(preceding-sibling::*[node-name(.)=$current-node-name])+1" />
+    <xsl:variable name="current-other-node" select="$former-other-node/*[node-name(.)=node-name(current())][position()=$current-position]" />
     <xsl:if test="not(deep-equal(., $current-other-node))">
       <kiln:text>
         <xsl:value-of select="." />

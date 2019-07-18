@@ -4,8 +4,6 @@
                 xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-  <xsl:include href="../escape-xml.xsl" />
-
   <xsl:template match="kiln:same" mode="escape-xml">
     <xsl:param name="depth" select="0" />
     <xsl:if test="not(node-name(preceding-sibling::*[1]) = node-name(.))">
@@ -61,7 +59,7 @@
   <xsl:template match="@*" mode="escape-xml" priority="10">
     <xsl:text> </xsl:text>
     <xsl:choose>
-      <xsl:when test="contains(../@kiln:same-attributes, concat(' ', node-name(), ' '))">
+      <xsl:when test="contains(../@kiln:same-attributes, concat(' ', node-name(.), ' '))">
         <span class="test-same-output">
           <xsl:call-template name="render-attribute" />
         </span>
@@ -145,6 +143,16 @@
     <span class="{concat('test-result-', $result)}">
       <xsl:value-of select="$result" />
     </span>
+  </xsl:template>
+
+  <xsl:template name="escape-xml-indent">
+    <xsl:param name="depth" />
+    <xsl:if test="$depth &gt; 0">
+      <xsl:text>    </xsl:text>
+      <xsl:call-template name="escape-xml-indent">
+        <xsl:with-param name="depth" select="$depth - 1" />
+      </xsl:call-template>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template name="render-attribute">
