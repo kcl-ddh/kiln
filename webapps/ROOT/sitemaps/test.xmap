@@ -8,7 +8,7 @@
           <map:parameter name="test-case-path" value="{1}.xml" />
         </map:transform>
         <map:transform type="xinclude" />
-        <map:transform src="../kiln/stylesheets/test/tidy-expected-data.xsl" />
+        <map:transform src="../kiln/stylesheets/test/tidy-output-data.xsl" />
         <map:transform src="../kiln/stylesheets/test/compare-actual-expected.xsl" />
         <map:serialize type="xml" />
       </map:match>
