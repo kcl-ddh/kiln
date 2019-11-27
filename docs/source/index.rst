@@ -58,9 +58,11 @@ Contents
     :maxdepth: 1
 
     quickstart
+    tutorial
     structure
     components
     running
+    solr
     navigation
     url
     templating

@@ -31,8 +31,8 @@ Further, there are good reasons to run a proxying web server in front
 of Tomcat, for caching, load balancing, and/or URL rewriting. It is
 advised that Solr and RDF4J not be exposed to any clients (including
 users) that are not local (eg Cocoon). If this is required, in the
-case of Solr, a more recent version of Solr should be used than that
-which comes with Kiln.
+case of Solr, :ref:`a more recent version of Solr should be used <solr>`
+than that which comes with Kiln.
 
 .. _Jetty: http://www.eclipse.org/jetty/
 .. _Apache Tomcat: http://tomcat.apache.org/
@@ -41,7 +41,8 @@ which comes with Kiln.
 Static Build
 ------------
 
-Kiln includes a task that allows to create a static version of the website. To execute it:
+Kiln includes a task that allows to create a static version of the website. To
+execute it:
 
 * Run the build script as described above to start the web application.
 * Re-run the build script supplying ``static`` as argument.
@@ -50,6 +51,7 @@ Kiln includes a task that allows to create a static version of the website. To e
 WAR Build (Web Application Archive)
 -----------------------------------
 
-Kiln includes a task that allows to create a Web Application Archive (for use with `Apache Tomcat`_, e.g.). To execute it:
+Kiln includes a task that allows to create a Web Application Archive (for use
+with `Apache Tomcat`_, e.g.). To execute it:
 
 * Run the build script supplying ``war`` as argument.
