@@ -28,7 +28,11 @@ Context to ``TOMCAT_HOME/conf/Catalina/localhost/``. An example of
 such a file is provided at ``webapps/solr/conf/solr.xml``.
 
 Further, there are good reasons to run a proxying web server in front
-of Tomcat, for caching, load balancing, and/or URL rewriting.
+of Tomcat, for caching, load balancing, and/or URL rewriting. It is
+advised that Solr and RDF4J not be exposed to any clients (including
+users) that are not local (eg Cocoon). If this is required, in the
+case of Solr, a more recent version of Solr should be used than that
+which comes with Kiln.
 
 .. _Jetty: http://www.eclipse.org/jetty/
 .. _Apache Tomcat: http://tomcat.apache.org/
