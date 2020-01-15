@@ -37,6 +37,9 @@
         <map:generate src="../content/xml/tei/{2}.xml" />
         <map:transform src="../kiln/stylesheets/tei/join-elements.xsl" />
         <map:transform src="../kiln/stylesheets/tei/annotate.xsl" />
+        <map:transform type="i18n">
+          <map:parameter name="locale" value="{1}" />
+        </map:transform>
         <map:serialize type="xml" />
       </map:match>
 
@@ -50,6 +53,9 @@
         <map:generate src="../content/xml/epidoc/{2}.xml" />
         <map:transform src="../stylesheets/epidoc/prune-to-language.xsl">
           <map:parameter name="language" value="{1}" />
+        </map:transform>
+        <map:transform type="i18n">
+          <map:parameter name="locale" value="{1}" />
         </map:transform>
         <map:serialize type="xml" />
       </map:match>
@@ -65,6 +71,9 @@
         <map:generate src="../content/xml/authority/{2}.xml" />
         <map:transform src="../stylesheets/prune-to-language.xsl">
           <map:parameter name="language" value="{1}" />
+        </map:transform>
+        <map:transform type="i18n">
+          <map:parameter name="locale" value="{1}" />
         </map:transform>
         <map:serialize type="xml" />
       </map:match>
