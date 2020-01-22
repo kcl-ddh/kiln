@@ -149,11 +149,11 @@
   <xsl:template match="*" mode="range-parameter">
     <xsl:variable name="field" select="local-name(.)" />
     <xsl:value-of select="$field" />
-    <xsl:text>:[</xsl:text>
+    <xsl:text>:%5b</xsl:text>
     <xsl:value-of select="." />
     <xsl:text>+TO+</xsl:text>
     <xsl:value-of select="../*[local-name()=$field][@type='range_end']" />
-    <xsl:text>]</xsl:text>
+    <xsl:text>%5d</xsl:text>
   </xsl:template>
 
   <xsl:template match="@ordering">
