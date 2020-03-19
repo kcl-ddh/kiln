@@ -56,6 +56,8 @@
     <xsl:variable name="or_facet_fields" select="facet.field[@join='or']"
                   as="xs:string*" />
     <xsl:variable name="q_fields" select="tokenize(@q_fields, '\s+')" />
+    <xsl:variable name="unescaped_fields"
+                  select="*[@escape='false']/local-name()" as="xs:string*" />
     <xsl:variable name="range_fields" select="tokenize(@range_fields, '\s+')" />
     <xsl:variable name="range_start_fields" as="xs:string*">
       <xsl:for-each select="$range_fields">
@@ -69,7 +71,7 @@
     </xsl:variable>
     <!-- user_fields is a sequence of query string parameter names
          that will be merged into the query document. -->
-    <xsl:variable name="user_fields" select="distinct-values(($default_fields, $and_facet_fields, $or_facet_fields, $q_fields, $range_start_fields, $range_end_fields))" as="xs:string*">
+    <xsl:variable name="user_fields" select="distinct-values(($default_fields, $and_facet_fields, $or_facet_fields, $q_fields, $unescaped_fields, $range_start_fields, $range_end_fields))" as="xs:string*">
     </xsl:variable>
     <xsl:copy>
       <xsl:apply-templates select="@*" />
@@ -78,6 +80,7 @@
           <xsl:with-param name="and_facet_fields" select="$and_facet_fields" />
           <xsl:with-param name="or_facet_fields" select="$or_facet_fields" />
           <xsl:with-param name="q_fields" select="$q_fields" />
+          <xsl:with-param name="unescaped_fields" select="$unescaped_fields" />
           <xsl:with-param name="range_start_fields"
                           select="$range_start_fields" />
           <xsl:with-param name="range_end_fields"
@@ -146,6 +149,7 @@
     <xsl:param name="and_facet_fields" />
     <xsl:param name="or_facet_fields" />
     <xsl:param name="q_fields" />
+    <xsl:param name="unescaped_fields" />
     <xsl:param name="range_start_fields" />
     <xsl:param name="range_end_fields" />
     <xsl:param name="user_fields" />
@@ -153,19 +157,33 @@
     <!-- Only pass along parameters whose name is defined in the query
          as being usable, and which have a value. -->
     <xsl:if test="$name = $user_fields and normalize-space()">
+      <xsl:variable name="escape" as="xs:string">
+        <xsl:choose>
+          <xsl:when test="$name = $unescaped_fields">
+            <xsl:text>false</xsl:text>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:text>true</xsl:text>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:variable>
       <xsl:choose>
         <xsl:when test="$name = $and_facet_fields">
           <xsl:apply-templates mode="facet">
             <xsl:with-param name="join" select="'and'" />
+            <xsl:with-param name="escape" select="$escape" />
           </xsl:apply-templates>
         </xsl:when>
         <xsl:when test="$name = $or_facet_fields">
           <xsl:apply-templates mode="facet">
             <xsl:with-param name="join" select="'or'" />
+            <xsl:with-param name="escape" select="$escape" />
           </xsl:apply-templates>
         </xsl:when>
         <xsl:when test="$name = $q_fields">
-          <xsl:apply-templates mode="q_field" />
+          <xsl:apply-templates mode="q_field">
+            <xsl:with-param name="escape" select="$escape" />
+          </xsl:apply-templates>
         </xsl:when>
         <xsl:when test="$name = $range_start_fields">
           <xsl:apply-templates mode="range">
@@ -178,7 +196,9 @@
           </xsl:apply-templates>
         </xsl:when>
         <xsl:otherwise>
-          <xsl:apply-templates mode="plain" />
+          <xsl:apply-templates mode="plain">
+            <xsl:with-param name="escape" select="$escape" />
+          </xsl:apply-templates>
         </xsl:otherwise>
       </xsl:choose>
     </xsl:if>
@@ -186,23 +206,32 @@
 
   <xsl:template match="h:value" mode="facet">
     <xsl:param name="join" />
+    <xsl:param name="escape" />
     <xsl:element name="{../@name}">
       <xsl:attribute name="join" select="$join" />
-      <xsl:value-of select="kiln:escape-for-query-string(.)" />
+      <xsl:apply-templates select="text()">
+        <xsl:with-param name="escape" select="$escape" />
+      </xsl:apply-templates>
     </xsl:element>
   </xsl:template>
 
   <xsl:template match="h:value" mode="plain">
+    <xsl:param name="escape" />
     <xsl:element name="{../@name}">
-      <xsl:value-of select="kiln:escape-for-query-string(.)" />
+      <xsl:apply-templates select="text()">
+        <xsl:with-param name="escape" select="$escape" />
+      </xsl:apply-templates>
     </xsl:element>
   </xsl:template>
 
   <xsl:template match="h:value" mode="q_field">
+    <xsl:param name="escape" />
     <xsl:element name="q">
       <xsl:value-of select="../@name" />
       <xsl:text>:</xsl:text>
-      <xsl:value-of select="kiln:escape-for-query-string(.)" />
+      <xsl:apply-templates select="text()">
+        <xsl:with-param name="escape" select="$escape" />
+      </xsl:apply-templates>
     </xsl:element>
   </xsl:template>
 
@@ -218,6 +247,19 @@
     <xsl:copy>
       <xsl:apply-templates select="@*|node()" />
     </xsl:copy>
+  </xsl:template>
+
+  <xsl:template name="prepare-field-value">
+    <xsl:param name="value" />
+    <xsl:param name="escape" />
+    <xsl:choose>
+      <xsl:when test="$escape">
+        <xsl:value-of select="kiln:escape-for-query-string(.)" />
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="." />
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
 
 </xsl:stylesheet>
