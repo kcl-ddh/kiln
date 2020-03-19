@@ -249,17 +249,4 @@
     </xsl:copy>
   </xsl:template>
 
-  <xsl:template name="prepare-field-value">
-    <xsl:param name="value" />
-    <xsl:param name="escape" />
-    <xsl:choose>
-      <xsl:when test="$escape">
-        <xsl:value-of select="kiln:escape-for-query-string(.)" />
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:value-of select="." />
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:template>
-
 </xsl:stylesheet>
