@@ -140,7 +140,7 @@ language code the link should point to::
 To link to the same URL only with a different language, use the
 ``language_switch`` attribute to specify the new language code::
 
-  <item label="English" switch_language="en" />
+  <item label="English" language_switch="en" />
 
 For linking to non-public URLs that do not have a language parameter
 (such as admin URLs), supply an empty language attribute.
