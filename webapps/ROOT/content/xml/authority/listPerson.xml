@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
+    schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>Persons Authority list for Archivio Monaci Project</title>
+            </titleStmt>
+            <publicationStmt>
+                <p/>
+            </publicationStmt>
+            <sourceDesc>
+                <p/>
+            </sourceDesc>
+        </fileDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <listPerson>
+                <person xml:id="EL">
+                    <persName>
+                        <forename>Ermanno</forename>
+                        <surname>Loescher</surname>
+                    </persName>
+                    <birth when="1831"/>
+                    <death when="1892"/>
+                    <idno type="VIAF">227732382</idno>
+                    <idno type="Treccani">http://www.treccani.it/enciclopedia/ermanno-loescher_(Dizionario-Biografico)/</idno>
+                </person>
+                
+                <person xml:id="EM">
+                    <persName>
+                        <forename>Ernesto</forename>
+                        <surname>Monaci</surname>
+                    </persName>
+                    <birth when="1844"/>
+                    <death when="1918"/>
+                    <idno type="VIAF">64080350</idno>
+                    <idno type="Treccani">http://www.treccani.it/enciclopedia/ernesto-monaci_(Dizionario-Biografico)/</idno>
+                </person>
+                
+                <person xml:id="PR">
+                    <persName>
+                        <forename>Pio</forename>
+                        <surname>Rajna</surname>
+                    </persName>
+                    <birth when="1847"/>
+                    <death when="1930"/>
+                    <idno type="VIAF">73951899</idno>
+                    <idno type="Treccani">http://www.treccani.it/enciclopedia/pio-rajna_(Dizionario-Biografico)/</idno>
+                </person>
+            </listPerson>
+        </body>
+    </text>
+</TEI>

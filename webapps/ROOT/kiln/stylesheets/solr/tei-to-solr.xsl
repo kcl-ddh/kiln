@@ -37,6 +37,8 @@
         <xsl:call-template name="field_found_provenance" />
         <xsl:call-template name="field_mentioned_people" />
         <xsl:call-template name="field_mentioned_places" />
+        <xsl:call-template name="field_tei_mentioned_people" />
+        <xsl:call-template name="field_tei_mentioned_places" />
         <xsl:call-template name="field_origin_place" />
         <xsl:call-template name="field_source_repository"/>
         <xsl:call-template name="field_support_object_type" />
@@ -211,6 +213,29 @@
   </xsl:template>
 
   <xsl:template match="text()" mode="facet_mentioned_places" />
+  
+  <xsl:template match="tei:persName" mode="facet_tei_mentioned_people">
+    <field name="tei_mentioned_people">
+      <xsl:variable name="pers-id" select="tokenize(replace(@ref,'#',''),' ')"/>
+      <xsl:variable name="person-id" select="document('../../../content/xml/authority/listPerson.xml')//tei:person[@xml:id=$pers-id]/tei:persName"/>
+      <xsl:choose>
+        <xsl:when test="$person-id[descendant::tei:forename]"><xsl:value-of select="$person-id/tei:surname"/><xsl:text> </xsl:text><xsl:value-of select="$person-id/tei:forename"/></xsl:when>
+        <xsl:when test="$person-id[not(descendant::tei:forename)]"><xsl:value-of select="$person-id"/></xsl:when>
+        <xsl:otherwise><xsl:value-of select="."/></xsl:otherwise>
+      </xsl:choose>
+    </field>
+  </xsl:template>
+  
+  <xsl:template match="tei:placeName" mode="facet_tei_mentioned_places">
+    <field name="tei_mentioned_places">
+      <xsl:variable name="pl-id" select="substring-after(@ref,'#')"/>
+      <xsl:variable name="place-id" select="document('../../../content/xml/authority/listPlace.xml')//tei:place[@xml:id=$pl-id]/tei:placeName"/>
+      <xsl:choose>
+        <xsl:when test="$place-id"><xsl:value-of select="$place-id"/></xsl:when>
+        <xsl:otherwise><xsl:value-of select="."/></xsl:otherwise>
+      </xsl:choose>
+    </field>
+  </xsl:template>
 
   <xsl:template name="field_document_id">
     <field name="document_id">
@@ -255,6 +280,14 @@
   <xsl:template name="field_mentioned_places">
     <xsl:apply-templates mode="facet_mentioned_places" select="//tei:text/tei:body/tei:div[@type='edition']" />
   </xsl:template>
+  
+  <xsl:template name="field_tei_mentioned_people">
+    <xsl:apply-templates mode="facet_tei_mentioned_people" select="//tei:text/tei:body/tei:div" />
+  </xsl:template>
+  
+  <xsl:template name="field_tei_mentioned_places">
+    <xsl:apply-templates mode="facet_tei_mentioned_places" select="//tei:text/tei:body/tei:div" />
+  </xsl:template>
 
   <xsl:template name="field_origin_place">
     <xsl:apply-templates mode="facet_origin_place" select="//tei:teiHeader/tei:fileDesc/tei:sourceDesc/tei:msDesc/tei:history/tei:origin/tei:origPlace[@ref]" />
@@ -275,6 +308,7 @@
   <xsl:template name="field_support_object_type">
     <xsl:apply-templates mode="facet_support_object_type" select="//tei:teiHeader/tei:fileDesc/tei:sourceDesc/tei:msDesc/tei:physDesc/tei:objectDesc/tei:supportDesc/tei:support/tei:objectType[@ref]" />
   </xsl:template>
+  
 
   <xsl:template name="field_text">
     <field name="text">

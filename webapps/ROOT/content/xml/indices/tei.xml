@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>TEI Indices</title>
+      </titleStmt>
+      <publicationStmt>
+        <p></p>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Born digital document.</p>
+      </sourceDesc>
+    </fileDesc>
+  </teiHeader>
+  <text>
+    <front>
+      <div>
+        <p></p>
+      </div>
+    </front>
+    <body>
+      
+      <div xml:id="place">
+        <head>Places</head>
+        <div type="headings">
+          <list>
+            <item>Places</item>
+            <item>References</item>
+          </list>
+        </div>
+        <div type="notes">
+          <list>
+            <item>
+              <p>Index of places mentioned in the TEI files.</p>
+            </item>
+          </list>
+        </div>
+      </div>
+      
+      <div xml:id="person">
+        <head>Persons</head>
+        <div type="headings">
+          <list>
+            <item>Persons</item>
+            <item>References</item>
+          </list>
+        </div>
+        <div type="notes">
+          <list>
+            <item>
+              <p>Index of persons mentioned in the TEI files.</p>
+            </item>
+          </list>
+        </div>
+      </div>
+      
+    </body>
+  </text>
+</TEI>

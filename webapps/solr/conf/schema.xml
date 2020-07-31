@@ -163,7 +163,11 @@
    <field name="index_numeral_value" stored="true" indexed="false"
           multiValued="false" required="false" type="string" />
    <field name="origin_date_evidence" required="false" indexed="true"
-          multiValued="true" stored="true" type="string" />
+     multiValued="true" stored="true" type="string" />
+   <field name="tei_mentioned_places" required="false" indexed="true"
+     multiValued="true" stored="true" type="string" />
+   <field name="tei_mentioned_people" required="false" indexed="true"
+     multiValued="true" stored="true" type="string" />
    <!-- Concordance fields. -->
    <field name="concordance_bibliography_ref" stored="true" indexed="true"
           multiValued="false" required="false" type="string" />
