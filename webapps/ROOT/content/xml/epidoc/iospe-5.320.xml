@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/8.23/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/8.23/tei-epidoc.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:xi="http://www.w3.org/2001/XInclude">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt><title xml:lang="ru">Надгробие Киры</title><title xml:lang="en">Epitaph of Kyra</title><editor xml:id="ayv2012">
+                 <persName xml:lang="ru"><forename>А.Ю.</forename><surname>Виноградов</surname></persName>
+                 <persName xml:lang="en"><forename>A.Yu.</forename><surname>Vinogradov</surname></persName>
+             </editor><editor xml:id="ip" role="translator"><persName xml:lang="ru">Ирина<forename/><surname>Полинская</surname></persName><persName xml:lang="en"><forename>Irene</forename><surname>Polinskaya</surname></persName></editor></titleStmt>
+         <publicationStmt><authority>King's College London</authority>
+            <idno type="filename">iospe-5.320</idno><idno type="PE">PE5000320</idno>
+            <idno type="AYV2012-number">byz288</idno>
+         </publicationStmt>
+         <sourceDesc>
+            <msDesc>
+               <msIdentifier><country/>
+                  <altIdentifier xml:lang="ru">
+                     <repository>Неизвестен</repository>
+                     <idno/>
+                  </altIdentifier>
+                  <altIdentifier xml:lang="en">
+                     <repository>Unknown</repository>
+                     <idno/>
+                  </altIdentifier>
+               </msIdentifier>
+               <msContents>
+                  <summary corresp="document-search.xml#doc2">
+                     <seg xml:lang="ru">Надгробная надпись.</seg>
+                     <seg xml:lang="en">Epitaph.</seg>
+                  </summary>
+               </msContents>
+               <physDesc>
+                  <objectDesc>
+                     <supportDesc>
+                        <support>
+                           <objectType xml:lang="ru" ref="monument-search.xml#mon1">Плита.</objectType>
+                           <objectType xml:lang="en">Panel.</objectType>
+                           <material xml:lang="ru" ref="material-search.xml#m2">Известняк.</material>
+                           <material xml:lang="en">Limestone.</material>
+                           <p xml:lang="ru">На лицевой стороне изображение процветшего креста и рамка. Обломана сверху и снизу.</p>
+                           <p xml:lang="en">On the front - foliate cross and a border along the perimeter of the panel. Broken on the top and bottom.</p>
+                           <dimensions>
+                              <height>33,5</height>
+                              <width>64,5</width>
+                              <depth>11,0</depth>
+                           </dimensions>
+                        </support>
+                     </supportDesc>
+                     <layoutDesc>
+                        <layout ana="f1">
+                           <seg xml:lang="ru">По сторонам от нижнего рукава креста.</seg>
+                           <seg xml:lang="en">On both sides of the lower arm of the cross.</seg>
+                        </layout>
+                     </layoutDesc>
+                  </objectDesc>
+                  <handDesc>
+                     <handNote>
+                        <seg xml:lang="ru">Частично <rs type="execution" ref="execution.xml#scalpro">Лапидарный</rs>. Альфа с наклонной перекладиной, тета и ипсилон минускульные, эта унциальная и минускульная, 
+                           мю с Y-образной серединой. Регулярная диакритика.</seg>
+                        <seg xml:lang="en">Partially lapidary. Alpha with a slanting crossbar, minuscule theta and upsilon, uncial and minuscule eta, mu with Y-shaped
+                        middle. Regular diacritics.</seg>
+                        <height precision="low">1,0–3,0.</height>
+                     </handNote>
+                  </handDesc>
+               </physDesc>
+               <history>
+                  <origin>
+                     <origPlace ref="origPlace.xml#p044">
+                        <seg xml:lang="ru">Воспор.</seg>
+                        <seg xml:lang="en">Bosporus.</seg>
+                     </origPlace>
+                     <origDate precision="high" notBefore="1375" notAfter="1375" evidence="указание_надписи">
+                        <seg xml:lang="ru">1375 г.</seg>
+                        <seg xml:lang="en">1375 C.E.</seg>
+                     </origDate>
+                  </origin>
+                  <provenance type="observed" subtype="autopsy">
+                     <seg xml:lang="ru">Non vidi.</seg>
+                     <seg xml:lang="en">Non vidi.</seg>
+                  </provenance>
+                  <provenance type="found">
+                     <seg xml:lang="ru">
+                        <placeName type="ancientFindspot" ref="findspot.xml#kerch">Керчь.</placeName>
+                        <rs type="circumstances">1865 г.</rs>
+                        <rs type="context">Босфорская ул. (совр. ул. Свердлова), двор одного из домов.</rs>
+                     </seg>
+                     <seg xml:lang="en">
+                        <placeName type="ancientFindspot">Kerch.</placeName>
+                        <rs type="circumstances">1865.</rs>
+                        <rs type="context">Bosforskaya (modern Sverdlov) St., yard of one of the houses.</rs>
+                     </seg>
+                  </provenance>
+                  <provenance type="observed">
+                     <seg xml:lang="ru">Неизвестно.</seg>
+                     <seg xml:lang="en">Unknown.</seg>
+                  </provenance>
+               </history>
+            </msDesc>
+         </sourceDesc>
+      </fileDesc>
+
+<revisionDesc>
+         <change when="2015-04-09" who="CB">Andrey's corrections</change>
+          <change when="2013-11-07" who="TW">Added image code</change>
+         <change when="2012-08-28" who="AG">two lines and the inscription translated, apparatus marked up, lemma added</change>
+         <change when="2012-08-10" who="GB">inserted Greek lemmata (and normalized unicode)</change>
+         <change when="2012-08-09" who="GB">inserted full Greek lemmata</change>
+         <change when="2012-07-19" who="GB">lemmatized Greek</change>
+          <change when="2012-07-10" who="AL">small corrections in metadata, bibliography and Greek text tagging </change>
+          <change when="2012-06-25" who="AL">small corrections in metadata and bibliography-tagging</change>
+          <change when="2012-05-21" who="AFS">corrected metadata and tagging in greek text</change>
+         <change when="2012-03-13" who="AL">bibliography tagged, text tagged</change>
+         <change when="2011-11-30" who="KFL">programmatically created from Word doc</change>
+      </revisionDesc>
+   </teiHeader>
+    <facsimile>
+        <surface>
+            <graphic url="5.320.jpg">
+                <desc xml:lang="en">Drawing of face 1(from ??)</desc>
+                <desc xml:lang="ru"/>
+            </graphic>
+        </surface>
+    </facsimile>
+   <text>
+      <body>
+         <div type="bibliography">
+            <listBibl>
+               <bibl n="L1"><!--Стефани 1868--><ptr target="bibliography.xml#b0217"/>Стефани 1868, 96–97, № <citedRange>130–131</citedRange></bibl>
+               <bibl n="2"><!-- Сборник --><ptr target="bibliography.xml#b0132"/>Сборник, <citedRange>96</citedRange></bibl>
+            </listBibl>
+         </div>
+         <div type="edition" xml:lang="grc" xml:space="preserve">
+            <ab><cb n="A"/>
+               <lb n="1"/><w lemma="κοιμάω">Ἐκοιμή<lb n="2" break="no"/><supplied reason="lost">θη</supplied></w>
+               <w lemma="ὁ"><supplied reason="lost">ἡ</supplied></w>
+               <w part="I" lemma="δοῦλος"><supplied reason="lost">δού</supplied><lb n="3" break="no"/><unclear>λη</unclear></w> <w lemma="ὁ"><unclear>τ</unclear>οῦ</w>
+               <persName type="divine" ref="divine.xml#theos"><roleName><w lemma="θεός"><expan><abbr>θ</abbr><ex>εο</ex><abbr>ῦ</abbr></expan></w></roleName></persName>
+               <lb n="4"/><persName type="attested" ref="attestedperson.xml#person371"><name nymRef="Κυρά">Κυρά</name></persName>
+               <g ref="symbols.xml#stauros"/>
+               <lb n="5"/><g ref="symbols.xml#stauros"/> <date><w lemma="ἔτος">ἔτους</w> <num value="6883">ςωπγ</num></date>
+                  <g ref="symbols.xml#stauros"/>
+               </ab>
+            <ab><cb n="B"/>
+               <lb n="6"/><date><w lemma="μήν">μινὴ</w> <rs type="month" ref="month.xml#mar"><w lemma="Μάρτιος">Μα<lb n="7" break="no"/>ρτήου</w></rs>
+               <lb n="8"/><w lemma="εἰς">εἰς</w> <w lemma="ὁ">τὰ</w>.
+               <lb n="9"/><num value="22">κβ</num></date><g ref="symbols.xml#stauros"/>
+            </ab>
+         </div>
+         <div type="apparatus">
+             <listApp>
+               <app loc="1"><lem> Ἐκοιμήθη ...</lem><rdg><note>om. alii</note></rdg></app>
+               <app loc="5"><rdg source="bibliography.xml#b0217">ἔτους ...</rdg></app>
+               <app loc="6-8"><rdg source="bibliography.xml#b0217">μνῆμα ?</rdg></app>
+            </listApp>
+         </div>
+         <div type="translation" xml:lang="ru">
+            <p>Почила раба Божья Кира в 6883 году, 22 марта.</p>
+         </div>
+         <div type="translation" xml:lang="en">
+            <p>Fell asleep: a servant of God, Kyra, in the year 6883, on the 22nd of March.</p>
+         </div>
+         <div type="commentary" xml:lang="ru">
+            <p> 1–3. Относительно формулы см. <ref type="introduction">IV.3.F.e</ref>.</p>
+                <p>4. Имя Кира — христианское: известна такая мученица (см. Delehaye 1902, 1126; ср. Lefebvre 1907, № 476). Так как ударения в правой части надписи 
+                   стоят правильно, то вероятно, что и ударение в 4-й строке в имени Кира на последнем слоге отражает местное произношение этого имени, возникшее, 
+                   видимо, по аналогии со словом κυρά «госпожа».</p>
+         </div>
+         <div type="commentary" xml:lang="en">
+            <p> 1–3. On the formula, see Introduction <ref type="introduction">IV.3.F.e</ref>.</p>
+            <p>The name Kyra is Christian: we know of a martyress of that name (see Delehaye 1902, 1126; cf. Lefebvre 1907, № 476). Since accents in the right half of the inscription
+            are placed correctly, it would support the notion that the accent over the last syllable of the name Kyra in line 4 faithfully represents local pronunciation, which
+            might have been influenced by the word κυρά, "mistress."</p>
+         </div>
+      </body>
+   </text>
+</TEI>

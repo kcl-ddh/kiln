@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
+    schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>Pio Rajna a Ernesto Monaci, 1 aprile 1874</title>
+                <author role="transcription"><persName>Alessia Di Virgilio</persName></author>
+                <author role="encoding"><persName>Margherita Filippozzi</persName></author>
+            </titleStmt>
+            <publicationStmt>
+                <publisher>Laboratorio Monaci. Sapienza Università di Roma</publisher>
+                <date when="2020-03-12">2020-03-12</date>
+                <availability>
+                    <licence target="http://creativecommons.org/licenses/by-nc-sa/4.0/"/>
+                </availability>
+            </publicationStmt>
+            <sourceDesc>
+                <listBibl><bibl>Alessia Di Virgilio, <title>Carteggio Monaci - Rajna (1873-1877)</title>, tesi di laurea, Sapienza Università di Roma, a.a. 2018-2019.</bibl></listBibl>
+                <msDesc>
+                    <msIdentifier><repository>Archivio Monaci, Società Filologica Romana, presso il Dipartimento di Studi Europei, Americani e Interculturali, Sapienza, Università di Roma.</repository> <idno>Busta n. 22, fascicolo 1095, lettera XVI.</idno></msIdentifier>
+                    <msContents><summary corresp="#postcard">Cartolina postale di Pio Rajna a Ernesto Monaci del 1 aprile 1874.</summary></msContents>
+                </msDesc>
+            </sourceDesc>
+        </fileDesc>
+        <profileDesc>
+            <correspDesc>
+                <correspAction type="sent">
+                    <persName ref="#PR">Pio Rajna</persName>
+                    <placeName ref="#milano">Milano</placeName>
+                    <date when="1874-04-01"/>
+                </correspAction>
+                <correspAction type="received">
+                    <persName ref="#EM">Ernesto Monaci</persName>
+                    <placeName ref="#sconosciuto">?</placeName>
+                    <date/>
+                </correspAction>
+            </correspDesc>
+        </profileDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <div type="transcription" xml:lang="it">
+                <div type="textpart" subtype="letter">
+                    <opener><dateline><placeName ref="#milano">Milano</placeName>, <date when="1874-04-01">1 Aprile 74</date></dateline>                        
+                        <salute>C. <persName ref="#EM">A.</persName></salute></opener>
+                    <p>Il fascicolo della <title ref="#RFR">Rivista</title> è uscito?
+                        Dal <persName ref="#EL">Lӧscher</persName> non l’ho avuto.
+                        Se non fosse ancora pubblicato vedi se fosse possibile farmi avere un ritratto del mio articolo, perché vedo se vi sono errori da aggiungere all’errata-corrige che deve chiudere il volume. 
+                        Con una correzione sola ho una gran paura d’aver lasciato sfuggire qualche corbelleria.</p>
+                    <closer><salute>Stammi bene.</salute>
+                       <salute>Tuo aff.mo</salute>
+                        <signed><persName ref="#PR">Pio Rajna</persName></signed></closer>                    
+                </div>
+            </div>
+        </body>
+    </text>
+</TEI>
