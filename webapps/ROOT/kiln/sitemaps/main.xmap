@@ -15,36 +15,6 @@
 
   -->
 
-  <map:components>
-    <map:transformers default="saxon">
-      <map:transformer logger="sitemap.transformer.rdf" name="sesame"
-        src="uk.ac.kcl.artshums.depts.ddh.kiln.cocoon.transformation.RDFTransformer" />
-
-      <map:transformer logger="sitemap.transformer.solr" name="solr"
-        src="uk.ac.kcl.cch.xmod.cocoon.transformation.SolrTransformer" />
-    </map:transformers>
-
-    <map:serializers default="html5">
-      <map:serializer logger="sitemap.serializer.html" mime-type="text/html; charset=utf-8" name="html5"
-        src="org.apache.cocoon.serialization.HTMLSerializer">
-        <doctype-system>about:legacy-compat</doctype-system>
-        <encoding>UTF-8</encoding>
-      </map:serializer>
-
-      <map:serializer logger="sitemap.serializer.xhtml" mime-type="application/xhtml+xml; charset=utf-8" name="xhtml5"
-        pool-max="${xhtml-serializer.pool-max}" src="org.apache.cocoon.serialization.XMLSerializer">
-        <encoding>UTF-8</encoding>
-        <indent>yes</indent>
-      </map:serializer>
-
-      <map:serializer logger="sitemap.serializer.xml" mime-type="application/rdf+xml; charset=utf-8" name="rdf-xml"
-        src="org.apache.cocoon.serialization.XMLSerializer">
-        <encoding>UTF-8</encoding>
-        <indent>yes</indent>
-      </map:serializer>
-    </map:serializers>
-  </map:components>
-
   <map:pipelines>
     <map:component-configurations>
       <global-variables />

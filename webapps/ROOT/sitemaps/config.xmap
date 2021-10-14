@@ -27,15 +27,23 @@
       </map:selector>
     </map:selectors>
 
-    <map:serializers>
-      <map:serializer logger="sitemap.serializer.xml"
-                      mime-type="text/xml" name="xml_nodecl"
-                      src="org.apache.cocoon.serialization.XMLSerializer">
-        <omit-xml-declaration>yes</omit-xml-declaration>
-      </map:serializer>
-    </map:serializers>
+    <map:transformers default="saxon">
+      <map:transformer logger="sitemap.transformer.xslt" name="saxon"
+                       pool-max="32"
+                       src="org.apache.cocoon.transformation.TraxTransformer">
+        <use-request-parameters>false</use-request-parameters>
+        <use-session-parameters>false</use-session-parameters>
+        <use-cookie-parameters>false</use-cookie-parameters>
+        <xslt-processor-role>saxon</xslt-processor-role>
+        <check-includes>true</check-includes>
+      </map:transformer>
 
-    <map:transformers>
+      <map:transformer logger="sitemap.transformer.rdf" name="sesame"
+        src="uk.ac.kcl.artshums.depts.ddh.kiln.cocoon.transformation.RDFTransformer" />
+
+      <map:transformer logger="sitemap.transformer.solr" name="solr"
+        src="uk.ac.kcl.cch.xmod.cocoon.transformation.SolrTransformer" />
+
       <map:transformer logger="sitemap.transformer.i18n" name="i18n"
                        src="org.apache.cocoon.transformation.I18nTransformer">
         <catalogues default="messages">
@@ -45,6 +53,45 @@
         <untranslated-text>*untranslated*</untranslated-text>
       </map:transformer>
     </map:transformers>
+
+    <map:serializers default="html5">
+      <map:serializer logger="sitemap.serializer.xml" mime-type="text/xml"
+                      name="xml"
+                      src="org.apache.cocoon.serialization.XMLSerializer">
+        <encoding>UTF-8</encoding>
+        <indent>yes</indent>
+      </map:serializer>
+
+      <map:serializer logger="sitemap.serializer.xml"
+                      mime-type="text/xml" name="xml_nodecl"
+                      src="org.apache.cocoon.serialization.XMLSerializer">
+        <encoding>UTF-8</encoding>
+        <omit-xml-declaration>yes</omit-xml-declaration>
+      </map:serializer>
+
+      <map:serializer logger="sitemap.serializer.xml"
+                      mime-type="application/rdf+xml; charset=utf-8"
+                      name="rdf-xml"
+                      src="org.apache.cocoon.serialization.XMLSerializer">
+        <encoding>UTF-8</encoding>
+        <indent>yes</indent>
+      </map:serializer>
+
+      <map:serializer logger="sitemap.serializer.html"
+                      mime-type="text/html; charset=utf-8" name="html5"
+                      src="org.apache.cocoon.serialization.HTMLSerializer">
+        <encoding>UTF-8</encoding>
+      </map:serializer>
+
+      <map:serializer logger="sitemap.serializer.xhtml"
+                      mime-type="application/xhtml+xml; charset=utf-8"
+                      name="xhtml5"
+                      pool-max="${xhtml-serializer.pool-max}"
+                      src="org.apache.cocoon.serialization.XMLSerializer">
+        <encoding>UTF-8</encoding>
+        <indent>yes</indent>
+      </map:serializer>
+    </map:serializers>
   </map:components>
 
   <map:pipelines>

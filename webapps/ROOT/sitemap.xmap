@@ -136,14 +136,6 @@
         <check-includes>true</check-includes>
       </map:transformer>
 
-      <map:transformer logger="sitemap.transformer.xslt" name="saxon" pool-max="32" src="org.apache.cocoon.transformation.TraxTransformer">
-        <use-request-parameters>false</use-request-parameters>
-        <use-session-parameters>false</use-session-parameters>
-        <use-cookie-parameters>false</use-cookie-parameters>
-        <xslt-processor-role>saxon</xslt-processor-role>
-        <check-includes>true</check-includes>
-      </map:transformer>
-
       <map:transformer logger="sitemap.transformer.include" name="include" pool-max="${include-transformer.pool-max}"
         src="org.apache.cocoon.transformation.IncludeTransformer" />
       <map:transformer logger="sitemap.transformer.xinclude" name="xinclude" pool-max="${xinclude-transformer.pool-max}"
@@ -164,8 +156,6 @@
       <map:transformer logger="sitemap.transformer.jx" name="jx" pool-max="${jx-transformer.pool-max}"
         src="org.apache.cocoon.transformation.JXTemplateTransformer" />
       <map:transformer logger="sitemap.transformer.paginate" name="paginate" src="org.apache.cocoon.transformation.pagination.Paginator" />
-
-
       <map:transformer logger="sitemap.transformer.extractor" name="extractor" src="org.apache.cocoon.transformation.FragmentExtractorTransformer" />
     </map:transformers>
 
